@@ -2,12 +2,108 @@
 [32m+system.build.toplevel = «derivation /nix/store/456c3n8prsydmc7nzz475vh0nmacfjh9-nixos-system-nixos-25.05pre-git.drv»;[0m
 [31m-system.build.initialRamdisk = «derivation /nix/store/h61qv8r5jb5d0z21c8qhsr49nj959r3h-initrd-linux-6.12.24.drv»;[0m
 [32m+system.build.initialRamdisk = «derivation /nix/store/hibh2jlp8nyghrjmgm31mpnjdqnj65ky-initrd-linux-6.14.3.drv»;[0m
-[31m-system.systemBuilderCommands = "echo -n \"$configurationName\" > $out/configuration-name\n\nif [ ! -f /nix/store/fw2jgy1krnvda2imj1y6gqr56x0g8iwi-linux-6.12.24/bzImage ]; then\n  echo \"The bootloader cannot find the proper kernel image.\"\n  echo \"(Expecting /nix/store/fw2jgy1krnvda2imj1y6gqr56x0g8iwi-linux-6.12.24/bzImage)\"\n  false\nfi\n\nln -s /nix/store/fw2jgy1krnvda2imj1y6gqr56x0g8iwi-linux-6.12.24/bzImage $out/kernel\nln -s /nix/store/bpyi3qh83i1vdyfxfnhmhn3x0lz93lhw-linux-6.12.24-modules $out/kernel-modules\n\n\necho -n \"$kernelParams\" > $out/kernel-params\n\nln -s /nix/store/7bacy98rmfl6xjm6by0j0wxq9nxzfgzm-initrd-linux-6.12.24/initrd $out/initrd\n\nln -s /nix/store/f1laf36shi6n21rgcvighjsglvjbn3ln-append-initrd-secrets/bin/append-initrd-secrets $out\n\nln -s /nix/store/rgbm8qxais4xcg9pg90vzfx9y9mghfgz-firmware/lib/firmware $out/firmware\n\nmkdir $out/specialisation\n\n\n(\n  source /nix/store/ww3nnbc06ch18ahy579bvbnxvbl2qd8i-make-shell-wrapper-hook/nix-support/setup-hook\n\n  mkdir $out/bin\n  ln -sf /nix/store/9gb5ak5xkhqw1rxf1sr7rapjdswh9kgl-switch-to-configuration-0.1.0/bin/switch-to-configuration $out/bin/switch-to-configuration\n  wrapProgram $out/bin/switch-to-configuration \\\n    --set OUT $out \\\n    --set TOPLEVEL \${!toplevelVar} \\\n    --set DISTRO_ID nixos \\\n    --set INSTALL_BOOTLOADER /nix/store/zxgpicy1rflwkp4hfa13shz4ry567d97-install-grub.sh \\\n    --set PRE_SWITCH_CHECK /nix/store/xr5h4v8b88pp10rfh45ap4gwmh1zzi6d-pre-switch-checks/bin/pre-switch-checks \\\n    --set LOCALE_ARCHIVE /nix/store/akax5i01dv52g1afp4lw19if6av36pbx-glibc-locales-2.40-66/lib/locale/locale-archive \\\n    --set SYSTEMD /nix/store/dzh1b0f5x3jypzn78hmhl0p4q296z6z8-systemd-257.3\n)\n\necho \"$activationScript\" > $out/activate\necho \"$dryActivationScript\" > $out/dry-activate\nsubstituteInPlace $out/activate --subst-var-by out \${!toplevelVar}\nsubstituteInPlace $out/dry-activate --subst-var-by out \${!toplevelVar}\nchmod u+x $out/activate $out/dry-activate\nunset activationScript dryActivationScript\n";[0m
-[32m+system.systemBuilderCommands = "echo -n \"$configurationName\" > $out/configuration-name\n\nif [ ! -f /nix/store/h76kikmwyw3vvcwvwn2jkvpwppmx6f0j-linux-6.14.3/bzImage ]; then\n  echo \"The bootloader cannot find the proper kernel image.\"\n  echo \"(Expecting /nix/store/h76kikmwyw3vvcwvwn2jkvpwppmx6f0j-linux-6.14.3/bzImage)\"\n  false\nfi\n\nln -s /nix/store/h76kikmwyw3vvcwvwn2jkvpwppmx6f0j-linux-6.14.3/bzImage $out/kernel\nln -s /nix/store/wxpgdg3q5cc3p84a817vksnmxkjhla9g-linux-6.14.3-modules $out/kernel-modules\n\n\necho -n \"$kernelParams\" > $out/kernel-params\n\nln -s /nix/store/87rdqw0is3wdnrgrpnhkyb2f33wir9ds-initrd-linux-6.14.3/initrd $out/initrd\n\nln -s /nix/store/f1laf36shi6n21rgcvighjsglvjbn3ln-append-initrd-secrets/bin/append-initrd-secrets $out\n\nln -s /nix/store/rgbm8qxais4xcg9pg90vzfx9y9mghfgz-firmware/lib/firmware $out/firmware\n\nmkdir $out/specialisation\n\n\n(\n  source /nix/store/ww3nnbc06ch18ahy579bvbnxvbl2qd8i-make-shell-wrapper-hook/nix-support/setup-hook\n\n  mkdir $out/bin\n  ln -sf /nix/store/9gb5ak5xkhqw1rxf1sr7rapjdswh9kgl-switch-to-configuration-0.1.0/bin/switch-to-configuration $out/bin/switch-to-configuration\n  wrapProgram $out/bin/switch-to-configuration \\\n    --set OUT $out \\\n    --set TOPLEVEL \${!toplevelVar} \\\n    --set DISTRO_ID nixos \\\n    --set INSTALL_BOOTLOADER /nix/store/zxgpicy1rflwkp4hfa13shz4ry567d97-install-grub.sh \\\n    --set PRE_SWITCH_CHECK /nix/store/xr5h4v8b88pp10rfh45ap4gwmh1zzi6d-pre-switch-checks/bin/pre-switch-checks \\\n    --set LOCALE_ARCHIVE /nix/store/akax5i01dv52g1afp4lw19if6av36pbx-glibc-locales-2.40-66/lib/locale/locale-archive \\\n    --set SYSTEMD /nix/store/dzh1b0f5x3jypzn78hmhl0p4q296z6z8-systemd-257.3\n)\n\necho \"$activationScript\" > $out/activate\necho \"$dryActivationScript\" > $out/dry-activate\nsubstituteInPlace $out/activate --subst-var-by out \${!toplevelVar}\nsubstituteInPlace $out/dry-activate --subst-var-by out \${!toplevelVar}\nchmod u+x $out/activate $out/dry-activate\nunset activationScript dryActivationScript\n";[0m
+[31m-system.systemBuilderCommands = ''[0m
+[31m  echo -n "$configurationName" > $out/configuration-name[0m
+[31m  [0m
+[31m  if [ ! -f /nix/store/fw2jgy1krnvda2imj1y6gqr56x0g8iwi-linux-6.12.24/bzImage ]; then[0m
+[31m    echo "The bootloader cannot find the proper kernel image."[0m
+[31m    echo "(Expecting /nix/store/fw2jgy1krnvda2imj1y6gqr56x0g8iwi-linux-6.12.24/bzImage)"[0m
+[31m    false[0m
+[31m  fi[0m
+[31m  [0m
+[31m  ln -s /nix/store/fw2jgy1krnvda2imj1y6gqr56x0g8iwi-linux-6.12.24/bzImage $out/kernel[0m
+[31m  ln -s /nix/store/bpyi3qh83i1vdyfxfnhmhn3x0lz93lhw-linux-6.12.24-modules $out/kernel-modules[0m
+[31m  [0m
+[31m  [0m
+[31m  echo -n "$kernelParams" > $out/kernel-params[0m
+[31m  [0m
+[31m  ln -s /nix/store/7bacy98rmfl6xjm6by0j0wxq9nxzfgzm-initrd-linux-6.12.24/initrd $out/initrd[0m
+[31m  [0m
+[31m  ln -s /nix/store/f1laf36shi6n21rgcvighjsglvjbn3ln-append-initrd-secrets/bin/append-initrd-secrets $out[0m
+[31m  [0m
+[31m  ln -s /nix/store/rgbm8qxais4xcg9pg90vzfx9y9mghfgz-firmware/lib/firmware $out/firmware[0m
+[31m  [0m
+[31m  mkdir $out/specialisation[0m
+[31m  [0m
+[31m  [0m
+[31m  ([0m
+[31m    source /nix/store/ww3nnbc06ch18ahy579bvbnxvbl2qd8i-make-shell-wrapper-hook/nix-support/setup-hook[0m
+[31m  [0m
+[31m    mkdir $out/bin[0m
+[31m    ln -sf /nix/store/9gb5ak5xkhqw1rxf1sr7rapjdswh9kgl-switch-to-configuration-0.1.0/bin/switch-to-configuration $out/bin/switch-to-configuration[0m
+[31m    wrapProgram $out/bin/switch-to-configuration \[0m
+[31m      --set OUT $out \[0m
+[31m      --set TOPLEVEL ${!toplevelVar} \[0m
+[31m      --set DISTRO_ID nixos \[0m
+[31m      --set INSTALL_BOOTLOADER /nix/store/zxgpicy1rflwkp4hfa13shz4ry567d97-install-grub.sh \[0m
+[31m      --set PRE_SWITCH_CHECK /nix/store/xr5h4v8b88pp10rfh45ap4gwmh1zzi6d-pre-switch-checks/bin/pre-switch-checks \[0m
+[31m      --set LOCALE_ARCHIVE /nix/store/akax5i01dv52g1afp4lw19if6av36pbx-glibc-locales-2.40-66/lib/locale/locale-archive \[0m
+[31m      --set SYSTEMD /nix/store/dzh1b0f5x3jypzn78hmhl0p4q296z6z8-systemd-257.3[0m
+[31m  )[0m
+[31m  [0m
+[31m  echo "$activationScript" > $out/activate[0m
+[31m  echo "$dryActivationScript" > $out/dry-activate[0m
+[31m  substituteInPlace $out/activate --subst-var-by out ${!toplevelVar}[0m
+[31m  substituteInPlace $out/dry-activate --subst-var-by out ${!toplevelVar}[0m
+[31m  chmod u+x $out/activate $out/dry-activate[0m
+[31m  unset activationScript dryActivationScript[0m
+[31m  [31m'';[0m
+[32m+system.systemBuilderCommands = ''[0m
+[32m  echo -n "$configurationName" > $out/configuration-name[0m
+[32m  [0m
+[32m  if [ ! -f /nix/store/h76kikmwyw3vvcwvwn2jkvpwppmx6f0j-linux-6.14.3/bzImage ]; then[0m
+[32m    echo "The bootloader cannot find the proper kernel image."[0m
+[32m    echo "(Expecting /nix/store/h76kikmwyw3vvcwvwn2jkvpwppmx6f0j-linux-6.14.3/bzImage)"[0m
+[32m    false[0m
+[32m  fi[0m
+[32m  [0m
+[32m  ln -s /nix/store/h76kikmwyw3vvcwvwn2jkvpwppmx6f0j-linux-6.14.3/bzImage $out/kernel[0m
+[32m  ln -s /nix/store/wxpgdg3q5cc3p84a817vksnmxkjhla9g-linux-6.14.3-modules $out/kernel-modules[0m
+[32m  [0m
+[32m  [0m
+[32m  echo -n "$kernelParams" > $out/kernel-params[0m
+[32m  [0m
+[32m  ln -s /nix/store/87rdqw0is3wdnrgrpnhkyb2f33wir9ds-initrd-linux-6.14.3/initrd $out/initrd[0m
+[32m  [0m
+[32m  ln -s /nix/store/f1laf36shi6n21rgcvighjsglvjbn3ln-append-initrd-secrets/bin/append-initrd-secrets $out[0m
+[32m  [0m
+[32m  ln -s /nix/store/rgbm8qxais4xcg9pg90vzfx9y9mghfgz-firmware/lib/firmware $out/firmware[0m
+[32m  [0m
+[32m  mkdir $out/specialisation[0m
+[32m  [0m
+[32m  [0m
+[32m  ([0m
+[32m    source /nix/store/ww3nnbc06ch18ahy579bvbnxvbl2qd8i-make-shell-wrapper-hook/nix-support/setup-hook[0m
+[32m  [0m
+[32m    mkdir $out/bin[0m
+[32m    ln -sf /nix/store/9gb5ak5xkhqw1rxf1sr7rapjdswh9kgl-switch-to-configuration-0.1.0/bin/switch-to-configuration $out/bin/switch-to-configuration[0m
+[32m    wrapProgram $out/bin/switch-to-configuration \[0m
+[32m      --set OUT $out \[0m
+[32m      --set TOPLEVEL ${!toplevelVar} \[0m
+[32m      --set DISTRO_ID nixos \[0m
+[32m      --set INSTALL_BOOTLOADER /nix/store/zxgpicy1rflwkp4hfa13shz4ry567d97-install-grub.sh \[0m
+[32m      --set PRE_SWITCH_CHECK /nix/store/xr5h4v8b88pp10rfh45ap4gwmh1zzi6d-pre-switch-checks/bin/pre-switch-checks \[0m
+[32m      --set LOCALE_ARCHIVE /nix/store/akax5i01dv52g1afp4lw19if6av36pbx-glibc-locales-2.40-66/lib/locale/locale-archive \[0m
+[32m      --set SYSTEMD /nix/store/dzh1b0f5x3jypzn78hmhl0p4q296z6z8-systemd-257.3[0m
+[32m  )[0m
+[32m  [0m
+[32m  echo "$activationScript" > $out/activate[0m
+[32m  echo "$dryActivationScript" > $out/dry-activate[0m
+[32m  substituteInPlace $out/activate --subst-var-by out ${!toplevelVar}[0m
+[32m  substituteInPlace $out/dry-activate --subst-var-by out ${!toplevelVar}[0m
+[32m  chmod u+x $out/activate $out/dry-activate[0m
+[32m  unset activationScript dryActivationScript[0m
+[32m  [32m'';[0m
 [31m-system.modulesTree = «derivation /nix/store/jlnz98fr46mh372n8n1sgj8qd9mw46f8-linux-6.12.24-modules.drv»;[0m
 [32m+system.modulesTree = «derivation /nix/store/5lgvx4cn9qa41qhn1mgbff7zj90i000w-linux-6.14.3-modules.drv»;[0m
 [31m-i18n.inputMethod.type = null;[0m
 [31m-boot.kernelPackages.kernel = «derivation /nix/store/xlkkc2645s77my0k9avs9b6aj8sxiv3b-linux-6.12.24.drv»;[0m
 [32m+boot.kernelPackages.kernel = «derivation /nix/store/ss38mxgdhbg4i12lgg5x5kasa85bw438-linux-6.14.3.drv»;[0m
-[31m-boot.bootspec.writer = "/nix/store/3nawavhk39z9p0l87vdpbiarvyirzv01-jq-1.7.1-bin/bin/jq '.\"org.nixos.bootspec.v1\".toplevel = $toplevel |\n.\"org.nixos.bootspec.v1\".init = $init\n' --sort-keys --arg toplevel /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9 --arg init /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9/init < /nix/store/z0ri0qr4xxygkv5v4k97n2g46wxw4wn7-boot.json | /nix/store/3nawavhk39z9p0l87vdpbiarvyirzv01-jq-1.7.1-bin/bin/jq --sort-keys '.\"org.nixos.specialisation.v1\" = ($ARGS.named | map_values(. | first))'  > $out/boot.json";[0m
-[32m+boot.bootspec.writer = "/nix/store/3nawavhk39z9p0l87vdpbiarvyirzv01-jq-1.7.1-bin/bin/jq '.\"org.nixos.bootspec.v1\".toplevel = $toplevel |\n.\"org.nixos.bootspec.v1\".init = $init\n' --sort-keys --arg toplevel /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9 --arg init /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9/init < /nix/store/ydhhc15ywrvr3pvqj5bka5f4xsxxb27x-boot.json | /nix/store/3nawavhk39z9p0l87vdpbiarvyirzv01-jq-1.7.1-bin/bin/jq --sort-keys '.\"org.nixos.specialisation.v1\" = ($ARGS.named | map_values(. | first))'  > $out/boot.json";[0m
+[31m-boot.bootspec.writer = ''[0m
+[31m  /nix/store/3nawavhk39z9p0l87vdpbiarvyirzv01-jq-1.7.1-bin/bin/jq '."org.nixos.bootspec.v1".toplevel = $toplevel |[0m
+[31m  ."org.nixos.bootspec.v1".init = $init[0m
+[31m  ' --sort-keys --arg toplevel /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9 --arg init /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9/init < /nix/store/z0ri0qr4xxygkv5v4k97n2g46wxw4wn7-boot.json | /nix/store/3nawavhk39z9p0l87vdpbiarvyirzv01-jq-1.7.1-bin/bin/jq --sort-keys '."org.nixos.specialisation.v1" = ($ARGS.named | map_values(. | first))'  > $out/boot.json[31m'';[0m
+[32m+boot.bootspec.writer = ''[0m
+[32m  /nix/store/3nawavhk39z9p0l87vdpbiarvyirzv01-jq-1.7.1-bin/bin/jq '."org.nixos.bootspec.v1".toplevel = $toplevel |[0m
+[32m  ."org.nixos.bootspec.v1".init = $init[0m
+[32m  ' --sort-keys --arg toplevel /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9 --arg init /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9/init < /nix/store/ydhhc15ywrvr3pvqj5bka5f4xsxxb27x-boot.json | /nix/store/3nawavhk39z9p0l87vdpbiarvyirzv01-jq-1.7.1-bin/bin/jq --sort-keys '."org.nixos.specialisation.v1" = ($ARGS.named | map_values(. | first))'  > $out/boot.json[32m'';[0m

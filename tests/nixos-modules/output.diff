@@ -2,20 +2,740 @@
 [32m+system.build.toplevel = «derivation /nix/store/m0m5dc9qfr7ni6cdk6nr1b9x5rqlx03k-nixos-system-machine-25.05pre-git.drv»;[0m
 [31m-system.build.etc = «derivation /nix/store/ivnmaph6nrply6qdd4qvmvczrp8m52kl-etc.drv»;[0m
 [32m+system.build.etc = «derivation /nix/store/36xiik9ncgiwa44lgmlvwjz6m99lfzb5-etc.drv»;[0m
-[31m-system.build.etcActivationCommands = "# Set up the statically computed bits of /etc.\necho \"setting up /etc...\"\n/nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc\n";[0m
-[32m+system.build.etcActivationCommands = "# Set up the statically computed bits of /etc.\necho \"setting up /etc...\"\n/nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc\n";[0m
-[31m-system.activationScripts.etc.text = "# Set up the statically computed bits of /etc.\necho \"setting up /etc...\"\n/nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc\n";[0m
-[32m+system.activationScripts.etc.text = "# Set up the statically computed bits of /etc.\necho \"setting up /etc...\"\n/nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc\n";[0m
-[31m-system.activationScripts.script = "#!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash\n\nsource /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh\n\nsystemConfig='@out@'\n\nexport PATH=/empty\nfor i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do\n    PATH=$PATH:$i/bin:$i/sbin\ndone\n\n_status=0\ntrap \"_status=1 _localstatus=\\$?\" ERR\n\n# Ensure a consistent umask.\numask 0022\n\n#### Activation script snippet stdio:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"stdio\" \"$_localstatus\"\nfi\n\n#### Activation script snippet binsh:\n_localstatus=0\n# Create the required /bin/sh symlink; otherwise lots of things\n# (notably the system() function) won't work.\nmkdir -p /bin\nchmod 0755 /bin\nln -sfn \"/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh\" /bin/.sh.tmp\nmv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"binsh\" \"$_localstatus\"\nfi\n\n#### Activation script snippet users:\n_localstatus=0\ninstall -m 0700 -d /root\ninstall -m 0755 -d /home\n\n/nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \\\n-w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"users\" \"$_localstatus\"\nfi\n\n#### Activation script snippet groups:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"groups\" \"$_localstatus\"\nfi\n\n#### Activation script snippet specialfs:\n_localstatus=0\nspecialMount() {\n  local device=\"$1\"\n  local mountPoint=\"$2\"\n  local options=\"$3\"\n  local fsType=\"$4\"\n\n  if mountpoint -q \"$mountPoint\"; then\n    local options=\"remount,$options\"\n  else\n    mkdir -p \"$mountPoint\"\n    chmod 0755 \"$mountPoint\"\n  fi\n  mount -t \"$fsType\" -o \"$options\" \"$device\" \"$mountPoint\"\n}\nsource /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"specialfs\" \"$_localstatus\"\nfi\n\n#### Activation script snippet etc:\n_localstatus=0\n# Set up the statically computed bits of /etc.\necho \"setting up /etc...\"\n/nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"etc\" \"$_localstatus\"\nfi\n\n#### Activation script snippet hashes:\n_localstatus=0\nusers=()\nwhile IFS=: read -r user hash _; do\n  if [[ \"$hash\" = \"$\"* && ! \"$hash\" =~ ^\\$(y|gy|7|2b|2y|2a|6)\\$ ]]; then\n    users+=(\"$user\")\n  fi\ndone </etc/shadow\n\nif (( \"\${#users[@]}\" )); then\n  echo \"\nWARNING: The following user accounts rely on password hashing algorithms\nthat have been removed. They need to be renewed as soon as possible, as\nthey do prevent their users from logging in.\"\n  printf ' - %s\\n' \"\${users[@]}\"\nfi\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"hashes\" \"$_localstatus\"\nfi\n\n#### Activation script snippet modprobe:\n_localstatus=0\n# Allow the kernel to find our wrapped modprobe (which searches\n# in the right location in the Nix store for kernel modules).\n# We need this when the kernel (or some module) auto-loads a\n# module.\necho /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"modprobe\" \"$_localstatus\"\nfi\n\n#### Activation script snippet udevd:\n_localstatus=0\n# The deprecated hotplug uevent helper is not used anymore\nif [ -e /proc/sys/kernel/hotplug ]; then\n  echo \"\" > /proc/sys/kernel/hotplug\nfi\n\n# Allow the kernel to find our firmware.\nif [ -e /sys/module/firmware_class/parameters/path ]; then\n  echo -n \"/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware\" > /sys/module/firmware_class/parameters/path\nfi\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"udevd\" \"$_localstatus\"\nfi\n\n#### Activation script snippet usrbinenv:\n_localstatus=0\nmkdir -p /usr/bin\nchmod 0755 /usr/bin\nln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp\nmv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"usrbinenv\" \"$_localstatus\"\nfi\n\n#### Activation script snippet var:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"var\" \"$_localstatus\"\nfi\n\n\n# Make this configuration the current configuration.\n# The readlink is there to ensure that when $systemConfig = /system\n# (which is a symlink to the store), /run/current-system is still\n# used as a garbage collection root.\nln -sfn \"$(readlink -f \"$systemConfig\")\" /run/current-system\n\nexit $_status\n";[0m
-[32m+system.activationScripts.script = "#!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash\n\nsource /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh\n\nsystemConfig='@out@'\n\nexport PATH=/empty\nfor i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do\n    PATH=$PATH:$i/bin:$i/sbin\ndone\n\n_status=0\ntrap \"_status=1 _localstatus=\\$?\" ERR\n\n# Ensure a consistent umask.\numask 0022\n\n#### Activation script snippet stdio:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"stdio\" \"$_localstatus\"\nfi\n\n#### Activation script snippet binsh:\n_localstatus=0\n# Create the required /bin/sh symlink; otherwise lots of things\n# (notably the system() function) won't work.\nmkdir -p /bin\nchmod 0755 /bin\nln -sfn \"/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh\" /bin/.sh.tmp\nmv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"binsh\" \"$_localstatus\"\nfi\n\n#### Activation script snippet users:\n_localstatus=0\ninstall -m 0700 -d /root\ninstall -m 0755 -d /home\n\n/nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \\\n-w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"users\" \"$_localstatus\"\nfi\n\n#### Activation script snippet groups:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"groups\" \"$_localstatus\"\nfi\n\n#### Activation script snippet specialfs:\n_localstatus=0\nspecialMount() {\n  local device=\"$1\"\n  local mountPoint=\"$2\"\n  local options=\"$3\"\n  local fsType=\"$4\"\n\n  if mountpoint -q \"$mountPoint\"; then\n    local options=\"remount,$options\"\n  else\n    mkdir -p \"$mountPoint\"\n    chmod 0755 \"$mountPoint\"\n  fi\n  mount -t \"$fsType\" -o \"$options\" \"$device\" \"$mountPoint\"\n}\nsource /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"specialfs\" \"$_localstatus\"\nfi\n\n#### Activation script snippet etc:\n_localstatus=0\n# Set up the statically computed bits of /etc.\necho \"setting up /etc...\"\n/nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"etc\" \"$_localstatus\"\nfi\n\n#### Activation script snippet hashes:\n_localstatus=0\nusers=()\nwhile IFS=: read -r user hash _; do\n  if [[ \"$hash\" = \"$\"* && ! \"$hash\" =~ ^\\$(y|gy|7|2b|2y|2a|6)\\$ ]]; then\n    users+=(\"$user\")\n  fi\ndone </etc/shadow\n\nif (( \"\${#users[@]}\" )); then\n  echo \"\nWARNING: The following user accounts rely on password hashing algorithms\nthat have been removed. They need to be renewed as soon as possible, as\nthey do prevent their users from logging in.\"\n  printf ' - %s\\n' \"\${users[@]}\"\nfi\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"hashes\" \"$_localstatus\"\nfi\n\n#### Activation script snippet modprobe:\n_localstatus=0\n# Allow the kernel to find our wrapped modprobe (which searches\n# in the right location in the Nix store for kernel modules).\n# We need this when the kernel (or some module) auto-loads a\n# module.\necho /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"modprobe\" \"$_localstatus\"\nfi\n\n#### Activation script snippet udevd:\n_localstatus=0\n# The deprecated hotplug uevent helper is not used anymore\nif [ -e /proc/sys/kernel/hotplug ]; then\n  echo \"\" > /proc/sys/kernel/hotplug\nfi\n\n# Allow the kernel to find our firmware.\nif [ -e /sys/module/firmware_class/parameters/path ]; then\n  echo -n \"/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware\" > /sys/module/firmware_class/parameters/path\nfi\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"udevd\" \"$_localstatus\"\nfi\n\n#### Activation script snippet usrbinenv:\n_localstatus=0\nmkdir -p /usr/bin\nchmod 0755 /usr/bin\nln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp\nmv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"usrbinenv\" \"$_localstatus\"\nfi\n\n#### Activation script snippet var:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"var\" \"$_localstatus\"\nfi\n\n\n# Make this configuration the current configuration.\n# The readlink is there to ensure that when $systemConfig = /system\n# (which is a symlink to the store), /run/current-system is still\n# used as a garbage collection root.\nln -sfn \"$(readlink -f \"$systemConfig\")\" /run/current-system\n\nexit $_status\n";[0m
-[31m-system.systemBuilderArgs.activationScript = "#!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash\n\nsource /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh\n\nsystemConfig='@out@'\n\nexport PATH=/empty\nfor i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do\n    PATH=$PATH:$i/bin:$i/sbin\ndone\n\n_status=0\ntrap \"_status=1 _localstatus=\\$?\" ERR\n\n# Ensure a consistent umask.\numask 0022\n\n#### Activation script snippet stdio:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"stdio\" \"$_localstatus\"\nfi\n\n#### Activation script snippet binsh:\n_localstatus=0\n# Create the required /bin/sh symlink; otherwise lots of things\n# (notably the system() function) won't work.\nmkdir -p /bin\nchmod 0755 /bin\nln -sfn \"/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh\" /bin/.sh.tmp\nmv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"binsh\" \"$_localstatus\"\nfi\n\n#### Activation script snippet users:\n_localstatus=0\ninstall -m 0700 -d /root\ninstall -m 0755 -d /home\n\n/nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \\\n-w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"users\" \"$_localstatus\"\nfi\n\n#### Activation script snippet groups:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"groups\" \"$_localstatus\"\nfi\n\n#### Activation script snippet specialfs:\n_localstatus=0\nspecialMount() {\n  local device=\"$1\"\n  local mountPoint=\"$2\"\n  local options=\"$3\"\n  local fsType=\"$4\"\n\n  if mountpoint -q \"$mountPoint\"; then\n    local options=\"remount,$options\"\n  else\n    mkdir -p \"$mountPoint\"\n    chmod 0755 \"$mountPoint\"\n  fi\n  mount -t \"$fsType\" -o \"$options\" \"$device\" \"$mountPoint\"\n}\nsource /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"specialfs\" \"$_localstatus\"\nfi\n\n#### Activation script snippet etc:\n_localstatus=0\n# Set up the statically computed bits of /etc.\necho \"setting up /etc...\"\n/nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"etc\" \"$_localstatus\"\nfi\n\n#### Activation script snippet hashes:\n_localstatus=0\nusers=()\nwhile IFS=: read -r user hash _; do\n  if [[ \"$hash\" = \"$\"* && ! \"$hash\" =~ ^\\$(y|gy|7|2b|2y|2a|6)\\$ ]]; then\n    users+=(\"$user\")\n  fi\ndone </etc/shadow\n\nif (( \"\${#users[@]}\" )); then\n  echo \"\nWARNING: The following user accounts rely on password hashing algorithms\nthat have been removed. They need to be renewed as soon as possible, as\nthey do prevent their users from logging in.\"\n  printf ' - %s\\n' \"\${users[@]}\"\nfi\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"hashes\" \"$_localstatus\"\nfi\n\n#### Activation script snippet modprobe:\n_localstatus=0\n# Allow the kernel to find our wrapped modprobe (which searches\n# in the right location in the Nix store for kernel modules).\n# We need this when the kernel (or some module) auto-loads a\n# module.\necho /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"modprobe\" \"$_localstatus\"\nfi\n\n#### Activation script snippet udevd:\n_localstatus=0\n# The deprecated hotplug uevent helper is not used anymore\nif [ -e /proc/sys/kernel/hotplug ]; then\n  echo \"\" > /proc/sys/kernel/hotplug\nfi\n\n# Allow the kernel to find our firmware.\nif [ -e /sys/module/firmware_class/parameters/path ]; then\n  echo -n \"/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware\" > /sys/module/firmware_class/parameters/path\nfi\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"udevd\" \"$_localstatus\"\nfi\n\n#### Activation script snippet usrbinenv:\n_localstatus=0\nmkdir -p /usr/bin\nchmod 0755 /usr/bin\nln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp\nmv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"usrbinenv\" \"$_localstatus\"\nfi\n\n#### Activation script snippet var:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"var\" \"$_localstatus\"\nfi\n\n\n# Make this configuration the current configuration.\n# The readlink is there to ensure that when $systemConfig = /system\n# (which is a symlink to the store), /run/current-system is still\n# used as a garbage collection root.\nln -sfn \"$(readlink -f \"$systemConfig\")\" /run/current-system\n\nexit $_status\n";[0m
-[32m+system.systemBuilderArgs.activationScript = "#!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash\n\nsource /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh\n\nsystemConfig='@out@'\n\nexport PATH=/empty\nfor i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do\n    PATH=$PATH:$i/bin:$i/sbin\ndone\n\n_status=0\ntrap \"_status=1 _localstatus=\\$?\" ERR\n\n# Ensure a consistent umask.\numask 0022\n\n#### Activation script snippet stdio:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"stdio\" \"$_localstatus\"\nfi\n\n#### Activation script snippet binsh:\n_localstatus=0\n# Create the required /bin/sh symlink; otherwise lots of things\n# (notably the system() function) won't work.\nmkdir -p /bin\nchmod 0755 /bin\nln -sfn \"/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh\" /bin/.sh.tmp\nmv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"binsh\" \"$_localstatus\"\nfi\n\n#### Activation script snippet users:\n_localstatus=0\ninstall -m 0700 -d /root\ninstall -m 0755 -d /home\n\n/nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \\\n-w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"users\" \"$_localstatus\"\nfi\n\n#### Activation script snippet groups:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"groups\" \"$_localstatus\"\nfi\n\n#### Activation script snippet specialfs:\n_localstatus=0\nspecialMount() {\n  local device=\"$1\"\n  local mountPoint=\"$2\"\n  local options=\"$3\"\n  local fsType=\"$4\"\n\n  if mountpoint -q \"$mountPoint\"; then\n    local options=\"remount,$options\"\n  else\n    mkdir -p \"$mountPoint\"\n    chmod 0755 \"$mountPoint\"\n  fi\n  mount -t \"$fsType\" -o \"$options\" \"$device\" \"$mountPoint\"\n}\nsource /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"specialfs\" \"$_localstatus\"\nfi\n\n#### Activation script snippet etc:\n_localstatus=0\n# Set up the statically computed bits of /etc.\necho \"setting up /etc...\"\n/nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"etc\" \"$_localstatus\"\nfi\n\n#### Activation script snippet hashes:\n_localstatus=0\nusers=()\nwhile IFS=: read -r user hash _; do\n  if [[ \"$hash\" = \"$\"* && ! \"$hash\" =~ ^\\$(y|gy|7|2b|2y|2a|6)\\$ ]]; then\n    users+=(\"$user\")\n  fi\ndone </etc/shadow\n\nif (( \"\${#users[@]}\" )); then\n  echo \"\nWARNING: The following user accounts rely on password hashing algorithms\nthat have been removed. They need to be renewed as soon as possible, as\nthey do prevent their users from logging in.\"\n  printf ' - %s\\n' \"\${users[@]}\"\nfi\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"hashes\" \"$_localstatus\"\nfi\n\n#### Activation script snippet modprobe:\n_localstatus=0\n# Allow the kernel to find our wrapped modprobe (which searches\n# in the right location in the Nix store for kernel modules).\n# We need this when the kernel (or some module) auto-loads a\n# module.\necho /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"modprobe\" \"$_localstatus\"\nfi\n\n#### Activation script snippet udevd:\n_localstatus=0\n# The deprecated hotplug uevent helper is not used anymore\nif [ -e /proc/sys/kernel/hotplug ]; then\n  echo \"\" > /proc/sys/kernel/hotplug\nfi\n\n# Allow the kernel to find our firmware.\nif [ -e /sys/module/firmware_class/parameters/path ]; then\n  echo -n \"/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware\" > /sys/module/firmware_class/parameters/path\nfi\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"udevd\" \"$_localstatus\"\nfi\n\n#### Activation script snippet usrbinenv:\n_localstatus=0\nmkdir -p /usr/bin\nchmod 0755 /usr/bin\nln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp\nmv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"usrbinenv\" \"$_localstatus\"\nfi\n\n#### Activation script snippet var:\n_localstatus=0\n\n\nif (( _localstatus > 0 )); then\n  printf \"Activation script snippet '%s' failed (%s)\\n\" \"var\" \"$_localstatus\"\nfi\n\n\n# Make this configuration the current configuration.\n# The readlink is there to ensure that when $systemConfig = /system\n# (which is a symlink to the store), /run/current-system is still\n# used as a garbage collection root.\nln -sfn \"$(readlink -f \"$systemConfig\")\" /run/current-system\n\nexit $_status\n";[0m
+[31m-system.build.etcActivationCommands = ''[0m
+[31m  # Set up the statically computed bits of /etc.[0m
+[31m  echo "setting up /etc..."[0m
+[31m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc[0m
+[31m  [31m'';[0m
+[32m+system.build.etcActivationCommands = ''[0m
+[32m  # Set up the statically computed bits of /etc.[0m
+[32m  echo "setting up /etc..."[0m
+[32m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc[0m
+[32m  [32m'';[0m
+[31m-system.activationScripts.etc.text = ''[0m
+[31m  # Set up the statically computed bits of /etc.[0m
+[31m  echo "setting up /etc..."[0m
+[31m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc[0m
+[31m  [31m'';[0m
+[32m+system.activationScripts.etc.text = ''[0m
+[32m  # Set up the statically computed bits of /etc.[0m
+[32m  echo "setting up /etc..."[0m
+[32m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc[0m
+[32m  [32m'';[0m
+[31m-system.activationScripts.script = ''[0m
+[31m  #!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash[0m
+[31m  [0m
+[31m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
+[31m  [0m
+[31m  systemConfig='@out@'[0m
+[31m  [0m
+[31m  export PATH=/empty[0m
+[31m  for i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do[0m
+[31m      PATH=$PATH:$i/bin:$i/sbin[0m
+[31m  done[0m
+[31m  [0m
+[31m  _status=0[0m
+[31m  trap "_status=1 _localstatus=\$?" ERR[0m
+[31m  [0m
+[31m  # Ensure a consistent umask.[0m
+[31m  umask 0022[0m
+[31m  [0m
+[31m  #### Activation script snippet stdio:[0m
+[31m  _localstatus=0[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "stdio" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet binsh:[0m
+[31m  _localstatus=0[0m
+[31m  # Create the required /bin/sh symlink; otherwise lots of things[0m
+[31m  # (notably the system() function) won't work.[0m
+[31m  mkdir -p /bin[0m
+[31m  chmod 0755 /bin[0m
+[31m  ln -sfn "/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
+[31m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "binsh" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet users:[0m
+[31m  _localstatus=0[0m
+[31m  install -m 0700 -d /root[0m
+[31m  install -m 0755 -d /home[0m
+[31m  [0m
+[31m  /nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \[0m
+[31m  -w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "users" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet groups:[0m
+[31m  _localstatus=0[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "groups" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet specialfs:[0m
+[31m  _localstatus=0[0m
+[31m  specialMount() {[0m
+[31m    local device="$1"[0m
+[31m    local mountPoint="$2"[0m
+[31m    local options="$3"[0m
+[31m    local fsType="$4"[0m
+[31m  [0m
+[31m    if mountpoint -q "$mountPoint"; then[0m
+[31m      local options="remount,$options"[0m
+[31m    else[0m
+[31m      mkdir -p "$mountPoint"[0m
+[31m      chmod 0755 "$mountPoint"[0m
+[31m    fi[0m
+[31m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
+[31m  }[0m
+[31m  source /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "specialfs" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet etc:[0m
+[31m  _localstatus=0[0m
+[31m  # Set up the statically computed bits of /etc.[0m
+[31m  echo "setting up /etc..."[0m
+[31m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "etc" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet hashes:[0m
+[31m  _localstatus=0[0m
+[31m  users=()[0m
+[31m  while IFS=: read -r user hash _; do[0m
+[31m    if [[ "$hash" = "$"* && ! "$hash" =~ ^\$(y|gy|7|2b|2y|2a|6)\$ ]]; then[0m
+[31m      users+=("$user")[0m
+[31m    fi[0m
+[31m  done </etc/shadow[0m
+[31m  [0m
+[31m  if (( "${#users[@]}" )); then[0m
+[31m    echo "[0m
+[31m  WARNING: The following user accounts rely on password hashing algorithms[0m
+[31m  that have been removed. They need to be renewed as soon as possible, as[0m
+[31m  they do prevent their users from logging in."[0m
+[31m    printf ' - %s\n' "${users[@]}"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "hashes" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet modprobe:[0m
+[31m  _localstatus=0[0m
+[31m  # Allow the kernel to find our wrapped modprobe (which searches[0m
+[31m  # in the right location in the Nix store for kernel modules).[0m
+[31m  # We need this when the kernel (or some module) auto-loads a[0m
+[31m  # module.[0m
+[31m  echo /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "modprobe" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet udevd:[0m
+[31m  _localstatus=0[0m
+[31m  # The deprecated hotplug uevent helper is not used anymore[0m
+[31m  if [ -e /proc/sys/kernel/hotplug ]; then[0m
+[31m    echo "" > /proc/sys/kernel/hotplug[0m
+[31m  fi[0m
+[31m  [0m
+[31m  # Allow the kernel to find our firmware.[0m
+[31m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
+[31m    echo -n "/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
+[31m  fi[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "udevd" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet usrbinenv:[0m
+[31m  _localstatus=0[0m
+[31m  mkdir -p /usr/bin[0m
+[31m  chmod 0755 /usr/bin[0m
+[31m  ln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
+[31m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "usrbinenv" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet var:[0m
+[31m  _localstatus=0[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "var" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  [0m
+[31m  # Make this configuration the current configuration.[0m
+[31m  # The readlink is there to ensure that when $systemConfig = /system[0m
+[31m  # (which is a symlink to the store), /run/current-system is still[0m
+[31m  # used as a garbage collection root.[0m
+[31m  ln -sfn "$(readlink -f "$systemConfig")" /run/current-system[0m
+[31m  [0m
+[31m  exit $_status[0m
+[31m  [31m'';[0m
+[32m+system.activationScripts.script = ''[0m
+[32m  #!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash[0m
+[32m  [0m
+[32m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
+[32m  [0m
+[32m  systemConfig='@out@'[0m
+[32m  [0m
+[32m  export PATH=/empty[0m
+[32m  for i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do[0m
+[32m      PATH=$PATH:$i/bin:$i/sbin[0m
+[32m  done[0m
+[32m  [0m
+[32m  _status=0[0m
+[32m  trap "_status=1 _localstatus=\$?" ERR[0m
+[32m  [0m
+[32m  # Ensure a consistent umask.[0m
+[32m  umask 0022[0m
+[32m  [0m
+[32m  #### Activation script snippet stdio:[0m
+[32m  _localstatus=0[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "stdio" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet binsh:[0m
+[32m  _localstatus=0[0m
+[32m  # Create the required /bin/sh symlink; otherwise lots of things[0m
+[32m  # (notably the system() function) won't work.[0m
+[32m  mkdir -p /bin[0m
+[32m  chmod 0755 /bin[0m
+[32m  ln -sfn "/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
+[32m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "binsh" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet users:[0m
+[32m  _localstatus=0[0m
+[32m  install -m 0700 -d /root[0m
+[32m  install -m 0755 -d /home[0m
+[32m  [0m
+[32m  /nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \[0m
+[32m  -w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "users" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet groups:[0m
+[32m  _localstatus=0[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "groups" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet specialfs:[0m
+[32m  _localstatus=0[0m
+[32m  specialMount() {[0m
+[32m    local device="$1"[0m
+[32m    local mountPoint="$2"[0m
+[32m    local options="$3"[0m
+[32m    local fsType="$4"[0m
+[32m  [0m
+[32m    if mountpoint -q "$mountPoint"; then[0m
+[32m      local options="remount,$options"[0m
+[32m    else[0m
+[32m      mkdir -p "$mountPoint"[0m
+[32m      chmod 0755 "$mountPoint"[0m
+[32m    fi[0m
+[32m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
+[32m  }[0m
+[32m  source /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "specialfs" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet etc:[0m
+[32m  _localstatus=0[0m
+[32m  # Set up the statically computed bits of /etc.[0m
+[32m  echo "setting up /etc..."[0m
+[32m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "etc" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet hashes:[0m
+[32m  _localstatus=0[0m
+[32m  users=()[0m
+[32m  while IFS=: read -r user hash _; do[0m
+[32m    if [[ "$hash" = "$"* && ! "$hash" =~ ^\$(y|gy|7|2b|2y|2a|6)\$ ]]; then[0m
+[32m      users+=("$user")[0m
+[32m    fi[0m
+[32m  done </etc/shadow[0m
+[32m  [0m
+[32m  if (( "${#users[@]}" )); then[0m
+[32m    echo "[0m
+[32m  WARNING: The following user accounts rely on password hashing algorithms[0m
+[32m  that have been removed. They need to be renewed as soon as possible, as[0m
+[32m  they do prevent their users from logging in."[0m
+[32m    printf ' - %s\n' "${users[@]}"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "hashes" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet modprobe:[0m
+[32m  _localstatus=0[0m
+[32m  # Allow the kernel to find our wrapped modprobe (which searches[0m
+[32m  # in the right location in the Nix store for kernel modules).[0m
+[32m  # We need this when the kernel (or some module) auto-loads a[0m
+[32m  # module.[0m
+[32m  echo /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "modprobe" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet udevd:[0m
+[32m  _localstatus=0[0m
+[32m  # The deprecated hotplug uevent helper is not used anymore[0m
+[32m  if [ -e /proc/sys/kernel/hotplug ]; then[0m
+[32m    echo "" > /proc/sys/kernel/hotplug[0m
+[32m  fi[0m
+[32m  [0m
+[32m  # Allow the kernel to find our firmware.[0m
+[32m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
+[32m    echo -n "/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
+[32m  fi[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "udevd" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet usrbinenv:[0m
+[32m  _localstatus=0[0m
+[32m  mkdir -p /usr/bin[0m
+[32m  chmod 0755 /usr/bin[0m
+[32m  ln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
+[32m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "usrbinenv" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet var:[0m
+[32m  _localstatus=0[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "var" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  [0m
+[32m  # Make this configuration the current configuration.[0m
+[32m  # The readlink is there to ensure that when $systemConfig = /system[0m
+[32m  # (which is a symlink to the store), /run/current-system is still[0m
+[32m  # used as a garbage collection root.[0m
+[32m  ln -sfn "$(readlink -f "$systemConfig")" /run/current-system[0m
+[32m  [0m
+[32m  exit $_status[0m
+[32m  [32m'';[0m
+[31m-system.systemBuilderArgs.activationScript = ''[0m
+[31m  #!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash[0m
+[31m  [0m
+[31m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
+[31m  [0m
+[31m  systemConfig='@out@'[0m
+[31m  [0m
+[31m  export PATH=/empty[0m
+[31m  for i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do[0m
+[31m      PATH=$PATH:$i/bin:$i/sbin[0m
+[31m  done[0m
+[31m  [0m
+[31m  _status=0[0m
+[31m  trap "_status=1 _localstatus=\$?" ERR[0m
+[31m  [0m
+[31m  # Ensure a consistent umask.[0m
+[31m  umask 0022[0m
+[31m  [0m
+[31m  #### Activation script snippet stdio:[0m
+[31m  _localstatus=0[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "stdio" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet binsh:[0m
+[31m  _localstatus=0[0m
+[31m  # Create the required /bin/sh symlink; otherwise lots of things[0m
+[31m  # (notably the system() function) won't work.[0m
+[31m  mkdir -p /bin[0m
+[31m  chmod 0755 /bin[0m
+[31m  ln -sfn "/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
+[31m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "binsh" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet users:[0m
+[31m  _localstatus=0[0m
+[31m  install -m 0700 -d /root[0m
+[31m  install -m 0755 -d /home[0m
+[31m  [0m
+[31m  /nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \[0m
+[31m  -w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "users" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet groups:[0m
+[31m  _localstatus=0[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "groups" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet specialfs:[0m
+[31m  _localstatus=0[0m
+[31m  specialMount() {[0m
+[31m    local device="$1"[0m
+[31m    local mountPoint="$2"[0m
+[31m    local options="$3"[0m
+[31m    local fsType="$4"[0m
+[31m  [0m
+[31m    if mountpoint -q "$mountPoint"; then[0m
+[31m      local options="remount,$options"[0m
+[31m    else[0m
+[31m      mkdir -p "$mountPoint"[0m
+[31m      chmod 0755 "$mountPoint"[0m
+[31m    fi[0m
+[31m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
+[31m  }[0m
+[31m  source /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "specialfs" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet etc:[0m
+[31m  _localstatus=0[0m
+[31m  # Set up the statically computed bits of /etc.[0m
+[31m  echo "setting up /etc..."[0m
+[31m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "etc" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet hashes:[0m
+[31m  _localstatus=0[0m
+[31m  users=()[0m
+[31m  while IFS=: read -r user hash _; do[0m
+[31m    if [[ "$hash" = "$"* && ! "$hash" =~ ^\$(y|gy|7|2b|2y|2a|6)\$ ]]; then[0m
+[31m      users+=("$user")[0m
+[31m    fi[0m
+[31m  done </etc/shadow[0m
+[31m  [0m
+[31m  if (( "${#users[@]}" )); then[0m
+[31m    echo "[0m
+[31m  WARNING: The following user accounts rely on password hashing algorithms[0m
+[31m  that have been removed. They need to be renewed as soon as possible, as[0m
+[31m  they do prevent their users from logging in."[0m
+[31m    printf ' - %s\n' "${users[@]}"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "hashes" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet modprobe:[0m
+[31m  _localstatus=0[0m
+[31m  # Allow the kernel to find our wrapped modprobe (which searches[0m
+[31m  # in the right location in the Nix store for kernel modules).[0m
+[31m  # We need this when the kernel (or some module) auto-loads a[0m
+[31m  # module.[0m
+[31m  echo /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "modprobe" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet udevd:[0m
+[31m  _localstatus=0[0m
+[31m  # The deprecated hotplug uevent helper is not used anymore[0m
+[31m  if [ -e /proc/sys/kernel/hotplug ]; then[0m
+[31m    echo "" > /proc/sys/kernel/hotplug[0m
+[31m  fi[0m
+[31m  [0m
+[31m  # Allow the kernel to find our firmware.[0m
+[31m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
+[31m    echo -n "/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
+[31m  fi[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "udevd" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet usrbinenv:[0m
+[31m  _localstatus=0[0m
+[31m  mkdir -p /usr/bin[0m
+[31m  chmod 0755 /usr/bin[0m
+[31m  ln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
+[31m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "usrbinenv" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  #### Activation script snippet var:[0m
+[31m  _localstatus=0[0m
+[31m  [0m
+[31m  [0m
+[31m  if (( _localstatus > 0 )); then[0m
+[31m    printf "Activation script snippet '%s' failed (%s)\n" "var" "$_localstatus"[0m
+[31m  fi[0m
+[31m  [0m
+[31m  [0m
+[31m  # Make this configuration the current configuration.[0m
+[31m  # The readlink is there to ensure that when $systemConfig = /system[0m
+[31m  # (which is a symlink to the store), /run/current-system is still[0m
+[31m  # used as a garbage collection root.[0m
+[31m  ln -sfn "$(readlink -f "$systemConfig")" /run/current-system[0m
+[31m  [0m
+[31m  exit $_status[0m
+[31m  [31m'';[0m
+[32m+system.systemBuilderArgs.activationScript = ''[0m
+[32m  #!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash[0m
+[32m  [0m
+[32m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
+[32m  [0m
+[32m  systemConfig='@out@'[0m
+[32m  [0m
+[32m  export PATH=/empty[0m
+[32m  for i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do[0m
+[32m      PATH=$PATH:$i/bin:$i/sbin[0m
+[32m  done[0m
+[32m  [0m
+[32m  _status=0[0m
+[32m  trap "_status=1 _localstatus=\$?" ERR[0m
+[32m  [0m
+[32m  # Ensure a consistent umask.[0m
+[32m  umask 0022[0m
+[32m  [0m
+[32m  #### Activation script snippet stdio:[0m
+[32m  _localstatus=0[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "stdio" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet binsh:[0m
+[32m  _localstatus=0[0m
+[32m  # Create the required /bin/sh symlink; otherwise lots of things[0m
+[32m  # (notably the system() function) won't work.[0m
+[32m  mkdir -p /bin[0m
+[32m  chmod 0755 /bin[0m
+[32m  ln -sfn "/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
+[32m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "binsh" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet users:[0m
+[32m  _localstatus=0[0m
+[32m  install -m 0700 -d /root[0m
+[32m  install -m 0755 -d /home[0m
+[32m  [0m
+[32m  /nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \[0m
+[32m  -w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "users" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet groups:[0m
+[32m  _localstatus=0[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "groups" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet specialfs:[0m
+[32m  _localstatus=0[0m
+[32m  specialMount() {[0m
+[32m    local device="$1"[0m
+[32m    local mountPoint="$2"[0m
+[32m    local options="$3"[0m
+[32m    local fsType="$4"[0m
+[32m  [0m
+[32m    if mountpoint -q "$mountPoint"; then[0m
+[32m      local options="remount,$options"[0m
+[32m    else[0m
+[32m      mkdir -p "$mountPoint"[0m
+[32m      chmod 0755 "$mountPoint"[0m
+[32m    fi[0m
+[32m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
+[32m  }[0m
+[32m  source /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "specialfs" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet etc:[0m
+[32m  _localstatus=0[0m
+[32m  # Set up the statically computed bits of /etc.[0m
+[32m  echo "setting up /etc..."[0m
+[32m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "etc" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet hashes:[0m
+[32m  _localstatus=0[0m
+[32m  users=()[0m
+[32m  while IFS=: read -r user hash _; do[0m
+[32m    if [[ "$hash" = "$"* && ! "$hash" =~ ^\$(y|gy|7|2b|2y|2a|6)\$ ]]; then[0m
+[32m      users+=("$user")[0m
+[32m    fi[0m
+[32m  done </etc/shadow[0m
+[32m  [0m
+[32m  if (( "${#users[@]}" )); then[0m
+[32m    echo "[0m
+[32m  WARNING: The following user accounts rely on password hashing algorithms[0m
+[32m  that have been removed. They need to be renewed as soon as possible, as[0m
+[32m  they do prevent their users from logging in."[0m
+[32m    printf ' - %s\n' "${users[@]}"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "hashes" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet modprobe:[0m
+[32m  _localstatus=0[0m
+[32m  # Allow the kernel to find our wrapped modprobe (which searches[0m
+[32m  # in the right location in the Nix store for kernel modules).[0m
+[32m  # We need this when the kernel (or some module) auto-loads a[0m
+[32m  # module.[0m
+[32m  echo /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "modprobe" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet udevd:[0m
+[32m  _localstatus=0[0m
+[32m  # The deprecated hotplug uevent helper is not used anymore[0m
+[32m  if [ -e /proc/sys/kernel/hotplug ]; then[0m
+[32m    echo "" > /proc/sys/kernel/hotplug[0m
+[32m  fi[0m
+[32m  [0m
+[32m  # Allow the kernel to find our firmware.[0m
+[32m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
+[32m    echo -n "/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
+[32m  fi[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "udevd" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet usrbinenv:[0m
+[32m  _localstatus=0[0m
+[32m  mkdir -p /usr/bin[0m
+[32m  chmod 0755 /usr/bin[0m
+[32m  ln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
+[32m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "usrbinenv" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  #### Activation script snippet var:[0m
+[32m  _localstatus=0[0m
+[32m  [0m
+[32m  [0m
+[32m  if (( _localstatus > 0 )); then[0m
+[32m    printf "Activation script snippet '%s' failed (%s)\n" "var" "$_localstatus"[0m
+[32m  fi[0m
+[32m  [0m
+[32m  [0m
+[32m  # Make this configuration the current configuration.[0m
+[32m  # The readlink is there to ensure that when $systemConfig = /system[0m
+[32m  # (which is a symlink to the store), /run/current-system is still[0m
+[32m  # used as a garbage collection root.[0m
+[32m  ln -sfn "$(readlink -f "$systemConfig")" /run/current-system[0m
+[32m  [0m
+[32m  exit $_status[0m
+[32m  [32m'';[0m
 [31m-environment.etc.hosts.source = «derivation /nix/store/v84k1qdly4fkbf688h56hr103prm5ra1-hosts.drv»;[0m
 [32m+environment.etc.hosts.source = «derivation /nix/store/h3k5wkfjl41nqkcqsd9wrzj5wfky54wv-hosts.drv»;[0m
 [31m-environment.etc.hostname.source = «derivation /nix/store/7mrvmq2pzcp55j9ybbi44sjwkz7w0w46-etc-hostname.drv»;[0m
 [32m+environment.etc.hostname.source = «derivation /nix/store/zgkjy6jid0nh6xcf7f2b1fkdpq43cmp1-etc-hostname.drv»;[0m
-[31m-environment.etc.hostname.text = "nixos\n";[0m
-[32m+environment.etc.hostname.text = "machine\n";[0m
+[31m-environment.etc.hostname.text = ''[0m
+[31m  nixos[0m
+[31m  [31m'';[0m
+[32m+environment.etc.hostname.text = ''[0m
+[32m  machine[0m
+[32m  [32m'';[0m
 [31m-i18n.inputMethod.type = null;[0m
 [31m-networking.hostName = "nixos";[0m
 [32m+networking.hostName = "machine";[0m

@@ -83,9 +83,44 @@ void printChange(std::string deletion, std::string addition) {
   std::cout << Change(deletion, addition);
 }
 
-std::string serializeValue(Context & ctx, Value & v, PrintOptions options) {
+std::ostream &
+printString(bool printDeletion, Context & ctx, std::ostream & str, Value & v) {
+  const std::string_view string = v.string_view();
+  if (string.find('\n') == string.npos) {
+    str << ValuePrinter(ctx.state, v, PrintOptions {});
+    return str;
+  };
+  if (printDeletion) {
+    str << "''\x1b[0m\n\x1b[31m  ";
+  } else {
+    str << "''\x1b[0m\n\x1b[32m  ";
+  }
+  for (auto i = string.begin(); i != string.end(); ++i) {
+    if (*i == '\'' && *(i+1) == '\'') {
+      str << "'''";
+      ++i;
+    } else if (*i == '\n') {
+      if (printDeletion)
+        str << "\x1b[0m\n\x1b[31m  ";
+      else
+        str << "\x1b[0m\n\x1b[32m  ";
+    } else
+      str << *i;
+  }
+  if (printDeletion)
+    str << "\x1b[31m''";
+  else
+    str << "\x1b[32m''";
+  return str;
+}
+
+std::string serializeValue(bool printDeletion, Context & ctx, Value & v, PrintOptions options) {
   std::stringstream ss;
-  ss << ValuePrinter(ctx.state, v, options);
+  if (v.type() == nix::nString) {
+    printString(printDeletion, ctx, ss, v);
+  } else {
+    ss << ValuePrinter(ctx.state, v, options);
+  }
   std::string s = ss.str();
   return s;
 }
@@ -111,31 +146,31 @@ void diffValues(Context & ctx, const std::string & path, Value & v, Value & w) {
   } else if (v.type() == nix::nThunk) {
     printChange(
       "",
-      path + " = " + serializeValue(ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
     );
   } else if (w.type() == nix::nThunk) {
     printChange(
-      path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
       ""
     );
   } else if (v.type() == nix::nAttrs && w.type() == nix::nAttrs && ctx.state.isDerivation(v) && ctx.state.isDerivation(w)) {
     if (!equals(ctx, v, w)) {
       printChange(
-        path + " = " + serializeValue(ctx, v, printDrv) + ";",
-        path + " = " + serializeValue(ctx, w, printDrv) + ";"
+        path + " = " + serializeValue(true, ctx, v, printDrv) + ";",
+        path + " = " + serializeValue(false, ctx, w, printDrv) + ";"
       );
     }
   } else if (vSeen && wSeen) { // TODO
   } else if (vSeen) { // TODO
     /*
     printChange(
-      path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeValue(ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
     );*/
   } else if (wSeen) { // TODO
     /*printChange(
-      path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeValue(ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
     );*/
   } else if (v.type() == w.type()) {
     switch (v.type()) {
@@ -150,16 +185,16 @@ void diffValues(Context & ctx, const std::string & path, Value & v, Value & w) {
       default:
         if (!equals(ctx, v, w)) {
           printChange(
-            path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";",
-            path + " = " + serializeValue(ctx, w, PrintOptions {}) + ";"
+            path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
+            path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
           );
         }
         break;
     }
   } else {
     printChange(
-      path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeValue(ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
     );
   }
 }
@@ -226,14 +261,14 @@ void printValue(bool printDeletion, Context & ctx, const std::string & path, Val
   if (v.type() == nix::nThunk) {
   } else if (v.type() == nix::nAttrs && ctx.state.isDerivation(v)) {
     printChange(
-      path + " = " + serializeValue(ctx, v, printDrv) + ";",
+      path + " = " + serializeValue(true, ctx, v, printDrv) + ";",
       ""
     );
   } else if (seen) { // TODO
     /*
     printChange(
-      path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeValue(ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
     );*/
   } else if (v.type()) {
     switch (v.type()) {
@@ -247,9 +282,9 @@ void printValue(bool printDeletion, Context & ctx, const std::string & path, Val
         break;
       default:
         if (printDeletion) {
-          printChange(path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";", "");
+          printChange(path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";", "");
         } else {
-          printChange("", path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";");
+          printChange("", path + " = " + serializeValue(false, ctx, v, PrintOptions {}) + ";");
         }
         break;
     }
@@ -257,7 +292,7 @@ void printValue(bool printDeletion, Context & ctx, const std::string & path, Val
 }
 
 bool equals(Context & ctx, Value & v, Value & w) {
-  return serializeValue(ctx, v, printDrv) == serializeValue(ctx, w, printDrv);
+  return serializeValue(true, ctx, v, printDrv) == serializeValue(true, ctx, w, printDrv);
 }
 
 void diffAttrs(Context & ctx, const std::string & path, Value & v, Value & w) {
@@ -294,10 +329,10 @@ void diffLists(Context & ctx, const std::string & path, Value & v, Value & w) {
     diffValues(ctx, appendPath(path, std::format(".{}", i)), *xs[i], *ys[i]);
   }
   for (long unsigned int i = n; i < xs.size(); i++) {
-    printChange(path + "." + std::to_string(i) + " = " + serializeValue(ctx, *xs[i], PrintOptions {}) + ";", "");
+    printChange(path + "." + std::to_string(i) + " = " + serializeValue(true, ctx, *xs[i], PrintOptions {}) + ";", "");
   }
   for (long unsigned int i = n; i < xs.size(); i++) {
-    printChange("", path + "." + std::to_string(i) + " = " + serializeValue(ctx, *ys[i], PrintOptions {}) + ";");
+    printChange("", path + "." + std::to_string(i) + " = " + serializeValue(false, ctx, *ys[i], PrintOptions {}) + ";");
   }
 }
 
