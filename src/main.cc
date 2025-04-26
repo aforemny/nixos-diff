@@ -164,10 +164,6 @@ void diffValues(Context & ctx, const std::string & path, Value & v, Value & w) {
   }
 }
 
-bool equals(Context & ctx, Value & v, Value & w) {
-  return serializeValue(ctx, v, printDrv) == serializeValue(ctx, w, printDrv);
-}
-
 // From nix/src/nix/repl.cc
 bool isVarName(const std::string_view & s) {
     if (s.size() == 0) return false;
@@ -199,6 +195,71 @@ const std::string appendPath(const std::string & prefix, const std::string_view 
     return prefix + "." + quoteAttribute(suffix);
 }
 
+void printValue(bool printDeletion, Context & ctx, const std::string & path, Value & v);
+
+void printAttrs(bool printDeletion, Context & ctx, const std::string & path, Value & v) {
+  std::vector<Symbol> ks;
+  for (auto & i : *v.attrs()) { // TODO attrs -> names
+    ks.emplace_back(i.name);
+  }
+  std::sort(ks.begin(), ks.end());
+  auto last = std::unique(ks.begin(), ks.end());
+  ks.erase(last, ks.end());
+
+  for (auto & i : ks) {
+    SymbolStr name = ctx.state.symbols[i];
+    const Attr * x = v.attrs()->get(i);
+    printValue(printDeletion, ctx, appendPath(path, name), *x->value);
+  }
+}
+
+void printList(bool printDeletion, Context & ctx, const std::string & path, Value & v) {
+  auto xs = v.listItems();
+  long unsigned int n = xs.size();
+  for (long unsigned int i = 0; i < n; i++ ) {
+    printValue(printDeletion, ctx, appendPath(path, std::format(".{}", i)), *xs[i]);
+  }
+}
+
+void printValue(bool printDeletion, Context & ctx, const std::string & path, Value & v) {
+  auto seen = !seen1.insert(&v).second;
+  if (v.type() == nix::nThunk) {
+  } else if (v.type() == nix::nAttrs && ctx.state.isDerivation(v)) {
+    printChange(
+      path + " = " + serializeValue(ctx, v, printDrv) + ";",
+      ""
+    );
+  } else if (seen) { // TODO
+    /*
+    printChange(
+      path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeValue(ctx, w, PrintOptions {}) + ";"
+    );*/
+  } else if (v.type()) {
+    switch (v.type()) {
+      case nix::nAttrs:
+        printAttrs(printDeletion, ctx, path, v);
+        break;
+      case nix::nList:
+        printList(printDeletion, ctx, path, v);
+        break;
+      case nix::nThunk: // equals forces
+        break;
+      default:
+        if (printDeletion) {
+          printChange(path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";", "");
+        } else {
+          printChange("", path + " = " + serializeValue(ctx, v, PrintOptions {}) + ";");
+        }
+        break;
+    }
+  }
+}
+
+bool equals(Context & ctx, Value & v, Value & w) {
+  return serializeValue(ctx, v, printDrv) == serializeValue(ctx, w, printDrv);
+}
+
 void diffAttrs(Context & ctx, const std::string & path, Value & v, Value & w) {
   std::vector<Symbol> ks;
   for (auto & i : *v.attrs()) { // TODO attrs -> names
@@ -218,9 +279,9 @@ void diffAttrs(Context & ctx, const std::string & path, Value & v, Value & w) {
     if (x && y) {
       diffValues(ctx, appendPath(path, name), *x->value, *y->value);
     } else if (x) {
-      printChange(appendPath(path, name) + " = " + serializeValue(ctx, *x->value, PrintOptions {}) + ";", "");
+      printValue(true, ctx, appendPath(path, name), *x->value);
     } else if (y) {
-      printChange("", appendPath(path, name) + " = " + serializeValue(ctx, *y->value, PrintOptions {}) + ";");
+      printValue(false, ctx, appendPath(path, name), *y->value);
     }
   }
 }
