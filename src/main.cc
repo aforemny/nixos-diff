@@ -6,6 +6,7 @@
 #include <nix/eval-gc.hh>
 #include <nix/eval.hh>
 #include <nix/eval-inline.hh>
+#include <nix/eval-settings.hh>
 #include <nix/flake/flake.hh>
 #include <nix/globals.hh>
 #include <nix/nixexpr.hh>
@@ -19,6 +20,7 @@
 #include <nix/value.hh>
 #include <string>
 #include <utility>
+#include <variant>
 
 using nix::Attr;
 using nix::Bindings;
@@ -36,15 +38,12 @@ static ValuesSeen seen1;
 static ValuesSeen seen2;
 
 struct Context {
-    Context(EvalState & state, Bindings & autoArgs, Value config1, Value config2)
-        : state(state), autoArgs(autoArgs), config1(config1), config2(config2),
-          underscoreType(state.symbols.create("_type"))
+    Context(EvalState & state, Value config1, Value config2)
+        : state(state), config1(config1), config2(config2)
     {}
     EvalState & state;
-    Bindings & autoArgs;
     Value config1;
     Value config2;
-    Symbol underscoreType;
 };
 
 //bool isTTY = nix::isTTY();
@@ -343,12 +342,109 @@ void printDiff(Context & ctx) {
   diffValues(ctx, "", v, w);
 }
 
+class BaseExpr {
+  std::string string;
+  public:
+    std::string to_string() {
+      return string;
+    };
+    BaseExpr(std::string aString) {
+      string = aString;
+    };
+};
+
+class FinalExpr {
+  std::string string;
+  public:
+    std::string to_string() {
+      return string;
+    };
+    FinalExpr(BaseExpr e) {
+      string = "let inherit (" + e.to_string() + ") config system; in builtins.seq system config";
+    }
+};
+
+class FlakeURL {
+  std::string path;
+  std::string attr;
+  public:
+  FlakeURL(std::string path, std::string attr) : path{path}, attr{attr} {}
+  std::string to_string() { return std::format("{}#{}", path, attr); }
+  BaseExpr toBaseExpr() {
+    return BaseExpr(std::format("let inherit ((builtins.getFlake (toString {})).{}) config; in {{ inherit config; system = config.system.build.toplevel; }}", path, attr));
+  }
+};
+
+std::optional<FlakeURL> maybeParseFlakeURL(std::string flakeURL) {
+  auto attrStart = flakeURL.find("#");
+  if (attrStart == std::string::npos) {
+    return std::nullopt;
+  }
+  auto path = flakeURL.substr(0, attrStart);
+  auto attr = flakeURL.substr(attrStart + 1);
+  return FlakeURL(path, attr);
+}
+
+class Path {
+  std::string path;
+  public:
+  std::string to_string() {
+    return path;
+  };
+  Path(std::string path) : path{path} { }
+  BaseExpr toBaseExpr() {
+    return BaseExpr("import <nixpkgs/nixos> { configuration = (" + path + "); }");
+  }
+};
+
+class Expr {
+  std::string expr;
+  public:
+  std::string to_string() {
+    return expr;
+  };
+  Expr(std::string expr) : expr{expr} {}
+  BaseExpr toBaseExpr() { return BaseExpr(expr); }
+};
+
+template<class... Ts>
+struct overloads : Ts... { using Ts::operator()...; };
+
+class ConfigExpr {
+  public:
+  std::variant<Path, Expr, FlakeURL> variant;
+  ConfigExpr(auto variant) : variant{variant} {}
+
+  ConfigExpr inferredConfigExpr(std::filesystem::path workTree) {
+    auto path = std::get<Path>(variant);
+    if (std::holds_alternative<Path>(variant))
+      return ConfigExpr(Path(std::format("./{}/{}", workTree.string(), std::get<Path>(variant).to_string())));
+    return variant;
+  }
+
+  std::string to_string() {
+    return std::visit(overloads {
+        [](Path path) { return path.to_string(); },
+        [](Expr expr) { return expr.to_string(); },
+        [](FlakeURL flakeURL) { return flakeURL.to_string(); }
+    }, variant);
+  }
+
+  BaseExpr toBaseExpr() {
+    return std::visit(overloads {
+        [](Path path) { return (Path(path)).toBaseExpr(); },
+        [](Expr expr) { return expr.toBaseExpr(); },
+        [](FlakeURL flakeURL) { return flakeURL.toBaseExpr(); }
+    }, variant);
+  }
+};
+
 std::filesystem::path workTree;
 
 int main(int argc, char ** argv) {
   bool expr = false;
   std::string rev = "HEAD";
-  std::string config1Expr, config2Expr;
+  std::optional<ConfigExpr> maybeConfig1Expr, maybeConfig2Expr;
 
   struct MyArgs : nix::LegacyArgs, nix::MixEvalArgs
   {
@@ -364,14 +460,13 @@ int main(int argc, char ** argv) {
         expr = true;
     } else if (*arg == "--rev") {
         rev = nix::getArg(*arg, arg, end);
-        std::cout << "rev: " << rev << "\n";
     } else {
-      if (config1Expr.empty()) {
-        config1Expr = *arg;
-      } else if (config2Expr.empty()) {
-        config2Expr = *arg;
+      if (!maybeConfig1Expr.has_value()) {
+        maybeConfig1Expr = Path(*arg);
+      } else if (!maybeConfig2Expr.has_value()) {
+        maybeConfig2Expr = Path(*arg);
       } else {
-        std::cerr << "error: " << " " << config1Expr << " " << config2Expr << *arg << "\n";
+        std::cerr << "error: " << " " << maybeConfig1Expr.value().to_string() << " " << maybeConfig2Expr.value().to_string() << *arg << "\n";
         return false;
       }
     }
@@ -384,9 +479,7 @@ int main(int argc, char ** argv) {
 
   myArgs.parseCmdline(nix::argvToStrings(argc, argv));
 
-  nix::settings.readOnlyMode = true;
   auto store = nix::openStore();
-
   auto evalStore = myArgs.evalStoreUrl
     ? nix::openStore(*myArgs.evalStoreUrl)
     : nix::openStore();
@@ -397,7 +490,23 @@ int main(int argc, char ** argv) {
       nix::evalSettings
     );
 
-  if (config2Expr.empty()) {
+  ConfigExpr config1Expr = maybeConfig1Expr.value();
+  auto maybeFlakeURL1 = maybeParseFlakeURL(config1Expr.to_string());
+  auto flake = maybeFlakeURL1.has_value();
+
+  if (flake) {
+    config1Expr = maybeFlakeURL1.value();
+    if (maybeConfig2Expr.has_value()) {
+      maybeConfig2Expr = maybeParseFlakeURL(maybeConfig2Expr.value().to_string()).value();
+    }
+  } else if (expr) {
+    config1Expr = ConfigExpr(Expr(config1Expr.to_string()));
+    if (maybeConfig2Expr.has_value()) {
+      maybeConfig2Expr = ConfigExpr(Expr(maybeConfig2Expr.value().to_string()));
+    }
+  }
+
+  if (!maybeConfig2Expr.has_value()) {
     std::atexit([] () { (void)!system(std::format("git worktree remove -f {}", workTree.string()).c_str()); });
     std::filesystem::path tmpDir = "tmp";
     workTree = tmpDir;
@@ -405,33 +514,20 @@ int main(int argc, char ** argv) {
     assert(exitCode == 0);
   }
 
-  auto flake = config1Expr.substr(0, 2) == ".#";
-  if (flake) {
-    auto flakePath1 = config1Expr.substr(0, config1Expr.find("#"));
-    assert(flakePath1 == ".");
-    auto flakeAttr = config1Expr.substr(config1Expr.find("#") + 1);
-    config1Expr = std::format("let inherit ((builtins.getFlake (toString ./{})).{}) config; in {{ inherit config; system = config.system.build.toplevel; }}", flakePath1, flakeAttr);
-
-    if (config2Expr.empty()) config2Expr = std::format("let inherit ((builtins.getFlake (toString ./{})).{}) config; in {{ inherit config; system = config.system.build.toplevel; }}", workTree.string(), flakeAttr);
-  } else {
-    if (config2Expr.empty()) config2Expr = std::format("./{}/{}", workTree.string(), config1Expr);
-    if (!expr) {
-      config1Expr = "import <nixpkgs/nixos> { configuration = (" + config1Expr + "); }";
-      config2Expr = "import <nixpkgs/nixos> { configuration = (" + config2Expr + "); }";
-    }
+  if (!maybeConfig2Expr.has_value()) {
+    maybeConfig2Expr = config1Expr.inferredConfigExpr(workTree);
   }
+  ConfigExpr config2Expr = maybeConfig2Expr.value();
 
-  config1Expr = "let inherit (" + config1Expr + ") config system; in builtins.seq system config";
-  config2Expr = "let inherit (" + config2Expr + ") config system; in builtins.seq system config";
+  FinalExpr finalExpr1 = FinalExpr(config1Expr.toBaseExpr());
+  FinalExpr finalExpr2 = FinalExpr(config2Expr.toBaseExpr());
 
-  Value config1 = parseAndEval(*state, config1Expr, ".");
-  Value config2 = parseAndEval(*state, config2Expr, workTree.empty() ? "." : workTree);
+  Value config1 = parseAndEval(*state, finalExpr1.to_string(), ".");
+  Value config2 = parseAndEval(*state, finalExpr2.to_string(), workTree.empty() ? "." : workTree);
 
-  Context ctx{*state, *myArgs.getAutoArgs(*state), workTree.empty() ? config1 : config2, workTree.empty() ? config2 : config1};
+  Context ctx{*state, workTree.empty() ? config1 : config2, workTree.empty() ? config2 : config1};
 
   printDiff(ctx);
-
-  ctx.state.maybePrintStats();
 
   return 0;
 }

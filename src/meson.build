@@ -11,6 +11,7 @@ executable('nixos-diff', src,
              nix_expr_dep,
              nix_cmd_dep,
              nix_flake_dep,
+             nix_util_dep,
              boost_dep,
              nlohmann_json_dep,
              threads_dep

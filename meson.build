@@ -9,6 +9,7 @@ nix_expr_dep = dependency('nix-expr', required: true)
 nix_flake_dep = dependency('nix-flake', required: true)
 nix_main_dep = dependency('nix-main', required: true)
 nix_store_dep = dependency('nix-store', required: true)
+nix_util_dep = dependency('nix-util', required: true)
 nlohmann_json_dep = dependency('nlohmann_json', required: true)
 threads_dep = dependency('threads', required: true)
 
