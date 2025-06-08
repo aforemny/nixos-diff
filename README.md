@@ -26,3 +26,10 @@ nix-env -f. -i
 $ meson setup build
 $ meson compile
 ```
+
+## Tests
+
+```console
+$ nix-build --no-out-link tests.nix
+$ update-tests
+```

@@ -1,36 +1,36 @@
-[31m-system.build.toplevel = «derivation /nix/store/zbs5pmz3mw6a33fmys37xbaml1al7sjp-nixos-system-nixos-25.05pre-git.drv»;[0m
-[32m+system.build.toplevel = «derivation /nix/store/m0m5dc9qfr7ni6cdk6nr1b9x5rqlx03k-nixos-system-machine-25.05pre-git.drv»;[0m
-[31m-system.build.etc = «derivation /nix/store/ivnmaph6nrply6qdd4qvmvczrp8m52kl-etc.drv»;[0m
-[32m+system.build.etc = «derivation /nix/store/36xiik9ncgiwa44lgmlvwjz6m99lfzb5-etc.drv»;[0m
+[31m-system.build.toplevel = «derivation /nix/store/kafy59snhq30vyxr3j1hjzn45hpijvha-nixos-system-nixos-25.05pre-git.drv»;[0m
+[32m+system.build.toplevel = «derivation /nix/store/05kxd15g4ksvh2dkwcdg9dns7mz3d63n-nixos-system-machine-25.05pre-git.drv»;[0m
+[31m-system.build.etc = «derivation /nix/store/yqzvmp0sjjl8clhrcdp40fl4bfs31w1y-etc.drv»;[0m
+[32m+system.build.etc = «derivation /nix/store/bzgvkhvyrn80f2hv03ikiyvh1j8w1xm9-etc.drv»;[0m
 [31m-system.build.etcActivationCommands = ''[0m
 [31m  # Set up the statically computed bits of /etc.[0m
 [31m  echo "setting up /etc..."[0m
-[31m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc[0m
+[31m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc[0m
 [31m  [31m'';[0m
 [32m+system.build.etcActivationCommands = ''[0m
 [32m  # Set up the statically computed bits of /etc.[0m
 [32m  echo "setting up /etc..."[0m
-[32m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc[0m
+[32m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc[0m
 [32m  [32m'';[0m
 [31m-system.activationScripts.etc.text = ''[0m
 [31m  # Set up the statically computed bits of /etc.[0m
 [31m  echo "setting up /etc..."[0m
-[31m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc[0m
+[31m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc[0m
 [31m  [31m'';[0m
 [32m+system.activationScripts.etc.text = ''[0m
 [32m  # Set up the statically computed bits of /etc.[0m
 [32m  echo "setting up /etc..."[0m
-[32m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc[0m
+[32m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc[0m
 [32m  [32m'';[0m
 [31m-system.activationScripts.script = ''[0m
-[31m  #!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash[0m
+[31m  #!/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash[0m
 [31m  [0m
 [31m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
 [31m  [0m
 [31m  systemConfig='@out@'[0m
 [31m  [0m
 [31m  export PATH=/empty[0m
-[31m  for i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do[0m
+[31m  for i in /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6 /nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11 /nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0 /nix/store/fcdkag93vlvv7b7833yd1fkx0b1nnp18-getent-glibc-2.40-66 /nix/store/4q7kqnnr018yr54dsqdc5gvfqkwm6xa5-glibc-2.40-66-bin /nix/store/yvai185j6zsgck2y4yq0dddjwlyphhy5-shadow-4.17.2 /nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10 /nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin; do[0m
 [31m      PATH=$PATH:$i/bin:$i/sbin[0m
 [31m  done[0m
 [31m  [0m
@@ -54,7 +54,7 @@
 [31m  # (notably the system() function) won't work.[0m
 [31m  mkdir -p /bin[0m
 [31m  chmod 0755 /bin[0m
-[31m  ln -sfn "/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
+[31m  ln -sfn "/nix/store/4k90qpzh1a4sldhnf7cxwkm9c0agq4fp-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
 [31m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
 [31m  [0m
 [31m  [0m
@@ -67,8 +67,8 @@
 [31m  install -m 0700 -d /root[0m
 [31m  install -m 0755 -d /home[0m
 [31m  [0m
-[31m  /nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \[0m
-[31m  -w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json[0m
+[31m  /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \[0m
+[31m  -w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/644mi6j6s2rkrzm4y6s42w8jc430d735-users-groups.json[0m
 [31m  [0m
 [31m  [0m
 [31m  if (( _localstatus > 0 )); then[0m
@@ -99,7 +99,7 @@
 [31m    fi[0m
 [31m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
 [31m  }[0m
-[31m  source /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh[0m
+[31m  source /nix/store/ksi2zyyqpw547jv22h90rmgxyk8qh920-mounts.sh[0m
 [31m  [0m
 [31m  [0m
 [31m  if (( _localstatus > 0 )); then[0m
@@ -110,7 +110,7 @@
 [31m  _localstatus=0[0m
 [31m  # Set up the statically computed bits of /etc.[0m
 [31m  echo "setting up /etc..."[0m
-[31m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc[0m
+[31m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc[0m
 [31m  [0m
 [31m  [0m
 [31m  if (( _localstatus > 0 )); then[0m
@@ -145,7 +145,7 @@
 [31m  # in the right location in the Nix store for kernel modules).[0m
 [31m  # We need this when the kernel (or some module) auto-loads a[0m
 [31m  # module.[0m
-[31m  echo /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
+[31m  echo /nix/store/d60481jmwlgh80kxrn4bmfmkpxmv2cip-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
 [31m  [0m
 [31m  [0m
 [31m  if (( _localstatus > 0 )); then[0m
@@ -161,7 +161,7 @@
 [31m  [0m
 [31m  # Allow the kernel to find our firmware.[0m
 [31m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
-[31m    echo -n "/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
+[31m    echo -n "/nix/store/d97p4z8x60vfv57krbxsrb0a98hlz17q-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
 [31m  fi[0m
 [31m  [0m
 [31m  [0m
@@ -173,7 +173,7 @@
 [31m  _localstatus=0[0m
 [31m  mkdir -p /usr/bin[0m
 [31m  chmod 0755 /usr/bin[0m
-[31m  ln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
+[31m  ln -sfn /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
 [31m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
 [31m  [0m
 [31m  [0m
@@ -199,14 +199,14 @@
 [31m  exit $_status[0m
 [31m  [31m'';[0m
 [32m+system.activationScripts.script = ''[0m
-[32m  #!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash[0m
+[32m  #!/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash[0m
 [32m  [0m
 [32m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
 [32m  [0m
 [32m  systemConfig='@out@'[0m
 [32m  [0m
 [32m  export PATH=/empty[0m
-[32m  for i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do[0m
+[32m  for i in /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6 /nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11 /nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0 /nix/store/fcdkag93vlvv7b7833yd1fkx0b1nnp18-getent-glibc-2.40-66 /nix/store/4q7kqnnr018yr54dsqdc5gvfqkwm6xa5-glibc-2.40-66-bin /nix/store/yvai185j6zsgck2y4yq0dddjwlyphhy5-shadow-4.17.2 /nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10 /nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin; do[0m
 [32m      PATH=$PATH:$i/bin:$i/sbin[0m
 [32m  done[0m
 [32m  [0m
@@ -230,7 +230,7 @@
 [32m  # (notably the system() function) won't work.[0m
 [32m  mkdir -p /bin[0m
 [32m  chmod 0755 /bin[0m
-[32m  ln -sfn "/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
+[32m  ln -sfn "/nix/store/4k90qpzh1a4sldhnf7cxwkm9c0agq4fp-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
 [32m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
 [32m  [0m
 [32m  [0m
@@ -243,8 +243,8 @@
 [32m  install -m 0700 -d /root[0m
 [32m  install -m 0755 -d /home[0m
 [32m  [0m
-[32m  /nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \[0m
-[32m  -w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json[0m
+[32m  /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \[0m
+[32m  -w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/644mi6j6s2rkrzm4y6s42w8jc430d735-users-groups.json[0m
 [32m  [0m
 [32m  [0m
 [32m  if (( _localstatus > 0 )); then[0m
@@ -275,7 +275,7 @@
 [32m    fi[0m
 [32m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
 [32m  }[0m
-[32m  source /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh[0m
+[32m  source /nix/store/ksi2zyyqpw547jv22h90rmgxyk8qh920-mounts.sh[0m
 [32m  [0m
 [32m  [0m
 [32m  if (( _localstatus > 0 )); then[0m
@@ -286,7 +286,7 @@
 [32m  _localstatus=0[0m
 [32m  # Set up the statically computed bits of /etc.[0m
 [32m  echo "setting up /etc..."[0m
-[32m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc[0m
+[32m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc[0m
 [32m  [0m
 [32m  [0m
 [32m  if (( _localstatus > 0 )); then[0m
@@ -321,7 +321,7 @@
 [32m  # in the right location in the Nix store for kernel modules).[0m
 [32m  # We need this when the kernel (or some module) auto-loads a[0m
 [32m  # module.[0m
-[32m  echo /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
+[32m  echo /nix/store/d60481jmwlgh80kxrn4bmfmkpxmv2cip-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
 [32m  [0m
 [32m  [0m
 [32m  if (( _localstatus > 0 )); then[0m
@@ -337,7 +337,7 @@
 [32m  [0m
 [32m  # Allow the kernel to find our firmware.[0m
 [32m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
-[32m    echo -n "/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
+[32m    echo -n "/nix/store/d97p4z8x60vfv57krbxsrb0a98hlz17q-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
 [32m  fi[0m
 [32m  [0m
 [32m  [0m
@@ -349,7 +349,7 @@
 [32m  _localstatus=0[0m
 [32m  mkdir -p /usr/bin[0m
 [32m  chmod 0755 /usr/bin[0m
-[32m  ln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
+[32m  ln -sfn /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
 [32m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
 [32m  [0m
 [32m  [0m
@@ -375,14 +375,14 @@
 [32m  exit $_status[0m
 [32m  [32m'';[0m
 [31m-system.systemBuilderArgs.activationScript = ''[0m
-[31m  #!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash[0m
+[31m  #!/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash[0m
 [31m  [0m
 [31m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
 [31m  [0m
 [31m  systemConfig='@out@'[0m
 [31m  [0m
 [31m  export PATH=/empty[0m
-[31m  for i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do[0m
+[31m  for i in /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6 /nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11 /nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0 /nix/store/fcdkag93vlvv7b7833yd1fkx0b1nnp18-getent-glibc-2.40-66 /nix/store/4q7kqnnr018yr54dsqdc5gvfqkwm6xa5-glibc-2.40-66-bin /nix/store/yvai185j6zsgck2y4yq0dddjwlyphhy5-shadow-4.17.2 /nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10 /nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin; do[0m
 [31m      PATH=$PATH:$i/bin:$i/sbin[0m
 [31m  done[0m
 [31m  [0m
@@ -406,7 +406,7 @@
 [31m  # (notably the system() function) won't work.[0m
 [31m  mkdir -p /bin[0m
 [31m  chmod 0755 /bin[0m
-[31m  ln -sfn "/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
+[31m  ln -sfn "/nix/store/4k90qpzh1a4sldhnf7cxwkm9c0agq4fp-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
 [31m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
 [31m  [0m
 [31m  [0m
@@ -419,8 +419,8 @@
 [31m  install -m 0700 -d /root[0m
 [31m  install -m 0755 -d /home[0m
 [31m  [0m
-[31m  /nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \[0m
-[31m  -w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json[0m
+[31m  /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \[0m
+[31m  -w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/644mi6j6s2rkrzm4y6s42w8jc430d735-users-groups.json[0m
 [31m  [0m
 [31m  [0m
 [31m  if (( _localstatus > 0 )); then[0m
@@ -451,7 +451,7 @@
 [31m    fi[0m
 [31m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
 [31m  }[0m
-[31m  source /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh[0m
+[31m  source /nix/store/ksi2zyyqpw547jv22h90rmgxyk8qh920-mounts.sh[0m
 [31m  [0m
 [31m  [0m
 [31m  if (( _localstatus > 0 )); then[0m
@@ -462,7 +462,7 @@
 [31m  _localstatus=0[0m
 [31m  # Set up the statically computed bits of /etc.[0m
 [31m  echo "setting up /etc..."[0m
-[31m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/2a7xg2gdg4k9mwyp0ac7xl58rx75hh6q-etc/etc[0m
+[31m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc[0m
 [31m  [0m
 [31m  [0m
 [31m  if (( _localstatus > 0 )); then[0m
@@ -497,7 +497,7 @@
 [31m  # in the right location in the Nix store for kernel modules).[0m
 [31m  # We need this when the kernel (or some module) auto-loads a[0m
 [31m  # module.[0m
-[31m  echo /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
+[31m  echo /nix/store/d60481jmwlgh80kxrn4bmfmkpxmv2cip-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
 [31m  [0m
 [31m  [0m
 [31m  if (( _localstatus > 0 )); then[0m
@@ -513,7 +513,7 @@
 [31m  [0m
 [31m  # Allow the kernel to find our firmware.[0m
 [31m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
-[31m    echo -n "/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
+[31m    echo -n "/nix/store/d97p4z8x60vfv57krbxsrb0a98hlz17q-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
 [31m  fi[0m
 [31m  [0m
 [31m  [0m
@@ -525,7 +525,7 @@
 [31m  _localstatus=0[0m
 [31m  mkdir -p /usr/bin[0m
 [31m  chmod 0755 /usr/bin[0m
-[31m  ln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
+[31m  ln -sfn /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
 [31m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
 [31m  [0m
 [31m  [0m
@@ -551,14 +551,14 @@
 [31m  exit $_status[0m
 [31m  [31m'';[0m
 [32m+system.systemBuilderArgs.activationScript = ''[0m
-[32m  #!/nix/store/9nw8b61s8lfdn8fkabxhbz0s775gjhbr-bash-5.2p37/bin/bash[0m
+[32m  #!/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash[0m
 [32m  [0m
 [32m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
 [32m  [0m
 [32m  systemConfig='@out@'[0m
 [32m  [0m
 [32m  export PATH=/empty[0m
-[32m  for i in /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6 /nix/store/8i12gp78n1m9z794miwbsclgyyp5nm5s-gnugrep-3.11 /nix/store/7l0lfmx3pp9xs9i5q285vdjqy9hc0giv-findutils-4.10.0 /nix/store/svz9z9xya9kz3msv6bsi5w4ilxw8spyd-getent-glibc-2.40-66 /nix/store/lkgfphix3sgfsm38smsw38xk81h3f3ig-glibc-2.40-66-bin /nix/store/wxx5ggdn0frqvii4j0j9blrd62l8k0qq-shadow-4.17.4 /nix/store/3jp5wym1vvahldj84zzzl7hb1g6795jj-net-tools-2.10 /nix/store/8d3yc3igs2plw2zijs5bh905y79qzssf-util-linux-2.40.4-bin; do[0m
+[32m  for i in /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6 /nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11 /nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0 /nix/store/fcdkag93vlvv7b7833yd1fkx0b1nnp18-getent-glibc-2.40-66 /nix/store/4q7kqnnr018yr54dsqdc5gvfqkwm6xa5-glibc-2.40-66-bin /nix/store/yvai185j6zsgck2y4yq0dddjwlyphhy5-shadow-4.17.2 /nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10 /nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin; do[0m
 [32m      PATH=$PATH:$i/bin:$i/sbin[0m
 [32m  done[0m
 [32m  [0m
@@ -582,7 +582,7 @@
 [32m  # (notably the system() function) won't work.[0m
 [32m  mkdir -p /bin[0m
 [32m  chmod 0755 /bin[0m
-[32m  ln -sfn "/nix/store/m3hnxdlz6v6650ggqz29nsqbvzvdvnsy-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
+[32m  ln -sfn "/nix/store/4k90qpzh1a4sldhnf7cxwkm9c0agq4fp-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
 [32m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
 [32m  [0m
 [32m  [0m
@@ -595,8 +595,8 @@
 [32m  install -m 0700 -d /root[0m
 [32m  install -m 0755 -d /home[0m
 [32m  [0m
-[32m  /nix/store/42qi67mi6qgz1f0m7xzbgchqqwv0k9y6-perl-5.40.0-env/bin/perl \[0m
-[32m  -w /nix/store/w142vx7ij1fz6qwhp5dprkf59cizvv1v-update-users-groups.pl /nix/store/hmcqri082c1kaqjw7ppgzn3g3gp8ff53-users-groups.json[0m
+[32m  /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \[0m
+[32m  -w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/644mi6j6s2rkrzm4y6s42w8jc430d735-users-groups.json[0m
 [32m  [0m
 [32m  [0m
 [32m  if (( _localstatus > 0 )); then[0m
@@ -627,7 +627,7 @@
 [32m    fi[0m
 [32m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
 [32m  }[0m
-[32m  source /nix/store/h69c45cr40zx50c028q88cc90idvh1zg-mounts.sh[0m
+[32m  source /nix/store/ksi2zyyqpw547jv22h90rmgxyk8qh920-mounts.sh[0m
 [32m  [0m
 [32m  [0m
 [32m  if (( _localstatus > 0 )); then[0m
@@ -638,7 +638,7 @@
 [32m  _localstatus=0[0m
 [32m  # Set up the statically computed bits of /etc.[0m
 [32m  echo "setting up /etc..."[0m
-[32m  /nix/store/cffrismjb5jh9287ygkafddyv0qyp1r2-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/k4w8anp3pgjyiyclwgxpfcnd3c4zhv7d-etc/etc[0m
+[32m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc[0m
 [32m  [0m
 [32m  [0m
 [32m  if (( _localstatus > 0 )); then[0m
@@ -673,7 +673,7 @@
 [32m  # in the right location in the Nix store for kernel modules).[0m
 [32m  # We need this when the kernel (or some module) auto-loads a[0m
 [32m  # module.[0m
-[32m  echo /nix/store/lsn8khmva61v81yf9hlhgzi6hs0s871p-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
+[32m  echo /nix/store/d60481jmwlgh80kxrn4bmfmkpxmv2cip-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
 [32m  [0m
 [32m  [0m
 [32m  if (( _localstatus > 0 )); then[0m
@@ -689,7 +689,7 @@
 [32m  [0m
 [32m  # Allow the kernel to find our firmware.[0m
 [32m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
-[32m    echo -n "/nix/store/75sjmzigl0v1ln2dgnhgxfhvwpmr6pdk-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
+[32m    echo -n "/nix/store/d97p4z8x60vfv57krbxsrb0a98hlz17q-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
 [32m  fi[0m
 [32m  [0m
 [32m  [0m
@@ -701,7 +701,7 @@
 [32m  _localstatus=0[0m
 [32m  mkdir -p /usr/bin[0m
 [32m  chmod 0755 /usr/bin[0m
-[32m  ln -sfn /nix/store/h5rn37dd6vfvr9xb0jq85sq8hf6xchry-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
+[32m  ln -sfn /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
 [32m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
 [32m  [0m
 [32m  [0m
@@ -726,10 +726,10 @@
 [32m  [0m
 [32m  exit $_status[0m
 [32m  [32m'';[0m
-[31m-environment.etc.hosts.source = «derivation /nix/store/v84k1qdly4fkbf688h56hr103prm5ra1-hosts.drv»;[0m
-[32m+environment.etc.hosts.source = «derivation /nix/store/h3k5wkfjl41nqkcqsd9wrzj5wfky54wv-hosts.drv»;[0m
-[31m-environment.etc.hostname.source = «derivation /nix/store/7mrvmq2pzcp55j9ybbi44sjwkz7w0w46-etc-hostname.drv»;[0m
-[32m+environment.etc.hostname.source = «derivation /nix/store/zgkjy6jid0nh6xcf7f2b1fkdpq43cmp1-etc-hostname.drv»;[0m
+[31m-environment.etc.hosts.source = «derivation /nix/store/zf5i8fjqbkwbhkcp8hn1y7mzhf4mz3bv-hosts.drv»;[0m
+[32m+environment.etc.hosts.source = «derivation /nix/store/h1w5w95w4lyva2x9kc38w393hqz72rlw-hosts.drv»;[0m
+[31m-environment.etc.hostname.source = «derivation /nix/store/g93cblq7gpwb32z60yls48m07dmxgxhq-etc-hostname.drv»;[0m
+[32m+environment.etc.hostname.source = «derivation /nix/store/93z4bcdinzc444swpp7zfyvar58mbnwq-etc-hostname.drv»;[0m
 [31m-environment.etc.hostname.text = ''[0m
 [31m  nixos[0m
 [31m  [31m'';[0m

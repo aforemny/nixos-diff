@@ -1,19 +1,28 @@
-{ pkgs ? import (import ./nix/sources.nix).nixpkgs { } }:
+{ pkgs ? import sources.nixpkgs { }
+, sources ? import ./nix/sources.nix
+, dontCheck ? false
+}:
 let
   inherit (pkgs) lib;
   nixos-diff = import ./. { inherit pkgs; };
+  runTest = if dontCheck then buildOutput else checkOutput;
+  checkOutput = name: pkgs.runCommand name { } ''
+    cd ${lib.fileset.toSource {
+      root = ./tests/${name};
+      fileset = ./tests/${name}/output.diff;
+    }}
+    ${lib.optionalString (!dontCheck) "diff -u output.diff ${buildOutput name}"} >$out
+  '';
+  buildOutput = name: pkgs.runCommand name
+    {
+      NIX_CONFIG = "store = dummy://";
+      NIX_PATH = "nixos-facter-modules=${sources.nixos-facter-modules}:nixos-hardware=${sources.nixos-hardware}:nixpkgs=${sources.nixpkgs}";
+    } ''
+    cd ${lib.fileset.toSource {
+      root = ./tests/${name};
+      fileset = lib.fileset.difference ./tests/${name} ./tests/${name}/output.diff;
+    }}
+    ${lib.getExe nixos-diff} ./config{1,2}.nix >$out
+  '';
 in
-{
-  nixos-modules = pkgs.writeScript "nixos-modules" ''
-    cd ${./tests/nixos-modules}
-    ${nixos-diff}/bin/nixos-diff ./config1.nix ./config2.nix |& less -S
-  '';
-  nixos-hardware = pkgs.writeScript "nixos-hardware" ''
-    cd ${./tests/nixos-hardware}
-    ${nixos-diff}/bin/nixos-diff ./config1.nix ./config2.nix |& less -S
-  '';
-  derivation = pkgs.writeScript "derivation" ''
-    cd ${./tests/derivation}
-    ${nixos-diff}/bin/nixos-diff ./config1.nix ./config2.nix |& less -S
-  '';
-}
+lib.mapAttrs (name: _: runTest name) (builtins.readDir (toString ./tests))

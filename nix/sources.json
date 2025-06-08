@@ -1,4 +1,28 @@
 {
+    "nixos-facter-modules": {
+        "branch": "main",
+        "description": "A series of NixOS modules to be used in conjunction with https://github.com/nix-community/nixos-facter [maintainer=@brianmcgee,@Mic92]",
+        "homepage": "https://nix-community.github.io/nixos-facter-modules/",
+        "owner": "nix-community",
+        "repo": "nixos-facter-modules",
+        "rev": "58ad9691670d293a15221d4a78818e0088d2e086",
+        "sha256": "09cgh59si6pha8kvfgw4gi84bfm5mknk7yg2n1vv8wli9y1j5ipf",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/nixos-facter-modules/archive/58ad9691670d293a15221d4a78818e0088d2e086.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixos-hardware": {
+        "branch": "master",
+        "description": "A collection of NixOS modules covering hardware quirks.",
+        "homepage": "",
+        "owner": "nixos",
+        "repo": "nixos-hardware",
+        "rev": "f7bee55a5e551bd8e7b5b82c9bc559bc50d868d1",
+        "sha256": "1311w59q8rcjnj8415z1pjlz5c1lsfrgxz9wg78fgc6mlfys6hbd",
+        "type": "tarball",
+        "url": "https://github.com/nixos/nixos-hardware/archive/f7bee55a5e551bd8e7b5b82c9bc559bc50d868d1.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixpkgs": {
         "branch": "nixos-unstable",
         "description": "Nix Packages collection",
