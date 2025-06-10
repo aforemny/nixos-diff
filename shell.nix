@@ -1,4 +1,6 @@
-{ pkgs ? import sources.nixpkgs { }
+{ pkgs ? import sources.nixpkgs {
+    overlays = [ (import ./pkgs.nix) ];
+  }
 , sources ? import ./nix/sources.nix
 }:
 pkgs.mkShell {
