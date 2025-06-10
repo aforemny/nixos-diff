@@ -85,7 +85,6 @@ system.systemBuilderCommands =
 +environment.etc."tmpfiles.d".source = "/nix/store/i1jsds68lr70a6g37pnamfpfnimvq005-tmpfiles.d/*";
 -environment.etc."systemd/user".source = «derivation /nix/store/6yvcrff7vajwwlg0p23z61pzx16h6bl1-user-units.drv»;
 +environment.etc."systemd/user".source = «derivation /nix/store/13af2yzbwm2hfcbf6d44mfl80km37w29-user-units.drv»;
--i18n.inputMethod.type = null;
 -boot.kernelPackages.kernel = «derivation /nix/store/9r4ag4dbxdyg68pdiqagxp3ybx3fj5ys-linux-6.12.17.drv»;
 +boot.kernelPackages.kernel = «derivation /nix/store/mb54jyr236q1wvsr7wh18c9l76b0b2g0-linux-6.13.5.drv»;
 boot.bootspec.writer =

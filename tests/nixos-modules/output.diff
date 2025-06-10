@@ -42,6 +42,5 @@ environment.etc.hostname.text =
   @@ -1,1 +1,1 @@
   -nixos
   +machine
--i18n.inputMethod.type = null;
 -networking.hostName = "nixos";
 +networking.hostName = "machine";

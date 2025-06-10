@@ -210,6 +210,12 @@ PrintOptions printDrv = PrintOptions { .force = true, .derivationPaths = true, }
 void diffValues(Context & ctx, const std::string & path, Value & v, Value & w) {
   auto vSeen = !seen1.insert(&v).second;
   auto wSeen = !seen2.insert(&w).second;
+
+  if (path.ends_with(".type")) {
+    ctx.state.forceValue(v, v.determinePos(nix::noPos));
+    ctx.state.forceValue(w, w.determinePos(nix::noPos));
+  }
+
   if (v.type() == nix::nThunk && w.type() == nix::nThunk) {
   } else if (v.type() == nix::nThunk) {
     if (w.type() == nix::nAttrs && !(ctx.state.isDerivation(w))) {

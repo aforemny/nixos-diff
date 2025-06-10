@@ -334,7 +334,6 @@ environment.etc."modprobe.d/nixos.conf".text =
 +environment.etc."systemd/network/99-wireless-client-dhcp.network".gid = 0;
 +environment.etc."systemd/network/99-wireless-client-dhcp.network".uid = 0;
 +environment.etc."systemd/network/99-wireless-client-dhcp.network".user = "+0";
--i18n.inputMethod.type = null;
 services.udev.extraRules =
   @@ -1,8 +1,4 @@
    
