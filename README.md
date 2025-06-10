@@ -24,6 +24,7 @@ nix-env -f. -i
 
 ```console
 $ meson setup build
+$ cd build
 $ meson compile
 ```
 
