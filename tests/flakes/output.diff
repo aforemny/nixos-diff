@@ -1,4 +1,86 @@
-[32m+meta = { buildDocsInSandbox = «thunk»; doc = [ { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/desktop-managers/gnome.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/x11/desktop-managers/pantheon.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/system/boot/loader/external/external.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/system/boot/clevis.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-servers/garage.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/youtrack.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/suwayomi-server.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/strfry.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/plausible.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/pingvin-share.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/pihole-web.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/pict-rs.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/opencloud.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/nextcloud.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/matomo.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/lemmy.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/keycloak.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/jitsi-meet.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/honk.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/hatsu.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/grocy.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/gotosocial.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/glance.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/filesender.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/discourse.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/davis.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/castopod.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/c2fmzq-server.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/akkoma.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/system/systemd-lock-handler.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/system/kerberos/kerberos-server.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/search/meilisearch.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/yggdrasil.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/umurmur.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/prosody.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/pleroma.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/pihole-ftl.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/netbird/server.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/netbird.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/mosquitto.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/jotta-cli.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/gns3-server.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/firefox-syncserver.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/doh-server.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/dnsmasq.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/crab-hole.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/anubis.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/network-filesystems/samba.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/network-filesystems/litestream/default.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/monitoring/prometheus/exporters.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/monitoring/parsedmarc.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/monitoring/ocsinventory-agent.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/monitoring/goss.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/monitoring/certspotter.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/weechat.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/taskserver/default.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/sourcehut/default.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/gitlab.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/forgejo.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/dump1090-fa.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/kafka.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/anki-sync-server.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/matrix/synapse.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/matrix/mjolnir.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/matrix/mautrix-signal.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/matrix/maubot.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/mail/mailman.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/hardware/trezord.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/hardware/display.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/editors/emacs.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/development/livebook.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/development/blackfire.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/development/athens.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/desktops/flatpak.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/databases/tigerbeetle.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/databases/postgresql.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/databases/foundationdb.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/backup/borgbackup.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/security/acme/default.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/programs/zsh/oh-my-zsh.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/programs/plotinus.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/programs/digitalbitbox/default.md; } { file = «thunk»; value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/i18n/input-method/default.md; } ]; maintainers = «thunk»; };[0m
+[32m+meta.doc.".0".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/desktop-managers/gnome.md;[0m
+[32m+meta.doc.".1".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/x11/desktop-managers/pantheon.md;[0m
+[32m+meta.doc.".2".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/system/boot/loader/external/external.md;[0m
+[32m+meta.doc.".3".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/system/boot/clevis.md;[0m
+[32m+meta.doc.".4".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-servers/garage.md;[0m
+[32m+meta.doc.".5".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/youtrack.md;[0m
+[32m+meta.doc.".6".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/suwayomi-server.md;[0m
+[32m+meta.doc.".7".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/strfry.md;[0m
+[32m+meta.doc.".8".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/plausible.md;[0m
+[32m+meta.doc.".9".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/pingvin-share.md;[0m
+[32m+meta.doc.".10".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/pihole-web.md;[0m
+[32m+meta.doc.".11".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/pict-rs.md;[0m
+[32m+meta.doc.".12".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/opencloud.md;[0m
+[32m+meta.doc.".13".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/nextcloud.md;[0m
+[32m+meta.doc.".14".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/matomo.md;[0m
+[32m+meta.doc.".15".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/lemmy.md;[0m
+[32m+meta.doc.".16".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/keycloak.md;[0m
+[32m+meta.doc.".17".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/jitsi-meet.md;[0m
+[32m+meta.doc.".18".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/honk.md;[0m
+[32m+meta.doc.".19".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/hatsu.md;[0m
+[32m+meta.doc.".20".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/grocy.md;[0m
+[32m+meta.doc.".21".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/gotosocial.md;[0m
+[32m+meta.doc.".22".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/glance.md;[0m
+[32m+meta.doc.".23".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/filesender.md;[0m
+[32m+meta.doc.".24".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/discourse.md;[0m
+[32m+meta.doc.".25".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/davis.md;[0m
+[32m+meta.doc.".26".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/castopod.md;[0m
+[32m+meta.doc.".27".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/c2fmzq-server.md;[0m
+[32m+meta.doc.".28".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/web-apps/akkoma.md;[0m
+[32m+meta.doc.".29".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/system/systemd-lock-handler.md;[0m
+[32m+meta.doc.".30".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/system/kerberos/kerberos-server.md;[0m
+[32m+meta.doc.".31".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/search/meilisearch.md;[0m
+[32m+meta.doc.".32".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/yggdrasil.md;[0m
+[32m+meta.doc.".33".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/umurmur.md;[0m
+[32m+meta.doc.".34".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/prosody.md;[0m
+[32m+meta.doc.".35".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/pleroma.md;[0m
+[32m+meta.doc.".36".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/pihole-ftl.md;[0m
+[32m+meta.doc.".37".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/netbird/server.md;[0m
+[32m+meta.doc.".38".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/netbird.md;[0m
+[32m+meta.doc.".39".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/mosquitto.md;[0m
+[32m+meta.doc.".40".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/jotta-cli.md;[0m
+[32m+meta.doc.".41".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/gns3-server.md;[0m
+[32m+meta.doc.".42".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/firefox-syncserver.md;[0m
+[32m+meta.doc.".43".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/doh-server.md;[0m
+[32m+meta.doc.".44".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/dnsmasq.md;[0m
+[32m+meta.doc.".45".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/crab-hole.md;[0m
+[32m+meta.doc.".46".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/networking/anubis.md;[0m
+[32m+meta.doc.".47".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/network-filesystems/samba.md;[0m
+[32m+meta.doc.".48".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/network-filesystems/litestream/default.md;[0m
+[32m+meta.doc.".49".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/monitoring/prometheus/exporters.md;[0m
+[32m+meta.doc.".50".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/monitoring/parsedmarc.md;[0m
+[32m+meta.doc.".51".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/monitoring/ocsinventory-agent.md;[0m
+[32m+meta.doc.".52".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/monitoring/goss.md;[0m
+[32m+meta.doc.".53".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/monitoring/certspotter.md;[0m
+[32m+meta.doc.".54".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/weechat.md;[0m
+[32m+meta.doc.".55".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/taskserver/default.md;[0m
+[32m+meta.doc.".56".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/sourcehut/default.md;[0m
+[32m+meta.doc.".57".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/gitlab.md;[0m
+[32m+meta.doc.".58".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/forgejo.md;[0m
+[32m+meta.doc.".59".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/dump1090-fa.md;[0m
+[32m+meta.doc.".60".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/kafka.md;[0m
+[32m+meta.doc.".61".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/misc/anki-sync-server.md;[0m
+[32m+meta.doc.".62".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/matrix/synapse.md;[0m
+[32m+meta.doc.".63".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/matrix/mjolnir.md;[0m
+[32m+meta.doc.".64".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/matrix/mautrix-signal.md;[0m
+[32m+meta.doc.".65".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/matrix/maubot.md;[0m
+[32m+meta.doc.".66".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/mail/mailman.md;[0m
+[32m+meta.doc.".67".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/hardware/trezord.md;[0m
+[32m+meta.doc.".68".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/hardware/display.md;[0m
+[32m+meta.doc.".69".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/editors/emacs.md;[0m
+[32m+meta.doc.".70".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/development/livebook.md;[0m
+[32m+meta.doc.".71".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/development/blackfire.md;[0m
+[32m+meta.doc.".72".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/development/athens.md;[0m
+[32m+meta.doc.".73".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/desktops/flatpak.md;[0m
+[32m+meta.doc.".74".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/databases/tigerbeetle.md;[0m
+[32m+meta.doc.".75".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/databases/postgresql.md;[0m
+[32m+meta.doc.".76".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/databases/foundationdb.md;[0m
+[32m+meta.doc.".77".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/services/backup/borgbackup.md;[0m
+[32m+meta.doc.".78".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/security/acme/default.md;[0m
+[32m+meta.doc.".79".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/programs/zsh/oh-my-zsh.md;[0m
+[32m+meta.doc.".80".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/programs/plotinus.md;[0m
+[32m+meta.doc.".81".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/programs/digitalbitbox/default.md;[0m
+[32m+meta.doc.".82".value = /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/i18n/input-method/default.md;[0m
 [31m-system.path = «derivation /nix/store/m0d2z58xx7hdkrnwwkvkfx2cgmyzlrva-system-path.drv»;[0m
 [32m+system.path = «derivation /nix/store/ddpb1np6wg9xgz25xv9hhzcq1zmvynpv-system-path.drv»;[0m
 [31m-system.build.toplevel = «derivation /nix/store/wm2hisv9dfzxn9qp4kw9cr3n4gg2jvah-nixos-system-nixos-25.11.20250605.ba487db.drv»;[0m
@@ -21,7 +103,8 @@ system.build.etcActivationCommands =
 [31m-system.build.initialRamdiskSecretAppender = «derivation /nix/store/6xyh3d08s3qv5gdxfb9zrn82bac366jl-append-initrd-secrets.drv»;[0m
 [31m-system.build.bootStage2 = «derivation /nix/store/r16vd1pfblxx1hvjz0ny4nkcfb4xawpg-stage-2-init.sh.drv»;[0m
 [32m+system.build.bootStage2 = «derivation /nix/store/kjfwrm5rzbn0agkqfmcgqq24kdq74y1r-stage-2-init.sh.drv»;[0m
-[32m+system.boot = { loader = { id = «thunk»; initrdFile = "initrd"; kernelFile = "bzImage"; ukiFile = «thunk»; }; };[0m
+[32m+system.boot.loader.kernelFile = "bzImage";[0m
+[32m+system.boot.loader.initrdFile = "initrd";[0m
 system.activationScripts.etc.text =
 [36m  @@ -1,3 +1,3 @@[0m
    # Set up the statically computed bits of /etc.
@@ -288,7 +371,6 @@ system.systemBuilderCommands =
 [32m+boot.loader.grub.device = "nodev";[0m
 [32m+boot.loader.grub.default = "0";[0m
 [32m+boot.loader.grub.font = "/nix/store/zdpbgfnwvd4qq650m67bq8l5i41wskkf-grub-2.12/share/grub/unicode.pf2";[0m
-[32m+boot.loader.grub.users = { };[0m
 [32m+boot.loader.grub.extraConfig = "";[0m
 [32m+boot.loader.grub.devices = [ "nodev" ];[0m
 [32m+boot.loader.grub.efiSupport = false;[0m
@@ -319,12 +401,11 @@ system.systemBuilderCommands =
 [32m+boot.loader.grub.timeoutStyle = "menu";[0m
 [32m+boot.loader.grub.configurationName = "";[0m
 [32m+boot.loader.grub.extraInstallCommands = "";[0m
-[32m+boot.loader.grub.extraFiles = { };[0m
 [32m+boot.loader.grub.enableCryptodisk = false;[0m
-[32m+boot.loader.grub.ipxe = { };[0m
-[32m+boot.loader.grub.memtest86 = { enable = false; params = «thunk»; };[0m
+[32m+boot.loader.grub.memtest86.enable = false;[0m
 [32m+boot.loader.timeout = 5;[0m
-[32m+boot.loader.efi = { canTouchEfiVariables = false; efiSysMountPoint = "/boot"; };[0m
+[32m+boot.loader.efi.efiSysMountPoint = "/boot";[0m
+[32m+boot.loader.efi.canTouchEfiVariables = false;[0m
 [32m+boot.loader.supportsInitrdSecrets = true;[0m
 [31m-boot.kernel.enable = false;[0m
 [32m+boot.kernel.enable = true;[0m
@@ -332,9 +413,12 @@ system.systemBuilderCommands =
 [32m+boot.kernel.randstructSeed = "";[0m
 [31m-boot.initrd.enable = false;[0m
 [32m+boot.initrd.enable = true;[0m
-[32m+boot.initrd.services.udev = { binPackages = [ ]; packages = «thunk»; rules = "# Mark dm devices as db_persist so that they are kept active after switching root\nSUBSYSTEM==\"block\", KERNEL==\"dm-[0-9]*\", ACTION==\"add|change\", OPTIONS+=\"db_persist\"\n"; };[0m
-[32m+boot.initrd.services.lvm = { enable = false; };[0m
-[32m+boot.initrd.services.bcache = { enable = false; };[0m
+[32m+boot.initrd.services.udev.rules = ''[0m
+[32m  # Mark dm devices as db_persist so that they are kept active after switching root[0m
+[32m  SUBSYSTEM=="block", KERNEL=="dm-[0-9]*", ACTION=="add|change", OPTIONS+="db_persist"[0m
+[32m  [32m'';[0m
+[32m+boot.initrd.services.lvm.enable = false;[0m
+[32m+boot.initrd.services.bcache.enable = false;[0m
 [32m+boot.initrd.preLVMCommands = ''[0m
 [32m  kbd_mode -u -C /dev/console[0m
 [32m  printf "\033%%G" >> /dev/console[0m
@@ -354,7 +438,6 @@ system.systemBuilderCommands =
 [32m+boot.initrd.verbose = true;[0m
 [32m+boot.initrd.availableKernelModules = [ "ext2" "ext4" "ahci" "sata_nv" "sata_via" "sata_sis" "sata_uli" "ata_piix" "pata_marvell" "nvme" "sd_mod" "sr_mod" "mmc_block" "uhci_hcd" "ehci_hcd" "ehci_pci" "ohci_hcd" "ohci_pci" "xhci_hcd" "xhci_pci" "usbhid" "hid_generic" "hid_lenovo" "hid_apple" "hid_roccat" "hid_logitech_hidpp" "hid_logitech_dj" "hid_microsoft" "hid_cherry" "hid_corsair" "pcips2" "atkbd" "i8042" ];[0m
 [32m+boot.initrd.prepend = [ ];[0m
-[32m+boot.initrd.secrets = { };[0m
 [32m+boot.initrd.extraUdevRulesCommands = ''[0m
 [32m  cp -v /nix/store/77z9fh96318kyjmmidi558hyyssv00s8-bcache-tools-1.0.8/lib/udev/rules.d/*.rules $out/[0m
 [32m  [0m
@@ -368,7 +451,6 @@ system.systemBuilderCommands =
 [32m+boot.initrd.postDeviceCommands = "";[0m
 [32m+boot.initrd.postMountCommands = "";[0m
 [32m+boot.initrd.includeDefaultModules = true;[0m
-[32m+boot.initrd.extraFiles = { };[0m
 [32m+boot.initrd.preFailCommands = "";[0m
 [32m+boot.initrd.extraFirmwarePaths = [ ];[0m
 [32m+boot.initrd.checkJournalingFS = true;[0m
@@ -395,7 +477,12 @@ system.systemBuilderCommands =
 [32m+boot.specialFileSystems."/sys".options.".2" = "nodev";[0m
 [32m+boot.specialFileSystems."/sys".fsType = "sysfs";[0m
 [32m+boot.specialFileSystems."/sys".mountPoint = "/sys";[0m
-[32m+boot.bootspec = { enable = true; enableValidation = false; extensions = { }; filename = «thunk»; package = «thunk»; validator = «thunk»; writer = "/nix/store/n9ch6ggimi6ri5vx62mqmzgrrkb3qfwg-jq-1.7.1-bin/bin/jq '.\"org.nixos.bootspec.v1\".toplevel = $toplevel |\n.\"org.nixos.bootspec.v1\".init = $init\n' --sort-keys --arg toplevel /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9 --arg init /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9/init < /nix/store/kxdy6na8crrsr9gnjn1s40lzm3ji533r-boot.json | /nix/store/n9ch6ggimi6ri5vx62mqmzgrrkb3qfwg-jq-1.7.1-bin/bin/jq --sort-keys '.\"org.nixos.specialisation.v1\" = ($ARGS.named | map_values(. | first))'  > $out/boot.json"; };[0m
+[32m+boot.bootspec.enable = true;[0m
+[32m+boot.bootspec.enableValidation = false;[0m
+[32m+boot.bootspec.writer = ''[0m
+[32m  /nix/store/n9ch6ggimi6ri5vx62mqmzgrrkb3qfwg-jq-1.7.1-bin/bin/jq '."org.nixos.bootspec.v1".toplevel = $toplevel |[0m
+[32m  ."org.nixos.bootspec.v1".init = $init[0m
+[32m  ' --sort-keys --arg toplevel /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9 --arg init /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9/init < /nix/store/kxdy6na8crrsr9gnjn1s40lzm3ji533r-boot.json | /nix/store/n9ch6ggimi6ri5vx62mqmzgrrkb3qfwg-jq-1.7.1-bin/bin/jq --sort-keys '."org.nixos.specialisation.v1" = ($ARGS.named | map_values(. | first))'  > $out/boot.json[32m'';[0m
 [32m+boot.consoleLogLevel = 4;[0m
 [32m+boot.vesa = false;[0m
 [32m+boot.resumeDevice = "";[0m
@@ -415,7 +502,8 @@ system.systemBuilderCommands =
 [32m+fileSystems."/".noCheck = false;[0m
 [31m-documentation.nixos.enable = false;[0m
 [32m+documentation.nixos.enable = true;[0m
-[32m+documentation.nixos.options = { allowDocBook = «thunk»; splitBuild = true; warningsAreErrors = true; };[0m
+[32m+documentation.nixos.options.splitBuild = true;[0m
+[32m+documentation.nixos.options.warningsAreErrors = true;[0m
 [32m+documentation.nixos.extraModules = [ /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/virtualisation/qemu-vm.nix /nix/store/qb6mj5481x2820yi650h5d23d7skbnh2-source/nixos/modules/image/repart.nix ];[0m
 [32m+documentation.nixos.includeAllModules = false;[0m
 [32m+documentation.nixos.extraModuleSources = [ ];[0m
@@ -631,7 +719,14 @@ environment.etc.fstab.text =
 [32m+services.timesyncd.extraConfig = "";[0m
 [32m+services.timesyncd.servers = null;[0m
 [32m+services.timesyncd.fallbackServers = [ "0.nixos.pool.ntp.org" "1.nixos.pool.ntp.org" "2.nixos.pool.ntp.org" "3.nixos.pool.ntp.org" ];[0m
-[32m+services.getty = { autologinOnce = false; autologinUser = null; extraArgs = [ ]; greetingLine = "<<< Welcome to NixOS 25.11.20250605.ba487db (\\m) - \\l >>>"; helpLine = "\nRun 'nixos-help' for the NixOS manual."; loginOptions = null; loginProgram = "/nix/store/b895xnbwyfj1msj6ljcsvwfdhwqhd2vd-shadow-4.17.4/bin/login"; serialSpeed = «thunk»; };[0m
+[32m+services.getty.loginProgram = "/nix/store/b895xnbwyfj1msj6ljcsvwfdhwqhd2vd-shadow-4.17.4/bin/login";[0m
+[32m+services.getty.autologinUser = null;[0m
+[32m+services.getty.autologinOnce = false;[0m
+[32m+services.getty.loginOptions = null;[0m
+[32m+services.getty.greetingLine = "<<< Welcome to NixOS 25.11.20250605.ba487db (\\m) - \\l >>>";[0m
+[32m+services.getty.helpLine = ''[0m
+[32m  [0m
+[32m  Run 'nixos-help' for the NixOS manual.[32m'';[0m
 [31m-services.lvm.enable = false;[0m
 [32m+services.lvm.enable = true;[0m
 [32m+services.lvm.package = «derivation /nix/store/wsix4apss7vn2zl0awma09xs3x25c2sx-lvm2-2.03.31.drv»;[0m
@@ -1211,10 +1306,120 @@ security.pam.services.login.text =
 [32m  session required /nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_env.so conffile=/etc/pam/environment readenv=0 # env (order 10100)[0m
 [32m  session required /nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10200)[0m
 [32m  [32m'';[0m
-[32m+security.pam.services.vlock.rules = { account = { kanidm = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; krb5 = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; ldap = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; mysql = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; oslogin_admin = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; oslogin_login = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; sss = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; systemd_home = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; unix = { args = [ ]; control = "required"; enable = true; modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_unix.so"; name = "unix"; order = 10900; settings = { }; }; }; auth = { ccreds-store = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; ccreds-validate = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; deny = { args = [ ]; control = "required"; enable = true; modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_deny.so"; name = "deny"; order = 12400; settings = «repeated»; }; faillock = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; fprintd = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; kanidm = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; krb5 = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; ldap = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; mysql = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; oath = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; oslogin_login = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; otpw = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; p11 = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; p9 = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; rootok = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; rssh = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; ssh_agent_auth = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; sss = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; systemd_home = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; u2f = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; unix = { args = [ "likeauth" "try_first_pass" ]; control = "sufficient"; enable = true; modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_unix.so"; name = "unix"; order = 11600; settings = { likeauth = true; nodelay = false; nullok = false; try_first_pass = true; }; }; ussh = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; wheel = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; yubico = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; }; password = { ecryptfs = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; fscrypt = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; gnome_keyring = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; kanidm = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; krb5 = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; ldap = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; mount = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; mysql = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; sss = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; systemd_home = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; unix = { args = [ "nullok" "yescrypt" ]; control = "sufficient"; enable = true; modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_unix.so"; name = "unix"; order = 10200; settings = { nullok = true; yescrypt = true; }; }; zfs_key = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; }; session = { apparmor = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; ecryptfs = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; env = { args = [ "conffile=/etc/pam/environment" "readenv=0" ]; control = "required"; enable = true; modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_env.so"; name = "env"; order = 10100; settings = { conffile = "/etc/pam/environment"; readenv = 0; }; }; fscrypt = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; fscrypt-skip-systemd = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; gnome_keyring = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; gnupg = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; intune = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; kanidm = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; krb5 = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; kwallet = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; lastlog = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; ldap = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; limits = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; loginuid = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; mkhomedir = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; motd = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; mount = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; mysql = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; otpw = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; sss = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; systemd = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; systemd_home = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; tty_audit = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; unix = { args = [ ]; control = "required"; enable = true; modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_unix.so"; name = "unix"; order = 10200; settings = «repeated»; }; xauth = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; zfs_key = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; zfs_key-skip-systemd = { args = «thunk»; control = «thunk»; enable = false; modulePath = «thunk»; name = «thunk»; order = «thunk»; settings = «thunk»; }; }; };[0m
+[32m+security.pam.services.vlock.rules.password.ldap.enable = false;[0m
+[32m+security.pam.services.vlock.rules.password.mysql.enable = false;[0m
+[32m+security.pam.services.vlock.rules.password.ecryptfs.enable = false;[0m
+[32m+security.pam.services.vlock.rules.password.krb5.enable = false;[0m
+[32m+security.pam.services.vlock.rules.password.mount.enable = false;[0m
+[32m+security.pam.services.vlock.rules.password.kanidm.enable = false;[0m
+[32m+security.pam.services.vlock.rules.password.fscrypt.enable = false;[0m
+[32m+security.pam.services.vlock.rules.password.unix.name = "unix";[0m
+[32m+security.pam.services.vlock.rules.password.unix.args.".0" = "nullok";[0m
+[32m+security.pam.services.vlock.rules.password.unix.args.".1" = "yescrypt";[0m
+[32m+security.pam.services.vlock.rules.password.unix.enable = true;[0m
+[32m+security.pam.services.vlock.rules.password.unix.modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_unix.so";[0m
+[32m+security.pam.services.vlock.rules.password.unix.settings.nullok = true;[0m
+[32m+security.pam.services.vlock.rules.password.unix.settings.yescrypt = true;[0m
+[32m+security.pam.services.vlock.rules.password.unix.order = 10200;[0m
+[32m+security.pam.services.vlock.rules.password.unix.control = "sufficient";[0m
+[32m+security.pam.services.vlock.rules.password.sss.enable = false;[0m
+[32m+security.pam.services.vlock.rules.password.systemd_home.enable = false;[0m
+[32m+security.pam.services.vlock.rules.password.zfs_key.enable = false;[0m
+[32m+security.pam.services.vlock.rules.password.gnome_keyring.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.ldap.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.mysql.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.wheel.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.krb5.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.oath.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.p11.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.u2f.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.yubico.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.fprintd.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.rssh.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.kanidm.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.ussh.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.otpw.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.deny.name = "deny";[0m
+[32m+security.pam.services.vlock.rules.auth.deny.enable = true;[0m
+[32m+security.pam.services.vlock.rules.auth.deny.modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_deny.so";[0m
+[32m+security.pam.services.vlock.rules.auth.deny.order = 12400;[0m
+[32m+security.pam.services.vlock.rules.auth.deny.control = "required";[0m
+[32m+security.pam.services.vlock.rules.auth.unix.name = "unix";[0m
+[32m+security.pam.services.vlock.rules.auth.unix.args.".0" = "likeauth";[0m
+[32m+security.pam.services.vlock.rules.auth.unix.args.".1" = "try_first_pass";[0m
+[32m+security.pam.services.vlock.rules.auth.unix.enable = true;[0m
+[32m+security.pam.services.vlock.rules.auth.unix.modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_unix.so";[0m
+[32m+security.pam.services.vlock.rules.auth.unix.settings.nodelay = false;[0m
+[32m+security.pam.services.vlock.rules.auth.unix.settings.nullok = false;[0m
+[32m+security.pam.services.vlock.rules.auth.unix.settings.likeauth = true;[0m
+[32m+security.pam.services.vlock.rules.auth.unix.settings.try_first_pass = true;[0m
+[32m+security.pam.services.vlock.rules.auth.unix.order = 11600;[0m
+[32m+security.pam.services.vlock.rules.auth.unix.control = "sufficient";[0m
+[32m+security.pam.services.vlock.rules.auth.p9.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.sss.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.oslogin_login.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.systemd_home.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.rootok.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.faillock.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.ssh_agent_auth.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.ccreds-validate.enable = false;[0m
+[32m+security.pam.services.vlock.rules.auth.ccreds-store.enable = false;[0m
+[32m+security.pam.services.vlock.rules.account.ldap.enable = false;[0m
+[32m+security.pam.services.vlock.rules.account.mysql.enable = false;[0m
+[32m+security.pam.services.vlock.rules.account.krb5.enable = false;[0m
+[32m+security.pam.services.vlock.rules.account.kanidm.enable = false;[0m
+[32m+security.pam.services.vlock.rules.account.unix.name = "unix";[0m
+[32m+security.pam.services.vlock.rules.account.unix.enable = true;[0m
+[32m+security.pam.services.vlock.rules.account.unix.modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_unix.so";[0m
+[32m+security.pam.services.vlock.rules.account.unix.order = 10900;[0m
+[32m+security.pam.services.vlock.rules.account.unix.control = "required";[0m
+[32m+security.pam.services.vlock.rules.account.sss.enable = false;[0m
+[32m+security.pam.services.vlock.rules.account.oslogin_login.enable = false;[0m
+[32m+security.pam.services.vlock.rules.account.oslogin_admin.enable = false;[0m
+[32m+security.pam.services.vlock.rules.account.systemd_home.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.systemd.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.apparmor.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.ldap.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.mysql.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.ecryptfs.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.env.name = "env";[0m
+[32m+security.pam.services.vlock.rules.session.env.args.".0" = "conffile=/etc/pam/environment";[0m
+[32m+security.pam.services.vlock.rules.session.env.args.".1" = "readenv=0";[0m
+[32m+security.pam.services.vlock.rules.session.env.enable = true;[0m
+[32m+security.pam.services.vlock.rules.session.env.modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_env.so";[0m
+[32m+security.pam.services.vlock.rules.session.env.settings.conffile = "/etc/pam/environment";[0m
+[32m+security.pam.services.vlock.rules.session.env.settings.readenv = 0;[0m
+[32m+security.pam.services.vlock.rules.session.env.order = 10100;[0m
+[32m+security.pam.services.vlock.rules.session.env.control = "required";[0m
+[32m+security.pam.services.vlock.rules.session.gnupg.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.motd.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.xauth.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.krb5.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.mount.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.limits.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.kwallet.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.kanidm.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.intune.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.otpw.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.fscrypt.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.unix.name = "unix";[0m
+[32m+security.pam.services.vlock.rules.session.unix.enable = true;[0m
+[32m+security.pam.services.vlock.rules.session.unix.modulePath = "/nix/store/vrdwlbzr74ibnzcli2yl1nxg9jqmr237-linux-pam-1.6.1/lib/security/pam_unix.so";[0m
+[32m+security.pam.services.vlock.rules.session.unix.order = 10200;[0m
+[32m+security.pam.services.vlock.rules.session.unix.control = "required";[0m
+[32m+security.pam.services.vlock.rules.session.sss.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.systemd_home.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.zfs_key.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.gnome_keyring.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.loginuid.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.tty_audit.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.mkhomedir.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.lastlog.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.fscrypt-skip-systemd.enable = false;[0m
+[32m+security.pam.services.vlock.rules.session.zfs_key-skip-systemd.enable = false;[0m
 [32m+security.pam.services.vlock.setEnvironment = true;[0m
 [32m+security.pam.services.vlock.pamMount = false;[0m
-[32m+security.pam.services.vlock.gnupg = { enable = false; noAutostart = «thunk»; storeOnly = «thunk»; };[0m
+[32m+security.pam.services.vlock.gnupg.enable = false;[0m
 [32m+security.pam.services.vlock.u2fAuth = false;[0m
 [32m+security.pam.services.vlock.rootOK = false;[0m
 [32m+security.pam.services.vlock.forwardXAuth = false;[0m
@@ -1229,21 +1434,21 @@ security.pam.services.login.text =
 [32m+security.pam.services.vlock.unixAuth = true;[0m
 [32m+security.pam.services.vlock.p11Auth = false;[0m
 [32m+security.pam.services.vlock.yubicoAuth = false;[0m
-[32m+security.pam.services.vlock.googleAuthenticator = { allowNullOTP = «thunk»; enable = false; forwardPass = «thunk»; };[0m
+[32m+security.pam.services.vlock.googleAuthenticator.enable = false;[0m
 [32m+security.pam.services.vlock.otpwAuth = false;[0m
 [32m+security.pam.services.vlock.mysqlAuth = false;[0m
 [32m+security.pam.services.vlock.fprintAuth = false;[0m
 [32m+security.pam.services.vlock.oathAuth = false;[0m
-[32m+security.pam.services.vlock.duoSecurity = { enable = false; };[0m
+[32m+security.pam.services.vlock.duoSecurity.enable = false;[0m
 [32m+security.pam.services.vlock.setLoginUid = false;[0m
-[32m+security.pam.services.vlock.ttyAudit = { disablePattern = «thunk»; enable = false; enablePattern = «thunk»; openOnly = «thunk»; };[0m
+[32m+security.pam.services.vlock.ttyAudit.enable = false;[0m
 [32m+security.pam.services.vlock.nodelay = false;[0m
 [32m+security.pam.services.vlock.requireWheel = false;[0m
 [32m+security.pam.services.vlock.limits = [ ];[0m
 [32m+security.pam.services.vlock.enableAppArmor = false;[0m
-[32m+security.pam.services.vlock.kwallet = { enable = false; forceRun = «thunk»; package = «thunk»; };[0m
+[32m+security.pam.services.vlock.kwallet.enable = false;[0m
 [32m+security.pam.services.vlock.enableGnomeKeyring = false;[0m
-[32m+security.pam.services.vlock.failDelay = { delay = «thunk»; enable = false; };[0m
+[32m+security.pam.services.vlock.failDelay.enable = false;[0m
 [32m+security.pam.services.vlock.zfs = false;[0m
 security.pam.services.systemd-user.text =
 [36m  @@ -11,5 +11,5 @@[0m
@@ -1270,7 +1475,6 @@ programs.bash.shellInit =
 [32m+networking.usePredictableInterfaceNames = true;[0m
 [31m-networking.useHostResolvConf = true;[0m
 [32m+networking.useHostResolvConf = false;[0m
-[32m+networking.wlanInterfaces = { };[0m
 [32m+users.users.systemd-timesync.name = "systemd-timesync";[0m
 [32m+users.users.systemd-timesync.description = "";[0m
 [32m+users.users.systemd-timesync.enable = true;[0m
@@ -1305,8 +1509,10 @@ programs.bash.shellInit =
 [32m  [32m'';[0m
 [32m+powerManagement.powerDownCommands = "";[0m
 [32m+powerManagement.cpuFreqGovernor = null;[0m
-[32m+powerManagement.cpufreq = { max = null; min = null; };[0m
-[32m+hardware.block = { defaultScheduler = null; defaultSchedulerExclude = «thunk»; defaultSchedulerRotational = null; scheduler = { }; };[0m
+[32m+powerManagement.cpufreq.min = null;[0m
+[32m+powerManagement.cpufreq.max = null;[0m
+[32m+hardware.block.defaultScheduler = null;[0m
+[32m+hardware.block.defaultSchedulerRotational = null;[0m
 [32m+hardware.enableRedistributableFirmware = false;[0m
 [32m+hardware.wirelessRegulatoryDatabase = false;[0m
 [32m+hardware.firmware = «derivation /nix/store/p7qnjfvcpqpcqnh69xfr1p6r4fchw22q-firmware.drv»;[0m
@@ -1315,24 +1521,24 @@ programs.bash.shellInit =
 [32m+hardware.cpu.intel.sgx.enableDcapCompat = true;[0m
 [32m+hardware.cpu.intel.updateMicrocode = false;[0m
 [32m+hardware.deviceTree.package = null;[0m
-[32m+hardware.digitalbitbox = { enable = false; package = «thunk»; };[0m
-[32m+hardware.gpgSmartcards = { enable = false; };[0m
-[32m+hardware.keyboard.teck = { enable = false; };[0m
-[32m+hardware.keyboard.uhk = { enable = false; };[0m
-[32m+hardware.keyboard.zsa = { enable = false; };[0m
-[32m+hardware.ledger = { enable = false; };[0m
-[32m+hardware.new-lg4ff = { enable = false; };[0m
-[32m+hardware.nitrokey = { enable = false; };[0m
-[32m+hardware.onlykey = { enable = false; };[0m
-[32m+hardware.saleae-logic = { enable = false; package = «thunk»; };[0m
-[32m+hardware.steam-hardware = { enable = false; };[0m
-[32m+hardware.system76.kernel-modules = { enable = false; };[0m
-[32m+hardware.tuxedo-drivers = { enable = false; };[0m
-[32m+hardware.usbStorage = { manageShutdown = false; manageStartStop = «thunk»; };[0m
-[32m+hardware.facetimehd = { enable = false; withCalibration = «thunk»; };[0m
-[32m+hardware.xone = { enable = false; };[0m
-[32m+hardware.xpad-noone = { enable = false; };[0m
-[32m+hardware.xpadneo = { enable = false; };[0m
-[32m+hardware.amdgpu.initrd = { enable = false; };[0m
+[32m+hardware.digitalbitbox.enable = false;[0m
+[32m+hardware.gpgSmartcards.enable = false;[0m
+[32m+hardware.keyboard.teck.enable = false;[0m
+[32m+hardware.keyboard.uhk.enable = false;[0m
+[32m+hardware.keyboard.zsa.enable = false;[0m
+[32m+hardware.ledger.enable = false;[0m
+[32m+hardware.new-lg4ff.enable = false;[0m
+[32m+hardware.nitrokey.enable = false;[0m
+[32m+hardware.onlykey.enable = false;[0m
+[32m+hardware.saleae-logic.enable = false;[0m
+[32m+hardware.steam-hardware.enable = false;[0m
+[32m+hardware.system76.kernel-modules.enable = false;[0m
+[32m+hardware.tuxedo-drivers.enable = false;[0m
+[32m+hardware.usbStorage.manageShutdown = false;[0m
+[32m+hardware.facetimehd.enable = false;[0m
+[32m+hardware.xone.enable = false;[0m
+[32m+hardware.xpad-noone.enable = false;[0m
+[32m+hardware.xpadneo.enable = false;[0m
+[32m+hardware.amdgpu.initrd.enable = false;[0m
 [32m+hardware.firmwareCompression = "zstd";[0m
 [32m+hardware.trackpoint.fakeButtons = false;[0m

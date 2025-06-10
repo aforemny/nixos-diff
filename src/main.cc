@@ -142,7 +142,9 @@ printString(bool printDeletion, Context & ctx, std::ostream & str, Value & v) {
   return str;
 }
 
-std::string serializeValue(bool printDeletion, Context & ctx, Value & v, PrintOptions options) {
+void printAttrs(bool printDeletion, Context & ctx, const std::string & path, Value & v);
+
+std::string serializeScalar(bool printDeletion, Context & ctx, Value & v, PrintOptions options) {
   std::stringstream ss;
   if (v.type() == nix::nString) {
     printString(printDeletion, ctx, ss, v);
@@ -174,33 +176,41 @@ void diffValues(Context & ctx, const std::string & path, Value & v, Value & w) {
   auto wSeen = !seen2.insert(&w).second;
   if (v.type() == nix::nThunk && w.type() == nix::nThunk) {
   } else if (v.type() == nix::nThunk) {
-    printChange(
-      "",
-      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
-    );
+    if (w.type() == nix::nAttrs && !(ctx.state.isDerivation(w))) {
+      printAttrs(false, ctx, path, w);
+    } else {
+      printChange(
+        "",
+        path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
+      );
+    }
   } else if (w.type() == nix::nThunk) {
-    printChange(
-      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
-      ""
-    );
+    if (v.type() == nix::nAttrs && !(ctx.state.isDerivation(v))) {
+      printAttrs(false, ctx, path, v);
+    } else {
+      printChange(
+        path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
+        ""
+      );
+    }
   } else if (v.type() == nix::nAttrs && w.type() == nix::nAttrs && ctx.state.isDerivation(v) && ctx.state.isDerivation(w)) {
     if (!equals(ctx, v, w)) {
       printChange(
-        path + " = " + serializeValue(true, ctx, v, printDrv) + ";",
-        path + " = " + serializeValue(false, ctx, w, printDrv) + ";"
+        path + " = " + serializeScalar(true, ctx, v, printDrv) + ";",
+        path + " = " + serializeScalar(false, ctx, w, printDrv) + ";"
       );
     }
   } else if (vSeen && wSeen) { // TODO
   } else if (vSeen) { // TODO
     /*
     printChange(
-      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
     );*/
   } else if (wSeen) { // TODO
     /*printChange(
-      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
     );*/
   } else if (v.type() == w.type()) {
     switch (v.type()) {
@@ -218,16 +228,16 @@ void diffValues(Context & ctx, const std::string & path, Value & v, Value & w) {
       default:
         if (!equals(ctx, v, w)) {
           printChange(
-            path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
-            path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
+            path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
+            path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
           );
         }
         break;
     }
   } else {
     printChange(
-      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
     );
   }
 }
@@ -294,14 +304,14 @@ void printValue(bool printDeletion, Context & ctx, const std::string & path, Val
   if (v.type() == nix::nThunk) {
   } else if (v.type() == nix::nAttrs && ctx.state.isDerivation(v)) {
     printChange(
-      path + " = " + serializeValue(true, ctx, v, printDrv) + ";",
+      path + " = " + serializeScalar(true, ctx, v, printDrv) + ";",
       ""
     );
   } else if (seen) { // TODO
     /*
     printChange(
-      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
     );*/
   } else if (v.type()) {
     switch (v.type()) {
@@ -315,9 +325,9 @@ void printValue(bool printDeletion, Context & ctx, const std::string & path, Val
         break;
       default:
         if (printDeletion) {
-          printChange(path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";", "");
+          printChange(path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";", "");
         } else {
-          printChange("", path + " = " + serializeValue(false, ctx, v, PrintOptions {}) + ";");
+          printChange("", path + " = " + serializeScalar(false, ctx, v, PrintOptions {}) + ";");
         }
         break;
     }
@@ -325,7 +335,7 @@ void printValue(bool printDeletion, Context & ctx, const std::string & path, Val
 }
 
 bool equals(Context & ctx, Value & v, Value & w) {
-  return serializeValue(true, ctx, v, printDrv) == serializeValue(true, ctx, w, printDrv);
+  return serializeScalar(true, ctx, v, printDrv) == serializeScalar(true, ctx, w, printDrv);
 }
 
 void diffAttrs(Context & ctx, const std::string & path, Value & v, Value & w) {
@@ -362,10 +372,10 @@ void diffLists(Context & ctx, const std::string & path, Value & v, Value & w) {
     diffValues(ctx, appendPath(path, std::format(".{}", i)), *xs[i], *ys[i]);
   }
   for (long unsigned int i = n; i < xs.size(); i++) {
-    printChange(path + "." + std::to_string(i) + " = " + serializeValue(true, ctx, *xs[i], PrintOptions {}) + ";", "");
+    printChange(path + "." + std::to_string(i) + " = " + serializeScalar(true, ctx, *xs[i], PrintOptions {}) + ";", "");
   }
   for (long unsigned int i = n; i < xs.size(); i++) {
-    printChange("", path + "." + std::to_string(i) + " = " + serializeValue(false, ctx, *ys[i], PrintOptions {}) + ";");
+    printChange("", path + "." + std::to_string(i) + " = " + serializeScalar(false, ctx, *ys[i], PrintOptions {}) + ";");
   }
 }
 
@@ -379,8 +389,8 @@ std::vector<std::string> splitLines(const std::string & string) {
 void diffStrings(Context & ctx, const std::string & path, Value & v, Value & w) {
   if (v.string_view().find("\n") == std::string::npos && w.string_view().find("\n") == std::string::npos) {
     printChange(
-      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
     );
     return;
   }
