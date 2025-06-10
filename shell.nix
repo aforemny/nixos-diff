@@ -30,6 +30,7 @@ pkgs.mkShell {
   ];
   buildInputs = [
     pkgs.boost
+    pkgs.dtl
     pkgs.nix
   ];
   shellHook = ''
