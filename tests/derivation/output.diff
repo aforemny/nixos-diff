@@ -24,30 +24,30 @@
 +nixpkgs.buildPlatform.parsed.abi.assertions.".0".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:383:38»;
 -nixpkgs.buildPlatform.parsed.abi.assertions.".1".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:392:23»;
 +nixpkgs.buildPlatform.parsed.abi.assertions.".1".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:389:32»;
-system.activationScripts.etc.text =
+ system.activationScripts.etc.text =
   @@ -1,3 +1,3 @@
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc
-system.activationScripts.script =
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc
+ system.activationScripts.script =
   @@ -85,7 +85,7 @@
-   _localstatus=0
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc
-   
-   
-   if (( _localstatus > 0 )); then
+    _localstatus=0
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc
+    
+    
+    if (( _localstatus > 0 )); then
 -system.build.etc = «derivation /nix/store/rpqq8zma4a00r9myjg9hjyb8anas25ys-etc.drv»;
 +system.build.etc = «derivation /nix/store/64m80qagz8rdvsc82jdh2zxj973faqip-etc.drv»;
-system.build.etcActivationCommands =
+ system.build.etcActivationCommands =
   @@ -1,3 +1,3 @@
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc
 -system.build.nixos-rebuild = «derivation /nix/store/0jqhz3qidd76q8mhrg61ibgp4qq01j4c-nixos-rebuild.drv»;
 +system.build.nixos-rebuild = «derivation /nix/store/k9nyxcb2w94vpq6xxkr407y16h5r296j-nixos-rebuild.drv»;
 -system.build.toplevel = «derivation /nix/store/mbhbch31vcfkkralgb1wmsgdajridg59-nixos-system-nixos-25.05pre-git.drv»;
@@ -56,41 +56,41 @@ system.build.etcActivationCommands =
 +system.modulesTree = «derivation /nix/store/r6pvcksxsi55x3g1mc7wx9911s0l03a7-linux-6.13.5-modules.drv»;
 -system.path = «derivation /nix/store/3slnvnz6zi14g3bypvn6zlh7mda2gn71-system-path.drv»;
 +system.path = «derivation /nix/store/zy95cw88aybzif1ff33jj5fkh12h1l75-system-path.drv»;
-system.systemBuilderArgs.activationScript =
+ system.systemBuilderArgs.activationScript =
   @@ -85,7 +85,7 @@
-   _localstatus=0
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc
-   
-   
-   if (( _localstatus > 0 )); then
-system.systemBuilderCommands =
+    _localstatus=0
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc
+    
+    
+    if (( _localstatus > 0 )); then
+ system.systemBuilderCommands =
   @@ -1,18 +1,18 @@
-   echo -n "$configurationName" > $out/configuration-name
-   
-  -if [ ! -f /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage ]; then
-  +if [ ! -f /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage ]; then
-     echo "The bootloader cannot find the proper kernel image."
-  -  echo "(Expecting /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage)"
-  +  echo "(Expecting /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage)"
-     false
-   fi
-   
-  -ln -s /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage $out/kernel
-  -ln -s /nix/store/f2f9313ixbdw03j2dswlzzzmlan3abmp-linux-6.12.17-modules $out/kernel-modules
-  +ln -s /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage $out/kernel
-  +ln -s /nix/store/yzj1bdyn4623wrrcb7dv9wgmjwliycdj-linux-6.13.5-modules $out/kernel-modules
-   
-   
-   echo -n "$kernelParams" > $out/kernel-params
-   
-  -ln -s /nix/store/45ppcs5bqgarvdhv0zxyc3yv45clff99-initrd-linux-6.12.17/initrd $out/initrd
-  +ln -s /nix/store/zbilr7yhg08d6gf659rw65fr60bh76f0-initrd-linux-6.13.5/initrd $out/initrd
-   
-   ln -s /nix/store/cklbqqac8fh2z6a4pczfhqs2nxzvgqii-append-initrd-secrets/bin/append-initrd-secrets $out
-   
+    echo -n "$configurationName" > $out/configuration-name
+    
+   -if [ ! -f /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage ]; then
+   +if [ ! -f /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage ]; then
+      echo "The bootloader cannot find the proper kernel image."
+   -  echo "(Expecting /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage)"
+   +  echo "(Expecting /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage)"
+      false
+    fi
+    
+   -ln -s /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage $out/kernel
+   -ln -s /nix/store/f2f9313ixbdw03j2dswlzzzmlan3abmp-linux-6.12.17-modules $out/kernel-modules
+   +ln -s /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage $out/kernel
+   +ln -s /nix/store/yzj1bdyn4623wrrcb7dv9wgmjwliycdj-linux-6.13.5-modules $out/kernel-modules
+    
+    
+    echo -n "$kernelParams" > $out/kernel-params
+    
+   -ln -s /nix/store/45ppcs5bqgarvdhv0zxyc3yv45clff99-initrd-linux-6.12.17/initrd $out/initrd
+   +ln -s /nix/store/zbilr7yhg08d6gf659rw65fr60bh76f0-initrd-linux-6.13.5/initrd $out/initrd
+    
+    ln -s /nix/store/cklbqqac8fh2z6a4pczfhqs2nxzvgqii-append-initrd-secrets/bin/append-initrd-secrets $out
+    
 -systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus";
 +systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus";
 -systemd.services.nix-daemon.environment.PATH = "/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/bin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/bin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/sbin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/sbin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
@@ -105,73 +105,73 @@ system.systemBuilderCommands =
 +systemd.services.nix-optimise.serviceConfig.ExecStart = "/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/bin/nix-store --optimise";
 -systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup";
 +systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/27fyywcb1jjjracn7anxjrxym16v1dlj-X-Restart-Triggers-systemd-tmpfiles-resetup";
-systemd.units."dbus.service".text =
+ systemd.units."dbus.service".text =
   @@ -1,5 +1,5 @@
-   [Unit]
-  -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus
-  +X-Restart-Triggers=/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus
-   
-   [Service]
-   Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"
+    [Unit]
+   -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus
+   +X-Restart-Triggers=/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus
+    
+    [Service]
+    Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"
 -systemd.units."dbus.service".unit = «derivation /nix/store/3iaw323fxgmsya05ipdkdxf67n1b8jqw-unit-dbus.service.drv»;
 +systemd.units."dbus.service".unit = «derivation /nix/store/zcl6kk6y4g43qpyxs3lnl17l9kw0kgay-unit-dbus.service.drv»;
-systemd.units."nix-daemon.service".text =
+ systemd.units."nix-daemon.service".text =
   @@ -1,11 +1,11 @@
-   [Unit]
-   RequiresMountsFor=/nix/store
-  -X-Restart-Triggers=/nix/store/dkn8kz8firgsl8mkq89s14j6xdsi4df9-X-Restart-Triggers-nix-daemon
-  +X-Restart-Triggers=/nix/store/i4b9vlqm54whvsiq1j3jspbzywwx2mjc-X-Restart-Triggers-nix-daemon
-   
-   [Service]
-   Environment="CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt"
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  -Environment="PATH=/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/bin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/bin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/sbin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/sbin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  +Environment="PATH=/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/bin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/bin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/sbin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/sbin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-   Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
-   X-StopIfChanged=false
-   CPUSchedulingPolicy=other
+    [Unit]
+    RequiresMountsFor=/nix/store
+   -X-Restart-Triggers=/nix/store/dkn8kz8firgsl8mkq89s14j6xdsi4df9-X-Restart-Triggers-nix-daemon
+   +X-Restart-Triggers=/nix/store/i4b9vlqm54whvsiq1j3jspbzywwx2mjc-X-Restart-Triggers-nix-daemon
+    
+    [Service]
+    Environment="CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt"
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+   -Environment="PATH=/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/bin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/bin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/sbin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/sbin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
+   +Environment="PATH=/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/bin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/bin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/sbin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/sbin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
+    Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+    X-StopIfChanged=false
+    CPUSchedulingPolicy=other
 -systemd.units."nix-daemon.service".unit = «derivation /nix/store/fg6nlkzlcgfi7c8vrnyji251sff38lqn-unit-nix-daemon.service.drv»;
 +systemd.units."nix-daemon.service".unit = «derivation /nix/store/rhp2v5c5h4qkc57aal4phpk4bhzhbr9c-unit-nix-daemon.service.drv»;
-systemd.units."nix-gc.service".text =
+ systemd.units."nix-gc.service".text =
   @@ -5,5 +5,5 @@
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-   Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-   Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
-  -ExecStart=/nix/store/glja3yyf4phdn3shrpdms27cr57czzj5-unit-script-nix-gc-start/bin/nix-gc-start 
-  +ExecStart=/nix/store/b3g4qgx8qil6zsakmq8ycbn6hmscsf3h-unit-script-nix-gc-start/bin/nix-gc-start 
-   Type=oneshot
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
+    Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+   -ExecStart=/nix/store/glja3yyf4phdn3shrpdms27cr57czzj5-unit-script-nix-gc-start/bin/nix-gc-start 
+   +ExecStart=/nix/store/b3g4qgx8qil6zsakmq8ycbn6hmscsf3h-unit-script-nix-gc-start/bin/nix-gc-start 
+    Type=oneshot
 -systemd.units."nix-gc.service".unit = «derivation /nix/store/9w3h47m0wrpa7khps04alqzfcddvc4a8-unit-nix-gc.service.drv»;
 +systemd.units."nix-gc.service".unit = «derivation /nix/store/yjvpzx853q0av5k2mcr5f8z9swh55pr7-unit-nix-gc.service.drv»;
-systemd.units."nix-optimise.service".text =
+ systemd.units."nix-optimise.service".text =
   @@ -6,4 +6,4 @@
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-   Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-   Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
-  -ExecStart=/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/bin/nix-store --optimise
-  +ExecStart=/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/bin/nix-store --optimise
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
+    Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+   -ExecStart=/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/bin/nix-store --optimise
+   +ExecStart=/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/bin/nix-store --optimise
 -systemd.units."nix-optimise.service".unit = «derivation /nix/store/bd1v6xg9dzsli3w1jbabw4k4xbchap8c-unit-nix-optimise.service.drv»;
 +systemd.units."nix-optimise.service".unit = «derivation /nix/store/638qsjl22dc43fvxq1wzkmqq7nygs923-unit-nix-optimise.service.drv»;
-systemd.units."systemd-tmpfiles-resetup.service".text =
+ systemd.units."systemd-tmpfiles-resetup.service".text =
   @@ -4,7 +4,7 @@
-   Conflicts=shutdown.target
-   DefaultDependencies=false
-   Description=Re-setup tmpfiles on a system that is already running.
-  -X-Restart-Triggers=/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup
-  +X-Restart-Triggers=/nix/store/27fyywcb1jjjracn7anxjrxym16v1dlj-X-Restart-Triggers-systemd-tmpfiles-resetup
-   
-   [Service]
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    Conflicts=shutdown.target
+    DefaultDependencies=false
+    Description=Re-setup tmpfiles on a system that is already running.
+   -X-Restart-Triggers=/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup
+   +X-Restart-Triggers=/nix/store/27fyywcb1jjjracn7anxjrxym16v1dlj-X-Restart-Triggers-systemd-tmpfiles-resetup
+    
+    [Service]
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 -systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/bn6i45626y1iz7qaqjwgg08xps1iga94-unit-systemd-tmpfiles-resetup.service.drv»;
 +systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/r6s3ipqh0cmch6gxm2n622b7cp6j7l16-unit-systemd-tmpfiles-resetup.service.drv»;
 -systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus";
 +systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus";
-systemd.user.units."dbus.service".text =
+ systemd.user.units."dbus.service".text =
   @@ -1,5 +1,5 @@
-   [Unit]
-  -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus
-  +X-Restart-Triggers=/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus
-   
-   [Service]
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    [Unit]
+   -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus
+   +X-Restart-Triggers=/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus
+    
+    [Service]
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 -systemd.user.units."dbus.service".unit = «derivation /nix/store/1aqkrx0srdifca00b8nhz74wwcvw4l4j-unit-dbus.service.drv»;
 +systemd.user.units."dbus.service".unit = «derivation /nix/store/f8jl8yh39hd4pw0b0bpm3bb0qhpjkhlj-unit-dbus.service.drv»;

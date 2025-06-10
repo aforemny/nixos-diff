@@ -67,89 +67,89 @@
 +services.nginx.typesHashMaxSize = 2688;
 +services.nginx.user = "nginx";
 +services.nginx.validateConfigFile = true;
-system.activationScripts.etc.text =
+ system.activationScripts.etc.text =
   @@ -1,3 +1,3 @@
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
-system.activationScripts.script =
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
+ system.activationScripts.script =
   @@ -43,7 +43,7 @@
-   install -m 0755 -d /home
-   
-   /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
-  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
-   
-   
-   if (( _localstatus > 0 )); then
+    install -m 0755 -d /home
+    
+    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
+   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
+   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
+    
+    
+    if (( _localstatus > 0 )); then
   @@ -85,7 +85,7 @@
-   _localstatus=0
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
-   
-   
-   if (( _localstatus > 0 )); then
-system.activationScripts.users.text =
+    _localstatus=0
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
+    
+    
+    if (( _localstatus > 0 )); then
+ system.activationScripts.users.text =
   @@ -2,4 +2,4 @@
-   install -m 0755 -d /home
-   
-   /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
-  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
+    install -m 0755 -d /home
+    
+    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
+   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
+   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
 -system.build.etc = «derivation /nix/store/rpqq8zma4a00r9myjg9hjyb8anas25ys-etc.drv»;
 +system.build.etc = «derivation /nix/store/62djh7xwp1499pcpqqd5l3cywgmg7rms-etc.drv»;
-system.build.etcActivationCommands =
+ system.build.etcActivationCommands =
   @@ -1,3 +1,3 @@
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
 -system.build.toplevel = «derivation /nix/store/mbhbch31vcfkkralgb1wmsgdajridg59-nixos-system-nixos-25.05pre-git.drv»;
 +system.build.toplevel = «derivation /nix/store/skmz9hzb2r9sfsgrizyzxy0nq7dkxp7q-nixos-system-nixos-25.05pre-git.drv»;
-system.dryActivationScript =
+ system.dryActivationScript =
   @@ -23,7 +23,7 @@
-   install -m 0755 -d /home
-   
-   /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
-  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
-   
-   
-   if (( _localstatus > 0 )); then
+    install -m 0755 -d /home
+    
+    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
+   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
+   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
+    
+    
+    if (( _localstatus > 0 )); then
 -system.path = «derivation /nix/store/3slnvnz6zi14g3bypvn6zlh7mda2gn71-system-path.drv»;
 +system.path = «derivation /nix/store/487icv1k4cbdm9npyp2ypcz73p2r5bap-system-path.drv»;
-system.systemBuilderArgs.activationScript =
+ system.systemBuilderArgs.activationScript =
   @@ -43,7 +43,7 @@
-   install -m 0755 -d /home
-   
-   /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
-  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
-   
-   
-   if (( _localstatus > 0 )); then
+    install -m 0755 -d /home
+    
+    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
+   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
+   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
+    
+    
+    if (( _localstatus > 0 )); then
   @@ -85,7 +85,7 @@
-   _localstatus=0
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
-   
-   
-   if (( _localstatus > 0 )); then
-system.systemBuilderArgs.dryActivationScript =
+    _localstatus=0
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
+    
+    
+    if (( _localstatus > 0 )); then
+ system.systemBuilderArgs.dryActivationScript =
   @@ -23,7 +23,7 @@
-   install -m 0755 -d /home
-   
-   /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
-  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
-   
-   
-   if (( _localstatus > 0 )); then
+    install -m 0755 -d /home
+    
+    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
+   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
+   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
+    
+    
+    if (( _localstatus > 0 )); then
 -systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus";
 +systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus";
 -systemd.services.logrotate.serviceConfig.ExecStart = "/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf";
@@ -235,38 +235,38 @@ system.systemBuilderArgs.dryActivationScript =
 +systemd.services.systemd-modules-load.unitConfig.X-Restart-Triggers = "/nix/store/39sylabj32src93hyap5nb93vs53k60l-X-Restart-Triggers-systemd-modules-load";
 -systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup";
 +systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/n0mc1r9v3l70lr46jam9mcr5d3i9w5jz-X-Restart-Triggers-systemd-tmpfiles-resetup";
-systemd.units."dbus.service".text =
+ systemd.units."dbus.service".text =
   @@ -1,5 +1,5 @@
-   [Unit]
-  -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus
-  +X-Restart-Triggers=/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus
-   
-   [Service]
-   Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"
+    [Unit]
+   -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus
+   +X-Restart-Triggers=/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus
+    
+    [Service]
+    Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"
 -systemd.units."dbus.service".unit = «derivation /nix/store/3iaw323fxgmsya05ipdkdxf67n1b8jqw-unit-dbus.service.drv»;
 +systemd.units."dbus.service".unit = «derivation /nix/store/kzbcn31rq6yr4n0ag8aijpx1msqjx70y-unit-dbus.service.drv»;
-systemd.units."logrotate-checkconf.service".text =
+ systemd.units."logrotate-checkconf.service".text =
   @@ -5,7 +5,7 @@
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-   Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-   Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
-  -ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf
-  +ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf
-   RemainAfterExit=true
-   Type=oneshot
-   
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
+    Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+   -ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf
+   +ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf
+    RemainAfterExit=true
+    Type=oneshot
+    
 -systemd.units."logrotate-checkconf.service".unit = «derivation /nix/store/2ysmfrglj378m5l61scr0xhshb8szc50-unit-logrotate-checkconf.service.drv»;
 +systemd.units."logrotate-checkconf.service".unit = «derivation /nix/store/pglfvnl55dz19fq9q2sxs2xc03spqsrs-unit-logrotate-checkconf.service.drv»;
-systemd.units."logrotate.service".text =
+ systemd.units."logrotate.service".text =
   @@ -13,7 +13,7 @@
-   CapabilityBoundingSet=CAP_SETUID
-   CapabilityBoundingSet=CAP_SETGID
-   DevicePolicy=closed
-  -ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf
-  +ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf
-   IOSchedulingClass=best-effort
-   IOSchedulingPriority=7
-   LockPersonality=true
+    CapabilityBoundingSet=CAP_SETUID
+    CapabilityBoundingSet=CAP_SETGID
+    DevicePolicy=closed
+   -ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf
+   +ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf
+    IOSchedulingClass=best-effort
+    IOSchedulingPriority=7
+    LockPersonality=true
 -systemd.units."logrotate.service".unit = «derivation /nix/store/3g0pbp0a8pr1mrmjmrz5gj6v257rfk4s-unit-logrotate.service.drv»;
 +systemd.units."logrotate.service".unit = «derivation /nix/store/86qvs6chbvbmly2paww6m9cg4sdp9932-unit-logrotate.service.drv»;
 +systemd.units."nginx.service".enable = true;
@@ -332,38 +332,38 @@ systemd.units."logrotate.service".text =
   '';
 +systemd.units."nginx.service".overrideStrategy = "asDropinIfExists";
 -systemd.units."nginx.service".unit = «derivation /nix/store/a0cfc5g7pan0rvzgx8f7bq9j24i0icsw-unit-nginx.service.drv»;
-systemd.units."systemd-modules-load.service".text =
+ systemd.units."systemd-modules-load.service".text =
   @@ -1,5 +1,5 @@
-   [Unit]
-  -X-Restart-Triggers=/nix/store/59xapk2kwf2k3v402mi3zd08ll8yvm74-X-Restart-Triggers-systemd-modules-load
-  +X-Restart-Triggers=/nix/store/39sylabj32src93hyap5nb93vs53k60l-X-Restart-Triggers-systemd-modules-load
-   
-   [Service]
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    [Unit]
+   -X-Restart-Triggers=/nix/store/59xapk2kwf2k3v402mi3zd08ll8yvm74-X-Restart-Triggers-systemd-modules-load
+   +X-Restart-Triggers=/nix/store/39sylabj32src93hyap5nb93vs53k60l-X-Restart-Triggers-systemd-modules-load
+    
+    [Service]
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 -systemd.units."systemd-modules-load.service".unit = «derivation /nix/store/64m4nd9ypp6503xq2x1xzmbgsjpskm9v-unit-systemd-modules-load.service.drv»;
 +systemd.units."systemd-modules-load.service".unit = «derivation /nix/store/cnycycfc8100a5s2jnbinqmkbg7klssi-unit-systemd-modules-load.service.drv»;
-systemd.units."systemd-tmpfiles-resetup.service".text =
+ systemd.units."systemd-tmpfiles-resetup.service".text =
   @@ -4,7 +4,7 @@
-   Conflicts=shutdown.target
-   DefaultDependencies=false
-   Description=Re-setup tmpfiles on a system that is already running.
-  -X-Restart-Triggers=/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup
-  +X-Restart-Triggers=/nix/store/n0mc1r9v3l70lr46jam9mcr5d3i9w5jz-X-Restart-Triggers-systemd-tmpfiles-resetup
-   
-   [Service]
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    Conflicts=shutdown.target
+    DefaultDependencies=false
+    Description=Re-setup tmpfiles on a system that is already running.
+   -X-Restart-Triggers=/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup
+   +X-Restart-Triggers=/nix/store/n0mc1r9v3l70lr46jam9mcr5d3i9w5jz-X-Restart-Triggers-systemd-tmpfiles-resetup
+    
+    [Service]
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 -systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/bn6i45626y1iz7qaqjwgg08xps1iga94-unit-systemd-tmpfiles-resetup.service.drv»;
 +systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/wk04jq381v4ffifazv2i9gf8y751agc2-unit-systemd-tmpfiles-resetup.service.drv»;
 -systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus";
 +systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus";
-systemd.user.units."dbus.service".text =
+ systemd.user.units."dbus.service".text =
   @@ -1,5 +1,5 @@
-   [Unit]
-  -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus
-  +X-Restart-Triggers=/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus
-   
-   [Service]
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    [Unit]
+   -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus
+   +X-Restart-Triggers=/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus
+    
+    [Service]
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 -systemd.user.units."dbus.service".unit = «derivation /nix/store/1aqkrx0srdifca00b8nhz74wwcvw4l4j-unit-dbus.service.drv»;
 +systemd.user.units."dbus.service".unit = «derivation /nix/store/d22mqgwxylvxaw4bqyx34sfsl6q6b33q-unit-dbus.service.drv»;
 +users.groups.nginx.name = "nginx";

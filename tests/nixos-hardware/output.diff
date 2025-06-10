@@ -42,26 +42,26 @@
 +environment.etc."modprobe.d/firmware.conf".text = "options firmware_class path=/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware";
 -environment.etc."modprobe.d/nixos.conf".source = «derivation /nix/store/xkb571326azgm1zyxdnd4x6y2w3qyb1k-etc-modprobe.d-nixos.conf.drv»;
 +environment.etc."modprobe.d/nixos.conf".source = «derivation /nix/store/ypy83xkyvnkxdkbx3n9vc5ja26m8rpmy-etc-modprobe.d-nixos.conf.drv»;
-environment.etc."modprobe.d/nixos.conf".text =
+ environment.etc."modprobe.d/nixos.conf".text =
   @@ -1,4 +1,3 @@
-  -blacklist ath3k
-   blacklist nouveau
-   blacklist nvidiafb
-   
+   -blacklist ath3k
+    blacklist nouveau
+    blacklist nvidiafb
+    
 -environment.etc."modules-load.d/nixos.conf".source = «derivation /nix/store/pw6j23kq61zx8infvjnd0zm2p8kfg86q-nixos.conf.drv»;
 +environment.etc."modules-load.d/nixos.conf".source = «derivation /nix/store/6qznh8q0k3b560xxr78fvs0v9bgy7kas-nixos.conf.drv»;
 -environment.etc."nsswitch.conf".source = «derivation /nix/store/pdqbcm5q5z6984qs0iq2xid6mv8xchix-etc-nsswitch.conf.drv»;
 +environment.etc."nsswitch.conf".source = «derivation /nix/store/6qa3yd8j4v76ndyyg6gv6630bq4g0sb2-etc-nsswitch.conf.drv»;
-environment.etc."nsswitch.conf".text =
+ environment.etc."nsswitch.conf".text =
   @@ -3,7 +3,7 @@
-   shadow:    files
-   sudoers:   files
-   
-  -hosts:     mymachines files myhostname dns
-  +hosts:     mymachines resolve [!UNAVAIL=return] files myhostname dns
-   networks:  files
-   
-   ethers:    files
+    shadow:    files
+    sudoers:   files
+    
+   -hosts:     mymachines files myhostname dns
+   +hosts:     mymachines resolve [!UNAVAIL=return] files myhostname dns
+    networks:  files
+    
+    ethers:    files
 -environment.etc."pam.d/chfn".source = «derivation /nix/store/yp1yhrfxjqn778mk8r4yjgz15wy2vcv0-chfn.pam.drv»;
 +environment.etc."pam.d/chfn".source = «derivation /nix/store/xk9pl50szs208d2zj5rb7fbbc64l189f-chfn.pam.drv»;
 -environment.etc."pam.d/chpasswd".source = «derivation /nix/store/51hwiyhb088fx5x2drkdlq13h3hnzz5k-chpasswd.pam.drv»;
@@ -117,20 +117,20 @@ environment.etc."nsswitch.conf".text =
 +environment.etc."resolv.conf".user = "+0";
 -environment.etc."resolvconf.conf".source = «derivation /nix/store/6fdjwwpaqv7h7839i4i68xiq7qcp3ilx-etc-resolvconf.conf.drv»;
 +environment.etc."resolvconf.conf".source = «derivation /nix/store/nfmjjrz74xk8sj65403ha92xap02gwhp-etc-resolvconf.conf.drv»;
-environment.etc."resolvconf.conf".text =
+ environment.etc."resolvconf.conf".text =
   @@ -1,9 +1,3 @@
-  -# This is the default, but we must set it here to prevent
-  -# a collision with an apparently unrelated environment
-  -# variable with the same name exported by dhcpcd.
-  -interface_order='lo lo[0-9]*'
-  -# Invalidate the nscd cache whenever resolv.conf is
-  -# regenerated.
-  -libc_restart='/run/current-system/systemd/bin/systemctl try-restart --no-block nscd.service 2> /dev/null'
-  -# Options as described in resolv.conf(5)
-  -resolv_conf_options='edns0'
-  +echo "resolvconf is disabled on this system but was used anyway:" >&2
-  +echo "$0 $*" >&2
-  +exit 1
+   -# This is the default, but we must set it here to prevent
+   -# a collision with an apparently unrelated environment
+   -# variable with the same name exported by dhcpcd.
+   -interface_order='lo lo[0-9]*'
+   -# Invalidate the nscd cache whenever resolv.conf is
+   -# regenerated.
+   -libc_restart='/run/current-system/systemd/bin/systemctl try-restart --no-block nscd.service 2> /dev/null'
+   -# Options as described in resolv.conf(5)
+   -resolv_conf_options='edns0'
+   +echo "resolvconf is disabled on this system but was used anyway:" >&2
+   +echo "$0 $*" >&2
+   +exit 1
 +environment.etc."systemd/network/99-ethernet-default-dhcp.network".enable = true;
 +environment.etc."systemd/network/99-ethernet-default-dhcp.network".source = "/nix/store/42rm219l5zssd9ddv5cf7sy1iqr9bsf6-unit-99-ethernet-default-dhcp.network/99-ethernet-default-dhcp.network";
 +environment.etc."systemd/network/99-ethernet-default-dhcp.network".mode = "symlink";
@@ -3648,10 +3648,10 @@ environment.etc."resolvconf.conf".text =
 +nixpkgs.buildPlatform.parsed.abi.assertions.".1".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:109:1»;
 -nixpkgs.config.allowUnfreePredicate = «lambda allowUnfreePredicate @ /nix/store/zhp2xwfxcgkxqswn760cc0snivd4wzbx-source/config1.nix:13:43»;
 +nixpkgs.config.allowUnfreePredicate = «lambda allowUnfreePredicate @ /nix/store/zhp2xwfxcgkxqswn760cc0snivd4wzbx-source/config2.nix:14:43»;
-powerManagement.resumeCommands =
+ powerManagement.resumeCommands =
   @@ -1,2 +1,0 @@
-  -# Tell dhcpcd to rebind its interfaces if it's running.
-  -/run/current-system/systemd/bin/systemctl reload dhcpcd.service
+   -# Tell dhcpcd to rebind its interfaces if it's running.
+   -/run/current-system/systemd/bin/systemctl reload dhcpcd.service
 -security.pam.services.chfn.fprintAuth = false;
 +security.pam.services.chfn.fprintAuth = true;
 +security.pam.services.chfn.rules.auth.fprintd.args = [ ];
@@ -3661,15 +3661,15 @@ powerManagement.resumeCommands =
 +security.pam.services.chfn.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.chfn.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.chfn.rules.auth.fprintd.order = 11400;
-security.pam.services.chfn.text =
+ security.pam.services.chfn.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.chpasswd.fprintAuth = false;
 +security.pam.services.chpasswd.fprintAuth = true;
 +security.pam.services.chpasswd.rules.auth.fprintd.args = [ ];
@@ -3679,15 +3679,15 @@ security.pam.services.chfn.text =
 +security.pam.services.chpasswd.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.chpasswd.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.chpasswd.rules.auth.fprintd.order = 11400;
-security.pam.services.chpasswd.text =
+ security.pam.services.chpasswd.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.chsh.fprintAuth = false;
 +security.pam.services.chsh.fprintAuth = true;
 +security.pam.services.chsh.rules.auth.fprintd.args = [ ];
@@ -3697,15 +3697,15 @@ security.pam.services.chpasswd.text =
 +security.pam.services.chsh.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.chsh.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.chsh.rules.auth.fprintd.order = 11400;
-security.pam.services.chsh.text =
+ security.pam.services.chsh.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.groupadd.fprintAuth = false;
 +security.pam.services.groupadd.fprintAuth = true;
 +security.pam.services.groupadd.rules.auth.fprintd.args = [ ];
@@ -3715,15 +3715,15 @@ security.pam.services.chsh.text =
 +security.pam.services.groupadd.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.groupadd.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.groupadd.rules.auth.fprintd.order = 11400;
-security.pam.services.groupadd.text =
+ security.pam.services.groupadd.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.groupdel.fprintAuth = false;
 +security.pam.services.groupdel.fprintAuth = true;
 +security.pam.services.groupdel.rules.auth.fprintd.args = [ ];
@@ -3733,15 +3733,15 @@ security.pam.services.groupadd.text =
 +security.pam.services.groupdel.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.groupdel.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.groupdel.rules.auth.fprintd.order = 11400;
-security.pam.services.groupdel.text =
+ security.pam.services.groupdel.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.groupmems.fprintAuth = false;
 +security.pam.services.groupmems.fprintAuth = true;
 +security.pam.services.groupmems.rules.auth.fprintd.args = [ ];
@@ -3751,15 +3751,15 @@ security.pam.services.groupdel.text =
 +security.pam.services.groupmems.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.groupmems.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.groupmems.rules.auth.fprintd.order = 11400;
-security.pam.services.groupmems.text =
+ security.pam.services.groupmems.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.groupmod.fprintAuth = false;
 +security.pam.services.groupmod.fprintAuth = true;
 +security.pam.services.groupmod.rules.auth.fprintd.args = [ ];
@@ -3769,15 +3769,15 @@ security.pam.services.groupmems.text =
 +security.pam.services.groupmod.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.groupmod.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.groupmod.rules.auth.fprintd.order = 11400;
-security.pam.services.groupmod.text =
+ security.pam.services.groupmod.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.i3lock.fprintAuth = false;
 +security.pam.services.i3lock.fprintAuth = true;
 +security.pam.services.i3lock.rules.auth.fprintd.args = [ ];
@@ -3787,15 +3787,15 @@ security.pam.services.groupmod.text =
 +security.pam.services.i3lock.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.i3lock.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.i3lock.rules.auth.fprintd.order = 11400;
-security.pam.services.i3lock.text =
+ security.pam.services.i3lock.text =
   @@ -2,6 +2,7 @@
-   account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
-   
-   # Authentication management.
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    
+    # Authentication management.
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.i3lock-color.fprintAuth = false;
 +security.pam.services.i3lock-color.fprintAuth = true;
 +security.pam.services.i3lock-color.rules.auth.fprintd.args = [ ];
@@ -3805,15 +3805,15 @@ security.pam.services.i3lock.text =
 +security.pam.services.i3lock-color.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.i3lock-color.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.i3lock-color.rules.auth.fprintd.order = 11400;
-security.pam.services.i3lock-color.text =
+ security.pam.services.i3lock-color.text =
   @@ -2,6 +2,7 @@
-   account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
-   
-   # Authentication management.
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    
+    # Authentication management.
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.login.fprintAuth = false;
 +security.pam.services.login.fprintAuth = true;
 +security.pam.services.login.rules.auth.fprintd.args = [ ];
@@ -3823,15 +3823,15 @@ security.pam.services.i3lock-color.text =
 +security.pam.services.login.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.login.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.login.rules.auth.fprintd.order = 11400;
-security.pam.services.login.text =
+ security.pam.services.login.text =
   @@ -2,6 +2,7 @@
-   account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
-   
-   # Authentication management.
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth nullok try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    
+    # Authentication management.
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth nullok try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.passwd.fprintAuth = false;
 +security.pam.services.passwd.fprintAuth = true;
 +security.pam.services.passwd.rules.auth.fprintd.args = [ ];
@@ -3841,15 +3841,15 @@ security.pam.services.login.text =
 +security.pam.services.passwd.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.passwd.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.passwd.rules.auth.fprintd.order = 11400;
-security.pam.services.passwd.text =
+ security.pam.services.passwd.text =
   @@ -2,6 +2,7 @@
-   account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
-   
-   # Authentication management.
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    
+    # Authentication management.
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.runuser.fprintAuth = false;
 +security.pam.services.runuser.fprintAuth = true;
 +security.pam.services.runuser.rules.auth.fprintd.args = [ ];
@@ -3859,15 +3859,15 @@ security.pam.services.passwd.text =
 +security.pam.services.runuser.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.runuser.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.runuser.rules.auth.fprintd.order = 11400;
-security.pam.services.runuser.text =
+ security.pam.services.runuser.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
-   # Password management.
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
+    # Password management.
 -security.pam.services.runuser-l.fprintAuth = false;
 +security.pam.services.runuser-l.fprintAuth = true;
 +security.pam.services.runuser-l.rules.auth.fprintd.args = [ ];
@@ -3877,15 +3877,15 @@ security.pam.services.runuser.text =
 +security.pam.services.runuser-l.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.runuser-l.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.runuser-l.rules.auth.fprintd.order = 11400;
-security.pam.services.runuser-l.text =
+ security.pam.services.runuser-l.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
-   # Password management.
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
+    # Password management.
 -security.pam.services.su.fprintAuth = false;
 +security.pam.services.su.fprintAuth = true;
 +security.pam.services.su.rules.auth.fprintd.args = [ ];
@@ -3895,15 +3895,15 @@ security.pam.services.runuser-l.text =
 +security.pam.services.su.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.su.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.su.rules.auth.fprintd.order = 11400;
-security.pam.services.su.text =
+ security.pam.services.su.text =
   @@ -4,6 +4,7 @@
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_faillock.so # faillock (order 10400)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_faillock.so # faillock (order 10400)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.sudo.fprintAuth = false;
 +security.pam.services.sudo.fprintAuth = true;
 +security.pam.services.sudo.rules.auth.fprintd.args = [ ];
@@ -3913,15 +3913,15 @@ security.pam.services.su.text =
 +security.pam.services.sudo.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.sudo.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.sudo.rules.auth.fprintd.order = 11400;
-security.pam.services.sudo.text =
+ security.pam.services.sudo.text =
   @@ -2,6 +2,7 @@
-   account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
-   
-   # Authentication management.
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    
+    # Authentication management.
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.systemd-user.fprintAuth = false;
 +security.pam.services.systemd-user.fprintAuth = true;
 +security.pam.services.systemd-user.rules.auth.fprintd.args = [ ];
@@ -3931,15 +3931,15 @@ security.pam.services.sudo.text =
 +security.pam.services.systemd-user.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.systemd-user.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.systemd-user.rules.auth.fprintd.order = 11400;
-security.pam.services.systemd-user.text =
+ security.pam.services.systemd-user.text =
   @@ -2,6 +2,7 @@
-   account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
-   
-   # Authentication management.
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    
+    # Authentication management.
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.useradd.fprintAuth = false;
 +security.pam.services.useradd.fprintAuth = true;
 +security.pam.services.useradd.rules.auth.fprintd.args = [ ];
@@ -3949,15 +3949,15 @@ security.pam.services.systemd-user.text =
 +security.pam.services.useradd.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.useradd.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.useradd.rules.auth.fprintd.order = 11400;
-security.pam.services.useradd.text =
+ security.pam.services.useradd.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.userdel.fprintAuth = false;
 +security.pam.services.userdel.fprintAuth = true;
 +security.pam.services.userdel.rules.auth.fprintd.args = [ ];
@@ -3967,15 +3967,15 @@ security.pam.services.useradd.text =
 +security.pam.services.userdel.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.userdel.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.userdel.rules.auth.fprintd.order = 11400;
-security.pam.services.userdel.text =
+ security.pam.services.userdel.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.usermod.fprintAuth = false;
 +security.pam.services.usermod.fprintAuth = true;
 +security.pam.services.usermod.rules.auth.fprintd.args = [ ];
@@ -3985,15 +3985,15 @@ security.pam.services.userdel.text =
 +security.pam.services.usermod.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.usermod.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.usermod.rules.auth.fprintd.order = 11400;
-security.pam.services.usermod.text =
+ security.pam.services.usermod.text =
   @@ -3,6 +3,7 @@
-   
-   # Authentication management.
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    
+    # Authentication management.
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.vlock.fprintAuth = false;
 +security.pam.services.vlock.fprintAuth = true;
 +security.pam.services.vlock.rules.auth.fprintd.args = [ ];
@@ -4003,15 +4003,15 @@ security.pam.services.usermod.text =
 +security.pam.services.vlock.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.vlock.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.vlock.rules.auth.fprintd.order = 11400;
-security.pam.services.vlock.text =
+ security.pam.services.vlock.text =
   @@ -2,6 +2,7 @@
-   account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
-   
-   # Authentication management.
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    
+    # Authentication management.
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.xlock.fprintAuth = false;
 +security.pam.services.xlock.fprintAuth = true;
 +security.pam.services.xlock.rules.auth.fprintd.args = [ ];
@@ -4021,15 +4021,15 @@ security.pam.services.vlock.text =
 +security.pam.services.xlock.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.xlock.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.xlock.rules.auth.fprintd.order = 11400;
-security.pam.services.xlock.text =
+ security.pam.services.xlock.text =
   @@ -2,6 +2,7 @@
-   account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
-   
-   # Authentication management.
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    
+    # Authentication management.
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -security.pam.services.xscreensaver.fprintAuth = false;
 +security.pam.services.xscreensaver.fprintAuth = true;
 +security.pam.services.xscreensaver.rules.auth.fprintd.args = [ ];
@@ -4039,15 +4039,15 @@ security.pam.services.xlock.text =
 +security.pam.services.xscreensaver.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.xscreensaver.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.xscreensaver.rules.auth.fprintd.order = 11400;
-security.pam.services.xscreensaver.text =
+ security.pam.services.xscreensaver.text =
   @@ -2,6 +2,7 @@
-   account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
-   
-   # Authentication management.
-  +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-   auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-   auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
-   
+    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    
+    # Authentication management.
+   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    
 -services.fprintd.enable = false;
 +services.fprintd.enable = true;
 +services.fprintd.package = «derivation /nix/store/gm9lssr4bq4knkvmg3l3frb38a8n4yjv-fprintd-1.94.4.drv»;
@@ -4064,148 +4064,148 @@ security.pam.services.xscreensaver.text =
 +services.tlp.enable = false;
 -services.tlp.extraConfig = "";
 -services.tlp.package = «derivation /nix/store/0csbqrz0fbnr2av686r9r9hf81ql2qnc-tlp-1.8.0.drv»;
-services.udev.extraRules =
+ services.udev.extraRules =
   @@ -1,8 +1,4 @@
-   
-  -ACTION=="add|change", SUBSYSTEM=="input", ATTR{name}=="TPPS/2 Elan TrackPoint", ATTR{device/speed}="97", ATTR{device/sensitivity}="128"
-  -
-  -KERNEL=="tun", TAG+="systemd"
-  -
-   # Needed for gpm.
-   SUBSYSTEM=="input", KERNEL=="mice", TAG+="systemd"
-   
+    
+   -ACTION=="add|change", SUBSYSTEM=="input", ATTR{name}=="TPPS/2 Elan TrackPoint", ATTR{device/speed}="97", ATTR{device/sensitivity}="128"
+   -
+   -KERNEL=="tun", TAG+="systemd"
+   -
+    # Needed for gpm.
+    SUBSYSTEM=="input", KERNEL=="mice", TAG+="systemd"
+    
   @@ -14,7 +10,5 @@
-   KERNEL=="nvidia_uvm", RUN+="/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash -c 'mknod -m 666 /dev/nvidia-uvm-tools c $$(grep nvidia-uvm /proc/devices | cut -d \  -f 1) 1'"
-   
-   
-  -SUBSYSTEM=="msr", OWNER="root", GROUP="msr", MODE="0640"
-  -
-   SUBSYSTEM=="misc", KERNEL=="sgx_enclave",   SYMLINK+="sgx/enclave"
-   SUBSYSTEM=="misc", KERNEL=="sgx_provision", SYMLINK+="sgx/provision"
-system.activationScripts.etc.text =
+    KERNEL=="nvidia_uvm", RUN+="/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash -c 'mknod -m 666 /dev/nvidia-uvm-tools c $$(grep nvidia-uvm /proc/devices | cut -d \  -f 1) 1'"
+    
+    
+   -SUBSYSTEM=="msr", OWNER="root", GROUP="msr", MODE="0640"
+   -
+    SUBSYSTEM=="misc", KERNEL=="sgx_enclave",   SYMLINK+="sgx/enclave"
+    SUBSYSTEM=="misc", KERNEL=="sgx_provision", SYMLINK+="sgx/provision"
+ system.activationScripts.etc.text =
   @@ -1,3 +1,3 @@
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
-system.activationScripts.script =
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
+ system.activationScripts.script =
   @@ -43,7 +43,7 @@
-   install -m 0755 -d /home
-   
-   /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
-  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
-   
-   
-   if (( _localstatus > 0 )); then
+    install -m 0755 -d /home
+    
+    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
+   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
+   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
+    
+    
+    if (( _localstatus > 0 )); then
   @@ -85,7 +85,7 @@
-   _localstatus=0
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
-   
-   
-   if (( _localstatus > 0 )); then
+    _localstatus=0
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
+    
+    
+    if (( _localstatus > 0 )); then
   @@ -136,7 +136,7 @@
-   
-   # Allow the kernel to find our firmware.
-   if [ -e /sys/module/firmware_class/parameters/path ]; then
-  -  echo -n "/nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-  +  echo -n "/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-   fi
-   
-   
-system.activationScripts.udevd =
+    
+    # Allow the kernel to find our firmware.
+    if [ -e /sys/module/firmware_class/parameters/path ]; then
+   -  echo -n "/nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
+   +  echo -n "/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
+    fi
+    
+    
+ system.activationScripts.udevd =
   @@ -5,5 +5,5 @@
-   
-   # Allow the kernel to find our firmware.
-   if [ -e /sys/module/firmware_class/parameters/path ]; then
-  -  echo -n "/nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-  +  echo -n "/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-   fi
-system.activationScripts.users.text =
+    
+    # Allow the kernel to find our firmware.
+    if [ -e /sys/module/firmware_class/parameters/path ]; then
+   -  echo -n "/nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
+   +  echo -n "/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
+    fi
+ system.activationScripts.users.text =
   @@ -2,4 +2,4 @@
-   install -m 0755 -d /home
-   
-   /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
-  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
+    install -m 0755 -d /home
+    
+    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
+   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
+   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
 -system.build.etc = «derivation /nix/store/70cxrb7snrdv0yhd3n7nszc4zbfrv02c-etc.drv»;
 +system.build.etc = «derivation /nix/store/l9xnx7lmlxlzg34lqjmiyl6dc3qdr94z-etc.drv»;
-system.build.etcActivationCommands =
+ system.build.etcActivationCommands =
   @@ -1,3 +1,3 @@
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
 -system.build.toplevel = «derivation /nix/store/1xqax4iqp5f8wwi7n7z0a6sdlzx0vi1f-nixos-system-nixos-25.05pre-git.drv»;
 +system.build.toplevel = «derivation /nix/store/qcnyc62biqfbxfi2i9kmi09yxim9xpqj-nixos-system-nixos-25.05pre-git.drv»;
-system.dryActivationScript =
+ system.dryActivationScript =
   @@ -23,7 +23,7 @@
-   install -m 0755 -d /home
-   
-   /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
-  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
-   
-   
-   if (( _localstatus > 0 )); then
+    install -m 0755 -d /home
+    
+    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
+   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
+   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
+    
+    
+    if (( _localstatus > 0 )); then
 -system.path = «derivation /nix/store/vj9dlaljrk3p73fq1shq9hh6l4si7165-system-path.drv»;
 +system.path = «derivation /nix/store/wd9jrlwbbl5s4lfv44ahw3dxx9lf6wwm-system-path.drv»;
-system.systemBuilderArgs.activationScript =
+ system.systemBuilderArgs.activationScript =
   @@ -43,7 +43,7 @@
-   install -m 0755 -d /home
-   
-   /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
-  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
-   
-   
-   if (( _localstatus > 0 )); then
+    install -m 0755 -d /home
+    
+    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
+   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
+   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
+    
+    
+    if (( _localstatus > 0 )); then
   @@ -85,7 +85,7 @@
-   _localstatus=0
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
-   
-   
-   if (( _localstatus > 0 )); then
+    _localstatus=0
+    # Set up the statically computed bits of /etc.
+    echo "setting up /etc..."
+   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
+   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
+    
+    
+    if (( _localstatus > 0 )); then
   @@ -136,7 +136,7 @@
-   
-   # Allow the kernel to find our firmware.
-   if [ -e /sys/module/firmware_class/parameters/path ]; then
-  -  echo -n "/nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-  +  echo -n "/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-   fi
-   
-   
-system.systemBuilderArgs.dryActivationScript =
+    
+    # Allow the kernel to find our firmware.
+    if [ -e /sys/module/firmware_class/parameters/path ]; then
+   -  echo -n "/nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
+   +  echo -n "/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
+    fi
+    
+    
+ system.systemBuilderArgs.dryActivationScript =
   @@ -23,7 +23,7 @@
-   install -m 0755 -d /home
-   
-   /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
-  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
-   
-   
-   if (( _localstatus > 0 )); then
-system.systemBuilderCommands =
+    install -m 0755 -d /home
+    
+    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
+   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
+   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
+    
+    
+    if (( _localstatus > 0 )); then
+ system.systemBuilderCommands =
   @@ -12,11 +12,11 @@
-   
-   echo -n "$kernelParams" > $out/kernel-params
-   
-  -ln -s /nix/store/9v24133431hlqf67jpjhi9wrw2rf728j-initrd-linux-6.12.17/initrd $out/initrd
-  +ln -s /nix/store/6v173q7rlb9v33an5icsrabpj573715m-initrd-linux-6.12.17/initrd $out/initrd
-   
-   ln -s /nix/store/cklbqqac8fh2z6a4pczfhqs2nxzvgqii-append-initrd-secrets/bin/append-initrd-secrets $out
-   
-  -ln -s /nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware $out/firmware
-  +ln -s /nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware $out/firmware
-   
-   mkdir $out/specialisation
-   
+    
+    echo -n "$kernelParams" > $out/kernel-params
+    
+   -ln -s /nix/store/9v24133431hlqf67jpjhi9wrw2rf728j-initrd-linux-6.12.17/initrd $out/initrd
+   +ln -s /nix/store/6v173q7rlb9v33an5icsrabpj573715m-initrd-linux-6.12.17/initrd $out/initrd
+    
+    ln -s /nix/store/cklbqqac8fh2z6a4pczfhqs2nxzvgqii-append-initrd-secrets/bin/append-initrd-secrets $out
+    
+   -ln -s /nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware $out/firmware
+   +ln -s /nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware $out/firmware
+    
+    mkdir $out/specialisation
+    
 -systemd.mounts.".0".mountConfig.What = "tmpfs";
 -systemd.mounts.".0".mountConfig.Where = "/run/initramfs";
 +systemd.mounts.".0".mountConfig.help = "/run/initramfs";
@@ -4475,13 +4475,13 @@ system.systemBuilderCommands =
 -systemd.services.network-setup.reload = "";
 -systemd.services.network-setup.preStop = "";
 -systemd.services.network-setup.scriptArgs = "";
-systemd.services.post-resume.script =
+ systemd.services.post-resume.script =
   @@ -1,5 +1,3 @@
-   /run/current-system/systemd/bin/systemctl try-restart --no-block post-resume.target
-  -# Tell dhcpcd to rebind its interfaces if it's running.
-  -/run/current-system/systemd/bin/systemctl reload dhcpcd.service
-   
-   
+    /run/current-system/systemd/bin/systemctl try-restart --no-block post-resume.target
+   -# Tell dhcpcd to rebind its interfaces if it's running.
+   -/run/current-system/systemd/bin/systemctl reload dhcpcd.service
+    
+    
 -systemd.services.post-resume.serviceConfig.ExecStart = "/nix/store/9d25i7yhwpmapmy93pdm4hq6nv0j3cjy-unit-script-post-resume-start/bin/post-resume-start ";
 +systemd.services.post-resume.serviceConfig.ExecStart = "/nix/store/ypd2m8m1rsh65svpwy8y5wq0gz4jyn8a-unit-script-post-resume-start/bin/post-resume-start ";
 -systemd.services.resolvconf.name = "resolvconf.service";
@@ -4777,14 +4777,14 @@ systemd.services.post-resume.script =
 -systemd.units."cpufreq.service".enable = false;
 -systemd.units."cpufreq.service".overrideStrategy = "asDropinIfExists";
 -systemd.units."cpufreq.service".unit = «derivation /nix/store/1zj2bhjmi7mgycyvsbsriyg5s3vls5zn-unit-cpufreq.service-disabled.drv»;
-systemd.units."dbus.service".text =
+ systemd.units."dbus.service".text =
   @@ -1,5 +1,5 @@
-   [Unit]
-  -X-Restart-Triggers=/nix/store/kcw9nqxqkhy2p20xya1977n1i2aw528n-X-Restart-Triggers-dbus
-  +X-Restart-Triggers=/nix/store/s61xwrjsi44vziplvc34qwrd3n2kagx5-X-Restart-Triggers-dbus
-   
-   [Service]
-   Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"
+    [Unit]
+   -X-Restart-Triggers=/nix/store/kcw9nqxqkhy2p20xya1977n1i2aw528n-X-Restart-Triggers-dbus
+   +X-Restart-Triggers=/nix/store/s61xwrjsi44vziplvc34qwrd3n2kagx5-X-Restart-Triggers-dbus
+    
+    [Service]
+    Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"
 -systemd.units."dbus.service".unit = «derivation /nix/store/wpcgsrgm48aqssg8576cy0mdki46c5bv-unit-dbus.service.drv»;
 +systemd.units."dbus.service".unit = «derivation /nix/store/s21l946vr7b0ndh4i4jwindb0l67d2wf-unit-dbus.service.drv»;
 -systemd.units."dhcpcd.service".enable = true;
@@ -4902,14 +4902,14 @@ systemd.units."dbus.service".text =
   '';
 -systemd.units."network-setup.service".overrideStrategy = "asDropinIfExists";
 -systemd.units."network-setup.service".unit = «derivation /nix/store/vqiagz01cyhj62vjl0x1k53a9h0j4yrv-unit-network-setup.service.drv»;
-systemd.units."post-resume.service".text =
+ systemd.units."post-resume.service".text =
   @@ -6,5 +6,5 @@
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-   Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-   Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
-  -ExecStart=/nix/store/9d25i7yhwpmapmy93pdm4hq6nv0j3cjy-unit-script-post-resume-start/bin/post-resume-start 
-  +ExecStart=/nix/store/ypd2m8m1rsh65svpwy8y5wq0gz4jyn8a-unit-script-post-resume-start/bin/post-resume-start 
-   Type=oneshot
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
+    Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+   -ExecStart=/nix/store/9d25i7yhwpmapmy93pdm4hq6nv0j3cjy-unit-script-post-resume-start/bin/post-resume-start 
+   +ExecStart=/nix/store/ypd2m8m1rsh65svpwy8y5wq0gz4jyn8a-unit-script-post-resume-start/bin/post-resume-start 
+    Type=oneshot
 -systemd.units."post-resume.service".unit = «derivation /nix/store/33x7raywq3vic6jhjppkz1ar276cvw13-unit-post-resume.service.drv»;
 +systemd.units."post-resume.service".unit = «derivation /nix/store/6j0pjwx6vw03v8cwh4cbhcyisazqnkv0-unit-post-resume.service.drv»;
 -systemd.units."resolvconf.service".enable = true;
@@ -4934,14 +4934,14 @@ systemd.units."post-resume.service".text =
   '';
 -systemd.units."resolvconf.service".overrideStrategy = "asDropinIfExists";
 -systemd.units."resolvconf.service".unit = «derivation /nix/store/macnhi0di8pzkhs7cixmh8md0vabmg73-unit-resolvconf.service.drv»;
-systemd.units."systemd-modules-load.service".text =
+ systemd.units."systemd-modules-load.service".text =
   @@ -1,5 +1,5 @@
-   [Unit]
-  -X-Restart-Triggers=/nix/store/3kh4ma82jvmx2lz3jmqwxxhh7jzwp9zs-X-Restart-Triggers-systemd-modules-load
-  +X-Restart-Triggers=/nix/store/zg0apsbqw70jfzhbsfcwsfr53bf0xbwg-X-Restart-Triggers-systemd-modules-load
-   
-   [Service]
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    [Unit]
+   -X-Restart-Triggers=/nix/store/3kh4ma82jvmx2lz3jmqwxxhh7jzwp9zs-X-Restart-Triggers-systemd-modules-load
+   +X-Restart-Triggers=/nix/store/zg0apsbqw70jfzhbsfcwsfr53bf0xbwg-X-Restart-Triggers-systemd-modules-load
+    
+    [Service]
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 -systemd.units."systemd-modules-load.service".unit = «derivation /nix/store/vj333ydjabzhqpnvr1plq1k4bkwaal3d-unit-systemd-modules-load.service.drv»;
 +systemd.units."systemd-modules-load.service".unit = «derivation /nix/store/jlzdv7a8nhyqgmjllw8w0w84idcq3k1s-unit-systemd-modules-load.service.drv»;
 +systemd.units."systemd-networkd-wait-online.service".enable = true;
@@ -5033,26 +5033,26 @@ systemd.units."systemd-modules-load.service".text =
 -systemd.units."systemd-rfkill.socket".enable = false;
 -systemd.units."systemd-rfkill.socket".overrideStrategy = "asDropinIfExists";
 -systemd.units."systemd-rfkill.socket".unit = «derivation /nix/store/glz2kl505wllg5wy7c8hfy7dc29d21x7-unit-systemd-rfkill.socket-disabled.drv»;
-systemd.units."systemd-tmpfiles-resetup.service".text =
+ systemd.units."systemd-tmpfiles-resetup.service".text =
   @@ -4,7 +4,7 @@
-   Conflicts=shutdown.target
-   DefaultDependencies=false
-   Description=Re-setup tmpfiles on a system that is already running.
-  -X-Restart-Triggers=/nix/store/6j6l50fwp3mmpfk8l4h0m0hw2qak9hlk-X-Restart-Triggers-systemd-tmpfiles-resetup
-  +X-Restart-Triggers=/nix/store/0b5s0h7r0f4dm9lcmm79y40rgiq1sdsa-X-Restart-Triggers-systemd-tmpfiles-resetup
-   
-   [Service]
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    Conflicts=shutdown.target
+    DefaultDependencies=false
+    Description=Re-setup tmpfiles on a system that is already running.
+   -X-Restart-Triggers=/nix/store/6j6l50fwp3mmpfk8l4h0m0hw2qak9hlk-X-Restart-Triggers-systemd-tmpfiles-resetup
+   +X-Restart-Triggers=/nix/store/0b5s0h7r0f4dm9lcmm79y40rgiq1sdsa-X-Restart-Triggers-systemd-tmpfiles-resetup
+    
+    [Service]
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 -systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/impc6qs45218grnj214l2svzgn1zqrzq-unit-systemd-tmpfiles-resetup.service.drv»;
 +systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/iv5hqnm54h629qjkwzaqqxwvlhgamd4y-unit-systemd-tmpfiles-resetup.service.drv»;
-systemd.units."systemd-udevd.service".text =
+ systemd.units."systemd-udevd.service".text =
   @@ -1,5 +1,5 @@
-   [Unit]
-  -X-Restart-Triggers=/nix/store/zjnv0mic31ja4rh1cip6fqaji0dzx0xh-X-Restart-Triggers-systemd-udevd
-  +X-Restart-Triggers=/nix/store/vi9kvqmnw6phcsz1gfy2xgnv2p8nd9wf-X-Restart-Triggers-systemd-udevd
-   
-   [Service]
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    [Unit]
+   -X-Restart-Triggers=/nix/store/zjnv0mic31ja4rh1cip6fqaji0dzx0xh-X-Restart-Triggers-systemd-udevd
+   +X-Restart-Triggers=/nix/store/vi9kvqmnw6phcsz1gfy2xgnv2p8nd9wf-X-Restart-Triggers-systemd-udevd
+    
+    [Service]
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 -systemd.units."systemd-udevd.service".unit = «derivation /nix/store/b55b4q87qr3r6phxg6gin2m64b9yvf2a-unit-systemd-udevd.service.drv»;
 +systemd.units."systemd-udevd.service".unit = «derivation /nix/store/nhmmgr8vd4v3zcng4ganh2myi7j33yfl-unit-systemd-udevd.service.drv»;
 -systemd.units."tlp-sleep.service".enable = true;
@@ -5132,14 +5132,14 @@ systemd.units."systemd-udevd.service".text =
 +systemd.user.services.obex.notSocketActivated = false;
 +systemd.user.services.obex.reload = "";
 +systemd.user.services.obex.preStop = "";
-systemd.user.units."dbus.service".text =
+ systemd.user.units."dbus.service".text =
   @@ -1,5 +1,5 @@
-   [Unit]
-  -X-Restart-Triggers=/nix/store/kcw9nqxqkhy2p20xya1977n1i2aw528n-X-Restart-Triggers-dbus
-  +X-Restart-Triggers=/nix/store/s61xwrjsi44vziplvc34qwrd3n2kagx5-X-Restart-Triggers-dbus
-   
-   [Service]
-   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+    [Unit]
+   -X-Restart-Triggers=/nix/store/kcw9nqxqkhy2p20xya1977n1i2aw528n-X-Restart-Triggers-dbus
+   +X-Restart-Triggers=/nix/store/s61xwrjsi44vziplvc34qwrd3n2kagx5-X-Restart-Triggers-dbus
+    
+    [Service]
+    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 -systemd.user.units."dbus.service".unit = «derivation /nix/store/10v87cfmh2cliz9k6hqc0f1dar11apsl-unit-dbus.service.drv»;
 +systemd.user.units."dbus.service".unit = «derivation /nix/store/0vp8ns68ys68bpznvh273r83hx928s14-unit-dbus.service.drv»;
 +systemd.user.units."obex.service".enable = true;

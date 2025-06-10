@@ -88,31 +88,31 @@ void printUniDiff(dtl::Diff<std::string, std::vector<std::string>> diff) {
   auto hunks = diff.getUniHunks();
   for (auto hunk = hunks.begin(); hunk != hunks.end(); ++hunk) {
     if (isTTY) {
-      std::cout << "\x1b[36m  @@" << " -"  << hunk->a << "," << hunk->b << " +"  << hunk->c << "," << hunk->d << " @@" << "\x1b[0m\n";
+      std::cout << "\x1b[36m   @@" << " -"  << hunk->a << "," << hunk->b << " +"  << hunk->c << "," << hunk->d << " @@" << "\x1b[0m\n";
     } else {
       std::cout << "  @@" << " -"  << hunk->a << "," << hunk->b << " +"  << hunk->c << "," << hunk->d << " @@" << "\n";
     }
     for (auto common = hunk->common[0].begin(); common != hunk->common[0].end(); ++common) {
-      std::cout << "   " << common->first << "\n";
+      std::cout << "    " << common->first << "\n";
     }
     for (auto change = hunk->change.begin(); change != hunk->change.end(); ++change) {
       switch (change->second.type) {
         case dtl::SES_ADD:
           if (isTTY) {
-            std::cout << "\x1b[32m  +" << change->first << "\x1b[0m\n";
+            std::cout << "\x1b[32m   +" << change->first << "\x1b[0m\n";
           } else {
-            std::cout << "  +" << change->first << "\n";
+            std::cout << "   +" << change->first << "\n";
           }
           break;
         case dtl::SES_DELETE:
           if (isTTY) {
-            std::cout << "\x1b[31m  -" << change->first << "\x1b[0m\n";
+            std::cout << "\x1b[31m   -" << change->first << "\x1b[0m\n";
           } else {
-            std::cout << "  -" << change->first << "\n";
+            std::cout << "   -" << change->first << "\n";
           }
           break;
         case dtl::SES_COMMON:
-          std::cout << "   " << change->first << "\n";
+          std::cout << "    " << change->first << "\n";
           break;
       }
     }
@@ -449,7 +449,7 @@ void diffStrings(const std::string & path, Tagged & v, Tagged & w) {
   );
   diff.compose();
   diff.composeUnifiedHunks();
-  std::cout << path << " =\n";
+  std::cout << " " << path << " =\n";
   printUniDiff(diff);
 }
 
