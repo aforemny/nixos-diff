@@ -1,13 +1,19 @@
--system.build.toplevel = «derivation /nix/store/kafy59snhq30vyxr3j1hjzn45hpijvha-nixos-system-nixos-25.05pre-git.drv»;
-+system.build.toplevel = «derivation /nix/store/05kxd15g4ksvh2dkwcdg9dns7mz3d63n-nixos-system-machine-25.05pre-git.drv»;
--system.build.etc = «derivation /nix/store/yqzvmp0sjjl8clhrcdp40fl4bfs31w1y-etc.drv»;
-+system.build.etc = «derivation /nix/store/bzgvkhvyrn80f2hv03ikiyvh1j8w1xm9-etc.drv»;
-system.build.etcActivationCommands =
-  @@ -1,3 +1,3 @@
-   # Set up the statically computed bits of /etc.
-   echo "setting up /etc..."
-  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc
-  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc
+-environment.etc.hostname.source = «derivation /nix/store/g93cblq7gpwb32z60yls48m07dmxgxhq-etc-hostname.drv»;
++environment.etc.hostname.source = «derivation /nix/store/93z4bcdinzc444swpp7zfyvar58mbnwq-etc-hostname.drv»;
+environment.etc.hostname.text =
+  @@ -1,1 +1,1 @@
+  -nixos
+  +machine
+-environment.etc.hosts.source = «derivation /nix/store/zf5i8fjqbkwbhkcp8hn1y7mzhf4mz3bv-hosts.drv»;
++environment.etc.hosts.source = «derivation /nix/store/h1w5w95w4lyva2x9kc38w393hqz72rlw-hosts.drv»;
+-networking.hostName = "nixos";
++networking.hostName = "machine";
+-nixpkgs.localSystem.parsed.abi.assertions.".0".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:387:23»;
++nixpkgs.localSystem.parsed.abi.assertions.".0".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:387:21»;
+-nixpkgs.localSystem.parsed.abi.assertions.".1".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:392:23»;
++nixpkgs.localSystem.parsed.abi.assertions.".1".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:392:21»;
+-nixpkgs.overlays.".0" = «lambda @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/nixos/modules/profiles/installation-device.nix:132:8»;
++nixpkgs.overlays.".0" = «lambda @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/nixos/modules/profiles/installation-device.nix:132:6»;
 system.activationScripts.etc.text =
   @@ -1,3 +1,3 @@
    # Set up the statically computed bits of /etc.
@@ -24,6 +30,18 @@ system.activationScripts.script =
    
    
    if (( _localstatus > 0 )); then
+-system.build.etc = «derivation /nix/store/yqzvmp0sjjl8clhrcdp40fl4bfs31w1y-etc.drv»;
++system.build.etc = «derivation /nix/store/bzgvkhvyrn80f2hv03ikiyvh1j8w1xm9-etc.drv»;
+system.build.etcActivationCommands =
+  @@ -1,3 +1,3 @@
+   # Set up the statically computed bits of /etc.
+   echo "setting up /etc..."
+  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc
+  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc
+-system.build.toplevel = «derivation /nix/store/kafy59snhq30vyxr3j1hjzn45hpijvha-nixos-system-nixos-25.05pre-git.drv»;
++system.build.toplevel = «derivation /nix/store/05kxd15g4ksvh2dkwcdg9dns7mz3d63n-nixos-system-machine-25.05pre-git.drv»;
+-system.name = "nixos";
++system.name = "machine";
 system.systemBuilderArgs.activationScript =
   @@ -85,7 +85,7 @@
    _localstatus=0
@@ -34,13 +52,3 @@ system.systemBuilderArgs.activationScript =
    
    
    if (( _localstatus > 0 )); then
--environment.etc.hosts.source = «derivation /nix/store/zf5i8fjqbkwbhkcp8hn1y7mzhf4mz3bv-hosts.drv»;
-+environment.etc.hosts.source = «derivation /nix/store/h1w5w95w4lyva2x9kc38w393hqz72rlw-hosts.drv»;
--environment.etc.hostname.source = «derivation /nix/store/g93cblq7gpwb32z60yls48m07dmxgxhq-etc-hostname.drv»;
-+environment.etc.hostname.source = «derivation /nix/store/93z4bcdinzc444swpp7zfyvar58mbnwq-etc-hostname.drv»;
-environment.etc.hostname.text =
-  @@ -1,1 +1,1 @@
-  -nixos
-  +machine
--networking.hostName = "nixos";
-+networking.hostName = "machine";

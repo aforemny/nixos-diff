@@ -35,16 +35,16 @@ using nix::ValuePrinter;
 
 typedef std::set<const void *> ValuesSeen;
 
-static ValuesSeen seen1;
-static ValuesSeen seen2;
-
-struct Context {
-    Context(EvalState & state, Value config1, Value config2)
-        : state(state), config1(config1), config2(config2)
-    {}
-    EvalState & state;
-    Value config1;
-    Value config2;
+class Tagged {
+  public:
+  ValuesSeen * seen;
+  EvalState * state;
+  Value * value;
+  Tagged(const Tagged & tagged, Value * value) : value(value) {
+    seen = tagged.seen;
+    state = tagged.state;
+  }
+  Tagged(ValuesSeen * seen, EvalState * state, Value * value) : seen(seen), state(state), value(value) { }
 };
 
 bool isTTY = isatty(fileno(stdout));
@@ -123,10 +123,10 @@ void printUniDiff(dtl::Diff<std::string, std::vector<std::string>> diff) {
 }
 
 std::ostream &
-printString(bool printDeletion, Context & ctx, std::ostream & str, Value & v) {
-  const std::string_view string = v.string_view();
+printString(bool printDeletion, std::ostream & str, Tagged & v) {
+  const std::string_view string = v.value->string_view();
   if (string.find('\n') == string.npos) {
-    str << ValuePrinter(ctx.state, v, PrintOptions {});
+    str << ValuePrinter(*v.state, *v.value, PrintOptions {});
     return str;
   };
   if (printDeletion) {
@@ -178,108 +178,107 @@ printString(bool printDeletion, Context & ctx, std::ostream & str, Value & v) {
   return str;
 }
 
-void printAttrs(bool printDeletion, Context & ctx, const std::string & path, Value & v);
+void printAttrs(bool printDeletion, const std::string & path, Tagged & v);
 
-std::string serializeScalar(bool printDeletion, Context & ctx, Value & v, PrintOptions options) {
+std::string serializeScalar(bool printDeletion, Tagged & v, PrintOptions options) {
   std::stringstream ss;
-  if (v.type() == nix::nString) {
-    printString(printDeletion, ctx, ss, v);
+  if (v.value->type() == nix::nString) {
+    printString(printDeletion, ss, v);
   } else {
-    ss << ValuePrinter(ctx.state, v, options);
+    ss << ValuePrinter(*v.state, *v.value, options);
   }
   std::string s = ss.str();
   return s;
 }
 
-Value parseAndEval(EvalState & state, const std::string & expression, const std::string & path) {
-  Value v {};
-  state.eval(state.parseExprFromString(expression, state.rootPath(path)), v);
-  return v;
+Tagged parseAndEval(ValuesSeen & seen, EvalState & state, Value & value, const std::string & expression, const std::string & path) {
+  state.eval(state.parseExprFromString(expression, state.rootPath(path)), value);
+  return Tagged(&seen, &state, &value);
 }
 
-void diffAttrs(Context & ctx, const std::string & path, Value & v, Value & w);
+void diffAttrs(const std::string & path, Tagged & v, Tagged & w);
 
-bool equals(Context & state, Value & v, Value & w);
+bool equals(Tagged & v, Tagged & w);
 
-void diffLists(Context & ctx, const std::string & path, Value & v, Value & w);
+void diffLists(const std::string & path, Tagged & v, Tagged & w);
 
-void diffStrings(Context & ctx, const std::string & path, Value & v, Value & w);
+void diffStrings(const std::string & path, Tagged & v, Tagged & w);
 
 PrintOptions printDrv = PrintOptions { .force = true, .derivationPaths = true, };
 
-void diffValues(Context & ctx, const std::string & path, Value & v, Value & w) {
-  auto vSeen = !seen1.insert(&v).second;
-  auto wSeen = !seen2.insert(&w).second;
+void diffValues(const std::string & path, Tagged & v, Tagged & w) {
+  auto vSeen = !v.seen->insert(v.value).second;
+  auto wSeen = !w.seen->insert(w.value).second;
 
   if (path.ends_with(".type")) {
-    ctx.state.forceValue(v, v.determinePos(nix::noPos));
-    ctx.state.forceValue(w, w.determinePos(nix::noPos));
+    v.state->forceValue(*v.value, v.value->determinePos(nix::noPos));
+    w.state->forceValue(*w.value, w.value->determinePos(nix::noPos));
   }
 
-  if (v.type() == nix::nThunk && w.type() == nix::nThunk) {
-  } else if (v.type() == nix::nThunk) {
-    if (w.type() == nix::nAttrs && !(ctx.state.isDerivation(w))) {
-      printAttrs(false, ctx, path, w);
+  if (v.value->type() == nix::nThunk && w.value->type() == nix::nThunk) {
+  } else if (v.value->type() == nix::nThunk) {
+    if (w.value->type() == nix::nAttrs && !(w.state->isDerivation(*w.value))) {
+      printAttrs(false, path, w);
     } else {
       printChange(
         "",
-        path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
+        path + " = " + serializeScalar(false, w, PrintOptions {}) + ";"
       );
     }
-  } else if (w.type() == nix::nThunk) {
-    if (v.type() == nix::nAttrs && !(ctx.state.isDerivation(v))) {
-      printAttrs(false, ctx, path, v);
+  } else if (w.value->type() == nix::nThunk) {
+    if (v.value->type() == nix::nAttrs && !(v.state->isDerivation(*v.value))) {
+      printAttrs(true, path, v);
     } else {
       printChange(
-        path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
+        path + " = " + serializeScalar(true, v, PrintOptions {}) + ";",
         ""
       );
     }
-  } else if (v.type() == nix::nAttrs && w.type() == nix::nAttrs && ctx.state.isDerivation(v) && ctx.state.isDerivation(w)) {
-    if (!equals(ctx, v, w)) {
+  } else if (v.value->type() == nix::nAttrs && w.value->type() == nix::nAttrs && v.state->isDerivation(*v.value) && w.state->isDerivation(*w.value)) {
+    if (!equals(v, w)) {
       printChange(
-        path + " = " + serializeScalar(true, ctx, v, printDrv) + ";",
-        path + " = " + serializeScalar(false, ctx, w, printDrv) + ";"
+        path + " = " + serializeScalar(true, v, printDrv) + ";",
+        path + " = " + serializeScalar(false, w, printDrv) + ";"
       );
     }
-  } else if (vSeen && wSeen) { // TODO
-  } else if (vSeen) { // TODO
+  } else if (vSeen && wSeen) { // TODO seen
+  } else if (vSeen) { // TODO seen
     /*
     printChange(
-      path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeScalar(true, v, PrintOptions {}) + ";",
+      path + " = " + serializeScalar(false, w, PrintOptions {}) + ";"
     );*/
-  } else if (wSeen) { // TODO
+  } else if (wSeen) { // TODO seen
     /*printChange(
-      path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeScalar(true, v, PrintOptions {}) + ";",
+      path + " = " + serializeScalar(false, w, PrintOptions {}) + ";"
     );*/
-  } else if (v.type() == w.type()) {
-    switch (v.type()) {
+  } else if (v.value->type() == w.value->type()) {
+    switch (v.value->type()) {
       case nix::nAttrs:
-        diffAttrs(ctx, path, v, w);
+        diffAttrs(path, v, w);
         break;
       case nix::nList:
-        diffLists(ctx, path, v, w);
+        diffLists(path, v, w);
         break;
       case nix::nString:
-        if (!equals(ctx, v, w)) {
-          diffStrings(ctx, path, v, w);
+        if (!equals(v, w)) {
+          diffStrings(path, v, w);
         }
         break;
       default:
-        if (!equals(ctx, v, w)) {
+        if (!equals(v, w)) {
           printChange(
-            path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
-            path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
+            path + " = " + serializeScalar(true, v, PrintOptions {}) + ";",
+            path + " = " + serializeScalar(false, w, PrintOptions {}) + ";"
           );
         }
         break;
     }
   } else {
     printChange(
-      path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeScalar(true, v, PrintOptions {}) + ";",
+      path + " = " + serializeScalar(false, w, PrintOptions {}) + ";"
     );
   }
 }
@@ -315,11 +314,11 @@ const std::string appendPath(const std::string & prefix, const std::string_view 
     return prefix + "." + quoteAttribute(suffix);
 }
 
-void printValue(bool printDeletion, Context & ctx, const std::string & path, Value & v);
+void printValue(bool printDeletion, const std::string & path, Tagged & v);
 
-void printAttrs(bool printDeletion, Context & ctx, const std::string & path, Value & v) {
+void printAttrs(bool printDeletion, const std::string & path, Tagged & v) {
   std::vector<Symbol> ks;
-  for (auto & i : *v.attrs()) { // TODO attrs -> names
+  for (auto & i : *v.value->attrs()) { // TODO attrs -> names
     ks.emplace_back(i.name);
   }
   std::sort(ks.begin(), ks.end());
@@ -327,95 +326,105 @@ void printAttrs(bool printDeletion, Context & ctx, const std::string & path, Val
   ks.erase(last, ks.end());
 
   for (auto & i : ks) {
-    SymbolStr name = ctx.state.symbols[i];
-    const Attr * x = v.attrs()->get(i);
-    printValue(printDeletion, ctx, appendPath(path, name), *x->value);
+    SymbolStr name = v.state->symbols[i];
+    const Attr * x = v.value->attrs()->get(i);
+    Tagged t = Tagged(v, x->value);
+    printValue(printDeletion, appendPath(path, name), t);
   }
 }
 
-void printList(bool printDeletion, Context & ctx, const std::string & path, Value & v) {
-  auto xs = v.listItems();
+void printList(bool printDeletion, const std::string & path, Tagged & v) {
+  auto xs = v.value->listItems();
   long unsigned int n = xs.size();
   for (long unsigned int i = 0; i < n; i++ ) {
-    printValue(printDeletion, ctx, appendPath(path, std::format(".{}", i)), *xs[i]);
+    Tagged t = Tagged(v, xs[i]);
+    printValue(printDeletion, appendPath(path, std::format(".{}", i)), t);
   }
 }
 
-void printValue(bool printDeletion, Context & ctx, const std::string & path, Value & v) {
-  auto seen = !seen1.insert(&v).second;
-  if (v.type() == nix::nThunk) {
-  } else if (v.type() == nix::nAttrs && ctx.state.isDerivation(v)) {
+void printValue(bool printDeletion, const std::string & path, Tagged & v) {
+  if (v.value->type() == nix::nThunk) {
+  } else if (v.value->type() == nix::nAttrs && v.state->isDerivation(*v.value)) {
     printChange(
-      path + " = " + serializeScalar(true, ctx, v, printDrv) + ";",
+      path + " = " + serializeScalar(true, v, printDrv) + ";",
       ""
     );
-  } else if (seen) { // TODO
-    /*
-    printChange(
-      path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
-    );*/
-  } else if (v.type()) {
-    switch (v.type()) {
+  } else if (v.value->type()) {
+    switch (v.value->type()) {
       case nix::nAttrs:
-        printAttrs(printDeletion, ctx, path, v);
+        printAttrs(printDeletion, path, v);
         break;
       case nix::nList:
-        printList(printDeletion, ctx, path, v);
+        printList(printDeletion, path, v);
         break;
       default:
         if (printDeletion) {
-          printChange(path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";", "");
+          printChange(path + " = " + serializeScalar(true, v, PrintOptions {}) + ";", "");
         } else {
-          printChange("", path + " = " + serializeScalar(false, ctx, v, PrintOptions {}) + ";");
+          printChange("", path + " = " + serializeScalar(false, v, PrintOptions {}) + ";");
         }
         break;
     }
   }
 }
 
-bool equals(Context & ctx, Value & v, Value & w) {
-  return serializeScalar(true, ctx, v, printDrv) == serializeScalar(true, ctx, w, printDrv);
+bool equals(Tagged & v, Tagged & w) {
+  return serializeScalar(true, v, printDrv) == serializeScalar(true, w, printDrv);
 }
 
-void diffAttrs(Context & ctx, const std::string & path, Value & v, Value & w) {
-  std::vector<Symbol> ks;
-  for (auto & i : *v.attrs()) { // TODO attrs -> names
-    ks.emplace_back(i.name);
-  }
-  for (auto & i : *w.attrs()) { // TODO attrs -> names
-    ks.emplace_back(i.name);
-  }
-  std::sort(ks.begin(), ks.end());
-  auto last = std::unique(ks.begin(), ks.end());
-  ks.erase(last, ks.end());
+void diffAttrs(const std::string & path, Tagged & v, Tagged & w) {
+  std::map<std::string, Symbol> ks, ls;
+  std::vector<std::string> names;
 
-  for (auto & i : ks) {
-    SymbolStr name = ctx.state.symbols[i];
-    const Attr * x = v.attrs()->get(i);
-    const Attr * y = w.attrs()->get(i);
+  for (auto & i : *v.value->attrs()) { // TODO attrs -> names
+    auto name = std::string(v.state->symbols[i.name]);
+    ks[name] = i.name;
+    names.emplace_back(name);
+  }
+  for (auto & i : *w.value->attrs()) { // TODO attrs -> names
+    auto name = std::string(w.state->symbols[i.name]);
+    ls[name] = i.name;
+    names.emplace_back(name);
+  }
+  std::sort(names.begin(), names.end());
+  auto last = std::unique(names.begin(), names.end());
+  names.erase(last, names.end());
+
+  for (auto & name : names) {
+    auto i = ks[name];
+    auto j = ls[name];
+    const Attr * x = v.value->attrs()->get(i);
+    const Attr * y = w.value->attrs()->get(j);
     if (x && y) {
-      diffValues(ctx, appendPath(path, name), *x->value, *y->value);
+      Tagged t = Tagged(v, x->value);
+      Tagged s = Tagged(w, y->value);
+      diffValues(appendPath(path, name), t, s);
     } else if (x) {
-      printValue(true, ctx, appendPath(path, name), *x->value);
+      Tagged t = Tagged(v, x->value);
+      printValue(true, appendPath(path, name), t);
     } else if (y) {
-      printValue(false, ctx, appendPath(path, name), *y->value);
+      Tagged s = Tagged(w, y->value);
+      printValue(false, appendPath(path, name), s);
     }
   }
 }
 
-void diffLists(Context & ctx, const std::string & path, Value & v, Value & w) {
-  auto xs = v.listItems();
-  auto ys = v.listItems();
+void diffLists(const std::string & path, Tagged & v, Tagged & w) {
+  auto xs = v.value->listItems();
+  auto ys = v.value->listItems();
   long unsigned int n = std::min(xs.size(), ys.size());
   for (long unsigned int i = 0; i < n; i++ ) {
-    diffValues(ctx, appendPath(path, std::format(".{}", i)), *xs[i], *ys[i]);
+    Tagged t = Tagged(v, xs[i]);
+    Tagged s = Tagged(w, ys[i]);
+    diffValues(appendPath(path, std::format(".{}", i)), t, s);
   }
   for (long unsigned int i = n; i < xs.size(); i++) {
-    printChange(path + "." + std::to_string(i) + " = " + serializeScalar(true, ctx, *xs[i], PrintOptions {}) + ";", "");
+    Tagged t = Tagged(v, xs[i]);
+    printChange(path + "." + std::to_string(i) + " = " + serializeScalar(true, t, PrintOptions {}) + ";", "");
   }
   for (long unsigned int i = n; i < xs.size(); i++) {
-    printChange("", path + "." + std::to_string(i) + " = " + serializeScalar(false, ctx, *ys[i], PrintOptions {}) + ";");
+    Tagged s = Tagged(w, ys[i]);
+    printChange("", path + "." + std::to_string(i) + " = " + serializeScalar(false, s, PrintOptions {}) + ";");
   }
 }
 
@@ -426,29 +435,22 @@ std::vector<std::string> splitLines(const std::string & string) {
   return result;
 }
 
-void diffStrings(Context & ctx, const std::string & path, Value & v, Value & w) {
-  if (v.string_view().find("\n") == std::string::npos && w.string_view().find("\n") == std::string::npos) {
+void diffStrings(const std::string & path, Tagged & v, Tagged & w) {
+  if (v.value->string_view().find("\n") == std::string::npos && v.value->string_view().find("\n") == std::string::npos) {
     printChange(
-      path + " = " + serializeScalar(true, ctx, v, PrintOptions {}) + ";",
-      path + " = " + serializeScalar(false, ctx, w, PrintOptions {}) + ";"
+      path + " = " + serializeScalar(true, v, PrintOptions {}) + ";",
+      path + " = " + serializeScalar(false, w, PrintOptions {}) + ";"
     );
     return;
   }
   dtl::Diff<std::string, std::vector<std::string>> diff(
-    splitLines(std::string(v.string_view())),
-    splitLines(std::string(w.string_view()))
+    splitLines(std::string(v.value->string_view())),
+    splitLines(std::string(w.value->string_view()))
   );
   diff.compose();
   diff.composeUnifiedHunks();
   std::cout << path << " =\n";
   printUniDiff(diff);
-}
-
-void printDiff(Context & ctx) {
-  Value & v = ctx.config1;
-  Value & w = ctx.config2;
-
-  diffValues(ctx, "", v, w);
 }
 
 class BaseExpr {
@@ -601,12 +603,18 @@ int main(int argc, char ** argv) {
   auto evalStore = myArgs.evalStoreUrl
     ? nix::openStore(*myArgs.evalStoreUrl)
     : nix::openStore();
-  auto state = nix::make_ref<nix::EvalState>(
-      myArgs.lookupPath,
-      evalStore,
-      nix::fetchSettings,
-      nix::evalSettings
-    );
+  auto state1 = nix::make_ref<nix::EvalState>(
+    myArgs.lookupPath,
+    evalStore,
+    nix::fetchSettings,
+    nix::evalSettings
+  );
+  auto state2 = nix::make_ref<nix::EvalState>(
+    myArgs.lookupPath,
+    evalStore,
+    nix::fetchSettings,
+    nix::evalSettings
+  );
 
   ConfigExpr config1Expr = maybeConfig1Expr.value();
   auto maybeFlakeURL1 = maybeParseFlakeURL(config1Expr.to_string());
@@ -640,12 +648,16 @@ int main(int argc, char ** argv) {
   FinalExpr finalExpr1 = FinalExpr(config1Expr.toBaseExpr(), rootPath);
   FinalExpr finalExpr2 = FinalExpr(config2Expr.toBaseExpr(), rootPath);
 
-  Value config1 = parseAndEval(*state, finalExpr1.to_string(), ".");
-  Value config2 = parseAndEval(*state, finalExpr2.to_string(), workTree.empty() ? "." : workTree);
+  ValuesSeen seen1, seen2;
+  Value value1, value2;
+  Tagged config1 = parseAndEval(seen1, *state1, value1, finalExpr1.to_string(), ".");
+  Tagged config2 = parseAndEval(seen2, *state2, value2, finalExpr2.to_string(), workTree.empty() ? "." : workTree);
 
-  Context ctx{*state, workTree.empty() ? config1 : config2, workTree.empty() ? config2 : config1};
-
-  printDiff(ctx);
+  if (workTree.empty()) {
+    diffValues(rootPath.value_or(""), config1, config2);
+  } else {
+    diffValues(rootPath.value_or(""), config2, config1);
+  }
 
   return 0;
 }
