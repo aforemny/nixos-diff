@@ -1,5 +1,5 @@
 +environment.etc."bluetooth/input.conf".enable = true;
--environment.etc."bluetooth/input.conf".source = «derivation /nix/store/57l8bi8gpvnjjfa13qbv93c22kivmcsw-input.conf.drv»;
+-environment.etc."bluetooth/input.conf".source = «derivation /nix/store/00000000000000000000000000000000-input.conf.drv»;
 +environment.etc."bluetooth/input.conf".mode = "symlink";
 +environment.etc."bluetooth/input.conf".text = null;
 +environment.etc."bluetooth/input.conf".target = "bluetooth/input.conf";
@@ -8,7 +8,7 @@
 +environment.etc."bluetooth/input.conf".uid = 0;
 +environment.etc."bluetooth/input.conf".user = "+0";
 +environment.etc."bluetooth/main.conf".enable = true;
--environment.etc."bluetooth/main.conf".source = «derivation /nix/store/j73gfz1ifhzba8nb24xbww971ph4660s-main.conf.drv»;
+-environment.etc."bluetooth/main.conf".source = «derivation /nix/store/00000000000000000000000000000000-main.conf.drv»;
 +environment.etc."bluetooth/main.conf".mode = "symlink";
 +environment.etc."bluetooth/main.conf".text = null;
 +environment.etc."bluetooth/main.conf".target = "bluetooth/main.conf";
@@ -17,7 +17,7 @@
 +environment.etc."bluetooth/main.conf".uid = 0;
 +environment.etc."bluetooth/main.conf".user = "+0";
 +environment.etc."bluetooth/network.conf".enable = true;
--environment.etc."bluetooth/network.conf".source = «derivation /nix/store/pmn3a3w3xmadc6k6mgkms3z6pc2z03x3-network.conf.drv»;
+-environment.etc."bluetooth/network.conf".source = «derivation /nix/store/00000000000000000000000000000000-network.conf.drv»;
 +environment.etc."bluetooth/network.conf".mode = "symlink";
 +environment.etc."bluetooth/network.conf".text = null;
 +environment.etc."bluetooth/network.conf".target = "bluetooth/network.conf";
@@ -25,10 +25,8 @@
 +environment.etc."bluetooth/network.conf".gid = 0;
 +environment.etc."bluetooth/network.conf".uid = 0;
 +environment.etc."bluetooth/network.conf".user = "+0";
--environment.etc.dbus-1.source = «derivation /nix/store/cxvpc2q9g74gb3maybdra7kvn3vbyq0p-dbus-1.drv»;
-+environment.etc.dbus-1.source = «derivation /nix/store/pdnswzkq8b0adb1y2j3nr0zhlzzv361x-dbus-1.drv»;
 -environment.etc."dhcpcd.exit-hook".enable = true;
--environment.etc."dhcpcd.exit-hook".source = «derivation /nix/store/1s00k1744zxmd219k3gx8nb6qk0iv26l-etc-dhcpcd.exit-hook.drv»;
+-environment.etc."dhcpcd.exit-hook".source = «derivation /nix/store/00000000000000000000000000000000-etc-dhcpcd.exit-hook.drv»;
 -environment.etc."dhcpcd.exit-hook".mode = "symlink";
 -environment.etc."dhcpcd.exit-hook".text = "";
 -environment.etc."dhcpcd.exit-hook".target = "dhcpcd.exit-hook";
@@ -36,22 +34,12 @@
 -environment.etc."dhcpcd.exit-hook".gid = 0;
 -environment.etc."dhcpcd.exit-hook".uid = 0;
 -environment.etc."dhcpcd.exit-hook".user = "+0";
--environment.etc."modprobe.d/firmware.conf".source = «derivation /nix/store/llbblw7xb4lv4x6a31f3s6zwqd3vgqzp-etc-modprobe.d-firmware.conf.drv»;
-+environment.etc."modprobe.d/firmware.conf".source = «derivation /nix/store/2m9ds693i0vbzplyb0y05zksff8vijfj-etc-modprobe.d-firmware.conf.drv»;
--environment.etc."modprobe.d/firmware.conf".text = "options firmware_class path=/nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware";
-+environment.etc."modprobe.d/firmware.conf".text = "options firmware_class path=/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware";
--environment.etc."modprobe.d/nixos.conf".source = «derivation /nix/store/xkb571326azgm1zyxdnd4x6y2w3qyb1k-etc-modprobe.d-nixos.conf.drv»;
-+environment.etc."modprobe.d/nixos.conf".source = «derivation /nix/store/ypy83xkyvnkxdkbx3n9vc5ja26m8rpmy-etc-modprobe.d-nixos.conf.drv»;
  environment.etc."modprobe.d/nixos.conf".text =
   @@ -1,4 +1,3 @@
    -blacklist ath3k
     blacklist nouveau
     blacklist nvidiafb
     
--environment.etc."modules-load.d/nixos.conf".source = «derivation /nix/store/pw6j23kq61zx8infvjnd0zm2p8kfg86q-nixos.conf.drv»;
-+environment.etc."modules-load.d/nixos.conf".source = «derivation /nix/store/6qznh8q0k3b560xxr78fvs0v9bgy7kas-nixos.conf.drv»;
--environment.etc."nsswitch.conf".source = «derivation /nix/store/pdqbcm5q5z6984qs0iq2xid6mv8xchix-etc-nsswitch.conf.drv»;
-+environment.etc."nsswitch.conf".source = «derivation /nix/store/6qa3yd8j4v76ndyyg6gv6630bq4g0sb2-etc-nsswitch.conf.drv»;
  environment.etc."nsswitch.conf".text =
   @@ -3,7 +3,7 @@
     shadow:    files
@@ -62,50 +50,6 @@
     networks:  files
     
     ethers:    files
--environment.etc."pam.d/chfn".source = «derivation /nix/store/yp1yhrfxjqn778mk8r4yjgz15wy2vcv0-chfn.pam.drv»;
-+environment.etc."pam.d/chfn".source = «derivation /nix/store/xk9pl50szs208d2zj5rb7fbbc64l189f-chfn.pam.drv»;
--environment.etc."pam.d/chpasswd".source = «derivation /nix/store/51hwiyhb088fx5x2drkdlq13h3hnzz5k-chpasswd.pam.drv»;
-+environment.etc."pam.d/chpasswd".source = «derivation /nix/store/gasjc7929dsksa3y6p1a06qwad82gwrn-chpasswd.pam.drv»;
--environment.etc."pam.d/chsh".source = «derivation /nix/store/q61ar8n78bvk532813jl5n7jmn88d8lq-chsh.pam.drv»;
-+environment.etc."pam.d/chsh".source = «derivation /nix/store/i96b5b2a9ibp47ypgjb2b5nd6jigghkl-chsh.pam.drv»;
--environment.etc."pam.d/groupadd".source = «derivation /nix/store/sy63di9nmn108a3wg1cwfkr8lcg5fqaa-groupadd.pam.drv»;
-+environment.etc."pam.d/groupadd".source = «derivation /nix/store/m903n1n3fk62fj16lxzgf17danjjw1c1-groupadd.pam.drv»;
--environment.etc."pam.d/groupdel".source = «derivation /nix/store/ndli2dzbr1jj3svzk8p9h67vsz1j3dvg-groupdel.pam.drv»;
-+environment.etc."pam.d/groupdel".source = «derivation /nix/store/3ngdd5651cklcsnhi9nl3s6189ircinr-groupdel.pam.drv»;
--environment.etc."pam.d/groupmems".source = «derivation /nix/store/0xjgl4fcvf1r9jddf3qvprvclm5fgcpv-groupmems.pam.drv»;
-+environment.etc."pam.d/groupmems".source = «derivation /nix/store/35clkphy2i4ql6md1c9hz7cxkqdlxm3f-groupmems.pam.drv»;
--environment.etc."pam.d/groupmod".source = «derivation /nix/store/ji849z7zizbx4yy88sx7p9131aayf64v-groupmod.pam.drv»;
-+environment.etc."pam.d/groupmod".source = «derivation /nix/store/dvxnn7xhjhain2fmmyqmf188n56b1s3b-groupmod.pam.drv»;
--environment.etc."pam.d/i3lock".source = «derivation /nix/store/yc03d552c2gdqz2s4cpbklhdw9f0b641-i3lock.pam.drv»;
-+environment.etc."pam.d/i3lock".source = «derivation /nix/store/xhqi1jgrlk2qahma615a3ikj8v0vibkx-i3lock.pam.drv»;
--environment.etc."pam.d/i3lock-color".source = «derivation /nix/store/9103agwpvyy0ipb43wbvhap13ck7860k-i3lock-color.pam.drv»;
-+environment.etc."pam.d/i3lock-color".source = «derivation /nix/store/fb92zin512yw8825lx12dgiag5p3wz7s-i3lock-color.pam.drv»;
--environment.etc."pam.d/login".source = «derivation /nix/store/8giy0zhhdmblcsmprsi68808d83dh34i-login.pam.drv»;
-+environment.etc."pam.d/login".source = «derivation /nix/store/k1vlrzyx4fdcsw3hjbqq0d5985ris7bv-login.pam.drv»;
--environment.etc."pam.d/passwd".source = «derivation /nix/store/9yihak923cf4p6q4924g02nbs7lz0lam-passwd.pam.drv»;
-+environment.etc."pam.d/passwd".source = «derivation /nix/store/6jvnbvd120a8pij2x9lbg6czrh60i91q-passwd.pam.drv»;
--environment.etc."pam.d/runuser".source = «derivation /nix/store/1z3k8fnc2r1gib44c7s5hyh6ngfnxans-runuser.pam.drv»;
-+environment.etc."pam.d/runuser".source = «derivation /nix/store/1pclkxvccfcmr18pzmpyda5n3yc2r16l-runuser.pam.drv»;
--environment.etc."pam.d/runuser-l".source = «derivation /nix/store/d89ivkq1lcbkz5i4bamjf2plia3nxphy-runuser-l.pam.drv»;
-+environment.etc."pam.d/runuser-l".source = «derivation /nix/store/igx5pbdah8i6lqz8c7ci5y4rdxwc071y-runuser-l.pam.drv»;
--environment.etc."pam.d/su".source = «derivation /nix/store/6ygrd89p2ij12nwrsvfn52iyxa3km3k8-su.pam.drv»;
-+environment.etc."pam.d/su".source = «derivation /nix/store/xd5mbhiyqfwjgcwyg95zvnh1wq26mxyf-su.pam.drv»;
--environment.etc."pam.d/sudo".source = «derivation /nix/store/zh2ys4279pkslvd9z8853qc5l14hhk5a-sudo.pam.drv»;
-+environment.etc."pam.d/sudo".source = «derivation /nix/store/gas17gncd7xw60zffzixd3n1hclfxrlx-sudo.pam.drv»;
--environment.etc."pam.d/systemd-user".source = «derivation /nix/store/blq3nrjz8ykfn364kn4n6p8nhpmygrdq-systemd-user.pam.drv»;
-+environment.etc."pam.d/systemd-user".source = «derivation /nix/store/m3qlm1qnjz3lh5kyxfgyrcjd2qcfr33m-systemd-user.pam.drv»;
--environment.etc."pam.d/useradd".source = «derivation /nix/store/0ivia575i81xv44cshjy7f5dz0m3d192-useradd.pam.drv»;
-+environment.etc."pam.d/useradd".source = «derivation /nix/store/53p95xy41r550kb8l77gzniwi279s5j6-useradd.pam.drv»;
--environment.etc."pam.d/userdel".source = «derivation /nix/store/wi31mm2b4xqidsc0dwp80yd202m97z92-userdel.pam.drv»;
-+environment.etc."pam.d/userdel".source = «derivation /nix/store/f9gnx8lgnwy6ys04gnwlshl9l7jzji59-userdel.pam.drv»;
--environment.etc."pam.d/usermod".source = «derivation /nix/store/wap5yzybdq5j7knl5h8n257d8098mkmd-usermod.pam.drv»;
-+environment.etc."pam.d/usermod".source = «derivation /nix/store/rlj7xdsxvc0z1s9ld3bkybsn2ccq6v01-usermod.pam.drv»;
--environment.etc."pam.d/vlock".source = «derivation /nix/store/6n5vhha7250jn8ma4nc2iwfk5whz8laa-vlock.pam.drv»;
-+environment.etc."pam.d/vlock".source = «derivation /nix/store/1jvc7dqmd4lmkha5fjpzghbmwspgmflm-vlock.pam.drv»;
--environment.etc."pam.d/xlock".source = «derivation /nix/store/l69fk7ij7jyxl5lknd2412ffk4qljnzc-xlock.pam.drv»;
-+environment.etc."pam.d/xlock".source = «derivation /nix/store/l8s7x9ci9w8fv2v64rdgx3z63zsqgsnb-xlock.pam.drv»;
--environment.etc."pam.d/xscreensaver".source = «derivation /nix/store/yamf80fmm5iz9qqbma89nm2hxiq4lbvr-xscreensaver.pam.drv»;
-+environment.etc."pam.d/xscreensaver".source = «derivation /nix/store/w6xk4v7cj0ss370rmh95cwm3ijm43yil-xscreensaver.pam.drv»;
 +environment.etc."resolv.conf".enable = true;
 +environment.etc."resolv.conf".source = "/run/systemd/resolve/stub-resolv.conf";
 +environment.etc."resolv.conf".mode = "symlink";
@@ -115,8 +59,6 @@
 +environment.etc."resolv.conf".gid = 0;
 +environment.etc."resolv.conf".uid = 0;
 +environment.etc."resolv.conf".user = "+0";
--environment.etc."resolvconf.conf".source = «derivation /nix/store/6fdjwwpaqv7h7839i4i68xiq7qcp3ilx-etc-resolvconf.conf.drv»;
-+environment.etc."resolvconf.conf".source = «derivation /nix/store/nfmjjrz74xk8sj65403ha92xap02gwhp-etc-resolvconf.conf.drv»;
  environment.etc."resolvconf.conf".text =
   @@ -1,9 +1,3 @@
    -# This is the default, but we must set it here to prevent
@@ -132,7 +74,7 @@
    +echo "$0 $*" >&2
    +exit 1
 +environment.etc."systemd/network/99-ethernet-default-dhcp.network".enable = true;
-+environment.etc."systemd/network/99-ethernet-default-dhcp.network".source = "/nix/store/42rm219l5zssd9ddv5cf7sy1iqr9bsf6-unit-99-ethernet-default-dhcp.network/99-ethernet-default-dhcp.network";
++environment.etc."systemd/network/99-ethernet-default-dhcp.network".source = "/nix/store/00000000000000000000000000000000-unit-99-ethernet-default-dhcp.network/99-ethernet-default-dhcp.network";
 +environment.etc."systemd/network/99-ethernet-default-dhcp.network".mode = "symlink";
 +environment.etc."systemd/network/99-ethernet-default-dhcp.network".text = null;
 +environment.etc."systemd/network/99-ethernet-default-dhcp.network".target = "systemd/network/99-ethernet-default-dhcp.network";
@@ -141,7 +83,7 @@
 +environment.etc."systemd/network/99-ethernet-default-dhcp.network".uid = 0;
 +environment.etc."systemd/network/99-ethernet-default-dhcp.network".user = "+0";
 +environment.etc."systemd/network/99-wireless-client-dhcp.network".enable = true;
-+environment.etc."systemd/network/99-wireless-client-dhcp.network".source = "/nix/store/c2lcfgyvwqcwd2wni183nzjiamjcdl0x-unit-99-wireless-client-dhcp.network/99-wireless-client-dhcp.network";
++environment.etc."systemd/network/99-wireless-client-dhcp.network".source = "/nix/store/00000000000000000000000000000000-unit-99-wireless-client-dhcp.network/99-wireless-client-dhcp.network";
 +environment.etc."systemd/network/99-wireless-client-dhcp.network".mode = "symlink";
 +environment.etc."systemd/network/99-wireless-client-dhcp.network".text = null;
 +environment.etc."systemd/network/99-wireless-client-dhcp.network".target = "systemd/network/99-wireless-client-dhcp.network";
@@ -150,7 +92,7 @@
 +environment.etc."systemd/network/99-wireless-client-dhcp.network".uid = 0;
 +environment.etc."systemd/network/99-wireless-client-dhcp.network".user = "+0";
 +environment.etc."systemd/networkd.conf".enable = true;
--environment.etc."systemd/networkd.conf".source = «derivation /nix/store/bwcvr42qdp8zb2h6r55vcnrh2v121rjb-etc-systemd-networkd.conf.drv»;
+-environment.etc."systemd/networkd.conf".source = «derivation /nix/store/00000000000000000000000000000000-etc-systemd-networkd.conf.drv»;
 +environment.etc."systemd/networkd.conf".mode = "symlink";
 +environment.etc."systemd/networkd.conf".text = ''
   [Network]
@@ -162,7 +104,7 @@
 +environment.etc."systemd/networkd.conf".uid = 0;
 +environment.etc."systemd/networkd.conf".user = "+0";
 +environment.etc."systemd/resolved.conf".enable = true;
--environment.etc."systemd/resolved.conf".source = «derivation /nix/store/yak9s678rfqgm7nqby4dxm2hxfc6m0z9-etc-systemd-resolved.conf.drv»;
+-environment.etc."systemd/resolved.conf".source = «derivation /nix/store/00000000000000000000000000000000-etc-systemd-resolved.conf.drv»;
 +environment.etc."systemd/resolved.conf".mode = "symlink";
 +environment.etc."systemd/resolved.conf".text = ''
   [Resolve]
@@ -179,20 +121,8 @@
 +environment.etc."systemd/resolved.conf".gid = 0;
 +environment.etc."systemd/resolved.conf".uid = 0;
 +environment.etc."systemd/resolved.conf".user = "+0";
--environment.etc."systemd/system".source = «derivation /nix/store/10l3qlcc617issvpmf82g8ly3r28pld3-system-units.drv»;
-+environment.etc."systemd/system".source = «derivation /nix/store/qagyk2clrsclckxfx779wmfvpsjb0l9y-system-units.drv»;
--environment.etc."systemd/system-generators".source = «derivation /nix/store/h6fl8j3qskpciw2wxaa4c7ppqnwxnqsj-system-generators.drv»;
-+environment.etc."systemd/system-generators".source = «derivation /nix/store/jaz2jhk7k4k69qc8f8jsnwpivxc9sbks-system-generators.drv»;
--environment.etc."systemd/system-shutdown".source = «derivation /nix/store/qhqvp58jql4cqj8nan7m3gh0qsba1bff-system-shutdown.drv»;
-+environment.etc."systemd/system-shutdown".source = «derivation /nix/store/qv8wclbq9vw6y8g66x54gp2wi4i0qzf1-system-shutdown.drv»;
--environment.etc."systemd/user".source = «derivation /nix/store/xq62ix06xk5wspldwjrscz7kg0ssahb1-user-units.drv»;
-+environment.etc."systemd/user".source = «derivation /nix/store/a67xkkd4yamyzvsf35r5sg7jybicifi3-user-units.drv»;
--environment.etc."systemd/user-generators".source = «derivation /nix/store/n7n7klz61wrr39ypbx9pw9nismcl68zn-user-generators.drv»;
-+environment.etc."systemd/user-generators".source = «derivation /nix/store/sg16k945sbbc1ws1zm970db2mjlfjvrv-user-generators.drv»;
--environment.etc.terminfo.source = "/nix/store/mxg5nxfn22fw7qk1jf72bdddcp70m5p0-system-path/share/terminfo";
-+environment.etc.terminfo.source = "/nix/store/v7j02zjrg4xc4ch8a3xfxi02msg3l01l-system-path/share/terminfo";
 -environment.etc."tlp.conf".enable = true;
--environment.etc."tlp.conf".source = «derivation /nix/store/mg1b4iar4pvsdb916zia6bsiblq7178w-etc-tlp.conf.drv»;
+-environment.etc."tlp.conf".source = «derivation /nix/store/00000000000000000000000000000000-etc-tlp.conf.drv»;
 -environment.etc."tlp.conf".mode = "symlink";
 -environment.etc."tlp.conf".text = "";
 -environment.etc."tlp.conf".target = "tlp.conf";
@@ -200,12 +130,6 @@
 -environment.etc."tlp.conf".gid = 0;
 -environment.etc."tlp.conf".uid = 0;
 -environment.etc."tlp.conf".user = "+0";
--environment.etc."tmpfiles.d".source = "/nix/store/x7qi1hpdhi6s17m70izw4sxnajjb510k-tmpfiles.d/*";
-+environment.etc."tmpfiles.d".source = "/nix/store/i5p5g5wlxx2jivb2fmilqlf1vxr95q9h-tmpfiles.d/*";
--environment.etc."udev/hwdb.bin".source = «derivation /nix/store/zifb2hmgm119jh70vkmqf77fld8xwmvz-hwdb.bin.drv»;
-+environment.etc."udev/hwdb.bin".source = «derivation /nix/store/sggy2w13niw7vrk5vwazaky6dmrq00cc-hwdb.bin.drv»;
--environment.etc."udev/rules.d".source = «derivation /nix/store/vym5iz73y26axaxslawzy1646284p6zb-udev-rules.drv»;
-+environment.etc."udev/rules.d".source = «derivation /nix/store/iybdgb8ncyj5rfwynz1za8wh4dakn8b6-udev-rules.drv»;
 +facter.report.system = "x86_64-linux";
 +facter.report.version = 1;
 +facter.report.hardware.system.form_factor = "laptop";
@@ -3576,7 +3500,7 @@
 +facter.report.smbios.processor.".0".cache_handle_l1 = 12;
 +facter.report.smbios.processor.".0".cache_handle_l2 = 13;
 +facter.report.smbios.processor.".0".cache_handle_l3 = 14;
-+facter.reportPath = /nix/store/zhp2xwfxcgkxqswn760cc0snivd4wzbx-source/facter.json;
++facter.reportPath = /nix/store/00000000000000000000000000000000-source/facter.json;
 +facter.detected.networking.intel._2200BG.enable = false;
 +facter.detected.networking.intel._3945ABG.enable = false;
 +facter.detected.networking.broadcom.full_mac.enable = false;
@@ -3594,7 +3518,7 @@
 -hardware.bluetooth.enable = false;
 +hardware.bluetooth.enable = true;
 +hardware.bluetooth.hsphfpd.enable = false;
-+hardware.bluetooth.package = «derivation /nix/store/0644l83q31rjql2xp2ig4d3gh7wzf92c-bluez-5.79.drv»;
++hardware.bluetooth.package = «derivation /nix/store/00000000000000000000000000000000-bluez-5.79.drv»;
 +hardware.bluetooth.powerOnBoot = true;
 -hardware.cpu.x86.msr.enable = true;
 +hardware.cpu.x86.msr.enable = false;
@@ -3604,13 +3528,11 @@
 -hardware.cpu.x86.msr.settings.allow-writes = null;
 -hardware.enableRedistributableFirmware = false;
 +hardware.enableRedistributableFirmware = true;
--hardware.firmware = «derivation /nix/store/76ar83qn3xc8bwj4qc7qf3d9mb1zg5a9-firmware.drv»;
-+hardware.firmware = «derivation /nix/store/xjs4537ys6x523k29xdpg0c6ik5a16vz-firmware.drv»;
 -hardware.graphics.enable = false;
 +hardware.graphics.enable = true;
 +hardware.graphics.enable32Bit = false;
-+hardware.graphics.extraPackages = [ «derivation /nix/store/gpaa4ir6n5l48llb1aj99gvlipw69zwf-nvidia-x11-570.124.04-6.12.17.drv» «derivation /nix/store/2rdv77x8azipwjlimp6csy354wl28yqs-nvidia-vaapi-driver-0.0.13.drv» ];
-+hardware.graphics.package = «derivation /nix/store/8m4d9yywrvvgky0asri8ls1vvrhqpgcm-mesa-24.3.4.drv»;
++hardware.graphics.extraPackages = [ «derivation /nix/store/00000000000000000000000000000000-nvidia-x11-570.124.04-6.12.17.drv» «derivation /nix/store/00000000000000000000000000000000-nvidia-vaapi-driver-0.0.13.drv» ];
++hardware.graphics.package = «derivation /nix/store/00000000000000000000000000000000-mesa-24.3.4.drv»;
 -hardware.intelgpu.driver = "i915";
 +hardware.nvidia.videoAcceleration = true;
 -hardware.trackpoint.device = "TPPS/2 Elan TrackPoint";
@@ -3636,18 +3558,18 @@
 +networking.resolvconf.enable = false;
 -networking.resolvconf.extraConfig = "";
 -networking.resolvconf.extraOptions = [ ];
--networking.resolvconf.package = «derivation /nix/store/cad5cmxhvdv3niwbkr3yc4xddsa0da36-openresolv-3.13.2.drv»;
+-networking.resolvconf.package = «derivation /nix/store/00000000000000000000000000000000-openresolv-3.13.2.drv»;
 -networking.resolvconf.subscriberFiles = [ "/etc/resolv.conf" ];
 -networking.resolvconf.useLocalResolver = false;
 +networking.useHostResolvConf = false;
 -networking.useNetworkd = false;
 +networking.useNetworkd = true;
--nixpkgs.buildPlatform.parsed.abi.assertions.".0".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:387:23»;
-+nixpkgs.buildPlatform.parsed.abi.assertions.".0".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:102:29»;
--nixpkgs.buildPlatform.parsed.abi.assertions.".1".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:392:23»;
-+nixpkgs.buildPlatform.parsed.abi.assertions.".1".assertion = «lambda assertion @ /nix/store/fdljaqamrrh2spzpwajw5ivkl34w25f8-nixpkgs-src/lib/systems/parse.nix:109:1»;
--nixpkgs.config.allowUnfreePredicate = «lambda allowUnfreePredicate @ /nix/store/zhp2xwfxcgkxqswn760cc0snivd4wzbx-source/config1.nix:13:43»;
-+nixpkgs.config.allowUnfreePredicate = «lambda allowUnfreePredicate @ /nix/store/zhp2xwfxcgkxqswn760cc0snivd4wzbx-source/config2.nix:14:43»;
+-nixpkgs.buildPlatform.parsed.abi.assertions.".0".assertion = «lambda assertion @ /nix/store/00000000000000000000000000000000-nixpkgs-src/lib/systems/parse.nix:387:23»;
++nixpkgs.buildPlatform.parsed.abi.assertions.".0".assertion = «lambda assertion @ /nix/store/00000000000000000000000000000000-nixpkgs-src/lib/systems/parse.nix:102:29»;
+-nixpkgs.buildPlatform.parsed.abi.assertions.".1".assertion = «lambda assertion @ /nix/store/00000000000000000000000000000000-nixpkgs-src/lib/systems/parse.nix:392:23»;
++nixpkgs.buildPlatform.parsed.abi.assertions.".1".assertion = «lambda assertion @ /nix/store/00000000000000000000000000000000-nixpkgs-src/lib/systems/parse.nix:109:1»;
+-nixpkgs.config.allowUnfreePredicate = «lambda allowUnfreePredicate @ /nix/store/00000000000000000000000000000000-source/config1.nix:13:43»;
++nixpkgs.config.allowUnfreePredicate = «lambda allowUnfreePredicate @ /nix/store/00000000000000000000000000000000-source/config2.nix:14:43»;
  powerManagement.resumeCommands =
   @@ -1,2 +1,0 @@
    -# Tell dhcpcd to rebind its interfaces if it's running.
@@ -3658,17 +3580,17 @@
 +security.pam.services.chfn.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.chfn.rules.auth.fprintd.enable = false;
 +security.pam.services.chfn.rules.auth.fprintd.enable = true;
-+security.pam.services.chfn.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.chfn.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.chfn.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.chfn.rules.auth.fprintd.order = 11400;
  security.pam.services.chfn.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.chpasswd.fprintAuth = false;
 +security.pam.services.chpasswd.fprintAuth = true;
@@ -3676,17 +3598,17 @@
 +security.pam.services.chpasswd.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.chpasswd.rules.auth.fprintd.enable = false;
 +security.pam.services.chpasswd.rules.auth.fprintd.enable = true;
-+security.pam.services.chpasswd.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.chpasswd.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.chpasswd.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.chpasswd.rules.auth.fprintd.order = 11400;
  security.pam.services.chpasswd.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.chsh.fprintAuth = false;
 +security.pam.services.chsh.fprintAuth = true;
@@ -3694,17 +3616,17 @@
 +security.pam.services.chsh.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.chsh.rules.auth.fprintd.enable = false;
 +security.pam.services.chsh.rules.auth.fprintd.enable = true;
-+security.pam.services.chsh.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.chsh.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.chsh.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.chsh.rules.auth.fprintd.order = 11400;
  security.pam.services.chsh.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.groupadd.fprintAuth = false;
 +security.pam.services.groupadd.fprintAuth = true;
@@ -3712,17 +3634,17 @@
 +security.pam.services.groupadd.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.groupadd.rules.auth.fprintd.enable = false;
 +security.pam.services.groupadd.rules.auth.fprintd.enable = true;
-+security.pam.services.groupadd.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.groupadd.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.groupadd.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.groupadd.rules.auth.fprintd.order = 11400;
  security.pam.services.groupadd.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.groupdel.fprintAuth = false;
 +security.pam.services.groupdel.fprintAuth = true;
@@ -3730,17 +3652,17 @@
 +security.pam.services.groupdel.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.groupdel.rules.auth.fprintd.enable = false;
 +security.pam.services.groupdel.rules.auth.fprintd.enable = true;
-+security.pam.services.groupdel.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.groupdel.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.groupdel.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.groupdel.rules.auth.fprintd.order = 11400;
  security.pam.services.groupdel.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.groupmems.fprintAuth = false;
 +security.pam.services.groupmems.fprintAuth = true;
@@ -3748,17 +3670,17 @@
 +security.pam.services.groupmems.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.groupmems.rules.auth.fprintd.enable = false;
 +security.pam.services.groupmems.rules.auth.fprintd.enable = true;
-+security.pam.services.groupmems.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.groupmems.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.groupmems.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.groupmems.rules.auth.fprintd.order = 11400;
  security.pam.services.groupmems.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.groupmod.fprintAuth = false;
 +security.pam.services.groupmod.fprintAuth = true;
@@ -3766,17 +3688,17 @@
 +security.pam.services.groupmod.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.groupmod.rules.auth.fprintd.enable = false;
 +security.pam.services.groupmod.rules.auth.fprintd.enable = true;
-+security.pam.services.groupmod.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.groupmod.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.groupmod.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.groupmod.rules.auth.fprintd.order = 11400;
  security.pam.services.groupmod.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.i3lock.fprintAuth = false;
 +security.pam.services.i3lock.fprintAuth = true;
@@ -3784,17 +3706,17 @@
 +security.pam.services.i3lock.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.i3lock.rules.auth.fprintd.enable = false;
 +security.pam.services.i3lock.rules.auth.fprintd.enable = true;
-+security.pam.services.i3lock.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.i3lock.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.i3lock.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.i3lock.rules.auth.fprintd.order = 11400;
  security.pam.services.i3lock.text =
   @@ -2,6 +2,7 @@
-    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    account required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
     
     # Authentication management.
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.i3lock-color.fprintAuth = false;
 +security.pam.services.i3lock-color.fprintAuth = true;
@@ -3802,17 +3724,17 @@
 +security.pam.services.i3lock-color.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.i3lock-color.rules.auth.fprintd.enable = false;
 +security.pam.services.i3lock-color.rules.auth.fprintd.enable = true;
-+security.pam.services.i3lock-color.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.i3lock-color.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.i3lock-color.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.i3lock-color.rules.auth.fprintd.order = 11400;
  security.pam.services.i3lock-color.text =
   @@ -2,6 +2,7 @@
-    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    account required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
     
     # Authentication management.
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.login.fprintAuth = false;
 +security.pam.services.login.fprintAuth = true;
@@ -3820,17 +3742,17 @@
 +security.pam.services.login.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.login.rules.auth.fprintd.enable = false;
 +security.pam.services.login.rules.auth.fprintd.enable = true;
-+security.pam.services.login.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.login.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.login.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.login.rules.auth.fprintd.order = 11400;
  security.pam.services.login.text =
   @@ -2,6 +2,7 @@
-    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    account required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
     
     # Authentication management.
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth nullok try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth nullok try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.passwd.fprintAuth = false;
 +security.pam.services.passwd.fprintAuth = true;
@@ -3838,17 +3760,17 @@
 +security.pam.services.passwd.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.passwd.rules.auth.fprintd.enable = false;
 +security.pam.services.passwd.rules.auth.fprintd.enable = true;
-+security.pam.services.passwd.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.passwd.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.passwd.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.passwd.rules.auth.fprintd.order = 11400;
  security.pam.services.passwd.text =
   @@ -2,6 +2,7 @@
-    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    account required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
     
     # Authentication management.
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.runuser.fprintAuth = false;
 +security.pam.services.runuser.fprintAuth = true;
@@ -3856,16 +3778,16 @@
 +security.pam.services.runuser.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.runuser.rules.auth.fprintd.enable = false;
 +security.pam.services.runuser.rules.auth.fprintd.enable = true;
-+security.pam.services.runuser.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.runuser.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.runuser.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.runuser.rules.auth.fprintd.order = 11400;
  security.pam.services.runuser.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
     # Password management.
 -security.pam.services.runuser-l.fprintAuth = false;
@@ -3874,16 +3796,16 @@
 +security.pam.services.runuser-l.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.runuser-l.rules.auth.fprintd.enable = false;
 +security.pam.services.runuser-l.rules.auth.fprintd.enable = true;
-+security.pam.services.runuser-l.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.runuser-l.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.runuser-l.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.runuser-l.rules.auth.fprintd.order = 11400;
  security.pam.services.runuser-l.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
     # Password management.
 -security.pam.services.su.fprintAuth = false;
@@ -3892,17 +3814,17 @@
 +security.pam.services.su.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.su.rules.auth.fprintd.enable = false;
 +security.pam.services.su.rules.auth.fprintd.enable = true;
-+security.pam.services.su.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.su.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.su.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.su.rules.auth.fprintd.order = 11400;
  security.pam.services.su.text =
   @@ -4,6 +4,7 @@
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_faillock.so # faillock (order 10400)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_faillock.so # faillock (order 10400)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.sudo.fprintAuth = false;
 +security.pam.services.sudo.fprintAuth = true;
@@ -3910,17 +3832,17 @@
 +security.pam.services.sudo.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.sudo.rules.auth.fprintd.enable = false;
 +security.pam.services.sudo.rules.auth.fprintd.enable = true;
-+security.pam.services.sudo.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.sudo.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.sudo.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.sudo.rules.auth.fprintd.order = 11400;
  security.pam.services.sudo.text =
   @@ -2,6 +2,7 @@
-    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    account required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
     
     # Authentication management.
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.systemd-user.fprintAuth = false;
 +security.pam.services.systemd-user.fprintAuth = true;
@@ -3928,17 +3850,17 @@
 +security.pam.services.systemd-user.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.systemd-user.rules.auth.fprintd.enable = false;
 +security.pam.services.systemd-user.rules.auth.fprintd.enable = true;
-+security.pam.services.systemd-user.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.systemd-user.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.systemd-user.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.systemd-user.rules.auth.fprintd.order = 11400;
  security.pam.services.systemd-user.text =
   @@ -2,6 +2,7 @@
-    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    account required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
     
     # Authentication management.
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.useradd.fprintAuth = false;
 +security.pam.services.useradd.fprintAuth = true;
@@ -3946,17 +3868,17 @@
 +security.pam.services.useradd.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.useradd.rules.auth.fprintd.enable = false;
 +security.pam.services.useradd.rules.auth.fprintd.enable = true;
-+security.pam.services.useradd.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.useradd.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.useradd.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.useradd.rules.auth.fprintd.order = 11400;
  security.pam.services.useradd.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.userdel.fprintAuth = false;
 +security.pam.services.userdel.fprintAuth = true;
@@ -3964,17 +3886,17 @@
 +security.pam.services.userdel.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.userdel.rules.auth.fprintd.enable = false;
 +security.pam.services.userdel.rules.auth.fprintd.enable = true;
-+security.pam.services.userdel.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.userdel.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.userdel.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.userdel.rules.auth.fprintd.order = 11400;
  security.pam.services.userdel.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.usermod.fprintAuth = false;
 +security.pam.services.usermod.fprintAuth = true;
@@ -3982,17 +3904,17 @@
 +security.pam.services.usermod.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.usermod.rules.auth.fprintd.enable = false;
 +security.pam.services.usermod.rules.auth.fprintd.enable = true;
-+security.pam.services.usermod.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.usermod.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.usermod.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.usermod.rules.auth.fprintd.order = 11400;
  security.pam.services.usermod.text =
   @@ -3,6 +3,7 @@
     
     # Authentication management.
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_rootok.so # rootok (order 10200)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.vlock.fprintAuth = false;
 +security.pam.services.vlock.fprintAuth = true;
@@ -4000,17 +3922,17 @@
 +security.pam.services.vlock.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.vlock.rules.auth.fprintd.enable = false;
 +security.pam.services.vlock.rules.auth.fprintd.enable = true;
-+security.pam.services.vlock.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.vlock.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.vlock.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.vlock.rules.auth.fprintd.order = 11400;
  security.pam.services.vlock.text =
   @@ -2,6 +2,7 @@
-    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    account required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
     
     # Authentication management.
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.xlock.fprintAuth = false;
 +security.pam.services.xlock.fprintAuth = true;
@@ -4018,17 +3940,17 @@
 +security.pam.services.xlock.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.xlock.rules.auth.fprintd.enable = false;
 +security.pam.services.xlock.rules.auth.fprintd.enable = true;
-+security.pam.services.xlock.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.xlock.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.xlock.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.xlock.rules.auth.fprintd.order = 11400;
  security.pam.services.xlock.text =
   @@ -2,6 +2,7 @@
-    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    account required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
     
     # Authentication management.
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -security.pam.services.xscreensaver.fprintAuth = false;
 +security.pam.services.xscreensaver.fprintAuth = true;
@@ -4036,21 +3958,21 @@
 +security.pam.services.xscreensaver.rules.auth.fprintd.control = "sufficient";
 -security.pam.services.xscreensaver.rules.auth.fprintd.enable = false;
 +security.pam.services.xscreensaver.rules.auth.fprintd.enable = true;
-+security.pam.services.xscreensaver.rules.auth.fprintd.modulePath = "/nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so";
++security.pam.services.xscreensaver.rules.auth.fprintd.modulePath = "/nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so";
 +security.pam.services.xscreensaver.rules.auth.fprintd.name = "fprintd";
 +security.pam.services.xscreensaver.rules.auth.fprintd.order = 11400;
  security.pam.services.xscreensaver.text =
   @@ -2,6 +2,7 @@
-    account required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
+    account required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so # unix (order 10900)
     
     # Authentication management.
-   +auth sufficient /nix/store/ld27l85430sahy17cz7wfisdxsw8wksg-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
-    auth sufficient /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
-    auth required /nix/store/l6dxx5g9mclg8n7vv83y1b00x0gigw6s-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
+   +auth sufficient /nix/store/00000000000000000000000000000000-fprintd-1.94.4/lib/security/pam_fprintd.so # fprintd (order 11400)
+    auth sufficient /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_unix.so likeauth try_first_pass # unix (order 11600)
+    auth required /nix/store/00000000000000000000000000000000-linux-pam-1.6.1/lib/security/pam_deny.so # deny (order 12400)
     
 -services.fprintd.enable = false;
 +services.fprintd.enable = true;
-+services.fprintd.package = «derivation /nix/store/gm9lssr4bq4knkvmg3l3frb38a8n4yjv-fprintd-1.94.4.drv»;
++services.fprintd.package = «derivation /nix/store/00000000000000000000000000000000-fprintd-1.94.4.drv»;
 +services.fprintd.tod.enable = false;
 +services.resolved.dnsovertls = "false";
 +services.resolved.dnssec = "false";
@@ -4063,7 +3985,7 @@
 -services.tlp.enable = true;
 +services.tlp.enable = false;
 -services.tlp.extraConfig = "";
--services.tlp.package = «derivation /nix/store/0csbqrz0fbnr2av686r9r9hf81ql2qnc-tlp-1.8.0.drv»;
+-services.tlp.package = «derivation /nix/store/00000000000000000000000000000000-tlp-1.8.0.drv»;
  services.udev.extraRules =
   @@ -1,8 +1,4 @@
     
@@ -4075,137 +3997,13 @@
     SUBSYSTEM=="input", KERNEL=="mice", TAG+="systemd"
     
   @@ -14,7 +10,5 @@
-    KERNEL=="nvidia_uvm", RUN+="/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash -c 'mknod -m 666 /dev/nvidia-uvm-tools c $$(grep nvidia-uvm /proc/devices | cut -d \  -f 1) 1'"
+    KERNEL=="nvidia_uvm", RUN+="/nix/store/00000000000000000000000000000000-bash-5.2p37/bin/bash -c 'mknod -m 666 /dev/nvidia-uvm-tools c $$(grep nvidia-uvm /proc/devices | cut -d \  -f 1) 1'"
     
     
    -SUBSYSTEM=="msr", OWNER="root", GROUP="msr", MODE="0640"
    -
     SUBSYSTEM=="misc", KERNEL=="sgx_enclave",   SYMLINK+="sgx/enclave"
     SUBSYSTEM=="misc", KERNEL=="sgx_provision", SYMLINK+="sgx/provision"
- system.activationScripts.etc.text =
-  @@ -1,3 +1,3 @@
-    # Set up the statically computed bits of /etc.
-    echo "setting up /etc..."
-   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
-   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
- system.activationScripts.script =
-  @@ -43,7 +43,7 @@
-    install -m 0755 -d /home
-    
-    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
-   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
-    
-    
-    if (( _localstatus > 0 )); then
-  @@ -85,7 +85,7 @@
-    _localstatus=0
-    # Set up the statically computed bits of /etc.
-    echo "setting up /etc..."
-   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
-   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
-    
-    
-    if (( _localstatus > 0 )); then
-  @@ -136,7 +136,7 @@
-    
-    # Allow the kernel to find our firmware.
-    if [ -e /sys/module/firmware_class/parameters/path ]; then
-   -  echo -n "/nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-   +  echo -n "/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-    fi
-    
-    
- system.activationScripts.udevd =
-  @@ -5,5 +5,5 @@
-    
-    # Allow the kernel to find our firmware.
-    if [ -e /sys/module/firmware_class/parameters/path ]; then
-   -  echo -n "/nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-   +  echo -n "/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-    fi
- system.activationScripts.users.text =
-  @@ -2,4 +2,4 @@
-    install -m 0755 -d /home
-    
-    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
-   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
--system.build.etc = «derivation /nix/store/70cxrb7snrdv0yhd3n7nszc4zbfrv02c-etc.drv»;
-+system.build.etc = «derivation /nix/store/l9xnx7lmlxlzg34lqjmiyl6dc3qdr94z-etc.drv»;
- system.build.etcActivationCommands =
-  @@ -1,3 +1,3 @@
-    # Set up the statically computed bits of /etc.
-    echo "setting up /etc..."
-   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
-   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
--system.build.toplevel = «derivation /nix/store/1xqax4iqp5f8wwi7n7z0a6sdlzx0vi1f-nixos-system-nixos-25.05pre-git.drv»;
-+system.build.toplevel = «derivation /nix/store/qcnyc62biqfbxfi2i9kmi09yxim9xpqj-nixos-system-nixos-25.05pre-git.drv»;
- system.dryActivationScript =
-  @@ -23,7 +23,7 @@
-    install -m 0755 -d /home
-    
-    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
-   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
-    
-    
-    if (( _localstatus > 0 )); then
--system.path = «derivation /nix/store/vj9dlaljrk3p73fq1shq9hh6l4si7165-system-path.drv»;
-+system.path = «derivation /nix/store/wd9jrlwbbl5s4lfv44ahw3dxx9lf6wwm-system-path.drv»;
- system.systemBuilderArgs.activationScript =
-  @@ -43,7 +43,7 @@
-    install -m 0755 -d /home
-    
-    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
-   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
-    
-    
-    if (( _localstatus > 0 )); then
-  @@ -85,7 +85,7 @@
-    _localstatus=0
-    # Set up the statically computed bits of /etc.
-    echo "setting up /etc..."
-   -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/rvqjz6qn76w9hm7fkyl2sqj4sm28w7q1-etc/etc
-   +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/cglcl6lyk846fggmmihylxmq65dc3ll2-etc/etc
-    
-    
-    if (( _localstatus > 0 )); then
-  @@ -136,7 +136,7 @@
-    
-    # Allow the kernel to find our firmware.
-    if [ -e /sys/module/firmware_class/parameters/path ]; then
-   -  echo -n "/nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-   +  echo -n "/nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path
-    fi
-    
-    
- system.systemBuilderArgs.dryActivationScript =
-  @@ -23,7 +23,7 @@
-    install -m 0755 -d /home
-    
-    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-   --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/psvrjqqmj72brqhsckp2bmzkvc65l8fi-users-groups.json
-   +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/7plgjfikkkakrpszb26c7f2ydw7qh3my-users-groups.json
-    
-    
-    if (( _localstatus > 0 )); then
- system.systemBuilderCommands =
-  @@ -12,11 +12,11 @@
-    
-    echo -n "$kernelParams" > $out/kernel-params
-    
-   -ln -s /nix/store/9v24133431hlqf67jpjhi9wrw2rf728j-initrd-linux-6.12.17/initrd $out/initrd
-   +ln -s /nix/store/6v173q7rlb9v33an5icsrabpj573715m-initrd-linux-6.12.17/initrd $out/initrd
-    
-    ln -s /nix/store/cklbqqac8fh2z6a4pczfhqs2nxzvgqii-append-initrd-secrets/bin/append-initrd-secrets $out
-    
-   -ln -s /nix/store/pxkj25m0hm3axdrcm1wv2kvnqxih56j7-firmware/lib/firmware $out/firmware
-   +ln -s /nix/store/r0wy69a51fw4gybq36dxmlr0jcm9lisw-firmware/lib/firmware $out/firmware
-    
-    mkdir $out/specialisation
-    
 -systemd.mounts.".0".mountConfig.What = "tmpfs";
 -systemd.mounts.".0".mountConfig.Where = "/run/initramfs";
 +systemd.mounts.".0".mountConfig.help = "/run/initramfs";
@@ -4247,7 +4045,7 @@
   IPv6PrivacyExtensions=kernel
   
   '';
--systemd.network.units."99-ethernet-default-dhcp.network".unit = «derivation /nix/store/drx6l6n8v9j569bq5rv3rm9myjs148vh-unit-99-ethernet-default-dhcp.network.drv»;
+-systemd.network.units."99-ethernet-default-dhcp.network".unit = «derivation /nix/store/00000000000000000000000000000000-unit-99-ethernet-default-dhcp.network.drv»;
 +systemd.network.units."99-wireless-client-dhcp.network".enable = true;
 +systemd.network.units."99-wireless-client-dhcp.network".text = ''
   [Match]
@@ -4264,7 +4062,7 @@
   RouteMetric=1025
   
   '';
--systemd.network.units."99-wireless-client-dhcp.network".unit = «derivation /nix/store/48npbmfwwpiy4khkgm74s8cmq1h7hf46-unit-99-wireless-client-dhcp.network.drv»;
+-systemd.network.units."99-wireless-client-dhcp.network".unit = «derivation /nix/store/00000000000000000000000000000000-unit-99-wireless-client-dhcp.network.drv»;
 +systemd.network.wait-online.extraArgs.".0" = "--timeout=120";
 +systemd.network.wait-online.extraArgs.".1" = "--any";
 +systemd.network.wait-online.enable = true;
@@ -4272,17 +4070,17 @@
 +systemd.network.wait-online.anyInterface = true;
 +systemd.services.bluetooth.name = "bluetooth.service";
 +systemd.services.bluetooth.description = "";
--systemd.services.bluetooth.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.bluetooth.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.bluetooth.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.bluetooth.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.bluetooth.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.bluetooth.path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.bluetooth.path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.bluetooth.path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.bluetooth.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.bluetooth.path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 +systemd.services.bluetooth.enable = true;
-+systemd.services.bluetooth.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
++systemd.services.bluetooth.environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 +systemd.services.bluetooth.wantedBy.".0" = "bluetooth.target";
 +systemd.services.bluetooth.reloadIfChanged = false;
 +systemd.services.bluetooth.serviceConfig.ExecStart.".0" = "";
-+systemd.services.bluetooth.serviceConfig.ExecStart.".1" = "/nix/store/cz0n41vz1a67k3sl3q15l8blv9935bzf-bluez-5.79/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf";
++systemd.services.bluetooth.serviceConfig.ExecStart.".1" = "/nix/store/00000000000000000000000000000000-bluez-5.79/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf";
 +systemd.services.bluetooth.script = "";
 +systemd.services.bluetooth.unitConfig.X-RestartIfChanged = false;
 +systemd.services.bluetooth.preStart = "";
@@ -4307,27 +4105,25 @@
 -systemd.services.cpufreq.postStart = "";
 -systemd.services.cpufreq.reload = "";
 -systemd.services.cpufreq.preStop = "";
--systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/kcw9nqxqkhy2p20xya1977n1i2aw528n-X-Restart-Triggers-dbus";
-+systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/s61xwrjsi44vziplvc34qwrd3n2kagx5-X-Restart-Triggers-dbus";
 -systemd.services.dhcpcd.name = "dhcpcd.service";
 -systemd.services.dhcpcd.description = "DHCP Client";
--systemd.services.dhcpcd.path.".0" = «derivation /nix/store/f0pbsb7qwannbj9f44mys2nifhd42hfn-dhcpcd-10.1.0.drv»;
--systemd.services.dhcpcd.path.".1" = «derivation /nix/store/bqabcvj9q8pp7n8ji4qdvr09mi9ng8k2-net-tools-2.10.drv»;
--systemd.services.dhcpcd.path.".2" = «derivation /nix/store/cad5cmxhvdv3niwbkr3yc4xddsa0da36-openresolv-3.13.2.drv»;
--systemd.services.dhcpcd.path.".3" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.dhcpcd.path.".4" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.dhcpcd.path.".5" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.dhcpcd.path.".6" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.dhcpcd.path.".7" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.dhcpcd.path.".0" = «derivation /nix/store/00000000000000000000000000000000-dhcpcd-10.1.0.drv»;
+-systemd.services.dhcpcd.path.".1" = «derivation /nix/store/00000000000000000000000000000000-net-tools-2.10.drv»;
+-systemd.services.dhcpcd.path.".2" = «derivation /nix/store/00000000000000000000000000000000-openresolv-3.13.2.drv»;
+-systemd.services.dhcpcd.path.".3" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.dhcpcd.path.".4" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.dhcpcd.path.".5" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.dhcpcd.path.".6" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.dhcpcd.path.".7" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 -systemd.services.dhcpcd.before.".0" = "network-online.target";
 -systemd.services.dhcpcd.enable = true;
--systemd.services.dhcpcd.environment.PATH = "/nix/store/ppwpcsb822fca14yqbkr4vfr48p0zmk2-dhcpcd-10.1.0/bin:/nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10/bin:/nix/store/br3h6x8czgp78adgavdl2l5ank3y6dhk-openresolv-3.13.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/ppwpcsb822fca14yqbkr4vfr48p0zmk2-dhcpcd-10.1.0/sbin:/nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10/sbin:/nix/store/br3h6x8czgp78adgavdl2l5ank3y6dhk-openresolv-3.13.2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
+-systemd.services.dhcpcd.environment.PATH = "/nix/store/00000000000000000000000000000000-dhcpcd-10.1.0/bin:/nix/store/00000000000000000000000000000000-net-tools-2.10/bin:/nix/store/00000000000000000000000000000000-openresolv-3.13.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-dhcpcd-10.1.0/sbin:/nix/store/00000000000000000000000000000000-net-tools-2.10/sbin:/nix/store/00000000000000000000000000000000-openresolv-3.13.2/sbin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 -systemd.services.dhcpcd.wantedBy.".0" = "multi-user.target";
 -systemd.services.dhcpcd.wantedBy.".1" = "network-online.target";
 -systemd.services.dhcpcd.restartTriggers.".0" = "";
 -systemd.services.dhcpcd.reloadIfChanged = false;
--systemd.services.dhcpcd.serviceConfig.ExecStart = "@/nix/store/ppwpcsb822fca14yqbkr4vfr48p0zmk2-dhcpcd-10.1.0/sbin/dhcpcd dhcpcd --quiet  --config /nix/store/nxkc5kqxlrih1qc51dybi10rn4f1jsvh-dhcpcd.conf";
--systemd.services.dhcpcd.serviceConfig.ExecReload = "/nix/store/ppwpcsb822fca14yqbkr4vfr48p0zmk2-dhcpcd-10.1.0/sbin/dhcpcd --rebind";
+-systemd.services.dhcpcd.serviceConfig.ExecStart = "@/nix/store/00000000000000000000000000000000-dhcpcd-10.1.0/sbin/dhcpcd dhcpcd --quiet  --config /nix/store/00000000000000000000000000000000-dhcpcd.conf";
+-systemd.services.dhcpcd.serviceConfig.ExecReload = "/nix/store/00000000000000000000000000000000-dhcpcd-10.1.0/sbin/dhcpcd --rebind";
 -systemd.services.dhcpcd.serviceConfig.Type = "forking";
 -systemd.services.dhcpcd.serviceConfig.User = "dhcpcd";
 -systemd.services.dhcpcd.serviceConfig.Restart = "always";
@@ -4376,7 +4172,7 @@
 -systemd.services.dhcpcd.serviceConfig.ProtectKernelLogs = true;
 -systemd.services.dhcpcd.serviceConfig.ProtectKernelTunables = true;
 -systemd.services.dhcpcd.serviceConfig.RemoveIPC = true;
--systemd.services.dhcpcd.serviceConfig.ExecStartPre = "+/nix/store/01jw79rfsbldjk2x3403lhic8apy6p8i-migrate-dhcpcd";
+-systemd.services.dhcpcd.serviceConfig.ExecStartPre = "+/nix/store/00000000000000000000000000000000-migrate-dhcpcd";
 -systemd.services.dhcpcd.serviceConfig.DeviceAllow = "";
 -systemd.services.dhcpcd.serviceConfig.PrivateUsers = false;
 -systemd.services.dhcpcd.serviceConfig.ProtectProc = "invisible";
@@ -4388,7 +4184,7 @@
 -systemd.services.dhcpcd.unitConfig.Wants = "network.target resolvconf.service";
 -systemd.services.dhcpcd.unitConfig.ConditionCapability = "CAP_NET_ADMIN";
 -systemd.services.dhcpcd.unitConfig.Before = "network-online.target";
--systemd.services.dhcpcd.unitConfig.X-Restart-Triggers = "/nix/store/z3x1s8bd8nq6wp2i3zhsfdjy94m2rapg-X-Restart-Triggers-dhcpcd";
+-systemd.services.dhcpcd.unitConfig.X-Restart-Triggers = "/nix/store/00000000000000000000000000000000-X-Restart-Triggers-dhcpcd";
 -systemd.services.dhcpcd.preStart = "";
 -systemd.services.dhcpcd.after.".0" = "resolvconf.service";
 -systemd.services.dhcpcd.wants.".0" = "network.target";
@@ -4404,13 +4200,13 @@
 -systemd.services.dhcpcd.preStop = "";
 +systemd.services.fprintd.name = "fprintd.service";
 +systemd.services.fprintd.description = "";
--systemd.services.fprintd.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.fprintd.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.fprintd.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.fprintd.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.fprintd.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.fprintd.path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.fprintd.path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.fprintd.path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.fprintd.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.fprintd.path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 +systemd.services.fprintd.enable = true;
-+systemd.services.fprintd.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
++systemd.services.fprintd.environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 +systemd.services.fprintd.reloadIfChanged = false;
 +systemd.services.fprintd.script = "";
 +systemd.services.fprintd.preStart = "";
@@ -4425,24 +4221,24 @@
 +systemd.services.fprintd.preStop = "";
 -systemd.services.network-setup.name = "network-setup.service";
 -systemd.services.network-setup.description = "Networking Setup";
--systemd.services.network-setup.path.".0" = «derivation /nix/store/bbgigx7c44bwq51hbskfw6g9syw7x7v4-iproute2-6.13.0.drv»;
--systemd.services.network-setup.path.".1" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.network-setup.path.".2" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.network-setup.path.".3" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.network-setup.path.".4" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.network-setup.path.".5" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.network-setup.path.".0" = «derivation /nix/store/00000000000000000000000000000000-iproute2-6.13.0.drv»;
+-systemd.services.network-setup.path.".1" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.network-setup.path.".2" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.network-setup.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.network-setup.path.".4" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.network-setup.path.".5" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 -systemd.services.network-setup.before.".0" = "network.target";
 -systemd.services.network-setup.before.".1" = "shutdown.target";
 -systemd.services.network-setup.enable = true;
--systemd.services.network-setup.environment.PATH = "/nix/store/ayl3756rjknrblv5brjpblv0qb7g3wrq-iproute2-6.13.0/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/ayl3756rjknrblv5brjpblv0qb7g3wrq-iproute2-6.13.0/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
+-systemd.services.network-setup.environment.PATH = "/nix/store/00000000000000000000000000000000-iproute2-6.13.0/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-iproute2-6.13.0/sbin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 -systemd.services.network-setup.wantedBy.".0" = "multi-user.target";
 -systemd.services.network-setup.reloadIfChanged = false;
 -systemd.services.network-setup.serviceConfig.RemainAfterExit = true;
--systemd.services.network-setup.serviceConfig.ExecStart = "/nix/store/3wz8agfnp6zca68cic10bpbf4yf9k4yx-unit-script-network-setup-start/bin/network-setup-start ";
+-systemd.services.network-setup.serviceConfig.ExecStart = "/nix/store/00000000000000000000000000000000-unit-script-network-setup-start/bin/network-setup-start ";
 -systemd.services.network-setup.serviceConfig.Type = "oneshot";
 -systemd.services.network-setup.script = ''
   # Set the static DNS configuration, if given.
-  /nix/store/br3h6x8czgp78adgavdl2l5ank3y6dhk-openresolv-3.13.2/sbin/resolvconf -m 1 -a static <<EOF
+  /nix/store/00000000000000000000000000000000-openresolv-3.13.2/sbin/resolvconf -m 1 -a static <<EOF
   
   
   
@@ -4482,29 +4278,27 @@
    -/run/current-system/systemd/bin/systemctl reload dhcpcd.service
     
     
--systemd.services.post-resume.serviceConfig.ExecStart = "/nix/store/9d25i7yhwpmapmy93pdm4hq6nv0j3cjy-unit-script-post-resume-start/bin/post-resume-start ";
-+systemd.services.post-resume.serviceConfig.ExecStart = "/nix/store/ypd2m8m1rsh65svpwy8y5wq0gz4jyn8a-unit-script-post-resume-start/bin/post-resume-start ";
 -systemd.services.resolvconf.name = "resolvconf.service";
 -systemd.services.resolvconf.description = "resolvconf update";
--systemd.services.resolvconf.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.resolvconf.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.resolvconf.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.resolvconf.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.resolvconf.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.resolvconf.path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.resolvconf.path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.resolvconf.path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.resolvconf.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.resolvconf.path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 -systemd.services.resolvconf.before.".0" = "network-pre.target";
 -systemd.services.resolvconf.enable = true;
--systemd.services.resolvconf.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
+-systemd.services.resolvconf.environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 -systemd.services.resolvconf.wantedBy.".0" = "multi-user.target";
--systemd.services.resolvconf.restartTriggers.".0" = «derivation /nix/store/6fdjwwpaqv7h7839i4i68xiq7qcp3ilx-etc-resolvconf.conf.drv»;
+-systemd.services.resolvconf.restartTriggers.".0" = «derivation /nix/store/00000000000000000000000000000000-etc-resolvconf.conf.drv»;
 -systemd.services.resolvconf.reloadIfChanged = false;
 -systemd.services.resolvconf.serviceConfig.RemainAfterExit = true;
--systemd.services.resolvconf.serviceConfig.ExecStart = "/nix/store/ag2m06m28cd8pq59dsajyksar99z1p55-unit-script-resolvconf-start/bin/resolvconf-start ";
+-systemd.services.resolvconf.serviceConfig.ExecStart = "/nix/store/00000000000000000000000000000000-unit-script-resolvconf-start/bin/resolvconf-start ";
 -systemd.services.resolvconf.serviceConfig.Type = "oneshot";
 -systemd.services.resolvconf.script = ''
-  /nix/store/br3h6x8czgp78adgavdl2l5ank3y6dhk-openresolv-3.13.2/bin/resolvconf -u
+  /nix/store/00000000000000000000000000000000-openresolv-3.13.2/bin/resolvconf -u
   chgrp resolvconf /etc/resolv.conf
   chmod g=u /etc/resolv.conf
-  /nix/store/09lskfnd4frv7p0ijaplmv73116g9a2a-acl-2.3.2-bin/bin/setfacl -R \
+  /nix/store/00000000000000000000000000000000-acl-2.3.2-bin/bin/setfacl -R \
     -m group:resolvconf:rwx \
     -m default:group:resolvconf:rwx \
     /run/resolvconf
@@ -4512,7 +4306,7 @@
 -systemd.services.resolvconf.unitConfig.Description = "resolvconf update";
 -systemd.services.resolvconf.unitConfig.Wants = "network-pre.target";
 -systemd.services.resolvconf.unitConfig.Before = "network-pre.target";
--systemd.services.resolvconf.unitConfig.X-Restart-Triggers = "/nix/store/05w9bf5wpsc3jmsxm3fmf8adssb1vkm8-X-Restart-Triggers-resolvconf";
+-systemd.services.resolvconf.unitConfig.X-Restart-Triggers = "/nix/store/00000000000000000000000000000000-X-Restart-Triggers-resolvconf";
 -systemd.services.resolvconf.preStart = "";
 -systemd.services.resolvconf.wants.".0" = "network-pre.target";
 -systemd.services.resolvconf.restartIfChanged = true;
@@ -4526,23 +4320,21 @@
 -systemd.services.resolvconf.reload = "";
 -systemd.services.resolvconf.preStop = "";
 -systemd.services.resolvconf.scriptArgs = "";
--systemd.services.systemd-modules-load.unitConfig.X-Restart-Triggers = "/nix/store/3kh4ma82jvmx2lz3jmqwxxhh7jzwp9zs-X-Restart-Triggers-systemd-modules-load";
-+systemd.services.systemd-modules-load.unitConfig.X-Restart-Triggers = "/nix/store/zg0apsbqw70jfzhbsfcwsfr53bf0xbwg-X-Restart-Triggers-systemd-modules-load";
 +systemd.services.systemd-networkd.name = "systemd-networkd.service";
 +systemd.services.systemd-networkd.description = "";
--systemd.services.systemd-networkd.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.systemd-networkd.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.systemd-networkd.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.systemd-networkd.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.systemd-networkd.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.systemd-networkd.path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.systemd-networkd.path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.systemd-networkd.path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.systemd-networkd.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.systemd-networkd.path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 +systemd.services.systemd-networkd.enable = true;
-+systemd.services.systemd-networkd.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
++systemd.services.systemd-networkd.environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 +systemd.services.systemd-networkd.wantedBy.".0" = "multi-user.target";
--systemd.services.systemd-networkd.restartTriggers.".0" = «derivation /nix/store/bwcvr42qdp8zb2h6r55vcnrh2v121rjb-etc-systemd-networkd.conf.drv»;
+-systemd.services.systemd-networkd.restartTriggers.".0" = «derivation /nix/store/00000000000000000000000000000000-etc-systemd-networkd.conf.drv»;
 +systemd.services.systemd-networkd.reloadIfChanged = false;
 +systemd.services.systemd-networkd.script = "";
-+systemd.services.systemd-networkd.unitConfig.X-Restart-Triggers = "/nix/store/mpxwh06ffwm3d3zmln8bbs3ahhy3g6y5-X-Restart-Triggers-systemd-networkd";
-+systemd.services.systemd-networkd.unitConfig.X-Reload-Triggers = "/nix/store/cd29kw67cqnz23vycgkdyy9qxpnal88p-X-Reload-Triggers-systemd-networkd";
++systemd.services.systemd-networkd.unitConfig.X-Restart-Triggers = "/nix/store/00000000000000000000000000000000-X-Restart-Triggers-systemd-networkd";
++systemd.services.systemd-networkd.unitConfig.X-Reload-Triggers = "/nix/store/00000000000000000000000000000000-X-Reload-Triggers-systemd-networkd";
 +systemd.services.systemd-networkd.preStart = "";
 +systemd.services.systemd-networkd.restartIfChanged = true;
 +systemd.services.systemd-networkd.overrideStrategy = "asDropinIfExists";
@@ -4551,24 +4343,24 @@
 +systemd.services.systemd-networkd.confinement.enable = false;
 +systemd.services.systemd-networkd.postStop = "";
 +systemd.services.systemd-networkd.postStart = "";
-+systemd.services.systemd-networkd.reloadTriggers.".0" = "/nix/store/42rm219l5zssd9ddv5cf7sy1iqr9bsf6-unit-99-ethernet-default-dhcp.network/99-ethernet-default-dhcp.network";
-+systemd.services.systemd-networkd.reloadTriggers.".1" = "/nix/store/c2lcfgyvwqcwd2wni183nzjiamjcdl0x-unit-99-wireless-client-dhcp.network/99-wireless-client-dhcp.network";
++systemd.services.systemd-networkd.reloadTriggers.".0" = "/nix/store/00000000000000000000000000000000-unit-99-ethernet-default-dhcp.network/99-ethernet-default-dhcp.network";
++systemd.services.systemd-networkd.reloadTriggers.".1" = "/nix/store/00000000000000000000000000000000-unit-99-wireless-client-dhcp.network/99-wireless-client-dhcp.network";
 +systemd.services.systemd-networkd.notSocketActivated = true;
 +systemd.services.systemd-networkd.reload = "";
 +systemd.services.systemd-networkd.preStop = "";
 +systemd.services.systemd-networkd-wait-online.name = "systemd-networkd-wait-online.service";
 +systemd.services.systemd-networkd-wait-online.description = "";
--systemd.services.systemd-networkd-wait-online.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.systemd-networkd-wait-online.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.systemd-networkd-wait-online.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.systemd-networkd-wait-online.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.systemd-networkd-wait-online.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.systemd-networkd-wait-online.path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.systemd-networkd-wait-online.path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.systemd-networkd-wait-online.path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.systemd-networkd-wait-online.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.systemd-networkd-wait-online.path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 +systemd.services.systemd-networkd-wait-online.enable = true;
-+systemd.services.systemd-networkd-wait-online.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
++systemd.services.systemd-networkd-wait-online.environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 +systemd.services.systemd-networkd-wait-online.wantedBy.".0" = "network-online.target";
 +systemd.services.systemd-networkd-wait-online.reloadIfChanged = false;
 +systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart.".0" = "";
-+systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart.".1" = "/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib/systemd/systemd-networkd-wait-online \"--timeout=120\" \"--any\"";
++systemd.services.systemd-networkd-wait-online.serviceConfig.ExecStart.".1" = "/nix/store/00000000000000000000000000000000-systemd-257.2/lib/systemd/systemd-networkd-wait-online \"--timeout=120\" \"--any\"";
 +systemd.services.systemd-networkd-wait-online.script = "";
 +systemd.services.systemd-networkd-wait-online.preStart = "";
 +systemd.services.systemd-networkd-wait-online.restartIfChanged = true;
@@ -4582,16 +4374,16 @@
 +systemd.services.systemd-networkd-wait-online.preStop = "";
 +systemd.services."systemd-networkd-wait-online@".name = "systemd-networkd-wait-online@.service";
 +systemd.services."systemd-networkd-wait-online@".description = "";
--systemd.services."systemd-networkd-wait-online@".path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services."systemd-networkd-wait-online@".path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services."systemd-networkd-wait-online@".path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services."systemd-networkd-wait-online@".path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services."systemd-networkd-wait-online@".path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services."systemd-networkd-wait-online@".path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services."systemd-networkd-wait-online@".path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services."systemd-networkd-wait-online@".path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services."systemd-networkd-wait-online@".path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services."systemd-networkd-wait-online@".path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 +systemd.services."systemd-networkd-wait-online@".enable = true;
-+systemd.services."systemd-networkd-wait-online@".environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
++systemd.services."systemd-networkd-wait-online@".environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 +systemd.services."systemd-networkd-wait-online@".reloadIfChanged = false;
 +systemd.services."systemd-networkd-wait-online@".serviceConfig.ExecStart.".0" = "";
-+systemd.services."systemd-networkd-wait-online@".serviceConfig.ExecStart.".1" = "/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib/systemd/systemd-networkd-wait-online -i %i \"--timeout=120\" \"--any\"";
++systemd.services."systemd-networkd-wait-online@".serviceConfig.ExecStart.".1" = "/nix/store/00000000000000000000000000000000-systemd-257.2/lib/systemd/systemd-networkd-wait-online -i %i \"--timeout=120\" \"--any\"";
 +systemd.services."systemd-networkd-wait-online@".script = "";
 +systemd.services."systemd-networkd-wait-online@".preStart = "";
 +systemd.services."systemd-networkd-wait-online@".restartIfChanged = true;
@@ -4605,17 +4397,17 @@
 +systemd.services."systemd-networkd-wait-online@".preStop = "";
 +systemd.services.systemd-resolved.name = "systemd-resolved.service";
 +systemd.services.systemd-resolved.description = "";
--systemd.services.systemd-resolved.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.systemd-resolved.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.systemd-resolved.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.systemd-resolved.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.systemd-resolved.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.systemd-resolved.path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.systemd-resolved.path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.systemd-resolved.path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.systemd-resolved.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.systemd-resolved.path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 +systemd.services.systemd-resolved.enable = true;
-+systemd.services.systemd-resolved.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
++systemd.services.systemd-resolved.environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 +systemd.services.systemd-resolved.wantedBy.".0" = "sysinit.target";
 +systemd.services.systemd-resolved.reloadIfChanged = false;
 +systemd.services.systemd-resolved.script = "";
-+systemd.services.systemd-resolved.unitConfig.X-Reload-Triggers = "/nix/store/lzpah2c2c65vc51sxq9vnazr8jq9qn5b-X-Reload-Triggers-systemd-resolved";
++systemd.services.systemd-resolved.unitConfig.X-Reload-Triggers = "/nix/store/00000000000000000000000000000000-X-Reload-Triggers-systemd-resolved";
 +systemd.services.systemd-resolved.preStart = "";
 +systemd.services.systemd-resolved.restartIfChanged = true;
 +systemd.services.systemd-resolved.overrideStrategy = "asDropinIfExists";
@@ -4624,7 +4416,7 @@
 +systemd.services.systemd-resolved.confinement.enable = false;
 +systemd.services.systemd-resolved.postStop = "";
 +systemd.services.systemd-resolved.postStart = "";
--systemd.services.systemd-resolved.reloadTriggers.".0" = «derivation /nix/store/yak9s678rfqgm7nqby4dxm2hxfc6m0z9-etc-systemd-resolved.conf.drv»;
+-systemd.services.systemd-resolved.reloadTriggers.".0" = «derivation /nix/store/00000000000000000000000000000000-etc-systemd-resolved.conf.drv»;
 +systemd.services.systemd-resolved.notSocketActivated = false;
 +systemd.services.systemd-resolved.reload = "";
 +systemd.services.systemd-resolved.preStop = "";
@@ -4639,24 +4431,20 @@
 -systemd.services.systemd-rfkill.postStart = "";
 -systemd.services.systemd-rfkill.reload = "";
 -systemd.services.systemd-rfkill.preStop = "";
--systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/6j6l50fwp3mmpfk8l4h0m0hw2qak9hlk-X-Restart-Triggers-systemd-tmpfiles-resetup";
-+systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/0b5s0h7r0f4dm9lcmm79y40rgiq1sdsa-X-Restart-Triggers-systemd-tmpfiles-resetup";
--systemd.services.systemd-udevd.unitConfig.X-Restart-Triggers = "/nix/store/zjnv0mic31ja4rh1cip6fqaji0dzx0xh-X-Restart-Triggers-systemd-udevd";
-+systemd.services.systemd-udevd.unitConfig.X-Restart-Triggers = "/nix/store/vi9kvqmnw6phcsz1gfy2xgnv2p8nd9wf-X-Restart-Triggers-systemd-udevd";
 -systemd.services.tlp.name = "tlp.service";
 -systemd.services.tlp.description = "";
--systemd.services.tlp.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.tlp.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.tlp.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.tlp.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.tlp.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.tlp.path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.tlp.path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.tlp.path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.tlp.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.tlp.path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 -systemd.services.tlp.enable = true;
--systemd.services.tlp.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
+-systemd.services.tlp.environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 -systemd.services.tlp.wantedBy.".0" = "multi-user.target";
--systemd.services.tlp.restartTriggers.".0" = «derivation /nix/store/mg1b4iar4pvsdb916zia6bsiblq7178w-etc-tlp.conf.drv»;
+-systemd.services.tlp.restartTriggers.".0" = «derivation /nix/store/00000000000000000000000000000000-etc-tlp.conf.drv»;
 -systemd.services.tlp.reloadIfChanged = false;
 -systemd.services.tlp.script = "";
--systemd.services.tlp.unitConfig.X-Restart-Triggers = "/nix/store/fqhiz53bhm2fjhyisscisy874p4m57bx-X-Restart-Triggers-tlp";
+-systemd.services.tlp.unitConfig.X-Restart-Triggers = "/nix/store/00000000000000000000000000000000-X-Restart-Triggers-tlp";
 -systemd.services.tlp.preStart = "";
 -systemd.services.tlp.restartIfChanged = true;
 -systemd.services.tlp.overrideStrategy = "asDropinIfExists";
@@ -4669,14 +4457,14 @@
 -systemd.services.tlp.preStop = "";
 -systemd.services.tlp-sleep.name = "tlp-sleep.service";
 -systemd.services.tlp-sleep.description = "";
--systemd.services.tlp-sleep.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.tlp-sleep.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.tlp-sleep.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.tlp-sleep.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.tlp-sleep.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.tlp-sleep.path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.tlp-sleep.path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.tlp-sleep.path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.tlp-sleep.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.tlp-sleep.path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 -systemd.services.tlp-sleep.before.".0" = "sleep.target";
 -systemd.services.tlp-sleep.enable = true;
--systemd.services.tlp-sleep.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
+-systemd.services.tlp-sleep.environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 -systemd.services.tlp-sleep.wantedBy.".0" = "sleep.target";
 -systemd.services.tlp-sleep.reloadIfChanged = false;
 -systemd.services.tlp-sleep.serviceConfig.StateDirectory = "tlp";
@@ -4694,20 +4482,20 @@
 -systemd.services.tlp-sleep.preStop = "";
 -systemd.services.trackpoint.name = "trackpoint.service";
 -systemd.services.trackpoint.description = "";
--systemd.services.trackpoint.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.services.trackpoint.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.services.trackpoint.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.services.trackpoint.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.services.trackpoint.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.services.trackpoint.path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.services.trackpoint.path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.services.trackpoint.path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.services.trackpoint.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.services.trackpoint.path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 -systemd.services.trackpoint.before.".0" = "sysinit.target";
 -systemd.services.trackpoint.before.".1" = "shutdown.target";
 -systemd.services.trackpoint.enable = true;
--systemd.services.trackpoint.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
+-systemd.services.trackpoint.environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 -systemd.services.trackpoint.wantedBy.".0" = "sysinit.target";
 -systemd.services.trackpoint.reloadIfChanged = false;
 -systemd.services.trackpoint.serviceConfig.RemainAfterExit = true;
 -systemd.services.trackpoint.serviceConfig.ExecStart = ''
-  /nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin/udevadm trigger --attr-match=name="TPPS/2 Elan TrackPoint"
+  /nix/store/00000000000000000000000000000000-systemd-257.2/bin/udevadm trigger --attr-match=name="TPPS/2 Elan TrackPoint"
   '';
 -systemd.services.trackpoint.serviceConfig.Type = "oneshot";
 -systemd.services.trackpoint.script = "";
@@ -4747,7 +4535,7 @@
 +systemd.tmpfiles.settings.graphics-driver."/run/opengl-driver"."L+".mode = "-";
 +systemd.tmpfiles.settings.graphics-driver."/run/opengl-driver"."L+".group = "-";
 +systemd.tmpfiles.settings.graphics-driver."/run/opengl-driver"."L+".user = "-";
-+systemd.tmpfiles.settings.graphics-driver."/run/opengl-driver"."L+".argument = "/nix/store/1kai6193aq7y19lyg61z3dh1mbyjcnmd-graphics-drivers";
++systemd.tmpfiles.settings.graphics-driver."/run/opengl-driver"."L+".argument = "/nix/store/00000000000000000000000000000000-graphics-drivers";
 +systemd.tmpfiles.settings.graphics-driver."/run/opengl-driver"."L+".age = "-";
 +systemd.tmpfiles.settings.graphics-driver."/run/opengl-driver-32".r.type = "r";
 +systemd.tmpfiles.settings.graphics-driver."/run/opengl-driver-32".r.mode = "-";
@@ -4762,31 +4550,21 @@
   X-RestartIfChanged=false
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
   ExecStart=
-  ExecStart=/nix/store/cz0n41vz1a67k3sl3q15l8blv9935bzf-bluez-5.79/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf
+  ExecStart=/nix/store/00000000000000000000000000000000-bluez-5.79/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf
   
   [Install]
   WantedBy=bluetooth.target
   '';
 +systemd.units."bluetooth.service".overrideStrategy = "asDropinIfExists";
--systemd.units."bluetooth.service".unit = «derivation /nix/store/8bw5f2xqw921dhxzln72l7xqjvimd6im-unit-bluetooth.service.drv»;
+-systemd.units."bluetooth.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-bluetooth.service.drv»;
 +systemd.units."bluetooth.service".aliases.".0" = "dbus-org.bluez.service";
 -systemd.units."cpufreq.service".enable = false;
 -systemd.units."cpufreq.service".overrideStrategy = "asDropinIfExists";
--systemd.units."cpufreq.service".unit = «derivation /nix/store/1zj2bhjmi7mgycyvsbsriyg5s3vls5zn-unit-cpufreq.service-disabled.drv»;
- systemd.units."dbus.service".text =
-  @@ -1,5 +1,5 @@
-    [Unit]
-   -X-Restart-Triggers=/nix/store/kcw9nqxqkhy2p20xya1977n1i2aw528n-X-Restart-Triggers-dbus
-   +X-Restart-Triggers=/nix/store/s61xwrjsi44vziplvc34qwrd3n2kagx5-X-Restart-Triggers-dbus
-    
-    [Service]
-    Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"
--systemd.units."dbus.service".unit = «derivation /nix/store/wpcgsrgm48aqssg8576cy0mdki46c5bv-unit-dbus.service.drv»;
-+systemd.units."dbus.service".unit = «derivation /nix/store/s21l946vr7b0ndh4i4jwindb0l67d2wf-unit-dbus.service.drv»;
+-systemd.units."cpufreq.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-cpufreq.service-disabled.drv»;
 -systemd.units."dhcpcd.service".enable = true;
 -systemd.units."dhcpcd.service".wantedBy.".0" = "multi-user.target";
 -systemd.units."dhcpcd.service".wantedBy.".1" = "network-online.target";
@@ -4797,12 +4575,12 @@
   ConditionCapability=CAP_NET_ADMIN
   Description=DHCP Client
   Wants=network.target resolvconf.service
-  X-Restart-Triggers=/nix/store/z3x1s8bd8nq6wp2i3zhsfdjy94m2rapg-X-Restart-Triggers-dhcpcd
+  X-Restart-Triggers=/nix/store/00000000000000000000000000000000-X-Restart-Triggers-dhcpcd
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/ppwpcsb822fca14yqbkr4vfr48p0zmk2-dhcpcd-10.1.0/bin:/nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10/bin:/nix/store/br3h6x8czgp78adgavdl2l5ank3y6dhk-openresolv-3.13.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/ppwpcsb822fca14yqbkr4vfr48p0zmk2-dhcpcd-10.1.0/sbin:/nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10/sbin:/nix/store/br3h6x8czgp78adgavdl2l5ank3y6dhk-openresolv-3.13.2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-dhcpcd-10.1.0/bin:/nix/store/00000000000000000000000000000000-net-tools-2.10/bin:/nix/store/00000000000000000000000000000000-openresolv-3.13.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-dhcpcd-10.1.0/sbin:/nix/store/00000000000000000000000000000000-net-tools-2.10/sbin:/nix/store/00000000000000000000000000000000-openresolv-3.13.2/sbin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
   X-StopIfChanged=false
   AmbientCapabilities=CAP_NET_ADMIN
   AmbientCapabilities=CAP_NET_RAW
@@ -4811,9 +4589,9 @@
   CapabilityBoundingSet=CAP_NET_RAW
   CapabilityBoundingSet=CAP_NET_BIND_SERVICE
   DeviceAllow=
-  ExecReload=/nix/store/ppwpcsb822fca14yqbkr4vfr48p0zmk2-dhcpcd-10.1.0/sbin/dhcpcd --rebind
-  ExecStart=@/nix/store/ppwpcsb822fca14yqbkr4vfr48p0zmk2-dhcpcd-10.1.0/sbin/dhcpcd dhcpcd --quiet  --config /nix/store/nxkc5kqxlrih1qc51dybi10rn4f1jsvh-dhcpcd.conf
-  ExecStartPre=+/nix/store/01jw79rfsbldjk2x3403lhic8apy6p8i-migrate-dhcpcd
+  ExecReload=/nix/store/00000000000000000000000000000000-dhcpcd-10.1.0/sbin/dhcpcd --rebind
+  ExecStart=@/nix/store/00000000000000000000000000000000-dhcpcd-10.1.0/sbin/dhcpcd dhcpcd --quiet  --config /nix/store/00000000000000000000000000000000-dhcpcd.conf
+  ExecStartPre=+/nix/store/00000000000000000000000000000000-migrate-dhcpcd
   Group=dhcpcd
   LockPersonality=true
   MemoryDenyWriteExecute=true
@@ -4865,18 +4643,18 @@
   WantedBy=multi-user.target network-online.target
   '';
 -systemd.units."dhcpcd.service".overrideStrategy = "asDropinIfExists";
--systemd.units."dhcpcd.service".unit = «derivation /nix/store/5x4cw1vkdmjib7q5i7w0chqvskqwlzwn-unit-dhcpcd.service.drv»;
+-systemd.units."dhcpcd.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-dhcpcd.service.drv»;
 +systemd.units."fprintd.service".enable = true;
 +systemd.units."fprintd.service".text = ''
   [Unit]
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
   '';
 +systemd.units."fprintd.service".overrideStrategy = "asDropinIfExists";
--systemd.units."fprintd.service".unit = «derivation /nix/store/vmz6r4wzc1llaqszpjlpd1xb8l1y035g-unit-fprintd.service.drv»;
+-systemd.units."fprintd.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-fprintd.service.drv»;
 -systemd.units."network-setup.service".enable = true;
 -systemd.units."network-setup.service".wantedBy.".0" = "multi-user.target";
 -systemd.units."network-setup.service".text = ''
@@ -4890,10 +4668,10 @@
   Wants=network.target
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/ayl3756rjknrblv5brjpblv0qb7g3wrq-iproute2-6.13.0/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/ayl3756rjknrblv5brjpblv0qb7g3wrq-iproute2-6.13.0/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
-  ExecStart=/nix/store/3wz8agfnp6zca68cic10bpbf4yf9k4yx-unit-script-network-setup-start/bin/network-setup-start 
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-iproute2-6.13.0/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-iproute2-6.13.0/sbin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
+  ExecStart=/nix/store/00000000000000000000000000000000-unit-script-network-setup-start/bin/network-setup-start 
   RemainAfterExit=true
   Type=oneshot
   
@@ -4901,17 +4679,7 @@
   WantedBy=multi-user.target
   '';
 -systemd.units."network-setup.service".overrideStrategy = "asDropinIfExists";
--systemd.units."network-setup.service".unit = «derivation /nix/store/vqiagz01cyhj62vjl0x1k53a9h0j4yrv-unit-network-setup.service.drv»;
- systemd.units."post-resume.service".text =
-  @@ -6,5 +6,5 @@
-    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-    Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-    Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
-   -ExecStart=/nix/store/9d25i7yhwpmapmy93pdm4hq6nv0j3cjy-unit-script-post-resume-start/bin/post-resume-start 
-   +ExecStart=/nix/store/ypd2m8m1rsh65svpwy8y5wq0gz4jyn8a-unit-script-post-resume-start/bin/post-resume-start 
-    Type=oneshot
--systemd.units."post-resume.service".unit = «derivation /nix/store/33x7raywq3vic6jhjppkz1ar276cvw13-unit-post-resume.service.drv»;
-+systemd.units."post-resume.service".unit = «derivation /nix/store/6j0pjwx6vw03v8cwh4cbhcyisazqnkv0-unit-post-resume.service.drv»;
+-systemd.units."network-setup.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-network-setup.service.drv»;
 -systemd.units."resolvconf.service".enable = true;
 -systemd.units."resolvconf.service".wantedBy.".0" = "multi-user.target";
 -systemd.units."resolvconf.service".text = ''
@@ -4919,13 +4687,13 @@
   Before=network-pre.target
   Description=resolvconf update
   Wants=network-pre.target
-  X-Restart-Triggers=/nix/store/05w9bf5wpsc3jmsxm3fmf8adssb1vkm8-X-Restart-Triggers-resolvconf
+  X-Restart-Triggers=/nix/store/00000000000000000000000000000000-X-Restart-Triggers-resolvconf
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
-  ExecStart=/nix/store/ag2m06m28cd8pq59dsajyksar99z1p55-unit-script-resolvconf-start/bin/resolvconf-start 
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
+  ExecStart=/nix/store/00000000000000000000000000000000-unit-script-resolvconf-start/bin/resolvconf-start 
   RemainAfterExit=true
   Type=oneshot
   
@@ -4933,58 +4701,48 @@
   WantedBy=multi-user.target
   '';
 -systemd.units."resolvconf.service".overrideStrategy = "asDropinIfExists";
--systemd.units."resolvconf.service".unit = «derivation /nix/store/macnhi0di8pzkhs7cixmh8md0vabmg73-unit-resolvconf.service.drv»;
- systemd.units."systemd-modules-load.service".text =
-  @@ -1,5 +1,5 @@
-    [Unit]
-   -X-Restart-Triggers=/nix/store/3kh4ma82jvmx2lz3jmqwxxhh7jzwp9zs-X-Restart-Triggers-systemd-modules-load
-   +X-Restart-Triggers=/nix/store/zg0apsbqw70jfzhbsfcwsfr53bf0xbwg-X-Restart-Triggers-systemd-modules-load
-    
-    [Service]
-    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
--systemd.units."systemd-modules-load.service".unit = «derivation /nix/store/vj333ydjabzhqpnvr1plq1k4bkwaal3d-unit-systemd-modules-load.service.drv»;
-+systemd.units."systemd-modules-load.service".unit = «derivation /nix/store/jlzdv7a8nhyqgmjllw8w0w84idcq3k1s-unit-systemd-modules-load.service.drv»;
+-systemd.units."resolvconf.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-resolvconf.service.drv»;
 +systemd.units."systemd-networkd-wait-online.service".enable = true;
 +systemd.units."systemd-networkd-wait-online.service".wantedBy.".0" = "network-online.target";
 +systemd.units."systemd-networkd-wait-online.service".text = ''
   [Unit]
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
   ExecStart=
-  ExecStart=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib/systemd/systemd-networkd-wait-online "--timeout=120" "--any"
+  ExecStart=/nix/store/00000000000000000000000000000000-systemd-257.2/lib/systemd/systemd-networkd-wait-online "--timeout=120" "--any"
   
   [Install]
   WantedBy=network-online.target
   '';
 +systemd.units."systemd-networkd-wait-online.service".overrideStrategy = "asDropinIfExists";
--systemd.units."systemd-networkd-wait-online.service".unit = «derivation /nix/store/icw6sfvc98wc2fhpxzac3zli5y0m5qll-unit-systemd-networkd-wait-online.service.drv»;
+-systemd.units."systemd-networkd-wait-online.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-systemd-networkd-wait-online.service.drv»;
 +systemd.units."systemd-networkd-wait-online@.service".enable = true;
 +systemd.units."systemd-networkd-wait-online@.service".text = ''
   [Unit]
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
   ExecStart=
-  ExecStart=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib/systemd/systemd-networkd-wait-online -i %i "--timeout=120" "--any"
+  ExecStart=/nix/store/00000000000000000000000000000000-systemd-257.2/lib/systemd/systemd-networkd-wait-online -i %i "--timeout=120" "--any"
   '';
 +systemd.units."systemd-networkd-wait-online@.service".overrideStrategy = "asDropinIfExists";
--systemd.units."systemd-networkd-wait-online@.service".unit = «derivation /nix/store/n28ar90i9mqrjxjpkdja4wbv2c42hjh3-unit-systemd-networkd-wait-online-.service.drv»;
+-systemd.units."systemd-networkd-wait-online@.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-systemd-networkd-wait-online-.service.drv»;
 +systemd.units."systemd-networkd.service".enable = true;
 +systemd.units."systemd-networkd.service".wantedBy.".0" = "multi-user.target";
 +systemd.units."systemd-networkd.service".text = ''
   [Unit]
-  X-Reload-Triggers=/nix/store/cd29kw67cqnz23vycgkdyy9qxpnal88p-X-Reload-Triggers-systemd-networkd
-  X-Restart-Triggers=/nix/store/mpxwh06ffwm3d3zmln8bbs3ahhy3g6y5-X-Restart-Triggers-systemd-networkd
+  X-Reload-Triggers=/nix/store/00000000000000000000000000000000-X-Reload-Triggers-systemd-networkd
+  X-Restart-Triggers=/nix/store/00000000000000000000000000000000-X-Restart-Triggers-systemd-networkd
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
   X-StopIfChanged=false
   X-NotSocketActivated=true
   
@@ -4992,7 +4750,7 @@
   WantedBy=multi-user.target
   '';
 +systemd.units."systemd-networkd.service".overrideStrategy = "asDropinIfExists";
--systemd.units."systemd-networkd.service".unit = «derivation /nix/store/rc5z8d5v3csjrbfhjkda7g8wbcx4j49n-unit-systemd-networkd.service.drv»;
+-systemd.units."systemd-networkd.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-systemd-networkd.service.drv»;
 +systemd.units."systemd-networkd.service".aliases.".0" = "dbus-org.freedesktop.network1.service";
 +systemd.units."systemd-networkd.socket".enable = true;
 +systemd.units."systemd-networkd.socket".wantedBy.".0" = "sockets.target";
@@ -5008,53 +4766,31 @@
   WantedBy=sockets.target
   '';
 +systemd.units."systemd-networkd.socket".overrideStrategy = "asDropinIfExists";
--systemd.units."systemd-networkd.socket".unit = «derivation /nix/store/gs1x7sn9cdssybsg8gssran20dyxvhiw-unit-systemd-networkd.socket.drv»;
+-systemd.units."systemd-networkd.socket".unit = «derivation /nix/store/00000000000000000000000000000000-unit-systemd-networkd.socket.drv»;
 +systemd.units."systemd-resolved.service".enable = true;
 +systemd.units."systemd-resolved.service".wantedBy.".0" = "sysinit.target";
 +systemd.units."systemd-resolved.service".text = ''
   [Unit]
-  X-Reload-Triggers=/nix/store/lzpah2c2c65vc51sxq9vnazr8jq9qn5b-X-Reload-Triggers-systemd-resolved
+  X-Reload-Triggers=/nix/store/00000000000000000000000000000000-X-Reload-Triggers-systemd-resolved
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
   X-StopIfChanged=false
   
   [Install]
   WantedBy=sysinit.target
   '';
 +systemd.units."systemd-resolved.service".overrideStrategy = "asDropinIfExists";
--systemd.units."systemd-resolved.service".unit = «derivation /nix/store/6birxaygyb4f9n2xzgadvk4rnq30j4zl-unit-systemd-resolved.service.drv»;
+-systemd.units."systemd-resolved.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-systemd-resolved.service.drv»;
 +systemd.units."systemd-resolved.service".aliases.".0" = "dbus-org.freedesktop.resolve1.service";
 -systemd.units."systemd-rfkill.service".enable = false;
 -systemd.units."systemd-rfkill.service".overrideStrategy = "asDropinIfExists";
--systemd.units."systemd-rfkill.service".unit = «derivation /nix/store/s9jpadlh2vinw3zy3sgsmq4dn89izsyq-unit-systemd-rfkill.service-disabled.drv»;
+-systemd.units."systemd-rfkill.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-systemd-rfkill.service-disabled.drv»;
 -systemd.units."systemd-rfkill.socket".enable = false;
 -systemd.units."systemd-rfkill.socket".overrideStrategy = "asDropinIfExists";
--systemd.units."systemd-rfkill.socket".unit = «derivation /nix/store/glz2kl505wllg5wy7c8hfy7dc29d21x7-unit-systemd-rfkill.socket-disabled.drv»;
- systemd.units."systemd-tmpfiles-resetup.service".text =
-  @@ -4,7 +4,7 @@
-    Conflicts=shutdown.target
-    DefaultDependencies=false
-    Description=Re-setup tmpfiles on a system that is already running.
-   -X-Restart-Triggers=/nix/store/6j6l50fwp3mmpfk8l4h0m0hw2qak9hlk-X-Restart-Triggers-systemd-tmpfiles-resetup
-   +X-Restart-Triggers=/nix/store/0b5s0h7r0f4dm9lcmm79y40rgiq1sdsa-X-Restart-Triggers-systemd-tmpfiles-resetup
-    
-    [Service]
-    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
--systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/impc6qs45218grnj214l2svzgn1zqrzq-unit-systemd-tmpfiles-resetup.service.drv»;
-+systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/iv5hqnm54h629qjkwzaqqxwvlhgamd4y-unit-systemd-tmpfiles-resetup.service.drv»;
- systemd.units."systemd-udevd.service".text =
-  @@ -1,5 +1,5 @@
-    [Unit]
-   -X-Restart-Triggers=/nix/store/zjnv0mic31ja4rh1cip6fqaji0dzx0xh-X-Restart-Triggers-systemd-udevd
-   +X-Restart-Triggers=/nix/store/vi9kvqmnw6phcsz1gfy2xgnv2p8nd9wf-X-Restart-Triggers-systemd-udevd
-    
-    [Service]
-    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
--systemd.units."systemd-udevd.service".unit = «derivation /nix/store/b55b4q87qr3r6phxg6gin2m64b9yvf2a-unit-systemd-udevd.service.drv»;
-+systemd.units."systemd-udevd.service".unit = «derivation /nix/store/nhmmgr8vd4v3zcng4ganh2myi7j33yfl-unit-systemd-udevd.service.drv»;
+-systemd.units."systemd-rfkill.socket".unit = «derivation /nix/store/00000000000000000000000000000000-unit-systemd-rfkill.socket-disabled.drv»;
 -systemd.units."tlp-sleep.service".enable = true;
 -systemd.units."tlp-sleep.service".wantedBy.".0" = "sleep.target";
 -systemd.units."tlp-sleep.service".text = ''
@@ -5062,32 +4798,32 @@
   Before=sleep.target
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
   StateDirectory=tlp
   
   [Install]
   WantedBy=sleep.target
   '';
 -systemd.units."tlp-sleep.service".overrideStrategy = "asDropinIfExists";
--systemd.units."tlp-sleep.service".unit = «derivation /nix/store/49q79r2vhwm33nj0xidk2m2lap0qz98g-unit-tlp-sleep.service.drv»;
+-systemd.units."tlp-sleep.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-tlp-sleep.service.drv»;
 -systemd.units."tlp.service".enable = true;
 -systemd.units."tlp.service".wantedBy.".0" = "multi-user.target";
 -systemd.units."tlp.service".text = ''
   [Unit]
-  X-Restart-Triggers=/nix/store/fqhiz53bhm2fjhyisscisy874p4m57bx-X-Restart-Triggers-tlp
+  X-Restart-Triggers=/nix/store/00000000000000000000000000000000-X-Restart-Triggers-tlp
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
   
   [Install]
   WantedBy=multi-user.target
   '';
 -systemd.units."tlp.service".overrideStrategy = "asDropinIfExists";
--systemd.units."tlp.service".unit = «derivation /nix/store/b101vidm0yisqfi140qy1xdwj6s99sin-unit-tlp.service.drv»;
+-systemd.units."tlp.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-tlp.service.drv»;
 -systemd.units."trackpoint.service".enable = true;
 -systemd.units."trackpoint.service".wantedBy.".0" = "sysinit.target";
 -systemd.units."trackpoint.service".text = ''
@@ -5097,10 +4833,10 @@
   DefaultDependencies=false
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
-  ExecStart=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin/udevadm trigger --attr-match=name="TPPS/2 Elan TrackPoint"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
+  ExecStart=/nix/store/00000000000000000000000000000000-systemd-257.2/bin/udevadm trigger --attr-match=name="TPPS/2 Elan TrackPoint"
   
   RemainAfterExit=true
   Type=oneshot
@@ -5109,17 +4845,15 @@
   WantedBy=sysinit.target
   '';
 -systemd.units."trackpoint.service".overrideStrategy = "asDropinIfExists";
--systemd.units."trackpoint.service".unit = «derivation /nix/store/7g6np90ygc8f5ggzxddh8k8kka0v1h2q-unit-trackpoint.service.drv»;
--systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/kcw9nqxqkhy2p20xya1977n1i2aw528n-X-Restart-Triggers-dbus";
-+systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/s61xwrjsi44vziplvc34qwrd3n2kagx5-X-Restart-Triggers-dbus";
+-systemd.units."trackpoint.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-trackpoint.service.drv»;
 +systemd.user.services.obex.description = "";
--systemd.user.services.obex.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
--systemd.user.services.obex.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
--systemd.user.services.obex.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
--systemd.user.services.obex.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
--systemd.user.services.obex.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
+-systemd.user.services.obex.path.".0" = «derivation /nix/store/00000000000000000000000000000000-coreutils-9.6.drv»;
+-systemd.user.services.obex.path.".1" = «derivation /nix/store/00000000000000000000000000000000-findutils-4.10.0.drv»;
+-systemd.user.services.obex.path.".2" = «derivation /nix/store/00000000000000000000000000000000-gnugrep-3.11.drv»;
+-systemd.user.services.obex.path.".3" = «derivation /nix/store/00000000000000000000000000000000-gnused-4.9.drv»;
+-systemd.user.services.obex.path.".4" = «derivation /nix/store/00000000000000000000000000000000-systemd-257.2.drv»;
 +systemd.user.services.obex.enable = true;
-+systemd.user.services.obex.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
++systemd.user.services.obex.environment.PATH = "/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin";
 +systemd.user.services.obex.reloadIfChanged = false;
 +systemd.user.services.obex.script = "";
 +systemd.user.services.obex.preStart = "";
@@ -5132,27 +4866,17 @@
 +systemd.user.services.obex.notSocketActivated = false;
 +systemd.user.services.obex.reload = "";
 +systemd.user.services.obex.preStop = "";
- systemd.user.units."dbus.service".text =
-  @@ -1,5 +1,5 @@
-    [Unit]
-   -X-Restart-Triggers=/nix/store/kcw9nqxqkhy2p20xya1977n1i2aw528n-X-Restart-Triggers-dbus
-   +X-Restart-Triggers=/nix/store/s61xwrjsi44vziplvc34qwrd3n2kagx5-X-Restart-Triggers-dbus
-    
-    [Service]
-    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
--systemd.user.units."dbus.service".unit = «derivation /nix/store/10v87cfmh2cliz9k6hqc0f1dar11apsl-unit-dbus.service.drv»;
-+systemd.user.units."dbus.service".unit = «derivation /nix/store/0vp8ns68ys68bpznvh273r83hx928s14-unit-dbus.service.drv»;
 +systemd.user.units."obex.service".enable = true;
 +systemd.user.units."obex.service".text = ''
   [Unit]
   
   [Service]
-  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
-  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  Environment="LOCALE_ARCHIVE=/nix/store/00000000000000000000000000000000-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/00000000000000000000000000000000-coreutils-9.6/bin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/bin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/bin:/nix/store/00000000000000000000000000000000-gnused-4.9/bin:/nix/store/00000000000000000000000000000000-systemd-257.2/bin:/nix/store/00000000000000000000000000000000-coreutils-9.6/sbin:/nix/store/00000000000000000000000000000000-findutils-4.10.0/sbin:/nix/store/00000000000000000000000000000000-gnugrep-3.11/sbin:/nix/store/00000000000000000000000000000000-gnused-4.9/sbin:/nix/store/00000000000000000000000000000000-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/00000000000000000000000000000000-tzdata-2025a/share/zoneinfo"
   '';
 +systemd.user.units."obex.service".overrideStrategy = "asDropinIfExists";
--systemd.user.units."obex.service".unit = «derivation /nix/store/08l9q0gkdi2s51821nqym8n838j6iqnb-unit-obex.service.drv»;
+-systemd.user.units."obex.service".unit = «derivation /nix/store/00000000000000000000000000000000-unit-obex.service.drv»;
 +systemd.user.units."obex.service".aliases.".0" = "dbus-org.bluez.obex.service";
 -users.groups.dhcpcd.name = "dhcpcd";
 -users.groups.dhcpcd.gid = null;
@@ -5170,7 +4894,7 @@
 -users.users.dhcpcd.isNormalUser = false;
 -users.users.dhcpcd.home = "/var/empty";
 -users.users.dhcpcd.homeMode = "700";
--users.users.dhcpcd.shell = «derivation /nix/store/dv5jh7mh8hxnkygrvd8bsg4002mid187-shadow-4.17.2.drv»;
+-users.users.dhcpcd.shell = «derivation /nix/store/00000000000000000000000000000000-shadow-4.17.2.drv»;
 -users.users.dhcpcd.ignoreShellProgramCheck = false;
 -users.users.dhcpcd.autoSubUidGidRange = false;
 -users.users.dhcpcd.createHome = false;

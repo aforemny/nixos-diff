@@ -180,6 +180,13 @@ printString(bool printDeletion, std::ostream & str, Tagged & v) {
 
 void printAttrs(bool printDeletion, const std::string & path, Tagged & v);
 
+std::regex nixPathPattern("/nix/store/[^-]{32}");
+std::string nixPathFormat = "/nix/store/00000000000000000000000000000000";
+
+std::string replaceNixPaths(std::string string) {
+  return std::regex_replace(string, nixPathPattern, nixPathFormat);
+}
+
 std::string serializeScalar(bool printDeletion, Tagged & v, PrintOptions options) {
   std::stringstream ss;
   if (v.value->type() == nix::nString) {
@@ -187,8 +194,7 @@ std::string serializeScalar(bool printDeletion, Tagged & v, PrintOptions options
   } else {
     ss << ValuePrinter(*v.state, *v.value, options);
   }
-  std::string s = ss.str();
-  return s;
+  return replaceNixPaths(ss.str());
 }
 
 Tagged parseAndEval(ValuesSeen & seen, EvalState & state, Value & value, const std::string & expression, const std::string & path) {
@@ -444,8 +450,8 @@ void diffStrings(const std::string & path, Tagged & v, Tagged & w) {
     return;
   }
   dtl::Diff<std::string, std::vector<std::string>> diff(
-    splitLines(std::string(v.value->string_view())),
-    splitLines(std::string(w.value->string_view()))
+    splitLines(replaceNixPaths(std::string(v.value->string_view()))),
+    splitLines(replaceNixPaths(std::string(w.value->string_view())))
   );
   diff.compose();
   diff.composeUnifiedHunks();
