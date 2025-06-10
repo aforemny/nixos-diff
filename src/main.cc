@@ -418,8 +418,12 @@ class FinalExpr {
     std::string to_string() {
       return string;
     };
-    FinalExpr(BaseExpr e) {
-      string = "let inherit (" + e.to_string() + ") config system; in builtins.seq system config";
+    FinalExpr(BaseExpr e, std::optional<std::string> rootPath) {
+      if (rootPath.has_value()) {
+        string = std::format("let inherit ({}) config system; in builtins.seq system config.{}", e.to_string(), rootPath.value());
+      } else {
+        string = std::format("let inherit ({}) config system; in builtins.seq system config", e.to_string());
+      }
     }
 };
 
@@ -503,6 +507,7 @@ std::filesystem::path workTree;
 int main(int argc, char ** argv) {
   bool expr = false;
   std::string rev = "HEAD";
+  std::optional<std::string> rootPath;
   std::optional<ConfigExpr> maybeConfig1Expr, maybeConfig2Expr;
 
   struct MyArgs : nix::LegacyArgs, nix::MixEvalArgs
@@ -519,6 +524,8 @@ int main(int argc, char ** argv) {
         expr = true;
     } else if (*arg == "--rev") {
         rev = nix::getArg(*arg, arg, end);
+    } else if (*arg == "-p" || *arg == "--path") {
+        rootPath = nix::getArg(*arg, arg, end);
     } else {
       if (!maybeConfig1Expr.has_value()) {
         maybeConfig1Expr = Path(*arg);
@@ -578,8 +585,8 @@ int main(int argc, char ** argv) {
   }
   ConfigExpr config2Expr = maybeConfig2Expr.value();
 
-  FinalExpr finalExpr1 = FinalExpr(config1Expr.toBaseExpr());
-  FinalExpr finalExpr2 = FinalExpr(config2Expr.toBaseExpr());
+  FinalExpr finalExpr1 = FinalExpr(config1Expr.toBaseExpr(), rootPath);
+  FinalExpr finalExpr2 = FinalExpr(config2Expr.toBaseExpr(), rootPath);
 
   Value config1 = parseAndEval(*state, finalExpr1.to_string(), ".");
   Value config2 = parseAndEval(*state, finalExpr2.to_string(), workTree.empty() ? "." : workTree);
