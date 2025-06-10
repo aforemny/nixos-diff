@@ -1,389 +1,389 @@
-[31m-system.path = «derivation /nix/store/3slnvnz6zi14g3bypvn6zlh7mda2gn71-system-path.drv»;[0m
-[32m+system.path = «derivation /nix/store/487icv1k4cbdm9npyp2ypcz73p2r5bap-system-path.drv»;[0m
-[31m-system.build.toplevel = «derivation /nix/store/mbhbch31vcfkkralgb1wmsgdajridg59-nixos-system-nixos-25.05pre-git.drv»;[0m
-[32m+system.build.toplevel = «derivation /nix/store/skmz9hzb2r9sfsgrizyzxy0nq7dkxp7q-nixos-system-nixos-25.05pre-git.drv»;[0m
-[31m-system.build.etc = «derivation /nix/store/rpqq8zma4a00r9myjg9hjyb8anas25ys-etc.drv»;[0m
-[32m+system.build.etc = «derivation /nix/store/62djh7xwp1499pcpqqd5l3cywgmg7rms-etc.drv»;[0m
+-system.path = «derivation /nix/store/3slnvnz6zi14g3bypvn6zlh7mda2gn71-system-path.drv»;
++system.path = «derivation /nix/store/487icv1k4cbdm9npyp2ypcz73p2r5bap-system-path.drv»;
+-system.build.toplevel = «derivation /nix/store/mbhbch31vcfkkralgb1wmsgdajridg59-nixos-system-nixos-25.05pre-git.drv»;
++system.build.toplevel = «derivation /nix/store/skmz9hzb2r9sfsgrizyzxy0nq7dkxp7q-nixos-system-nixos-25.05pre-git.drv»;
+-system.build.etc = «derivation /nix/store/rpqq8zma4a00r9myjg9hjyb8anas25ys-etc.drv»;
++system.build.etc = «derivation /nix/store/62djh7xwp1499pcpqqd5l3cywgmg7rms-etc.drv»;
 system.build.etcActivationCommands =
-[36m  @@ -1,3 +1,3 @@[0m
+  @@ -1,3 +1,3 @@
    # Set up the statically computed bits of /etc.
    echo "setting up /etc..."
-[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
-[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc[0m
+  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
 system.activationScripts.etc.text =
-[36m  @@ -1,3 +1,3 @@[0m
+  @@ -1,3 +1,3 @@
    # Set up the statically computed bits of /etc.
    echo "setting up /etc..."
-[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
-[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc[0m
+  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
 system.activationScripts.script =
-[36m  @@ -43,7 +43,7 @@[0m
+  @@ -43,7 +43,7 @@
    install -m 0755 -d /home
    
    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-[31m  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json[0m
-[32m  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json[0m
+  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
+  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
    
    
    if (( _localstatus > 0 )); then
-[36m  @@ -85,7 +85,7 @@[0m
+  @@ -85,7 +85,7 @@
    _localstatus=0
    # Set up the statically computed bits of /etc.
    echo "setting up /etc..."
-[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
-[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc[0m
+  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
    
    
    if (( _localstatus > 0 )); then
 system.activationScripts.users.text =
-[36m  @@ -2,4 +2,4 @@[0m
+  @@ -2,4 +2,4 @@
    install -m 0755 -d /home
    
    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-[31m  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json[0m
-[32m  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json[0m
+  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
+  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
 system.systemBuilderArgs.activationScript =
-[36m  @@ -43,7 +43,7 @@[0m
+  @@ -43,7 +43,7 @@
    install -m 0755 -d /home
    
    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-[31m  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json[0m
-[32m  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json[0m
+  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
+  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
    
    
    if (( _localstatus > 0 )); then
-[36m  @@ -85,7 +85,7 @@[0m
+  @@ -85,7 +85,7 @@
    _localstatus=0
    # Set up the statically computed bits of /etc.
    echo "setting up /etc..."
-[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
-[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc[0m
+  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc
+  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/lvq9niba0z51gkzxq115hky3h65ng8ag-etc/etc
    
    
    if (( _localstatus > 0 )); then
 system.systemBuilderArgs.dryActivationScript =
-[36m  @@ -23,7 +23,7 @@[0m
+  @@ -23,7 +23,7 @@
    install -m 0755 -d /home
    
    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-[31m  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json[0m
-[32m  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json[0m
+  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
+  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
    
    
    if (( _localstatus > 0 )); then
 system.dryActivationScript =
-[36m  @@ -23,7 +23,7 @@[0m
+  @@ -23,7 +23,7 @@
    install -m 0755 -d /home
    
    /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \
-[31m  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json[0m
-[32m  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json[0m
+  --w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json
+  +-w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/kszxxib29592pfs18fqd55p0r7dzz8yi-users-groups.json
    
    
    if (( _localstatus > 0 )); then
-[31m-environment.etc.terminfo.source = "/nix/store/235x43zf1mn99sivazfs0pfn444w2rh4-system-path/share/terminfo";[0m
-[32m+environment.etc.terminfo.source = "/nix/store/y4pwr8hri518w30xijmmkb78hzdjlv5w-system-path/share/terminfo";[0m
-[31m-environment.etc.dbus-1.source = «derivation /nix/store/s13crvjy43x44527fjvygbqac6dbhqh9-dbus-1.drv»;[0m
-[32m+environment.etc.dbus-1.source = «derivation /nix/store/px6iczb7rpar5r8iwjx0lcjpnb3s8nvk-dbus-1.drv»;[0m
-[31m-environment.etc."modules-load.d/nixos.conf".source = «derivation /nix/store/62g7kfa3nam7pzw8d32frfyp3y71dj6d-nixos.conf.drv»;[0m
-[32m+environment.etc."modules-load.d/nixos.conf".source = «derivation /nix/store/yb9wwfw33d56y32d9675z38bskfjp62j-nixos.conf.drv»;[0m
-[31m-environment.etc."systemd/system".source = «derivation /nix/store/mh6nfckzwxls9hhmrhdnw8ynv6hgad1w-system-units.drv»;[0m
-[32m+environment.etc."systemd/system".source = «derivation /nix/store/n2fjlczyiqvc5fd4qqayd4l9f6iddfgh-system-units.drv»;[0m
-[31m-environment.etc."tmpfiles.d".source = "/nix/store/6dgf9acqlnqvh7ymxz8kplh1529cjx5c-tmpfiles.d/*";[0m
-[32m+environment.etc."tmpfiles.d".source = "/nix/store/1x1dxsvf4cz60h1l48037fdz01shr6b4-tmpfiles.d/*";[0m
-[31m-environment.etc."systemd/user".source = «derivation /nix/store/6yvcrff7vajwwlg0p23z61pzx16h6bl1-user-units.drv»;[0m
-[32m+environment.etc."systemd/user".source = «derivation /nix/store/7p3jbi7r4xwmxslv3hqdx1kkkncf8mgy-user-units.drv»;[0m
-[31m-i18n.inputMethod.type = null;[0m
-[32m+services.nginx.config = "";[0m
-[31m-services.nginx.enable = false;[0m
-[32m+services.nginx.enable = true;[0m
-[32m+services.nginx.package = «derivation /nix/store/ks1crxjdydpx9w5jvngg9hsl4lzxf7i5-nginx-1.26.3.drv»;[0m
-[32m+services.nginx.group = "nginx";[0m
-[32m+services.nginx.preStart = "";[0m
-[32m+services.nginx.user = "nginx";[0m
-[32m+services.nginx.appendConfig = "";[0m
-[32m+services.nginx.resolver.ipv4 = true;[0m
-[32m+services.nginx.recommendedProxySettings = false;[0m
-[32m+services.nginx.enableReload = false;[0m
-[32m+services.nginx.recommendedGzipSettings = false;[0m
-[32m+services.nginx.additionalModules = [ ];[0m
-[32m+services.nginx.mapHashBucketSize = null;[0m
-[32m+services.nginx.appendHttpConfig = "";[0m
-[32m+services.nginx.recommendedTlsSettings = false;[0m
-[32m+services.nginx.recommendedOptimisation = false;[0m
-[32m+services.nginx.recommendedBrotliSettings = false;[0m
-[32m+services.nginx.recommendedZstdSettings = false;[0m
-[32m+services.nginx.clientMaxBodySize = "10m";[0m
-[32m+services.nginx.sslProtocols = "TLSv1.2 TLSv1.3";[0m
-[32m+services.nginx.sslCiphers = "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305";[0m
-[32m+services.nginx.commonHttpConfig = "";[0m
-[32m+services.nginx.defaultMimeTypes = "/nix/store/1wj936gd4hiah7cnwjyqfl8fygkgnm5x-mailcap-2.1.54/etc/nginx/mime.types";[0m
-[32m+services.nginx.typesHashMaxSize = 2688;[0m
-[32m+services.nginx.validateConfigFile = true;[0m
-[32m+services.nginx.logError = "stderr";[0m
-[32m+services.nginx.enableQuicBPF = false;[0m
-[32m+services.nginx.eventsConfig = "";[0m
-[32m+services.nginx.httpConfig = "";[0m
-[32m+services.nginx.sslDhparam = null;[0m
-[32m+services.nginx.recommendedUwsgiSettings = false;[0m
-[32m+services.nginx.mapHashMaxSize = null;[0m
-[32m+services.nginx.serverNamesHashBucketSize = null;[0m
-[32m+services.nginx.serverNamesHashMaxSize = null;[0m
-[32m+services.nginx.serverTokens = false;[0m
-[32m+services.nginx.streamConfig = "";[0m
-[32m+services.nginx.statusPage = false;[0m
-[32m+services.logrotate.settings.nginx.files.".0" = "/var/log/nginx/*.log";[0m
-[32m+services.logrotate.settings.nginx.priority = 1000;[0m
-[32m+services.logrotate.settings.nginx.enable = true;[0m
-[32m+services.logrotate.settings.nginx.su = "nginx nginx";[0m
-[32m+services.logrotate.settings.nginx.frequency = "weekly";[0m
-[32m+services.logrotate.settings.nginx.global = false;[0m
-[32m+services.logrotate.settings.nginx.compress = true;[0m
-[32m+services.logrotate.settings.nginx.rotate = 26;[0m
-[32m+services.logrotate.settings.nginx.delaycompress = true;[0m
-[32m+services.logrotate.settings.nginx.postrotate = "[ ! -f /var/run/nginx/nginx.pid ] || kill -USR1 `cat /var/run/nginx/nginx.pid`";[0m
-[31m-services.logrotate.configFile = «derivation /nix/store/r85b79gvmg45p31saby5v34wm55rc9ki-logrotate.conf.drv»;[0m
-[32m+services.logrotate.configFile = «derivation /nix/store/cj4plvlnmhnpdi5k134nccplqqqw0x49-logrotate.conf.drv»;[0m
-[32m+services.lxd-image-server.nginx.enable = false;[0m
-[31m-systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus";[0m
-[32m+systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus";[0m
-[32m+systemd.services.nginx.name = "nginx.service";[0m
-[32m+systemd.services.nginx.description = "Nginx Web Server";[0m
-[31m-systemd.services.nginx.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;[0m
-[31m-systemd.services.nginx.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;[0m
-[31m-systemd.services.nginx.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;[0m
-[31m-systemd.services.nginx.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;[0m
-[31m-systemd.services.nginx.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;[0m
-[32m+systemd.services.nginx.enable = true;[0m
-[32m+systemd.services.nginx.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";[0m
-[32m+systemd.services.nginx.wantedBy.".0" = "multi-user.target";[0m
-[32m+systemd.services.nginx.reloadIfChanged = false;[0m
-[32m+systemd.services.nginx.serviceConfig.ExecStart = "/nix/store/fn4zf9dab7z52j90j46pk67pbqmxjksz-nginx-1.26.3/bin/nginx -c '/nix/store/bcwqqbkfkgsjrq52z2q87lv9ki72mbir-nginx.conf'";[0m
-[32m+systemd.services.nginx.serviceConfig.ExecReload.".0" = "/nix/store/fn4zf9dab7z52j90j46pk67pbqmxjksz-nginx-1.26.3/bin/nginx -c '/nix/store/bcwqqbkfkgsjrq52z2q87lv9ki72mbir-nginx.conf' -t";[0m
-[32m+systemd.services.nginx.serviceConfig.ExecReload.".1" = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/kill -HUP $MAINPID";[0m
-[32m+systemd.services.nginx.serviceConfig.User = "nginx";[0m
-[32m+systemd.services.nginx.serviceConfig.Restart = "always";[0m
-[32m+systemd.services.nginx.serviceConfig.Group = "nginx";[0m
-[32m+systemd.services.nginx.serviceConfig.RuntimeDirectory = "nginx";[0m
-[32m+systemd.services.nginx.serviceConfig.AmbientCapabilities.".0" = "CAP_NET_BIND_SERVICE";[0m
-[32m+systemd.services.nginx.serviceConfig.AmbientCapabilities.".1" = "CAP_SYS_RESOURCE";[0m
-[32m+systemd.services.nginx.serviceConfig.UMask = "0027";[0m
-[32m+systemd.services.nginx.serviceConfig.PrivateTmp = true;[0m
-[32m+systemd.services.nginx.serviceConfig.ProtectHome = true;[0m
-[32m+systemd.services.nginx.serviceConfig.ProtectSystem = "strict";[0m
-[32m+systemd.services.nginx.serviceConfig.RestartSec = "10s";[0m
-[32m+systemd.services.nginx.serviceConfig.LogsDirectory = "nginx";[0m
-[32m+systemd.services.nginx.serviceConfig.CapabilityBoundingSet.".0" = "CAP_NET_BIND_SERVICE";[0m
-[32m+systemd.services.nginx.serviceConfig.CapabilityBoundingSet.".1" = "CAP_SYS_RESOURCE";[0m
-[32m+systemd.services.nginx.serviceConfig.LockPersonality = true;[0m
-[32m+systemd.services.nginx.serviceConfig.MemoryDenyWriteExecute = true;[0m
-[32m+systemd.services.nginx.serviceConfig.NoNewPrivileges = true;[0m
-[32m+systemd.services.nginx.serviceConfig.PrivateDevices = true;[0m
-[32m+systemd.services.nginx.serviceConfig.ProtectClock = true;[0m
-[32m+systemd.services.nginx.serviceConfig.ProtectControlGroups = true;[0m
-[32m+systemd.services.nginx.serviceConfig.ProtectHostname = true;[0m
-[32m+systemd.services.nginx.serviceConfig.RestrictAddressFamilies.".0" = "AF_UNIX";[0m
-[32m+systemd.services.nginx.serviceConfig.RestrictAddressFamilies.".1" = "AF_INET";[0m
-[32m+systemd.services.nginx.serviceConfig.RestrictAddressFamilies.".2" = "AF_INET6";[0m
-[32m+systemd.services.nginx.serviceConfig.RestrictNamespaces = true;[0m
-[32m+systemd.services.nginx.serviceConfig.RestrictRealtime = true;[0m
-[32m+systemd.services.nginx.serviceConfig.RestrictSUIDSGID = true;[0m
-[32m+systemd.services.nginx.serviceConfig.SystemCallArchitectures = "native";[0m
-[32m+systemd.services.nginx.serviceConfig.SystemCallFilter.".0" = "~@cpu-emulation @debug @keyring @mount @obsolete @privileged @setuid";[0m
-[32m+systemd.services.nginx.serviceConfig.ProtectKernelModules = true;[0m
-[32m+systemd.services.nginx.serviceConfig.ProtectKernelLogs = true;[0m
-[32m+systemd.services.nginx.serviceConfig.ProtectKernelTunables = true;[0m
-[32m+systemd.services.nginx.serviceConfig.RemoveIPC = true;[0m
-[32m+systemd.services.nginx.serviceConfig.ExecStartPre.".0" = "/nix/store/w2qs2m8yvjb91scsd6mc4d3mj5w1xns6-unit-script-nginx-pre-start/bin/nginx-pre-start";[0m
-[32m+systemd.services.nginx.serviceConfig.RuntimeDirectoryMode = "0750";[0m
-[32m+systemd.services.nginx.serviceConfig.ProcSubset = "pid";[0m
-[32m+systemd.services.nginx.serviceConfig.ProtectProc = "invisible";[0m
-[32m+systemd.services.nginx.serviceConfig.CacheDirectory = "nginx";[0m
-[32m+systemd.services.nginx.serviceConfig.CacheDirectoryMode = "0750";[0m
-[32m+systemd.services.nginx.serviceConfig.PrivateMounts = true;[0m
-[32m+systemd.services.nginx.serviceConfig.LogsDirectoryMode = "0750";[0m
-[32m+systemd.services.nginx.script = "";[0m
-[32m+systemd.services.nginx.unitConfig.After = "network.target";[0m
-[32m+systemd.services.nginx.unitConfig.Description = "Nginx Web Server";[0m
-[32m+systemd.services.nginx.unitConfig.StartLimitIntervalSec = "60";[0m
-[32m+systemd.services.nginx.preStart = ''[0m
-[32m  [0m
-[32m  /nix/store/fn4zf9dab7z52j90j46pk67pbqmxjksz-nginx-1.26.3/bin/nginx -c '/nix/store/bcwqqbkfkgsjrq52z2q87lv9ki72mbir-nginx.conf' -t[0m
-[32m  [32m'';[0m
-[32m+systemd.services.nginx.after.".0" = "network.target";[0m
-[32m+systemd.services.nginx.restartIfChanged = true;[0m
-[32m+systemd.services.nginx.overrideStrategy = "asDropinIfExists";[0m
-[32m+systemd.services.nginx.stopIfChanged = false;[0m
-[32m+systemd.services.nginx.confinement.enable = false;[0m
-[32m+systemd.services.nginx.startLimitIntervalSec = 60;[0m
-[32m+systemd.services.nginx.postStop = "";[0m
-[32m+systemd.services.nginx.postStart = "";[0m
-[32m+systemd.services.nginx.notSocketActivated = false;[0m
-[32m+systemd.services.nginx.enableStrictShellChecks = false;[0m
-[32m+systemd.services.nginx.reload = "";[0m
-[32m+systemd.services.nginx.preStop = "";[0m
-[31m-systemd.services.logrotate.serviceConfig.ExecStart = "/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf";[0m
-[32m+systemd.services.logrotate.serviceConfig.ExecStart = "/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf";[0m
-[31m-systemd.services.logrotate-checkconf.serviceConfig.ExecStart = "/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf";[0m
-[32m+systemd.services.logrotate-checkconf.serviceConfig.ExecStart = "/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf";[0m
-[31m-systemd.services.systemd-modules-load.unitConfig.X-Restart-Triggers = "/nix/store/59xapk2kwf2k3v402mi3zd08ll8yvm74-X-Restart-Triggers-systemd-modules-load";[0m
-[32m+systemd.services.systemd-modules-load.unitConfig.X-Restart-Triggers = "/nix/store/39sylabj32src93hyap5nb93vs53k60l-X-Restart-Triggers-systemd-modules-load";[0m
-[31m-systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup";[0m
-[32m+systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/n0mc1r9v3l70lr46jam9mcr5d3i9w5jz-X-Restart-Triggers-systemd-tmpfiles-resetup";[0m
-[31m-systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus";[0m
-[32m+systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus";[0m
+-environment.etc.terminfo.source = "/nix/store/235x43zf1mn99sivazfs0pfn444w2rh4-system-path/share/terminfo";
++environment.etc.terminfo.source = "/nix/store/y4pwr8hri518w30xijmmkb78hzdjlv5w-system-path/share/terminfo";
+-environment.etc.dbus-1.source = «derivation /nix/store/s13crvjy43x44527fjvygbqac6dbhqh9-dbus-1.drv»;
++environment.etc.dbus-1.source = «derivation /nix/store/px6iczb7rpar5r8iwjx0lcjpnb3s8nvk-dbus-1.drv»;
+-environment.etc."modules-load.d/nixos.conf".source = «derivation /nix/store/62g7kfa3nam7pzw8d32frfyp3y71dj6d-nixos.conf.drv»;
++environment.etc."modules-load.d/nixos.conf".source = «derivation /nix/store/yb9wwfw33d56y32d9675z38bskfjp62j-nixos.conf.drv»;
+-environment.etc."systemd/system".source = «derivation /nix/store/mh6nfckzwxls9hhmrhdnw8ynv6hgad1w-system-units.drv»;
++environment.etc."systemd/system".source = «derivation /nix/store/n2fjlczyiqvc5fd4qqayd4l9f6iddfgh-system-units.drv»;
+-environment.etc."tmpfiles.d".source = "/nix/store/6dgf9acqlnqvh7ymxz8kplh1529cjx5c-tmpfiles.d/*";
++environment.etc."tmpfiles.d".source = "/nix/store/1x1dxsvf4cz60h1l48037fdz01shr6b4-tmpfiles.d/*";
+-environment.etc."systemd/user".source = «derivation /nix/store/6yvcrff7vajwwlg0p23z61pzx16h6bl1-user-units.drv»;
++environment.etc."systemd/user".source = «derivation /nix/store/7p3jbi7r4xwmxslv3hqdx1kkkncf8mgy-user-units.drv»;
+-i18n.inputMethod.type = null;
++services.nginx.config = "";
+-services.nginx.enable = false;
++services.nginx.enable = true;
++services.nginx.package = «derivation /nix/store/ks1crxjdydpx9w5jvngg9hsl4lzxf7i5-nginx-1.26.3.drv»;
++services.nginx.group = "nginx";
++services.nginx.preStart = "";
++services.nginx.user = "nginx";
++services.nginx.appendConfig = "";
++services.nginx.resolver.ipv4 = true;
++services.nginx.recommendedProxySettings = false;
++services.nginx.enableReload = false;
++services.nginx.recommendedGzipSettings = false;
++services.nginx.additionalModules = [ ];
++services.nginx.mapHashBucketSize = null;
++services.nginx.appendHttpConfig = "";
++services.nginx.recommendedTlsSettings = false;
++services.nginx.recommendedOptimisation = false;
++services.nginx.recommendedBrotliSettings = false;
++services.nginx.recommendedZstdSettings = false;
++services.nginx.clientMaxBodySize = "10m";
++services.nginx.sslProtocols = "TLSv1.2 TLSv1.3";
++services.nginx.sslCiphers = "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305";
++services.nginx.commonHttpConfig = "";
++services.nginx.defaultMimeTypes = "/nix/store/1wj936gd4hiah7cnwjyqfl8fygkgnm5x-mailcap-2.1.54/etc/nginx/mime.types";
++services.nginx.typesHashMaxSize = 2688;
++services.nginx.validateConfigFile = true;
++services.nginx.logError = "stderr";
++services.nginx.enableQuicBPF = false;
++services.nginx.eventsConfig = "";
++services.nginx.httpConfig = "";
++services.nginx.sslDhparam = null;
++services.nginx.recommendedUwsgiSettings = false;
++services.nginx.mapHashMaxSize = null;
++services.nginx.serverNamesHashBucketSize = null;
++services.nginx.serverNamesHashMaxSize = null;
++services.nginx.serverTokens = false;
++services.nginx.streamConfig = "";
++services.nginx.statusPage = false;
++services.logrotate.settings.nginx.files.".0" = "/var/log/nginx/*.log";
++services.logrotate.settings.nginx.priority = 1000;
++services.logrotate.settings.nginx.enable = true;
++services.logrotate.settings.nginx.su = "nginx nginx";
++services.logrotate.settings.nginx.frequency = "weekly";
++services.logrotate.settings.nginx.global = false;
++services.logrotate.settings.nginx.compress = true;
++services.logrotate.settings.nginx.rotate = 26;
++services.logrotate.settings.nginx.delaycompress = true;
++services.logrotate.settings.nginx.postrotate = "[ ! -f /var/run/nginx/nginx.pid ] || kill -USR1 `cat /var/run/nginx/nginx.pid`";
+-services.logrotate.configFile = «derivation /nix/store/r85b79gvmg45p31saby5v34wm55rc9ki-logrotate.conf.drv»;
++services.logrotate.configFile = «derivation /nix/store/cj4plvlnmhnpdi5k134nccplqqqw0x49-logrotate.conf.drv»;
++services.lxd-image-server.nginx.enable = false;
+-systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus";
++systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus";
++systemd.services.nginx.name = "nginx.service";
++systemd.services.nginx.description = "Nginx Web Server";
+-systemd.services.nginx.path.".0" = «derivation /nix/store/l25fdyclnnwp5gjbb7xb7h4vsgqp03dk-coreutils-9.6.drv»;
+-systemd.services.nginx.path.".1" = «derivation /nix/store/kz6xqjmza6j0ap6068wrazbinpw85l6q-findutils-4.10.0.drv»;
+-systemd.services.nginx.path.".2" = «derivation /nix/store/v45f62fqlcx16ahwgi1jii9b94srg1pi-gnugrep-3.11.drv»;
+-systemd.services.nginx.path.".3" = «derivation /nix/store/w8jsjw9lf162qpfk2xgx8djklfjirbpb-gnused-4.9.drv»;
+-systemd.services.nginx.path.".4" = «derivation /nix/store/4blbcdcb0qhbn1c0mjln2a6m1cczxvfs-systemd-257.2.drv»;
++systemd.services.nginx.enable = true;
++systemd.services.nginx.environment.PATH = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin";
++systemd.services.nginx.wantedBy.".0" = "multi-user.target";
++systemd.services.nginx.reloadIfChanged = false;
++systemd.services.nginx.serviceConfig.ExecStart = "/nix/store/fn4zf9dab7z52j90j46pk67pbqmxjksz-nginx-1.26.3/bin/nginx -c '/nix/store/bcwqqbkfkgsjrq52z2q87lv9ki72mbir-nginx.conf'";
++systemd.services.nginx.serviceConfig.ExecReload.".0" = "/nix/store/fn4zf9dab7z52j90j46pk67pbqmxjksz-nginx-1.26.3/bin/nginx -c '/nix/store/bcwqqbkfkgsjrq52z2q87lv9ki72mbir-nginx.conf' -t";
++systemd.services.nginx.serviceConfig.ExecReload.".1" = "/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/kill -HUP $MAINPID";
++systemd.services.nginx.serviceConfig.User = "nginx";
++systemd.services.nginx.serviceConfig.Restart = "always";
++systemd.services.nginx.serviceConfig.Group = "nginx";
++systemd.services.nginx.serviceConfig.RuntimeDirectory = "nginx";
++systemd.services.nginx.serviceConfig.AmbientCapabilities.".0" = "CAP_NET_BIND_SERVICE";
++systemd.services.nginx.serviceConfig.AmbientCapabilities.".1" = "CAP_SYS_RESOURCE";
++systemd.services.nginx.serviceConfig.UMask = "0027";
++systemd.services.nginx.serviceConfig.PrivateTmp = true;
++systemd.services.nginx.serviceConfig.ProtectHome = true;
++systemd.services.nginx.serviceConfig.ProtectSystem = "strict";
++systemd.services.nginx.serviceConfig.RestartSec = "10s";
++systemd.services.nginx.serviceConfig.LogsDirectory = "nginx";
++systemd.services.nginx.serviceConfig.CapabilityBoundingSet.".0" = "CAP_NET_BIND_SERVICE";
++systemd.services.nginx.serviceConfig.CapabilityBoundingSet.".1" = "CAP_SYS_RESOURCE";
++systemd.services.nginx.serviceConfig.LockPersonality = true;
++systemd.services.nginx.serviceConfig.MemoryDenyWriteExecute = true;
++systemd.services.nginx.serviceConfig.NoNewPrivileges = true;
++systemd.services.nginx.serviceConfig.PrivateDevices = true;
++systemd.services.nginx.serviceConfig.ProtectClock = true;
++systemd.services.nginx.serviceConfig.ProtectControlGroups = true;
++systemd.services.nginx.serviceConfig.ProtectHostname = true;
++systemd.services.nginx.serviceConfig.RestrictAddressFamilies.".0" = "AF_UNIX";
++systemd.services.nginx.serviceConfig.RestrictAddressFamilies.".1" = "AF_INET";
++systemd.services.nginx.serviceConfig.RestrictAddressFamilies.".2" = "AF_INET6";
++systemd.services.nginx.serviceConfig.RestrictNamespaces = true;
++systemd.services.nginx.serviceConfig.RestrictRealtime = true;
++systemd.services.nginx.serviceConfig.RestrictSUIDSGID = true;
++systemd.services.nginx.serviceConfig.SystemCallArchitectures = "native";
++systemd.services.nginx.serviceConfig.SystemCallFilter.".0" = "~@cpu-emulation @debug @keyring @mount @obsolete @privileged @setuid";
++systemd.services.nginx.serviceConfig.ProtectKernelModules = true;
++systemd.services.nginx.serviceConfig.ProtectKernelLogs = true;
++systemd.services.nginx.serviceConfig.ProtectKernelTunables = true;
++systemd.services.nginx.serviceConfig.RemoveIPC = true;
++systemd.services.nginx.serviceConfig.ExecStartPre.".0" = "/nix/store/w2qs2m8yvjb91scsd6mc4d3mj5w1xns6-unit-script-nginx-pre-start/bin/nginx-pre-start";
++systemd.services.nginx.serviceConfig.RuntimeDirectoryMode = "0750";
++systemd.services.nginx.serviceConfig.ProcSubset = "pid";
++systemd.services.nginx.serviceConfig.ProtectProc = "invisible";
++systemd.services.nginx.serviceConfig.CacheDirectory = "nginx";
++systemd.services.nginx.serviceConfig.CacheDirectoryMode = "0750";
++systemd.services.nginx.serviceConfig.PrivateMounts = true;
++systemd.services.nginx.serviceConfig.LogsDirectoryMode = "0750";
++systemd.services.nginx.script = "";
++systemd.services.nginx.unitConfig.After = "network.target";
++systemd.services.nginx.unitConfig.Description = "Nginx Web Server";
++systemd.services.nginx.unitConfig.StartLimitIntervalSec = "60";
++systemd.services.nginx.preStart = ''
+  
+  /nix/store/fn4zf9dab7z52j90j46pk67pbqmxjksz-nginx-1.26.3/bin/nginx -c '/nix/store/bcwqqbkfkgsjrq52z2q87lv9ki72mbir-nginx.conf' -t
+  '';
++systemd.services.nginx.after.".0" = "network.target";
++systemd.services.nginx.restartIfChanged = true;
++systemd.services.nginx.overrideStrategy = "asDropinIfExists";
++systemd.services.nginx.stopIfChanged = false;
++systemd.services.nginx.confinement.enable = false;
++systemd.services.nginx.startLimitIntervalSec = 60;
++systemd.services.nginx.postStop = "";
++systemd.services.nginx.postStart = "";
++systemd.services.nginx.notSocketActivated = false;
++systemd.services.nginx.enableStrictShellChecks = false;
++systemd.services.nginx.reload = "";
++systemd.services.nginx.preStop = "";
+-systemd.services.logrotate.serviceConfig.ExecStart = "/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf";
++systemd.services.logrotate.serviceConfig.ExecStart = "/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf";
+-systemd.services.logrotate-checkconf.serviceConfig.ExecStart = "/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf";
++systemd.services.logrotate-checkconf.serviceConfig.ExecStart = "/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf";
+-systemd.services.systemd-modules-load.unitConfig.X-Restart-Triggers = "/nix/store/59xapk2kwf2k3v402mi3zd08ll8yvm74-X-Restart-Triggers-systemd-modules-load";
++systemd.services.systemd-modules-load.unitConfig.X-Restart-Triggers = "/nix/store/39sylabj32src93hyap5nb93vs53k60l-X-Restart-Triggers-systemd-modules-load";
+-systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup";
++systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/n0mc1r9v3l70lr46jam9mcr5d3i9w5jz-X-Restart-Triggers-systemd-tmpfiles-resetup";
+-systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus";
++systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus";
 systemd.user.units."dbus.service".text =
-[36m  @@ -1,5 +1,5 @@[0m
+  @@ -1,5 +1,5 @@
    [Unit]
-[31m  -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus[0m
-[32m  +X-Restart-Triggers=/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus[0m
+  -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus
+  +X-Restart-Triggers=/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus
    
    [Service]
    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-[31m-systemd.user.units."dbus.service".unit = «derivation /nix/store/1aqkrx0srdifca00b8nhz74wwcvw4l4j-unit-dbus.service.drv»;[0m
-[32m+systemd.user.units."dbus.service".unit = «derivation /nix/store/d22mqgwxylvxaw4bqyx34sfsl6q6b33q-unit-dbus.service.drv»;[0m
+-systemd.user.units."dbus.service".unit = «derivation /nix/store/1aqkrx0srdifca00b8nhz74wwcvw4l4j-unit-dbus.service.drv»;
++systemd.user.units."dbus.service".unit = «derivation /nix/store/d22mqgwxylvxaw4bqyx34sfsl6q6b33q-unit-dbus.service.drv»;
 systemd.units."dbus.service".text =
-[36m  @@ -1,5 +1,5 @@[0m
+  @@ -1,5 +1,5 @@
    [Unit]
-[31m  -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus[0m
-[32m  +X-Restart-Triggers=/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus[0m
+  -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus
+  +X-Restart-Triggers=/nix/store/1j66klw2f24zckfd8mqyb6dm8c5id4bw-X-Restart-Triggers-dbus
    
    [Service]
    Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"
-[31m-systemd.units."dbus.service".unit = «derivation /nix/store/3iaw323fxgmsya05ipdkdxf67n1b8jqw-unit-dbus.service.drv»;[0m
-[32m+systemd.units."dbus.service".unit = «derivation /nix/store/kzbcn31rq6yr4n0ag8aijpx1msqjx70y-unit-dbus.service.drv»;[0m
+-systemd.units."dbus.service".unit = «derivation /nix/store/3iaw323fxgmsya05ipdkdxf67n1b8jqw-unit-dbus.service.drv»;
++systemd.units."dbus.service".unit = «derivation /nix/store/kzbcn31rq6yr4n0ag8aijpx1msqjx70y-unit-dbus.service.drv»;
 systemd.units."logrotate.service".text =
-[36m  @@ -13,7 +13,7 @@[0m
+  @@ -13,7 +13,7 @@
    CapabilityBoundingSet=CAP_SETUID
    CapabilityBoundingSet=CAP_SETGID
    DevicePolicy=closed
-[31m  -ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf[0m
-[32m  +ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf[0m
+  -ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf
+  +ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/bin/logrotate   /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf
    IOSchedulingClass=best-effort
    IOSchedulingPriority=7
    LockPersonality=true
-[31m-systemd.units."logrotate.service".unit = «derivation /nix/store/3g0pbp0a8pr1mrmjmrz5gj6v257rfk4s-unit-logrotate.service.drv»;[0m
-[32m+systemd.units."logrotate.service".unit = «derivation /nix/store/86qvs6chbvbmly2paww6m9cg4sdp9932-unit-logrotate.service.drv»;[0m
+-systemd.units."logrotate.service".unit = «derivation /nix/store/3g0pbp0a8pr1mrmjmrz5gj6v257rfk4s-unit-logrotate.service.drv»;
++systemd.units."logrotate.service".unit = «derivation /nix/store/86qvs6chbvbmly2paww6m9cg4sdp9932-unit-logrotate.service.drv»;
 systemd.units."logrotate-checkconf.service".text =
-[36m  @@ -5,7 +5,7 @@[0m
+  @@ -5,7 +5,7 @@
    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
    Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
    Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
-[31m  -ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf[0m
-[32m  +ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf[0m
+  -ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/6sajv9ab8b34mdznbjg2jv49mf5c0pf7-logrotate.conf
+  +ExecStart=/nix/store/wqw0ha4yng2i118ip3iar6xg8xl10x3r-logrotate-3.22.0/sbin/logrotate  --debug /nix/store/bm0r7ci3aj3jh7j7rgin3i97sdx7kgik-logrotate.conf
    RemainAfterExit=true
    Type=oneshot
    
-[31m-systemd.units."logrotate-checkconf.service".unit = «derivation /nix/store/2ysmfrglj378m5l61scr0xhshb8szc50-unit-logrotate-checkconf.service.drv»;[0m
-[32m+systemd.units."logrotate-checkconf.service".unit = «derivation /nix/store/pglfvnl55dz19fq9q2sxs2xc03spqsrs-unit-logrotate-checkconf.service.drv»;[0m
+-systemd.units."logrotate-checkconf.service".unit = «derivation /nix/store/2ysmfrglj378m5l61scr0xhshb8szc50-unit-logrotate-checkconf.service.drv»;
++systemd.units."logrotate-checkconf.service".unit = «derivation /nix/store/pglfvnl55dz19fq9q2sxs2xc03spqsrs-unit-logrotate-checkconf.service.drv»;
 systemd.units."systemd-modules-load.service".text =
-[36m  @@ -1,5 +1,5 @@[0m
+  @@ -1,5 +1,5 @@
    [Unit]
-[31m  -X-Restart-Triggers=/nix/store/59xapk2kwf2k3v402mi3zd08ll8yvm74-X-Restart-Triggers-systemd-modules-load[0m
-[32m  +X-Restart-Triggers=/nix/store/39sylabj32src93hyap5nb93vs53k60l-X-Restart-Triggers-systemd-modules-load[0m
+  -X-Restart-Triggers=/nix/store/59xapk2kwf2k3v402mi3zd08ll8yvm74-X-Restart-Triggers-systemd-modules-load
+  +X-Restart-Triggers=/nix/store/39sylabj32src93hyap5nb93vs53k60l-X-Restart-Triggers-systemd-modules-load
    
    [Service]
    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-[31m-systemd.units."systemd-modules-load.service".unit = «derivation /nix/store/64m4nd9ypp6503xq2x1xzmbgsjpskm9v-unit-systemd-modules-load.service.drv»;[0m
-[32m+systemd.units."systemd-modules-load.service".unit = «derivation /nix/store/cnycycfc8100a5s2jnbinqmkbg7klssi-unit-systemd-modules-load.service.drv»;[0m
+-systemd.units."systemd-modules-load.service".unit = «derivation /nix/store/64m4nd9ypp6503xq2x1xzmbgsjpskm9v-unit-systemd-modules-load.service.drv»;
++systemd.units."systemd-modules-load.service".unit = «derivation /nix/store/cnycycfc8100a5s2jnbinqmkbg7klssi-unit-systemd-modules-load.service.drv»;
 systemd.units."systemd-tmpfiles-resetup.service".text =
-[36m  @@ -4,7 +4,7 @@[0m
+  @@ -4,7 +4,7 @@
    Conflicts=shutdown.target
    DefaultDependencies=false
    Description=Re-setup tmpfiles on a system that is already running.
-[31m  -X-Restart-Triggers=/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup[0m
-[32m  +X-Restart-Triggers=/nix/store/n0mc1r9v3l70lr46jam9mcr5d3i9w5jz-X-Restart-Triggers-systemd-tmpfiles-resetup[0m
+  -X-Restart-Triggers=/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup
+  +X-Restart-Triggers=/nix/store/n0mc1r9v3l70lr46jam9mcr5d3i9w5jz-X-Restart-Triggers-systemd-tmpfiles-resetup
    
    [Service]
    Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
-[31m-systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/bn6i45626y1iz7qaqjwgg08xps1iga94-unit-systemd-tmpfiles-resetup.service.drv»;[0m
-[32m+systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/wk04jq381v4ffifazv2i9gf8y751agc2-unit-systemd-tmpfiles-resetup.service.drv»;[0m
-[32m+systemd.units."nginx.service".enable = true;[0m
-[32m+systemd.units."nginx.service".wantedBy.".0" = "multi-user.target";[0m
-[32m+systemd.units."nginx.service".text = ''[0m
-[32m  [Unit][0m
-[32m  After=network.target[0m
-[32m  Description=Nginx Web Server[0m
-[32m  StartLimitIntervalSec=60[0m
-[32m  [0m
-[32m  [Service][0m
-[32m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[32m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[32m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[32m  X-StopIfChanged=false[0m
-[32m  AmbientCapabilities=CAP_NET_BIND_SERVICE[0m
-[32m  AmbientCapabilities=CAP_SYS_RESOURCE[0m
-[32m  CacheDirectory=nginx[0m
-[32m  CacheDirectoryMode=0750[0m
-[32m  CapabilityBoundingSet=CAP_NET_BIND_SERVICE[0m
-[32m  CapabilityBoundingSet=CAP_SYS_RESOURCE[0m
-[32m  ExecReload=/nix/store/fn4zf9dab7z52j90j46pk67pbqmxjksz-nginx-1.26.3/bin/nginx -c '/nix/store/bcwqqbkfkgsjrq52z2q87lv9ki72mbir-nginx.conf' -t[0m
-[32m  ExecReload=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/kill -HUP $MAINPID[0m
-[32m  ExecStart=/nix/store/fn4zf9dab7z52j90j46pk67pbqmxjksz-nginx-1.26.3/bin/nginx -c '/nix/store/bcwqqbkfkgsjrq52z2q87lv9ki72mbir-nginx.conf'[0m
-[32m  ExecStartPre=/nix/store/w2qs2m8yvjb91scsd6mc4d3mj5w1xns6-unit-script-nginx-pre-start/bin/nginx-pre-start[0m
-[32m  Group=nginx[0m
-[32m  LockPersonality=true[0m
-[32m  LogsDirectory=nginx[0m
-[32m  LogsDirectoryMode=0750[0m
-[32m  MemoryDenyWriteExecute=true[0m
-[32m  NoNewPrivileges=true[0m
-[32m  PrivateDevices=true[0m
-[32m  PrivateMounts=true[0m
-[32m  PrivateTmp=true[0m
-[32m  ProcSubset=pid[0m
-[32m  ProtectClock=true[0m
-[32m  ProtectControlGroups=true[0m
-[32m  ProtectHome=true[0m
-[32m  ProtectHostname=true[0m
-[32m  ProtectKernelLogs=true[0m
-[32m  ProtectKernelModules=true[0m
-[32m  ProtectKernelTunables=true[0m
-[32m  ProtectProc=invisible[0m
-[32m  ProtectSystem=strict[0m
-[32m  RemoveIPC=true[0m
-[32m  Restart=always[0m
-[32m  RestartSec=10s[0m
-[32m  RestrictAddressFamilies=AF_UNIX[0m
-[32m  RestrictAddressFamilies=AF_INET[0m
-[32m  RestrictAddressFamilies=AF_INET6[0m
-[32m  RestrictNamespaces=true[0m
-[32m  RestrictRealtime=true[0m
-[32m  RestrictSUIDSGID=true[0m
-[32m  RuntimeDirectory=nginx[0m
-[32m  RuntimeDirectoryMode=0750[0m
-[32m  SystemCallArchitectures=native[0m
-[32m  SystemCallFilter=~@cpu-emulation @debug @keyring @mount @obsolete @privileged @setuid[0m
-[32m  UMask=0027[0m
-[32m  User=nginx[0m
-[32m  [0m
-[32m  [Install][0m
-[32m  WantedBy=multi-user.target[0m
-[32m  [32m'';[0m
-[32m+systemd.units."nginx.service".overrideStrategy = "asDropinIfExists";[0m
-[31m-systemd.units."nginx.service".unit = «derivation /nix/store/a0cfc5g7pan0rvzgx8f7bq9j24i0icsw-unit-nginx.service.drv»;[0m
-[32m+users.users.nginx.name = "nginx";[0m
-[32m+users.users.nginx.description = "";[0m
-[32m+users.users.nginx.enable = true;[0m
-[32m+users.users.nginx.passwordFile = null;[0m
-[32m+users.users.nginx.group = "nginx";[0m
-[32m+users.users.nginx.uid = 60;[0m
-[32m+users.users.nginx.isSystemUser = true;[0m
-[32m+users.users.nginx.isNormalUser = false;[0m
-[32m+users.users.nginx.home = "/var/empty";[0m
-[32m+users.users.nginx.homeMode = "700";[0m
-[31m-users.users.nginx.shell = «derivation /nix/store/dv5jh7mh8hxnkygrvd8bsg4002mid187-shadow-4.17.2.drv»;[0m
-[32m+users.users.nginx.ignoreShellProgramCheck = false;[0m
-[32m+users.users.nginx.autoSubUidGidRange = false;[0m
-[32m+users.users.nginx.createHome = false;[0m
-[32m+users.users.nginx.useDefaultShell = false;[0m
-[32m+users.users.nginx.hashedPassword = null;[0m
-[32m+users.users.nginx.password = null;[0m
-[32m+users.users.nginx.hashedPasswordFile = null;[0m
-[32m+users.users.nginx.initialHashedPassword = null;[0m
-[32m+users.users.nginx.initialPassword = null;[0m
-[32m+users.users.nginx.expires = null;[0m
-[32m+users.users.nginx.linger = false;[0m
-[32m+users.groups.nginx.name = "nginx";[0m
-[32m+users.groups.nginx.gid = 60;[0m
-[32m+ids.gids.nginx = 60;[0m
-[32m+ids.uids.nginx = 60;[0m
+-systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/bn6i45626y1iz7qaqjwgg08xps1iga94-unit-systemd-tmpfiles-resetup.service.drv»;
++systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/wk04jq381v4ffifazv2i9gf8y751agc2-unit-systemd-tmpfiles-resetup.service.drv»;
++systemd.units."nginx.service".enable = true;
++systemd.units."nginx.service".wantedBy.".0" = "multi-user.target";
++systemd.units."nginx.service".text = ''
+  [Unit]
+  After=network.target
+  Description=Nginx Web Server
+  StartLimitIntervalSec=60
+  
+  [Service]
+  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
+  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+  X-StopIfChanged=false
+  AmbientCapabilities=CAP_NET_BIND_SERVICE
+  AmbientCapabilities=CAP_SYS_RESOURCE
+  CacheDirectory=nginx
+  CacheDirectoryMode=0750
+  CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+  CapabilityBoundingSet=CAP_SYS_RESOURCE
+  ExecReload=/nix/store/fn4zf9dab7z52j90j46pk67pbqmxjksz-nginx-1.26.3/bin/nginx -c '/nix/store/bcwqqbkfkgsjrq52z2q87lv9ki72mbir-nginx.conf' -t
+  ExecReload=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/kill -HUP $MAINPID
+  ExecStart=/nix/store/fn4zf9dab7z52j90j46pk67pbqmxjksz-nginx-1.26.3/bin/nginx -c '/nix/store/bcwqqbkfkgsjrq52z2q87lv9ki72mbir-nginx.conf'
+  ExecStartPre=/nix/store/w2qs2m8yvjb91scsd6mc4d3mj5w1xns6-unit-script-nginx-pre-start/bin/nginx-pre-start
+  Group=nginx
+  LockPersonality=true
+  LogsDirectory=nginx
+  LogsDirectoryMode=0750
+  MemoryDenyWriteExecute=true
+  NoNewPrivileges=true
+  PrivateDevices=true
+  PrivateMounts=true
+  PrivateTmp=true
+  ProcSubset=pid
+  ProtectClock=true
+  ProtectControlGroups=true
+  ProtectHome=true
+  ProtectHostname=true
+  ProtectKernelLogs=true
+  ProtectKernelModules=true
+  ProtectKernelTunables=true
+  ProtectProc=invisible
+  ProtectSystem=strict
+  RemoveIPC=true
+  Restart=always
+  RestartSec=10s
+  RestrictAddressFamilies=AF_UNIX
+  RestrictAddressFamilies=AF_INET
+  RestrictAddressFamilies=AF_INET6
+  RestrictNamespaces=true
+  RestrictRealtime=true
+  RestrictSUIDSGID=true
+  RuntimeDirectory=nginx
+  RuntimeDirectoryMode=0750
+  SystemCallArchitectures=native
+  SystemCallFilter=~@cpu-emulation @debug @keyring @mount @obsolete @privileged @setuid
+  UMask=0027
+  User=nginx
+  
+  [Install]
+  WantedBy=multi-user.target
+  '';
++systemd.units."nginx.service".overrideStrategy = "asDropinIfExists";
+-systemd.units."nginx.service".unit = «derivation /nix/store/a0cfc5g7pan0rvzgx8f7bq9j24i0icsw-unit-nginx.service.drv»;
++users.users.nginx.name = "nginx";
++users.users.nginx.description = "";
++users.users.nginx.enable = true;
++users.users.nginx.passwordFile = null;
++users.users.nginx.group = "nginx";
++users.users.nginx.uid = 60;
++users.users.nginx.isSystemUser = true;
++users.users.nginx.isNormalUser = false;
++users.users.nginx.home = "/var/empty";
++users.users.nginx.homeMode = "700";
+-users.users.nginx.shell = «derivation /nix/store/dv5jh7mh8hxnkygrvd8bsg4002mid187-shadow-4.17.2.drv»;
++users.users.nginx.ignoreShellProgramCheck = false;
++users.users.nginx.autoSubUidGidRange = false;
++users.users.nginx.createHome = false;
++users.users.nginx.useDefaultShell = false;
++users.users.nginx.hashedPassword = null;
++users.users.nginx.password = null;
++users.users.nginx.hashedPasswordFile = null;
++users.users.nginx.initialHashedPassword = null;
++users.users.nginx.initialPassword = null;
++users.users.nginx.expires = null;
++users.users.nginx.linger = false;
++users.groups.nginx.name = "nginx";
++users.groups.nginx.gid = 60;
++ids.gids.nginx = 60;
++ids.uids.nginx = 60;

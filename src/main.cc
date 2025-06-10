@@ -47,8 +47,7 @@ struct Context {
     Value config2;
 };
 
-//bool isTTY = nix::isTTY();
-bool isTTY = true;
+bool isTTY = isatty(fileno(stdout));
 
 class Change {
   friend std::ostream & operator << (std::ostream & output, const Change & change);
@@ -88,21 +87,33 @@ void printUniDiff(dtl::Diff<std::string, std::vector<std::string>> diff) {
   nix::checkInterrupt();
   auto hunks = diff.getUniHunks();
   for (auto hunk = hunks.begin(); hunk != hunks.end(); ++hunk) {
-    std::cout << "\x1b[36m  @@" << " -"  << hunk->a << "," << hunk->b << " +"  << hunk->c << "," << hunk->d << " @@" << "\x1b[0m\n";
+    if (isTTY) {
+      std::cout << "\x1b[36m  @@" << " -"  << hunk->a << "," << hunk->b << " +"  << hunk->c << "," << hunk->d << " @@" << "\x1b[0m\n";
+    } else {
+      std::cout << "  @@" << " -"  << hunk->a << "," << hunk->b << " +"  << hunk->c << "," << hunk->d << " @@" << "\n";
+    }
     for (auto common = hunk->common[0].begin(); common != hunk->common[0].end(); ++common) {
       std::cout << "   " << common->first << "\n";
     }
     for (auto change = hunk->change.begin(); change != hunk->change.end(); ++change) {
       switch (change->second.type) {
         case dtl::SES_ADD:
+          if (isTTY) {
             std::cout << "\x1b[32m  +" << change->first << "\x1b[0m\n";
-            break;
+          } else {
+            std::cout << "  +" << change->first << "\n";
+          }
+          break;
         case dtl::SES_DELETE:
+          if (isTTY) {
             std::cout << "\x1b[31m  -" << change->first << "\x1b[0m\n";
-            break;
+          } else {
+            std::cout << "  -" << change->first << "\n";
+          }
+          break;
         case dtl::SES_COMMON:
-            std::cout << "   " << change->first << "\n";
-            break;
+          std::cout << "   " << change->first << "\n";
+          break;
       }
     }
     for (auto common = hunk->common[1].begin(); common != hunk->common[1].end(); ++common) {
@@ -119,9 +130,17 @@ printString(bool printDeletion, Context & ctx, std::ostream & str, Value & v) {
     return str;
   };
   if (printDeletion) {
-    str << "''\x1b[0m\n\x1b[31m  ";
+    if (isTTY) {
+      str << "''\x1b[0m\n\x1b[31m  ";
+    } else {
+      str << "''\n  ";
+    }
   } else {
-    str << "''\x1b[0m\n\x1b[32m  ";
+    if (isTTY) {
+      str << "''\x1b[0m\n\x1b[32m  ";
+    } else {
+      str << "''\n  ";
+    }
   }
   for (auto i = string.begin(); i != string.end(); ++i) {
     if (*i == '\'' && *(i+1) == '\'') {
@@ -129,16 +148,33 @@ printString(bool printDeletion, Context & ctx, std::ostream & str, Value & v) {
       ++i;
     } else if (*i == '\n') {
       if (printDeletion)
-        str << "\x1b[0m\n\x1b[31m  ";
+        if (isTTY) {
+          str << "\x1b[0m\n\x1b[31m  ";
+        } else {
+          str << "\n  ";
+        }
       else
-        str << "\x1b[0m\n\x1b[32m  ";
+        if (isTTY) {
+          str << "\x1b[0m\n\x1b[32m  ";
+        } else {
+          str << "\n  ";
+        }
     } else
       str << *i;
   }
-  if (printDeletion)
-    str << "\x1b[31m''";
-  else
-    str << "\x1b[32m''";
+  if (printDeletion) {
+    if (isTTY) {
+      str << "\x1b[31m''";
+    } else {
+      str << "''";
+    }
+  } else {
+    if (isTTY) {
+      str << "\x1b[32m''";
+    } else {
+      str << "''";
+    }
+  }
   return str;
 }
 
@@ -320,8 +356,6 @@ void printValue(bool printDeletion, Context & ctx, const std::string & path, Val
         break;
       case nix::nList:
         printList(printDeletion, ctx, path, v);
-        break;
-      case nix::nThunk: // equals forces
         break;
       default:
         if (printDeletion) {
@@ -530,6 +564,8 @@ int main(int argc, char ** argv) {
         nix::showManPage("nixos-diff");
     } else if (*arg == "--version") {
         nix::printVersion("nixos-diff");
+    } else if (*arg == "--color=always") {
+        isTTY = true;
     } else if (*arg == "--expr") {
         expr = true;
     } else if (*arg == "--rev") {

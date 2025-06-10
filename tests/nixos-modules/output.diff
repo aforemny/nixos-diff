@@ -1,47 +1,47 @@
-[31m-system.build.toplevel = «derivation /nix/store/kafy59snhq30vyxr3j1hjzn45hpijvha-nixos-system-nixos-25.05pre-git.drv»;[0m
-[32m+system.build.toplevel = «derivation /nix/store/05kxd15g4ksvh2dkwcdg9dns7mz3d63n-nixos-system-machine-25.05pre-git.drv»;[0m
-[31m-system.build.etc = «derivation /nix/store/yqzvmp0sjjl8clhrcdp40fl4bfs31w1y-etc.drv»;[0m
-[32m+system.build.etc = «derivation /nix/store/bzgvkhvyrn80f2hv03ikiyvh1j8w1xm9-etc.drv»;[0m
+-system.build.toplevel = «derivation /nix/store/kafy59snhq30vyxr3j1hjzn45hpijvha-nixos-system-nixos-25.05pre-git.drv»;
++system.build.toplevel = «derivation /nix/store/05kxd15g4ksvh2dkwcdg9dns7mz3d63n-nixos-system-machine-25.05pre-git.drv»;
+-system.build.etc = «derivation /nix/store/yqzvmp0sjjl8clhrcdp40fl4bfs31w1y-etc.drv»;
++system.build.etc = «derivation /nix/store/bzgvkhvyrn80f2hv03ikiyvh1j8w1xm9-etc.drv»;
 system.build.etcActivationCommands =
-[36m  @@ -1,3 +1,3 @@[0m
+  @@ -1,3 +1,3 @@
    # Set up the statically computed bits of /etc.
    echo "setting up /etc..."
-[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc[0m
-[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc[0m
+  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc
+  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc
 system.activationScripts.etc.text =
-[36m  @@ -1,3 +1,3 @@[0m
+  @@ -1,3 +1,3 @@
    # Set up the statically computed bits of /etc.
    echo "setting up /etc..."
-[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc[0m
-[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc[0m
+  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc
+  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc
 system.activationScripts.script =
-[36m  @@ -85,7 +85,7 @@[0m
+  @@ -85,7 +85,7 @@
    _localstatus=0
    # Set up the statically computed bits of /etc.
    echo "setting up /etc..."
-[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc[0m
-[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc[0m
+  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc
+  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc
    
    
    if (( _localstatus > 0 )); then
 system.systemBuilderArgs.activationScript =
-[36m  @@ -85,7 +85,7 @@[0m
+  @@ -85,7 +85,7 @@
    _localstatus=0
    # Set up the statically computed bits of /etc.
    echo "setting up /etc..."
-[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc[0m
-[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc[0m
+  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/r0qwrz3av7yxlzrlnbw4r5gk67cf7xrz-etc/etc
+  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/a7ik90s4k29y4l6y95p7a2a0n4vqm3qv-etc/etc
    
    
    if (( _localstatus > 0 )); then
-[31m-environment.etc.hosts.source = «derivation /nix/store/zf5i8fjqbkwbhkcp8hn1y7mzhf4mz3bv-hosts.drv»;[0m
-[32m+environment.etc.hosts.source = «derivation /nix/store/h1w5w95w4lyva2x9kc38w393hqz72rlw-hosts.drv»;[0m
-[31m-environment.etc.hostname.source = «derivation /nix/store/g93cblq7gpwb32z60yls48m07dmxgxhq-etc-hostname.drv»;[0m
-[32m+environment.etc.hostname.source = «derivation /nix/store/93z4bcdinzc444swpp7zfyvar58mbnwq-etc-hostname.drv»;[0m
+-environment.etc.hosts.source = «derivation /nix/store/zf5i8fjqbkwbhkcp8hn1y7mzhf4mz3bv-hosts.drv»;
++environment.etc.hosts.source = «derivation /nix/store/h1w5w95w4lyva2x9kc38w393hqz72rlw-hosts.drv»;
+-environment.etc.hostname.source = «derivation /nix/store/g93cblq7gpwb32z60yls48m07dmxgxhq-etc-hostname.drv»;
++environment.etc.hostname.source = «derivation /nix/store/93z4bcdinzc444swpp7zfyvar58mbnwq-etc-hostname.drv»;
 environment.etc.hostname.text =
-[36m  @@ -1,1 +1,1 @@[0m
-[31m  -nixos[0m
-[32m  +machine[0m
-[31m-i18n.inputMethod.type = null;[0m
-[31m-networking.hostName = "nixos";[0m
-[32m+networking.hostName = "machine";[0m
+  @@ -1,1 +1,1 @@
+  -nixos
+  +machine
+-i18n.inputMethod.type = null;
+-networking.hostName = "nixos";
++networking.hostName = "machine";
