@@ -1,4 +1,5 @@
 { boost
+, dtl
 , lib
 , meson
 , ninja
@@ -27,6 +28,7 @@ stdenv.mkDerivation {
   ];
   buildInputs = [
     boost
+    dtl
     nix
   ];
   meta = {

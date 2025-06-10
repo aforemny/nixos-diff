@@ -1,3 +1,4 @@
+#include <dtl/dtl.hpp>
 #include <filesystem>
 #include <nix/args.hh>
 #include <nix/attr-path.hh>
@@ -82,6 +83,34 @@ void printChange(std::string deletion, std::string addition) {
   std::cout << Change(deletion, addition);
 }
 
+void printUniDiff(dtl::Diff<std::string, std::vector<std::string>> diff) {
+  std::cout.flush();
+  nix::checkInterrupt();
+  auto hunks = diff.getUniHunks();
+  for (auto hunk = hunks.begin(); hunk != hunks.end(); ++hunk) {
+    std::cout << "\x1b[36m  @@" << " -"  << hunk->a << "," << hunk->b << " +"  << hunk->c << "," << hunk->d << " @@" << "\x1b[0m\n";
+    for (auto common = hunk->common[0].begin(); common != hunk->common[0].end(); ++common) {
+      std::cout << "   " << common->first << "\n";
+    }
+    for (auto change = hunk->change.begin(); change != hunk->change.end(); ++change) {
+      switch (change->second.type) {
+        case dtl::SES_ADD:
+            std::cout << "\x1b[32m  +" << change->first << "\x1b[0m\n";
+            break;
+        case dtl::SES_DELETE:
+            std::cout << "\x1b[31m  -" << change->first << "\x1b[0m\n";
+            break;
+        case dtl::SES_COMMON:
+            std::cout << "   " << change->first << "\n";
+            break;
+      }
+    }
+    for (auto common = hunk->common[1].begin(); common != hunk->common[1].end(); ++common) {
+      std::cout << "   " << common->first << "\n";
+    }
+  }
+}
+
 std::ostream &
 printString(bool printDeletion, Context & ctx, std::ostream & str, Value & v) {
   const std::string_view string = v.string_view();
@@ -136,6 +165,8 @@ bool equals(Context & state, Value & v, Value & w);
 
 void diffLists(Context & ctx, const std::string & path, Value & v, Value & w);
 
+void diffStrings(Context & ctx, const std::string & path, Value & v, Value & w);
+
 PrintOptions printDrv = PrintOptions { .force = true, .derivationPaths = true, };
 
 void diffValues(Context & ctx, const std::string & path, Value & v, Value & w) {
@@ -179,7 +210,10 @@ void diffValues(Context & ctx, const std::string & path, Value & v, Value & w) {
       case nix::nList:
         diffLists(ctx, path, v, w);
         break;
-      case nix::nThunk: // equals forces
+      case nix::nString:
+        if (!equals(ctx, v, w)) {
+          diffStrings(ctx, path, v, w);
+        }
         break;
       default:
         if (!equals(ctx, v, w)) {
@@ -333,6 +367,31 @@ void diffLists(Context & ctx, const std::string & path, Value & v, Value & w) {
   for (long unsigned int i = n; i < xs.size(); i++) {
     printChange("", path + "." + std::to_string(i) + " = " + serializeValue(false, ctx, *ys[i], PrintOptions {}) + ";");
   }
+}
+
+std::vector<std::string> splitLines(const std::string & string) {
+  auto result = std::vector<std::string>{};
+  auto ss = std::stringstream{string};
+  for (std::string line; std::getline(ss, line, '\n');) result.push_back(line);
+  return result;
+}
+
+void diffStrings(Context & ctx, const std::string & path, Value & v, Value & w) {
+  if (v.string_view().find("\n") == std::string::npos && w.string_view().find("\n") == std::string::npos) {
+    printChange(
+      path + " = " + serializeValue(true, ctx, v, PrintOptions {}) + ";",
+      path + " = " + serializeValue(false, ctx, w, PrintOptions {}) + ";"
+    );
+    return;
+  }
+  dtl::Diff<std::string, std::vector<std::string>> diff(
+    splitLines(std::string(v.string_view())),
+    splitLines(std::string(w.string_view()))
+  );
+  diff.compose();
+  diff.composeUnifiedHunks();
+  std::cout << path << " =\n";
+  printUniDiff(diff);
 }
 
 void printDiff(Context & ctx) {

@@ -6,824 +6,65 @@
 [32m+system.build.etc = «derivation /nix/store/64m80qagz8rdvsc82jdh2zxj973faqip-etc.drv»;[0m
 [31m-system.build.nixos-rebuild = «derivation /nix/store/0jqhz3qidd76q8mhrg61ibgp4qq01j4c-nixos-rebuild.drv»;[0m
 [32m+system.build.nixos-rebuild = «derivation /nix/store/k9nyxcb2w94vpq6xxkr407y16h5r296j-nixos-rebuild.drv»;[0m
-[31m-system.build.etcActivationCommands = ''[0m
-[31m  # Set up the statically computed bits of /etc.[0m
-[31m  echo "setting up /etc..."[0m
-[31m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
-[31m  [31m'';[0m
-[32m+system.build.etcActivationCommands = ''[0m
-[32m  # Set up the statically computed bits of /etc.[0m
-[32m  echo "setting up /etc..."[0m
-[32m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc[0m
-[32m  [32m'';[0m
+system.build.etcActivationCommands =
+[36m  @@ -1,3 +1,3 @@[0m
+   # Set up the statically computed bits of /etc.
+   echo "setting up /etc..."
+[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
+[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc[0m
 [31m-system.build.initialRamdisk = «derivation /nix/store/ww1z99f87pv1r1ngsnjzyqakyprf2gz4-initrd-linux-6.12.17.drv»;[0m
 [32m+system.build.initialRamdisk = «derivation /nix/store/nm075w9zbir3gf8hmmalk1j83z4j60b0-initrd-linux-6.13.5.drv»;[0m
-[31m-system.activationScripts.etc.text = ''[0m
-[31m  # Set up the statically computed bits of /etc.[0m
-[31m  echo "setting up /etc..."[0m
-[31m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
-[31m  [31m'';[0m
-[32m+system.activationScripts.etc.text = ''[0m
-[32m  # Set up the statically computed bits of /etc.[0m
-[32m  echo "setting up /etc..."[0m
-[32m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc[0m
-[32m  [32m'';[0m
-[31m-system.activationScripts.script = ''[0m
-[31m  #!/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash[0m
-[31m  [0m
-[31m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
-[31m  [0m
-[31m  systemConfig='@out@'[0m
-[31m  [0m
-[31m  export PATH=/empty[0m
-[31m  for i in /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6 /nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11 /nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0 /nix/store/fcdkag93vlvv7b7833yd1fkx0b1nnp18-getent-glibc-2.40-66 /nix/store/4q7kqnnr018yr54dsqdc5gvfqkwm6xa5-glibc-2.40-66-bin /nix/store/yvai185j6zsgck2y4yq0dddjwlyphhy5-shadow-4.17.2 /nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10 /nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin; do[0m
-[31m      PATH=$PATH:$i/bin:$i/sbin[0m
-[31m  done[0m
-[31m  [0m
-[31m  _status=0[0m
-[31m  trap "_status=1 _localstatus=\$?" ERR[0m
-[31m  [0m
-[31m  # Ensure a consistent umask.[0m
-[31m  umask 0022[0m
-[31m  [0m
-[31m  #### Activation script snippet stdio:[0m
-[31m  _localstatus=0[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "stdio" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet binsh:[0m
-[31m  _localstatus=0[0m
-[31m  # Create the required /bin/sh symlink; otherwise lots of things[0m
-[31m  # (notably the system() function) won't work.[0m
-[31m  mkdir -p /bin[0m
-[31m  chmod 0755 /bin[0m
-[31m  ln -sfn "/nix/store/4k90qpzh1a4sldhnf7cxwkm9c0agq4fp-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
-[31m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "binsh" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet users:[0m
-[31m  _localstatus=0[0m
-[31m  install -m 0700 -d /root[0m
-[31m  install -m 0755 -d /home[0m
-[31m  [0m
-[31m  /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \[0m
-[31m  -w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "users" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet groups:[0m
-[31m  _localstatus=0[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "groups" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet specialfs:[0m
-[31m  _localstatus=0[0m
-[31m  specialMount() {[0m
-[31m    local device="$1"[0m
-[31m    local mountPoint="$2"[0m
-[31m    local options="$3"[0m
-[31m    local fsType="$4"[0m
-[31m  [0m
-[31m    if mountpoint -q "$mountPoint"; then[0m
-[31m      local options="remount,$options"[0m
-[31m    else[0m
-[31m      mkdir -p "$mountPoint"[0m
-[31m      chmod 0755 "$mountPoint"[0m
-[31m    fi[0m
-[31m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
-[31m  }[0m
-[31m  source /nix/store/ksi2zyyqpw547jv22h90rmgxyk8qh920-mounts.sh[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "specialfs" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet etc:[0m
-[31m  _localstatus=0[0m
-[31m  # Set up the statically computed bits of /etc.[0m
-[31m  echo "setting up /etc..."[0m
-[31m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "etc" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet hashes:[0m
-[31m  _localstatus=0[0m
-[31m  users=()[0m
-[31m  while IFS=: read -r user hash _; do[0m
-[31m    if [[ "$hash" = "$"* && ! "$hash" =~ ^\$(y|gy|7|2b|2y|2a|6)\$ ]]; then[0m
-[31m      users+=("$user")[0m
-[31m    fi[0m
-[31m  done </etc/shadow[0m
-[31m  [0m
-[31m  if (( "${#users[@]}" )); then[0m
-[31m    echo "[0m
-[31m  WARNING: The following user accounts rely on password hashing algorithms[0m
-[31m  that have been removed. They need to be renewed as soon as possible, as[0m
-[31m  they do prevent their users from logging in."[0m
-[31m    printf ' - %s\n' "${users[@]}"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "hashes" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet modprobe:[0m
-[31m  _localstatus=0[0m
-[31m  # Allow the kernel to find our wrapped modprobe (which searches[0m
-[31m  # in the right location in the Nix store for kernel modules).[0m
-[31m  # We need this when the kernel (or some module) auto-loads a[0m
-[31m  # module.[0m
-[31m  echo /nix/store/d60481jmwlgh80kxrn4bmfmkpxmv2cip-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "modprobe" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet udevd:[0m
-[31m  _localstatus=0[0m
-[31m  # The deprecated hotplug uevent helper is not used anymore[0m
-[31m  if [ -e /proc/sys/kernel/hotplug ]; then[0m
-[31m    echo "" > /proc/sys/kernel/hotplug[0m
-[31m  fi[0m
-[31m  [0m
-[31m  # Allow the kernel to find our firmware.[0m
-[31m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
-[31m    echo -n "/nix/store/ms4v0njjqdd88h64qnsrj971k72kc2m0-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
-[31m  fi[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "udevd" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet usrbinenv:[0m
-[31m  _localstatus=0[0m
-[31m  mkdir -p /usr/bin[0m
-[31m  chmod 0755 /usr/bin[0m
-[31m  ln -sfn /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
-[31m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "usrbinenv" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet var:[0m
-[31m  _localstatus=0[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "var" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  [0m
-[31m  # Make this configuration the current configuration.[0m
-[31m  # The readlink is there to ensure that when $systemConfig = /system[0m
-[31m  # (which is a symlink to the store), /run/current-system is still[0m
-[31m  # used as a garbage collection root.[0m
-[31m  ln -sfn "$(readlink -f "$systemConfig")" /run/current-system[0m
-[31m  [0m
-[31m  exit $_status[0m
-[31m  [31m'';[0m
-[32m+system.activationScripts.script = ''[0m
-[32m  #!/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash[0m
-[32m  [0m
-[32m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
-[32m  [0m
-[32m  systemConfig='@out@'[0m
-[32m  [0m
-[32m  export PATH=/empty[0m
-[32m  for i in /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6 /nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11 /nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0 /nix/store/fcdkag93vlvv7b7833yd1fkx0b1nnp18-getent-glibc-2.40-66 /nix/store/4q7kqnnr018yr54dsqdc5gvfqkwm6xa5-glibc-2.40-66-bin /nix/store/yvai185j6zsgck2y4yq0dddjwlyphhy5-shadow-4.17.2 /nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10 /nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin; do[0m
-[32m      PATH=$PATH:$i/bin:$i/sbin[0m
-[32m  done[0m
-[32m  [0m
-[32m  _status=0[0m
-[32m  trap "_status=1 _localstatus=\$?" ERR[0m
-[32m  [0m
-[32m  # Ensure a consistent umask.[0m
-[32m  umask 0022[0m
-[32m  [0m
-[32m  #### Activation script snippet stdio:[0m
-[32m  _localstatus=0[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "stdio" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet binsh:[0m
-[32m  _localstatus=0[0m
-[32m  # Create the required /bin/sh symlink; otherwise lots of things[0m
-[32m  # (notably the system() function) won't work.[0m
-[32m  mkdir -p /bin[0m
-[32m  chmod 0755 /bin[0m
-[32m  ln -sfn "/nix/store/4k90qpzh1a4sldhnf7cxwkm9c0agq4fp-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
-[32m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "binsh" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet users:[0m
-[32m  _localstatus=0[0m
-[32m  install -m 0700 -d /root[0m
-[32m  install -m 0755 -d /home[0m
-[32m  [0m
-[32m  /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \[0m
-[32m  -w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "users" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet groups:[0m
-[32m  _localstatus=0[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "groups" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet specialfs:[0m
-[32m  _localstatus=0[0m
-[32m  specialMount() {[0m
-[32m    local device="$1"[0m
-[32m    local mountPoint="$2"[0m
-[32m    local options="$3"[0m
-[32m    local fsType="$4"[0m
-[32m  [0m
-[32m    if mountpoint -q "$mountPoint"; then[0m
-[32m      local options="remount,$options"[0m
-[32m    else[0m
-[32m      mkdir -p "$mountPoint"[0m
-[32m      chmod 0755 "$mountPoint"[0m
-[32m    fi[0m
-[32m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
-[32m  }[0m
-[32m  source /nix/store/ksi2zyyqpw547jv22h90rmgxyk8qh920-mounts.sh[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "specialfs" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet etc:[0m
-[32m  _localstatus=0[0m
-[32m  # Set up the statically computed bits of /etc.[0m
-[32m  echo "setting up /etc..."[0m
-[32m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "etc" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet hashes:[0m
-[32m  _localstatus=0[0m
-[32m  users=()[0m
-[32m  while IFS=: read -r user hash _; do[0m
-[32m    if [[ "$hash" = "$"* && ! "$hash" =~ ^\$(y|gy|7|2b|2y|2a|6)\$ ]]; then[0m
-[32m      users+=("$user")[0m
-[32m    fi[0m
-[32m  done </etc/shadow[0m
-[32m  [0m
-[32m  if (( "${#users[@]}" )); then[0m
-[32m    echo "[0m
-[32m  WARNING: The following user accounts rely on password hashing algorithms[0m
-[32m  that have been removed. They need to be renewed as soon as possible, as[0m
-[32m  they do prevent their users from logging in."[0m
-[32m    printf ' - %s\n' "${users[@]}"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "hashes" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet modprobe:[0m
-[32m  _localstatus=0[0m
-[32m  # Allow the kernel to find our wrapped modprobe (which searches[0m
-[32m  # in the right location in the Nix store for kernel modules).[0m
-[32m  # We need this when the kernel (or some module) auto-loads a[0m
-[32m  # module.[0m
-[32m  echo /nix/store/d60481jmwlgh80kxrn4bmfmkpxmv2cip-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "modprobe" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet udevd:[0m
-[32m  _localstatus=0[0m
-[32m  # The deprecated hotplug uevent helper is not used anymore[0m
-[32m  if [ -e /proc/sys/kernel/hotplug ]; then[0m
-[32m    echo "" > /proc/sys/kernel/hotplug[0m
-[32m  fi[0m
-[32m  [0m
-[32m  # Allow the kernel to find our firmware.[0m
-[32m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
-[32m    echo -n "/nix/store/ms4v0njjqdd88h64qnsrj971k72kc2m0-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
-[32m  fi[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "udevd" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet usrbinenv:[0m
-[32m  _localstatus=0[0m
-[32m  mkdir -p /usr/bin[0m
-[32m  chmod 0755 /usr/bin[0m
-[32m  ln -sfn /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
-[32m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "usrbinenv" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet var:[0m
-[32m  _localstatus=0[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "var" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  [0m
-[32m  # Make this configuration the current configuration.[0m
-[32m  # The readlink is there to ensure that when $systemConfig = /system[0m
-[32m  # (which is a symlink to the store), /run/current-system is still[0m
-[32m  # used as a garbage collection root.[0m
-[32m  ln -sfn "$(readlink -f "$systemConfig")" /run/current-system[0m
-[32m  [0m
-[32m  exit $_status[0m
-[32m  [32m'';[0m
-[31m-system.systemBuilderArgs.activationScript = ''[0m
-[31m  #!/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash[0m
-[31m  [0m
-[31m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
-[31m  [0m
-[31m  systemConfig='@out@'[0m
-[31m  [0m
-[31m  export PATH=/empty[0m
-[31m  for i in /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6 /nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11 /nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0 /nix/store/fcdkag93vlvv7b7833yd1fkx0b1nnp18-getent-glibc-2.40-66 /nix/store/4q7kqnnr018yr54dsqdc5gvfqkwm6xa5-glibc-2.40-66-bin /nix/store/yvai185j6zsgck2y4yq0dddjwlyphhy5-shadow-4.17.2 /nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10 /nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin; do[0m
-[31m      PATH=$PATH:$i/bin:$i/sbin[0m
-[31m  done[0m
-[31m  [0m
-[31m  _status=0[0m
-[31m  trap "_status=1 _localstatus=\$?" ERR[0m
-[31m  [0m
-[31m  # Ensure a consistent umask.[0m
-[31m  umask 0022[0m
-[31m  [0m
-[31m  #### Activation script snippet stdio:[0m
-[31m  _localstatus=0[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "stdio" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet binsh:[0m
-[31m  _localstatus=0[0m
-[31m  # Create the required /bin/sh symlink; otherwise lots of things[0m
-[31m  # (notably the system() function) won't work.[0m
-[31m  mkdir -p /bin[0m
-[31m  chmod 0755 /bin[0m
-[31m  ln -sfn "/nix/store/4k90qpzh1a4sldhnf7cxwkm9c0agq4fp-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
-[31m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "binsh" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet users:[0m
-[31m  _localstatus=0[0m
-[31m  install -m 0700 -d /root[0m
-[31m  install -m 0755 -d /home[0m
-[31m  [0m
-[31m  /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \[0m
-[31m  -w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "users" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet groups:[0m
-[31m  _localstatus=0[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "groups" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet specialfs:[0m
-[31m  _localstatus=0[0m
-[31m  specialMount() {[0m
-[31m    local device="$1"[0m
-[31m    local mountPoint="$2"[0m
-[31m    local options="$3"[0m
-[31m    local fsType="$4"[0m
-[31m  [0m
-[31m    if mountpoint -q "$mountPoint"; then[0m
-[31m      local options="remount,$options"[0m
-[31m    else[0m
-[31m      mkdir -p "$mountPoint"[0m
-[31m      chmod 0755 "$mountPoint"[0m
-[31m    fi[0m
-[31m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
-[31m  }[0m
-[31m  source /nix/store/ksi2zyyqpw547jv22h90rmgxyk8qh920-mounts.sh[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "specialfs" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet etc:[0m
-[31m  _localstatus=0[0m
-[31m  # Set up the statically computed bits of /etc.[0m
-[31m  echo "setting up /etc..."[0m
-[31m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "etc" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet hashes:[0m
-[31m  _localstatus=0[0m
-[31m  users=()[0m
-[31m  while IFS=: read -r user hash _; do[0m
-[31m    if [[ "$hash" = "$"* && ! "$hash" =~ ^\$(y|gy|7|2b|2y|2a|6)\$ ]]; then[0m
-[31m      users+=("$user")[0m
-[31m    fi[0m
-[31m  done </etc/shadow[0m
-[31m  [0m
-[31m  if (( "${#users[@]}" )); then[0m
-[31m    echo "[0m
-[31m  WARNING: The following user accounts rely on password hashing algorithms[0m
-[31m  that have been removed. They need to be renewed as soon as possible, as[0m
-[31m  they do prevent their users from logging in."[0m
-[31m    printf ' - %s\n' "${users[@]}"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "hashes" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet modprobe:[0m
-[31m  _localstatus=0[0m
-[31m  # Allow the kernel to find our wrapped modprobe (which searches[0m
-[31m  # in the right location in the Nix store for kernel modules).[0m
-[31m  # We need this when the kernel (or some module) auto-loads a[0m
-[31m  # module.[0m
-[31m  echo /nix/store/d60481jmwlgh80kxrn4bmfmkpxmv2cip-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "modprobe" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet udevd:[0m
-[31m  _localstatus=0[0m
-[31m  # The deprecated hotplug uevent helper is not used anymore[0m
-[31m  if [ -e /proc/sys/kernel/hotplug ]; then[0m
-[31m    echo "" > /proc/sys/kernel/hotplug[0m
-[31m  fi[0m
-[31m  [0m
-[31m  # Allow the kernel to find our firmware.[0m
-[31m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
-[31m    echo -n "/nix/store/ms4v0njjqdd88h64qnsrj971k72kc2m0-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
-[31m  fi[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "udevd" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet usrbinenv:[0m
-[31m  _localstatus=0[0m
-[31m  mkdir -p /usr/bin[0m
-[31m  chmod 0755 /usr/bin[0m
-[31m  ln -sfn /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
-[31m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "usrbinenv" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  #### Activation script snippet var:[0m
-[31m  _localstatus=0[0m
-[31m  [0m
-[31m  [0m
-[31m  if (( _localstatus > 0 )); then[0m
-[31m    printf "Activation script snippet '%s' failed (%s)\n" "var" "$_localstatus"[0m
-[31m  fi[0m
-[31m  [0m
-[31m  [0m
-[31m  # Make this configuration the current configuration.[0m
-[31m  # The readlink is there to ensure that when $systemConfig = /system[0m
-[31m  # (which is a symlink to the store), /run/current-system is still[0m
-[31m  # used as a garbage collection root.[0m
-[31m  ln -sfn "$(readlink -f "$systemConfig")" /run/current-system[0m
-[31m  [0m
-[31m  exit $_status[0m
-[31m  [31m'';[0m
-[32m+system.systemBuilderArgs.activationScript = ''[0m
-[32m  #!/nix/store/11ciq72n4fdv8rw6wgjgasfv4mjs1jrw-bash-5.2p37/bin/bash[0m
-[32m  [0m
-[32m  source /nix/store/mhxn5kwnri3z9hdzi3x0980id65p0icn-lib.sh[0m
-[32m  [0m
-[32m  systemConfig='@out@'[0m
-[32m  [0m
-[32m  export PATH=/empty[0m
-[32m  for i in /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6 /nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11 /nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0 /nix/store/fcdkag93vlvv7b7833yd1fkx0b1nnp18-getent-glibc-2.40-66 /nix/store/4q7kqnnr018yr54dsqdc5gvfqkwm6xa5-glibc-2.40-66-bin /nix/store/yvai185j6zsgck2y4yq0dddjwlyphhy5-shadow-4.17.2 /nix/store/b6lq773adiv84fvjydmq5f2r3758963d-net-tools-2.10 /nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin; do[0m
-[32m      PATH=$PATH:$i/bin:$i/sbin[0m
-[32m  done[0m
-[32m  [0m
-[32m  _status=0[0m
-[32m  trap "_status=1 _localstatus=\$?" ERR[0m
-[32m  [0m
-[32m  # Ensure a consistent umask.[0m
-[32m  umask 0022[0m
-[32m  [0m
-[32m  #### Activation script snippet stdio:[0m
-[32m  _localstatus=0[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "stdio" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet binsh:[0m
-[32m  _localstatus=0[0m
-[32m  # Create the required /bin/sh symlink; otherwise lots of things[0m
-[32m  # (notably the system() function) won't work.[0m
-[32m  mkdir -p /bin[0m
-[32m  chmod 0755 /bin[0m
-[32m  ln -sfn "/nix/store/4k90qpzh1a4sldhnf7cxwkm9c0agq4fp-bash-interactive-5.2p37/bin/sh" /bin/.sh.tmp[0m
-[32m  mv /bin/.sh.tmp /bin/sh # atomically replace /bin/sh[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "binsh" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet users:[0m
-[32m  _localstatus=0[0m
-[32m  install -m 0700 -d /root[0m
-[32m  install -m 0755 -d /home[0m
-[32m  [0m
-[32m  /nix/store/m6b7npfq8qb50hzs4ignni77a7wbxbcd-perl-5.40.0-env/bin/perl \[0m
-[32m  -w /nix/store/sll7fxa3fgbrjacmn3hbqi2avjlqij2k-update-users-groups.pl /nix/store/i332n0927839k4nihp55l785rxg5lhvl-users-groups.json[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "users" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet groups:[0m
-[32m  _localstatus=0[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "groups" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet specialfs:[0m
-[32m  _localstatus=0[0m
-[32m  specialMount() {[0m
-[32m    local device="$1"[0m
-[32m    local mountPoint="$2"[0m
-[32m    local options="$3"[0m
-[32m    local fsType="$4"[0m
-[32m  [0m
-[32m    if mountpoint -q "$mountPoint"; then[0m
-[32m      local options="remount,$options"[0m
-[32m    else[0m
-[32m      mkdir -p "$mountPoint"[0m
-[32m      chmod 0755 "$mountPoint"[0m
-[32m    fi[0m
-[32m    mount -t "$fsType" -o "$options" "$device" "$mountPoint"[0m
-[32m  }[0m
-[32m  source /nix/store/ksi2zyyqpw547jv22h90rmgxyk8qh920-mounts.sh[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "specialfs" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet etc:[0m
-[32m  _localstatus=0[0m
-[32m  # Set up the statically computed bits of /etc.[0m
-[32m  echo "setting up /etc..."[0m
-[32m  /nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "etc" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet hashes:[0m
-[32m  _localstatus=0[0m
-[32m  users=()[0m
-[32m  while IFS=: read -r user hash _; do[0m
-[32m    if [[ "$hash" = "$"* && ! "$hash" =~ ^\$(y|gy|7|2b|2y|2a|6)\$ ]]; then[0m
-[32m      users+=("$user")[0m
-[32m    fi[0m
-[32m  done </etc/shadow[0m
-[32m  [0m
-[32m  if (( "${#users[@]}" )); then[0m
-[32m    echo "[0m
-[32m  WARNING: The following user accounts rely on password hashing algorithms[0m
-[32m  that have been removed. They need to be renewed as soon as possible, as[0m
-[32m  they do prevent their users from logging in."[0m
-[32m    printf ' - %s\n' "${users[@]}"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "hashes" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet modprobe:[0m
-[32m  _localstatus=0[0m
-[32m  # Allow the kernel to find our wrapped modprobe (which searches[0m
-[32m  # in the right location in the Nix store for kernel modules).[0m
-[32m  # We need this when the kernel (or some module) auto-loads a[0m
-[32m  # module.[0m
-[32m  echo /nix/store/d60481jmwlgh80kxrn4bmfmkpxmv2cip-kmod-31/bin/modprobe > /proc/sys/kernel/modprobe[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "modprobe" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet udevd:[0m
-[32m  _localstatus=0[0m
-[32m  # The deprecated hotplug uevent helper is not used anymore[0m
-[32m  if [ -e /proc/sys/kernel/hotplug ]; then[0m
-[32m    echo "" > /proc/sys/kernel/hotplug[0m
-[32m  fi[0m
-[32m  [0m
-[32m  # Allow the kernel to find our firmware.[0m
-[32m  if [ -e /sys/module/firmware_class/parameters/path ]; then[0m
-[32m    echo -n "/nix/store/ms4v0njjqdd88h64qnsrj971k72kc2m0-firmware/lib/firmware" > /sys/module/firmware_class/parameters/path[0m
-[32m  fi[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "udevd" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet usrbinenv:[0m
-[32m  _localstatus=0[0m
-[32m  mkdir -p /usr/bin[0m
-[32m  chmod 0755 /usr/bin[0m
-[32m  ln -sfn /nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin/env /usr/bin/.env.tmp[0m
-[32m  mv /usr/bin/.env.tmp /usr/bin/env # atomically replace /usr/bin/env[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "usrbinenv" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  #### Activation script snippet var:[0m
-[32m  _localstatus=0[0m
-[32m  [0m
-[32m  [0m
-[32m  if (( _localstatus > 0 )); then[0m
-[32m    printf "Activation script snippet '%s' failed (%s)\n" "var" "$_localstatus"[0m
-[32m  fi[0m
-[32m  [0m
-[32m  [0m
-[32m  # Make this configuration the current configuration.[0m
-[32m  # The readlink is there to ensure that when $systemConfig = /system[0m
-[32m  # (which is a symlink to the store), /run/current-system is still[0m
-[32m  # used as a garbage collection root.[0m
-[32m  ln -sfn "$(readlink -f "$systemConfig")" /run/current-system[0m
-[32m  [0m
-[32m  exit $_status[0m
-[32m  [32m'';[0m
-[31m-system.systemBuilderCommands = ''[0m
-[31m  echo -n "$configurationName" > $out/configuration-name[0m
-[31m  [0m
-[31m  if [ ! -f /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage ]; then[0m
-[31m    echo "The bootloader cannot find the proper kernel image."[0m
-[31m    echo "(Expecting /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage)"[0m
-[31m    false[0m
-[31m  fi[0m
-[31m  [0m
-[31m  ln -s /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage $out/kernel[0m
-[31m  ln -s /nix/store/f2f9313ixbdw03j2dswlzzzmlan3abmp-linux-6.12.17-modules $out/kernel-modules[0m
-[31m  [0m
-[31m  [0m
-[31m  echo -n "$kernelParams" > $out/kernel-params[0m
-[31m  [0m
-[31m  ln -s /nix/store/45ppcs5bqgarvdhv0zxyc3yv45clff99-initrd-linux-6.12.17/initrd $out/initrd[0m
-[31m  [0m
-[31m  ln -s /nix/store/cklbqqac8fh2z6a4pczfhqs2nxzvgqii-append-initrd-secrets/bin/append-initrd-secrets $out[0m
-[31m  [0m
-[31m  ln -s /nix/store/ms4v0njjqdd88h64qnsrj971k72kc2m0-firmware/lib/firmware $out/firmware[0m
-[31m  [0m
-[31m  mkdir $out/specialisation[0m
-[31m  [0m
-[31m  [0m
-[31m  ([0m
-[31m    source /nix/store/qi75cqx06d4d197pg8h2xfcn1lrj15cy-make-shell-wrapper-hook/nix-support/setup-hook[0m
-[31m  [0m
-[31m    mkdir $out/bin[0m
-[31m    ln -sf /nix/store/xgcqz18vx0bd0x0lff3vm78lv9ms20hy-switch-to-configuration-0.1.0/bin/switch-to-configuration $out/bin/switch-to-configuration[0m
-[31m    wrapProgram $out/bin/switch-to-configuration \[0m
-[31m      --set OUT $out \[0m
-[31m      --set TOPLEVEL ${!toplevelVar} \[0m
-[31m      --set DISTRO_ID nixos \[0m
-[31m      --set INSTALL_BOOTLOADER /nix/store/qc9472vj61s4xd0pk6bp2my62z6jcja1-install-grub.sh \[0m
-[31m      --set PRE_SWITCH_CHECK /nix/store/5j087i0249kzr5g2q8hpgpwv7ggsibnj-pre-switch-checks/bin/pre-switch-checks \[0m
-[31m      --set LOCALE_ARCHIVE /nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive \[0m
-[31m      --set SYSTEMD /nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2[0m
-[31m  )[0m
-[31m  [0m
-[31m  echo "$activationScript" > $out/activate[0m
-[31m  echo "$dryActivationScript" > $out/dry-activate[0m
-[31m  substituteInPlace $out/activate --subst-var-by out ${!toplevelVar}[0m
-[31m  substituteInPlace $out/dry-activate --subst-var-by out ${!toplevelVar}[0m
-[31m  chmod u+x $out/activate $out/dry-activate[0m
-[31m  unset activationScript dryActivationScript[0m
-[31m  [31m'';[0m
-[32m+system.systemBuilderCommands = ''[0m
-[32m  echo -n "$configurationName" > $out/configuration-name[0m
-[32m  [0m
-[32m  if [ ! -f /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage ]; then[0m
-[32m    echo "The bootloader cannot find the proper kernel image."[0m
-[32m    echo "(Expecting /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage)"[0m
-[32m    false[0m
-[32m  fi[0m
-[32m  [0m
-[32m  ln -s /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage $out/kernel[0m
-[32m  ln -s /nix/store/yzj1bdyn4623wrrcb7dv9wgmjwliycdj-linux-6.13.5-modules $out/kernel-modules[0m
-[32m  [0m
-[32m  [0m
-[32m  echo -n "$kernelParams" > $out/kernel-params[0m
-[32m  [0m
-[32m  ln -s /nix/store/zbilr7yhg08d6gf659rw65fr60bh76f0-initrd-linux-6.13.5/initrd $out/initrd[0m
-[32m  [0m
-[32m  ln -s /nix/store/cklbqqac8fh2z6a4pczfhqs2nxzvgqii-append-initrd-secrets/bin/append-initrd-secrets $out[0m
-[32m  [0m
-[32m  ln -s /nix/store/ms4v0njjqdd88h64qnsrj971k72kc2m0-firmware/lib/firmware $out/firmware[0m
-[32m  [0m
-[32m  mkdir $out/specialisation[0m
-[32m  [0m
-[32m  [0m
-[32m  ([0m
-[32m    source /nix/store/qi75cqx06d4d197pg8h2xfcn1lrj15cy-make-shell-wrapper-hook/nix-support/setup-hook[0m
-[32m  [0m
-[32m    mkdir $out/bin[0m
-[32m    ln -sf /nix/store/xgcqz18vx0bd0x0lff3vm78lv9ms20hy-switch-to-configuration-0.1.0/bin/switch-to-configuration $out/bin/switch-to-configuration[0m
-[32m    wrapProgram $out/bin/switch-to-configuration \[0m
-[32m      --set OUT $out \[0m
-[32m      --set TOPLEVEL ${!toplevelVar} \[0m
-[32m      --set DISTRO_ID nixos \[0m
-[32m      --set INSTALL_BOOTLOADER /nix/store/qc9472vj61s4xd0pk6bp2my62z6jcja1-install-grub.sh \[0m
-[32m      --set PRE_SWITCH_CHECK /nix/store/5j087i0249kzr5g2q8hpgpwv7ggsibnj-pre-switch-checks/bin/pre-switch-checks \[0m
-[32m      --set LOCALE_ARCHIVE /nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive \[0m
-[32m      --set SYSTEMD /nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2[0m
-[32m  )[0m
-[32m  [0m
-[32m  echo "$activationScript" > $out/activate[0m
-[32m  echo "$dryActivationScript" > $out/dry-activate[0m
-[32m  substituteInPlace $out/activate --subst-var-by out ${!toplevelVar}[0m
-[32m  substituteInPlace $out/dry-activate --subst-var-by out ${!toplevelVar}[0m
-[32m  chmod u+x $out/activate $out/dry-activate[0m
-[32m  unset activationScript dryActivationScript[0m
-[32m  [32m'';[0m
+system.activationScripts.etc.text =
+[36m  @@ -1,3 +1,3 @@[0m
+   # Set up the statically computed bits of /etc.
+   echo "setting up /etc..."
+[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
+[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc[0m
+system.activationScripts.script =
+[36m  @@ -85,7 +85,7 @@[0m
+   _localstatus=0
+   # Set up the statically computed bits of /etc.
+   echo "setting up /etc..."
+[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
+[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc[0m
+   
+   
+   if (( _localstatus > 0 )); then
+system.systemBuilderArgs.activationScript =
+[36m  @@ -85,7 +85,7 @@[0m
+   _localstatus=0
+   # Set up the statically computed bits of /etc.
+   echo "setting up /etc..."
+[31m  -/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/s9hakmgva8hkf7cvy2bjkx30q7d1f4xq-etc/etc[0m
+[32m  +/nix/store/vykd7i3p2ynk1g9f4pbp234pxy2sd5w3-perl-5.40.0-env/bin/perl /nix/store/rg5rf512szdxmnj9qal3wfdnpfsx38qi-setup-etc.pl /nix/store/9bs5r7xd1f6w0xa55kg33zsppj58f00k-etc/etc[0m
+   
+   
+   if (( _localstatus > 0 )); then
+system.systemBuilderCommands =
+[36m  @@ -1,18 +1,18 @@[0m
+   echo -n "$configurationName" > $out/configuration-name
+   
+[31m  -if [ ! -f /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage ]; then[0m
+[32m  +if [ ! -f /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage ]; then[0m
+     echo "The bootloader cannot find the proper kernel image."
+[31m  -  echo "(Expecting /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage)"[0m
+[32m  +  echo "(Expecting /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage)"[0m
+     false
+   fi
+   
+[31m  -ln -s /nix/store/i6692qs0b61zmc83a34nj9jd361jndrv-linux-6.12.17/bzImage $out/kernel[0m
+[31m  -ln -s /nix/store/f2f9313ixbdw03j2dswlzzzmlan3abmp-linux-6.12.17-modules $out/kernel-modules[0m
+[32m  +ln -s /nix/store/280126lrqwhl76jhjnxggyvlnwdavddm-linux-6.13.5/bzImage $out/kernel[0m
+[32m  +ln -s /nix/store/yzj1bdyn4623wrrcb7dv9wgmjwliycdj-linux-6.13.5-modules $out/kernel-modules[0m
+   
+   
+   echo -n "$kernelParams" > $out/kernel-params
+   
+[31m  -ln -s /nix/store/45ppcs5bqgarvdhv0zxyc3yv45clff99-initrd-linux-6.12.17/initrd $out/initrd[0m
+[32m  +ln -s /nix/store/zbilr7yhg08d6gf659rw65fr60bh76f0-initrd-linux-6.13.5/initrd $out/initrd[0m
+   
+   ln -s /nix/store/cklbqqac8fh2z6a4pczfhqs2nxzvgqii-append-initrd-secrets/bin/append-initrd-secrets $out
+   
 [31m-system.modulesTree = «derivation /nix/store/dpfq9s3m2yrgh14kksk0ps0rd1zx6rnw-linux-6.12.17-modules.drv»;[0m
 [32m+system.modulesTree = «derivation /nix/store/r6pvcksxsi55x3g1mc7wx9911s0l03a7-linux-6.13.5-modules.drv»;[0m
 [31m-environment.etc."nix/nix.conf".source = «derivation /nix/store/fvil60xf5c21qj5a8q1sivvp2wwxmabn-nix.conf.drv»;[0m
@@ -847,14 +88,12 @@
 [31m-i18n.inputMethod.type = null;[0m
 [31m-boot.kernelPackages.kernel = «derivation /nix/store/9r4ag4dbxdyg68pdiqagxp3ybx3fj5ys-linux-6.12.17.drv»;[0m
 [32m+boot.kernelPackages.kernel = «derivation /nix/store/mb54jyr236q1wvsr7wh18c9l76b0b2g0-linux-6.13.5.drv»;[0m
-[31m-boot.bootspec.writer = ''[0m
-[31m  /nix/store/xqh11ih3h2y85sgjjighlskp2llhswmz-jq-1.7.1-bin/bin/jq '."org.nixos.bootspec.v1".toplevel = $toplevel |[0m
-[31m  ."org.nixos.bootspec.v1".init = $init[0m
-[31m  ' --sort-keys --arg toplevel /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9 --arg init /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9/init < /nix/store/jmj56jzf22sjw2n7gyz21bprpj7ghclf-boot.json | /nix/store/xqh11ih3h2y85sgjjighlskp2llhswmz-jq-1.7.1-bin/bin/jq --sort-keys '."org.nixos.specialisation.v1" = ($ARGS.named | map_values(. | first))'  > $out/boot.json[31m'';[0m
-[32m+boot.bootspec.writer = ''[0m
-[32m  /nix/store/xqh11ih3h2y85sgjjighlskp2llhswmz-jq-1.7.1-bin/bin/jq '."org.nixos.bootspec.v1".toplevel = $toplevel |[0m
-[32m  ."org.nixos.bootspec.v1".init = $init[0m
-[32m  ' --sort-keys --arg toplevel /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9 --arg init /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9/init < /nix/store/qcz9yahbl9xm3bvk3pw57s0q6zq6x17k-boot.json | /nix/store/xqh11ih3h2y85sgjjighlskp2llhswmz-jq-1.7.1-bin/bin/jq --sort-keys '."org.nixos.specialisation.v1" = ($ARGS.named | map_values(. | first))'  > $out/boot.json[32m'';[0m
+boot.bootspec.writer =
+[36m  @@ -1,3 +1,3 @@[0m
+   /nix/store/xqh11ih3h2y85sgjjighlskp2llhswmz-jq-1.7.1-bin/bin/jq '."org.nixos.bootspec.v1".toplevel = $toplevel |
+   ."org.nixos.bootspec.v1".init = $init
+[31m  -' --sort-keys --arg toplevel /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9 --arg init /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9/init < /nix/store/jmj56jzf22sjw2n7gyz21bprpj7ghclf-boot.json | /nix/store/xqh11ih3h2y85sgjjighlskp2llhswmz-jq-1.7.1-bin/bin/jq --sort-keys '."org.nixos.specialisation.v1" = ($ARGS.named | map_values(. | first))'  > $out/boot.json[0m
+[32m  +' --sort-keys --arg toplevel /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9 --arg init /1rz4g4znpzjwh1xymhjpm42vipw92pr73vdgl6xs1hycac8kf2n9/init < /nix/store/qcz9yahbl9xm3bvk3pw57s0q6zq6x17k-boot.json | /nix/store/xqh11ih3h2y85sgjjighlskp2llhswmz-jq-1.7.1-bin/bin/jq --sort-keys '."org.nixos.specialisation.v1" = ($ARGS.named | map_values(. | first))'  > $out/boot.json[0m
 [31m-systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus";[0m
 [32m+systemd.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus";[0m
 [31m-systemd.services.nix-gc.serviceConfig.ExecStart = "/nix/store/glja3yyf4phdn3shrpdms27cr57czzj5-unit-script-nix-gc-start/bin/nix-gc-start ";[0m
@@ -871,182 +110,72 @@
 [32m+systemd.services.systemd-tmpfiles-resetup.unitConfig.X-Restart-Triggers = "/nix/store/27fyywcb1jjjracn7anxjrxym16v1dlj-X-Restart-Triggers-systemd-tmpfiles-resetup";[0m
 [31m-systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus";[0m
 [32m+systemd.user.services.dbus.unitConfig.X-Restart-Triggers = "/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus";[0m
-[31m-systemd.user.units."dbus.service".text = ''[0m
-[31m  [Unit][0m
-[31m  X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus[0m
-[31m  [0m
-[31m  [Service][0m
-[31m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[31m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[31m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[31m  X-ReloadIfChanged=true[0m
-[31m  [31m'';[0m
-[32m+systemd.user.units."dbus.service".text = ''[0m
-[32m  [Unit][0m
-[32m  X-Restart-Triggers=/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus[0m
-[32m  [0m
-[32m  [Service][0m
-[32m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[32m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[32m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[32m  X-ReloadIfChanged=true[0m
-[32m  [32m'';[0m
+systemd.user.units."dbus.service".text =
+[36m  @@ -1,5 +1,5 @@[0m
+   [Unit]
+[31m  -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus[0m
+[32m  +X-Restart-Triggers=/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus[0m
+   
+   [Service]
+   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 [31m-systemd.user.units."dbus.service".unit = «derivation /nix/store/1aqkrx0srdifca00b8nhz74wwcvw4l4j-unit-dbus.service.drv»;[0m
 [32m+systemd.user.units."dbus.service".unit = «derivation /nix/store/f8jl8yh39hd4pw0b0bpm3bb0qhpjkhlj-unit-dbus.service.drv»;[0m
-[31m-systemd.units."dbus.service".text = ''[0m
-[31m  [Unit][0m
-[31m  X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus[0m
-[31m  [0m
-[31m  [Service][0m
-[31m  Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"[0m
-[31m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[31m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[31m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[31m  X-ReloadIfChanged=true[0m
-[31m  [31m'';[0m
-[32m+systemd.units."dbus.service".text = ''[0m
-[32m  [Unit][0m
-[32m  X-Restart-Triggers=/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus[0m
-[32m  [0m
-[32m  [Service][0m
-[32m  Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"[0m
-[32m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[32m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[32m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[32m  X-ReloadIfChanged=true[0m
-[32m  [32m'';[0m
+systemd.units."dbus.service".text =
+[36m  @@ -1,5 +1,5 @@[0m
+   [Unit]
+[31m  -X-Restart-Triggers=/nix/store/7bxcwpa76x31v0g30jf6xdskz22m7jdn-X-Restart-Triggers-dbus[0m
+[32m  +X-Restart-Triggers=/nix/store/d2ppn882j1aq5blixncbsfaa31janl4b-X-Restart-Triggers-dbus[0m
+   
+   [Service]
+   Environment="LD_LIBRARY_PATH=/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/lib"
 [31m-systemd.units."dbus.service".unit = «derivation /nix/store/3iaw323fxgmsya05ipdkdxf67n1b8jqw-unit-dbus.service.drv»;[0m
 [32m+systemd.units."dbus.service".unit = «derivation /nix/store/zcl6kk6y4g43qpyxs3lnl17l9kw0kgay-unit-dbus.service.drv»;[0m
-[31m-systemd.units."nix-daemon.service".text = ''[0m
-[31m  [Unit][0m
-[31m  RequiresMountsFor=/nix/store[0m
-[31m  X-Restart-Triggers=/nix/store/dkn8kz8firgsl8mkq89s14j6xdsi4df9-X-Restart-Triggers-nix-daemon[0m
-[31m  [0m
-[31m  [Service][0m
-[31m  Environment="CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt"[0m
-[31m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[31m  Environment="PATH=/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/bin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/bin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/sbin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/sbin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[31m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[31m  X-StopIfChanged=false[0m
-[31m  CPUSchedulingPolicy=other[0m
-[31m  Delegate=yes[0m
-[31m  IOSchedulingClass=best-effort[0m
-[31m  IOSchedulingPriority=4[0m
-[31m  LimitNOFILE=1048576[0m
-[31m  [31m'';[0m
-[32m+systemd.units."nix-daemon.service".text = ''[0m
-[32m  [Unit][0m
-[32m  RequiresMountsFor=/nix/store[0m
-[32m  X-Restart-Triggers=/nix/store/i4b9vlqm54whvsiq1j3jspbzywwx2mjc-X-Restart-Triggers-nix-daemon[0m
-[32m  [0m
-[32m  [Service][0m
-[32m  Environment="CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt"[0m
-[32m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[32m  Environment="PATH=/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/bin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/bin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/sbin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/sbin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[32m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[32m  X-StopIfChanged=false[0m
-[32m  CPUSchedulingPolicy=other[0m
-[32m  Delegate=yes[0m
-[32m  IOSchedulingClass=best-effort[0m
-[32m  IOSchedulingPriority=4[0m
-[32m  LimitNOFILE=1048576[0m
-[32m  [32m'';[0m
+systemd.units."nix-daemon.service".text =
+[36m  @@ -1,11 +1,11 @@[0m
+   [Unit]
+   RequiresMountsFor=/nix/store
+[31m  -X-Restart-Triggers=/nix/store/dkn8kz8firgsl8mkq89s14j6xdsi4df9-X-Restart-Triggers-nix-daemon[0m
+[32m  +X-Restart-Triggers=/nix/store/i4b9vlqm54whvsiq1j3jspbzywwx2mjc-X-Restart-Triggers-nix-daemon[0m
+   
+   [Service]
+   Environment="CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt"
+   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+[31m  -Environment="PATH=/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/bin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/bin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/sbin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/sbin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
+[32m  +Environment="PATH=/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/bin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/bin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/sbin:/nix/store/8qp4dnhf02xg43c3yrqc63ivhxwhk950-util-linux-2.40.4-bin/sbin:/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2/sbin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
+   Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+   X-StopIfChanged=false
+   CPUSchedulingPolicy=other
 [31m-systemd.units."nix-daemon.service".unit = «derivation /nix/store/fg6nlkzlcgfi7c8vrnyji251sff38lqn-unit-nix-daemon.service.drv»;[0m
 [32m+systemd.units."nix-daemon.service".unit = «derivation /nix/store/rhp2v5c5h4qkc57aal4phpk4bhzhbr9c-unit-nix-daemon.service.drv»;[0m
-[31m-systemd.units."nix-gc.service".text = ''[0m
-[31m  [Unit][0m
-[31m  Description=Nix Garbage Collector[0m
-[31m  [0m
-[31m  [Service][0m
-[31m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[31m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[31m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[31m  ExecStart=/nix/store/glja3yyf4phdn3shrpdms27cr57czzj5-unit-script-nix-gc-start/bin/nix-gc-start [0m
-[31m  Type=oneshot[0m
-[31m  [31m'';[0m
-[32m+systemd.units."nix-gc.service".text = ''[0m
-[32m  [Unit][0m
-[32m  Description=Nix Garbage Collector[0m
-[32m  [0m
-[32m  [Service][0m
-[32m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[32m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[32m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[32m  ExecStart=/nix/store/b3g4qgx8qil6zsakmq8ycbn6hmscsf3h-unit-script-nix-gc-start/bin/nix-gc-start [0m
-[32m  Type=oneshot[0m
-[32m  [32m'';[0m
+systemd.units."nix-gc.service".text =
+[36m  @@ -5,5 +5,5 @@[0m
+   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+   Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
+   Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+[31m  -ExecStart=/nix/store/glja3yyf4phdn3shrpdms27cr57czzj5-unit-script-nix-gc-start/bin/nix-gc-start [0m
+[32m  +ExecStart=/nix/store/b3g4qgx8qil6zsakmq8ycbn6hmscsf3h-unit-script-nix-gc-start/bin/nix-gc-start [0m
+   Type=oneshot
 [31m-systemd.units."nix-gc.service".unit = «derivation /nix/store/9w3h47m0wrpa7khps04alqzfcddvc4a8-unit-nix-gc.service.drv»;[0m
 [32m+systemd.units."nix-gc.service".unit = «derivation /nix/store/yjvpzx853q0av5k2mcr5f8z9swh55pr7-unit-nix-gc.service.drv»;[0m
-[31m-systemd.units."nix-optimise.service".text = ''[0m
-[31m  [Unit][0m
-[31m  ConditionPathIsReadWrite=/nix/var/nix/daemon-socket[0m
-[31m  Description=Nix Store Optimiser[0m
-[31m  [0m
-[31m  [Service][0m
-[31m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[31m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[31m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[31m  ExecStart=/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/bin/nix-store --optimise[0m
-[31m  [31m'';[0m
-[32m+systemd.units."nix-optimise.service".text = ''[0m
-[32m  [Unit][0m
-[32m  ConditionPathIsReadWrite=/nix/var/nix/daemon-socket[0m
-[32m  Description=Nix Store Optimiser[0m
-[32m  [0m
-[32m  [Service][0m
-[32m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[32m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[32m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[32m  ExecStart=/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/bin/nix-store --optimise[0m
-[32m  [32m'';[0m
+systemd.units."nix-optimise.service".text =
+[36m  @@ -6,4 +6,4 @@[0m
+   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
+   Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"
+   Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"
+[31m  -ExecStart=/nix/store/xxh7mivp64xmzyw5wir2c2xbhy6cjzjd-nix-2.24.12/bin/nix-store --optimise[0m
+[32m  +ExecStart=/nix/store/ahrb0nri3y6s628dkf1j9rr35p1gryrg-nix-2.25.5/bin/nix-store --optimise[0m
 [31m-systemd.units."nix-optimise.service".unit = «derivation /nix/store/bd1v6xg9dzsli3w1jbabw4k4xbchap8c-unit-nix-optimise.service.drv»;[0m
 [32m+systemd.units."nix-optimise.service".unit = «derivation /nix/store/638qsjl22dc43fvxq1wzkmqq7nygs923-unit-nix-optimise.service.drv»;[0m
-[31m-systemd.units."systemd-tmpfiles-resetup.service".text = ''[0m
-[31m  [Unit][0m
-[31m  After=local-fs.target systemd-sysusers.service systemd-journald.service[0m
-[31m  Before=sysinit-reactivation.target shutdown.target[0m
-[31m  Conflicts=shutdown.target[0m
-[31m  DefaultDependencies=false[0m
-[31m  Description=Re-setup tmpfiles on a system that is already running.[0m
-[31m  X-Restart-Triggers=/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup[0m
-[31m  [0m
-[31m  [Service][0m
-[31m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[31m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[31m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[31m  ExecStart=systemd-tmpfiles --create --remove --exclude-prefix=/dev[0m
-[31m  ImportCredential=tmpfiles.*[0m
-[31m  ImportCredential=loging.motd[0m
-[31m  ImportCredential=login.issue[0m
-[31m  ImportCredential=network.hosts[0m
-[31m  ImportCredential=ssh.authorized_keys.root[0m
-[31m  RemainAfterExit=true[0m
-[31m  SuccessExitStatus=DATAERR CANTCREAT[0m
-[31m  Type=oneshot[0m
-[31m  [31m'';[0m
-[32m+systemd.units."systemd-tmpfiles-resetup.service".text = ''[0m
-[32m  [Unit][0m
-[32m  After=local-fs.target systemd-sysusers.service systemd-journald.service[0m
-[32m  Before=sysinit-reactivation.target shutdown.target[0m
-[32m  Conflicts=shutdown.target[0m
-[32m  DefaultDependencies=false[0m
-[32m  Description=Re-setup tmpfiles on a system that is already running.[0m
-[32m  X-Restart-Triggers=/nix/store/27fyywcb1jjjracn7anxjrxym16v1dlj-X-Restart-Triggers-systemd-tmpfiles-resetup[0m
-[32m  [0m
-[32m  [Service][0m
-[32m  Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"[0m
-[32m  Environment="PATH=/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/bin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/bin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/bin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/bin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/bin:/nix/store/fr9yr63a1267cr0r86w18c77mh3xavcc-coreutils-9.6/sbin:/nix/store/lk2sg2yq5jqs9dlx5ini46kvjwk7ffsf-findutils-4.10.0/sbin:/nix/store/yz6nq9v29l3g990w8zlqsnzlzbicd3b3-gnugrep-3.11/sbin:/nix/store/fcny04vmfnkqc4ym5m9znckswlq9pglg-gnused-4.9/sbin:/nix/store/83a0wfzmb0v5bzr5bv0zvx14g733x3dv-systemd-257.2/sbin"[0m
-[32m  Environment="TZDIR=/nix/store/pzi38xllbgp4pisk17l4hi28mhr67xkq-tzdata-2025a/share/zoneinfo"[0m
-[32m  ExecStart=systemd-tmpfiles --create --remove --exclude-prefix=/dev[0m
-[32m  ImportCredential=tmpfiles.*[0m
-[32m  ImportCredential=loging.motd[0m
-[32m  ImportCredential=login.issue[0m
-[32m  ImportCredential=network.hosts[0m
-[32m  ImportCredential=ssh.authorized_keys.root[0m
-[32m  RemainAfterExit=true[0m
-[32m  SuccessExitStatus=DATAERR CANTCREAT[0m
-[32m  Type=oneshot[0m
-[32m  [32m'';[0m
+systemd.units."systemd-tmpfiles-resetup.service".text =
+[36m  @@ -4,7 +4,7 @@[0m
+   Conflicts=shutdown.target
+   DefaultDependencies=false
+   Description=Re-setup tmpfiles on a system that is already running.
+[31m  -X-Restart-Triggers=/nix/store/1lnvmihsb7kp4l8wvcsb07xbfqpm0462-X-Restart-Triggers-systemd-tmpfiles-resetup[0m
+[32m  +X-Restart-Triggers=/nix/store/27fyywcb1jjjracn7anxjrxym16v1dlj-X-Restart-Triggers-systemd-tmpfiles-resetup[0m
+   
+   [Service]
+   Environment="LOCALE_ARCHIVE=/nix/store/fpqalqypz7ila8siwlkb1qs4lpb5y7q4-glibc-locales-2.40-66/lib/locale/locale-archive"
 [31m-systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/bn6i45626y1iz7qaqjwgg08xps1iga94-unit-systemd-tmpfiles-resetup.service.drv»;[0m
 [32m+systemd.units."systemd-tmpfiles-resetup.service".unit = «derivation /nix/store/r6s3ipqh0cmch6gxm2n622b7cp6j7l16-unit-systemd-tmpfiles-resetup.service.drv»;[0m
 [31m-nix.package = «derivation /nix/store/2y75qhlykx3rxl55j3n8m7zcjj3w4dcn-nix-2.24.12.drv»;[0m

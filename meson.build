@@ -4,6 +4,7 @@ project('nixos-diff', 'cpp',
 )
 
 boost_dep = dependency('boost', required: true)
+dtl_dep = dependency('dtl', required: true)
 nix_cmd_dep = dependency('nix-cmd', required: true)
 nix_expr_dep = dependency('nix-expr', required: true)
 nix_flake_dep = dependency('nix-flake', required: true)
